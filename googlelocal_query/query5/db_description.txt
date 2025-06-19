@@ -10,7 +10,7 @@ Here are the description of these two datasets:
     - text (str)
     - gmap_id (str) 
 
-2. **meta_dataset**
+2. **business_dataset**
 - This dataset contains business metadata from Google Maps (business name, description, hours, etc.) up to Sep 2021 in the United States.
 - Fields:
     - name (str)

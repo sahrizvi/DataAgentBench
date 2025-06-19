@@ -1,7 +1,7 @@
-input_path = "dataset/restaurant/image_review_all.json"
-output_path = "dataset/restaurant/light_review.json"
+input_path = "../amazonreview_query\origin_dataset\meta_Books.jsonl"
+output_path = "../amazonreview_query\origin_dataset\light_meta.json"
 
-num_lines = 2000  # 需要提取的行数
+num_lines = 200  # 需要提取的行数
 
 with open(input_path, "r", encoding="utf-8") as infile, open(output_path, "w", encoding="utf-8") as outfile:
     for i, line in enumerate(infile):
