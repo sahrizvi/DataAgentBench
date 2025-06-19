@@ -38,8 +38,8 @@ def get_top_los_angeles_businesses(meta_path, review_path, top_k=None):
 
 # Example usage
 if __name__ == "__main__":
-    meta_file = "../dataset/googlelocal/light_meta_gt.json"
-    review_file = "../dataset/googlelocal/light_review.json"
+    meta_file = "../ground_truth_dataset/meta_gt.json"
+    review_file = "../ground_truth_dataset/review_gt.json"
 
     # Get top 5 highest-rated businesses in Los Angeles
     top_businesses = get_top_los_angeles_businesses(meta_file, review_file, top_k=5)
