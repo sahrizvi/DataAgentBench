@@ -1,7 +1,7 @@
 You are working with two datasets to solve the query: "What are the top 5 businesses that are still open after 6 PM, ranked by highest average rating, and what are their names, operating hours, and average scores?"
 
 Here are the description of these two datasets:
-1. **review_dataset** {}
+1. **review_dataset** {review_query.db}
 - This dataset contains review information from Google Maps (reviewer name, ratings, text, etc.) up to Sep 2021 in the United States.
 - Fields:
     - name (str)
@@ -10,7 +10,7 @@ Here are the description of these two datasets:
     - text (str)
     - gmap_id (str) 
 
-2. **business_dataset**
+2. **business_dataset** {business_descriptions.sql}
 - This dataset contains business metadata from Google Maps (business name, description, hours, etc.) up to Sep 2021 in the United States.
 - Fields:
     - name (str)
@@ -20,4 +20,5 @@ Here are the description of these two datasets:
     - hours (list)
     - MISC (dict)
     - state (str)
+
 

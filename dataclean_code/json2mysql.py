@@ -5,7 +5,7 @@ password = "20041025"
 
 engine = create_engine(f"mysql+pymysql://root:{password}@localhost:3306/ucb_db")
 
-df = pd.read_json("googlelocal_query/dataset/light_meta_LLM.json", lines=True)
+df = pd.read_json("../googlelocal_query/origi_dataset/light_meta_LLM_tt.json", lines=True)
 
 dtype_map = {
     'name': types.Text(),
@@ -17,6 +17,6 @@ dtype_map = {
     'state': types.Text()
 }
 
-df.to_sql("meta", con=engine, if_exists="replace", index=False, dtype=dtype_map)
+df.to_sql("business_descriptions", con=engine, if_exists="replace", index=False, dtype=dtype_map)
 
-print("数据写入完成：表名 meta")
+print("数据写入完成：表名 business_descriptions")
