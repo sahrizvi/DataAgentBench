@@ -9,4 +9,4 @@ with open(input_path, "r", encoding="utf-8") as infile, open(output_path, "w", e
             break
         outfile.write(line)
 
-print(f"✅ 已保存前 {num_lines} 行到 {output_path}")
+print(f"已保存前 {num_lines} 行到 {output_path}")
