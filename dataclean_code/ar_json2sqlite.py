@@ -2,14 +2,14 @@ import pandas as pd
 import sqlite3
 
 # 读取 JSON 文件
-df = pd.read_json("../amazonreview_query/origin_dataset/review_query.json", lines=True)
+df = pd.read_json("../query_bookreview\original_dataset/review_query_remapped.json", lines=True)
 
 # ✅ 强制将 review_time 转换为字符串（防止 SQLite 自动识别为时间戳）
 if "review_time" in df.columns:
     df["review_time"] = df["review_time"].astype(str)
 
 # 创建 SQLite 连接
-conn = sqlite3.connect("../amazonreview_query/origin_dataset/review_query.db")
+conn = sqlite3.connect("../query_bookreview\original_dataset/review_query.db")
 
 # 写入 SQLite，表名为 meta
 df.to_sql("meta", conn, if_exists="replace", index=False)

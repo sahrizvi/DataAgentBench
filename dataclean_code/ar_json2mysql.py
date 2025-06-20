@@ -6,7 +6,7 @@ from sqlalchemy import create_engine, types
 password = "20041025"
 db_name = "ucb_db"
 table_name = "books_info"
-json_file_path = "../amazonreview_query\origin_dataset/books_info.json"
+json_file_path = "../query_bookreview/original_dataset/books_info_remapped.json"
 
 # 创建连接
 engine = create_engine(f"mysql+pymysql://root:{password}@localhost:3306/{db_name}")
@@ -39,7 +39,7 @@ dtype_map = {
     "store": types.Text(),
     "categories": types.Text(),
     "details": types.Text(),
-    "parent_asin": types.Text()
+    "book_id": types.Text()
 }
 
 # 写入 MySQL
