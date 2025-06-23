@@ -1,4 +1,4 @@
-You are working with two datasets to solve the query: "What is the average rating of all businesses located in Indianapolis?"
+You are working with two datasets to solve the query: "Which business category has the largest number of businesses that accept credit card payments, and what is its average user rating?"
 
 Here are the description of these two datasets:
 1. **businessinfo_dataset** {yelp_business.folder}
@@ -61,3 +61,4 @@ Here are the description of these two datasets:
 
 ### Hint: To solve this query, note that the business_id field in the business_table of the businessinfo_dataset corresponds one-to-one with the business_ref field in both the review_table and tip_table of the user_dataset. Although the field names differ, they refer to the same set of business entities and can be semantically joined to enable cross-dataset queries.
 ### Hint: To solve the query, you need to understand the structure of the two datasets, which together contain five tables. Carefully identify which tables and which specific columns contain the information required to answer the query.
+
