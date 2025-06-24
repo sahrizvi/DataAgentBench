@@ -12,59 +12,56 @@ def parse_category(cat):
     except:
         return []
 
-def get_top_businesses_by_category_keyword(meta_path, review_path, keyword, top_k=None):
+def get_massage_therapist_with_high_rating(meta_path, review_path, rating_threshold=4.0):
     """
-    Get top-rated businesses whose categories contain the specified keyword.
+    Get businesses categorized as Massage therapist with average rating >= rating_threshold.
 
     Args:
         meta_path (str): Path to the business metadata JSONL file.
         review_path (str): Path to the review dataset JSONL file.
-        keyword (str): Keyword to search for in category list.
-        top_k (int or None): If set, return only the top-K highest-rated businesses.
+        rating_threshold (float): Minimum average rating.
 
     Returns:
-        pd.DataFrame: A DataFrame with business names and their average ratings, sorted in descending order.
+        pd.DataFrame: A DataFrame with business names and their average ratings.
     """
-    # Load metadata and review datasets
+    # Load data
     df_meta = pd.read_json(meta_path, lines=True)
     df_review = pd.read_json(review_path, lines=True)
 
-    # Parse category field into list
+    # Parse category field
     df_meta['category_list'] = df_meta['category'].apply(parse_category)
 
-    # Filter businesses with category containing the keyword (case-insensitive)
+    # Filter category list for "Massage therapist"
     df_meta_filtered = df_meta[df_meta['category_list'].apply(
-        lambda cat_list: any(keyword.lower() in str(c).lower() for c in cat_list)
+        lambda cat_list: any("massage therapist" in str(c).lower() for c in cat_list)
     )].copy()
 
-    # Rename name to avoid collision
+    # Rename to avoid column conflict
     df_meta_filtered.rename(columns={"name": "meta_name"}, inplace=True)
 
-    # Join with reviews
+    # Join with review data
     df_merged = pd.merge(df_review, df_meta_filtered[['gmap_id', 'meta_name']], on='gmap_id', how='inner')
 
-    # Group by name and compute average rating
+    # Group by business and calculate average rating
     df_avg_rating = df_merged.groupby('meta_name')['rating'].mean().reset_index()
 
-    # Sort by rating
-    df_top = df_avg_rating.sort_values(by='rating', ascending=False)
+    # Filter by threshold
+    df_filtered = df_avg_rating[df_avg_rating['rating'] >= rating_threshold].copy()
 
-    # Return top-K businesses if specified
-    if top_k:
-        return df_top.head(top_k)
-    return df_top
+    # Sort by rating descending
+    df_sorted = df_filtered.sort_values(by='rating', ascending=False)
+
+    return df_sorted
 
 # Example usage
 if __name__ == "__main__":
     meta_file = "../ground_truth_dataset/meta_gt.json"
     review_file = "../ground_truth_dataset/review_gt.json"
-    keyword = "store"
 
-    # Get top 10 highest-rated businesses with category containing the keyword
-    top_businesses = get_top_businesses_by_category_keyword(meta_file, review_file, keyword, top_k=10)
+    result = get_massage_therapist_with_high_rating(meta_file, review_file, rating_threshold=4.0)
 
-    # Print results without index
-    print(top_businesses.to_string(index=False))
+    # Print results
+    print(result.to_string(index=False))
 
-    # Optional: save to CSV
-    # top_businesses.to_csv("top_store_businesses.csv", index=False)
+    # Optional: Save to CSV
+    # result.to_csv("high_rated_massage_therapists.csv", index=False)

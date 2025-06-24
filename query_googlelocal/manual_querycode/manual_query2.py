@@ -2,7 +2,6 @@ import mysql.connector
 import sqlite3
 import pandas as pd
 import openai
-import time
 from openai import AzureOpenAI
 
 # ========== Configuration ========== #
@@ -17,8 +16,7 @@ deployment_name = "gpt-4o-mini"
 mysql_db = "ucb_db"
 mysql_table = "business_description"
 mysql_password = "20041025"
-
-# ========== Connect to MySQL ========== #
+# ========== Step 1: Load all business descriptions from MySQL ========== #
 def fetch_business_data():
     try:
         conn = mysql.connector.connect(
@@ -36,21 +34,19 @@ def fetch_business_data():
     except Exception as e:
         print(f"❌ MySQL connection failed: {e}")
         return [], []
-    
-rows, column_names = fetch_business_data()
 
-# ========== GPT-based Filter for Los Angeles ========== #
-def is_los_angeles(description, client, deployment_name):
+# ========== Step 2: GPT-based filter for Massage Therapist businesses ========== #
+def is_massage_therapist(description, client, deployment_name):
     prompt = (
-        "Does the following business description mention that it is located in Los Angeles?\n"
-        "Just answer 'yes' or 'no'.\n\n"
+        "Based on the following business description, determine whether it refers to a massage therapist.\n"
+        "Only answer with 'yes' or 'no'.\n\n"
         f"Description: {description}"
     )
     try:
         response = client.chat.completions.create(
             model=deployment_name,
             messages=[
-                {"role": "system", "content": "You are a helpful assistant that extracts geographic location from business descriptions."},
+                {"role": "system", "content": "You are a helpful assistant that identifies massage therapist businesses from descriptions."},
                 {"role": "user", "content": prompt}
             ],
             temperature=0.0,
@@ -58,27 +54,28 @@ def is_los_angeles(description, client, deployment_name):
         )
         return response.choices[0].message.content.strip().lower().startswith("yes")
     except Exception as e:
-        print(f"GPT error: {e}")
+        print(f"❌ GPT error: {e}")
         return False
 
-# ========== Filter Businesses by GPT ========== #
-la_data = []
+# ========== Step 3: Run GPT filter ========== #
+rows, column_names = fetch_business_data()
+massage_data = []
+
 for i, row in enumerate(rows):
     record = dict(zip(column_names, row))
     description = record.get("description", "")
-    if description and is_los_angeles(description, client, deployment_name):
-        la_data.append(record)
-        print(f"✅ [{i}] Los Angeles business: {description}")
+    if description and is_massage_therapist(description, client, deployment_name):
+        massage_data.append(record)
+        print(f"✅ [{i}] is Massage therapist: {description}")
     else:
-        print(f"❌ [{i}] Not in Los Angeles")
+        print(f"❌ [{i}] is not Massage therapist")
 
-print(f"\n Total Los Angeles businesses retained: {len(la_data)}")
+print(f"\n🎯 Total Massage therapist businesses retained: {len(massage_data)}")
 
-# ========== Load Ratings from review_query.db ========== #
-la_df = pd.DataFrame(la_data)
-gmap_ids = la_df["gmap_id"].tolist()
+# ========== Step 4: Compute average rating from review_query.db ========== #
+massage_df = pd.DataFrame(massage_data)
+gmap_ids = massage_df["gmap_id"].tolist()
 
-# Connect to review database and extract ratings
 review_conn = sqlite3.connect("../query_dataset/review_query.db")
 placeholder = ','.join('?' for _ in gmap_ids)
 query = f"""
@@ -88,16 +85,13 @@ query = f"""
 """
 review_df = pd.read_sql_query(query, review_conn, params=gmap_ids)
 
-# Compute average rating per business
 avg_rating = review_df.groupby("gmap_id")["rating"].mean().reset_index()
 avg_rating.rename(columns={"rating": "avg_rating"}, inplace=True)
 
-# Merge average rating with LA business data
-la_with_rating = la_df.merge(avg_rating, on="gmap_id", how="left")
+massage_with_rating = massage_df.merge(avg_rating, on="gmap_id", how="left")
+qualified_massage = massage_with_rating[massage_with_rating["avg_rating"] >= 4.0].copy()
+qualified_massage = qualified_massage.sort_values(by="avg_rating", ascending=False)
 
-# ========== Select Top 5 Businesses ========== #
-top5 = la_with_rating.sort_values(by="avg_rating", ascending=False).head(5)
-
-# Output the result
-print("\n Top 5 Los Angeles Businesses by Average Rating:\n")
-print(top5)
+# ========== Step 5: Output result ========== #
+print("\n Massage Therapist businesses with rating >= 4.0:\n")
+print(qualified_massage)
