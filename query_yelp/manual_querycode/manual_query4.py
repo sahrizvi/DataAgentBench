@@ -29,8 +29,8 @@ business_ids = [b["business_id"] for b in business_docs if "business_id" in b]
 def get_mapping_rule(business_ids, business_refs):
     prompt = (
         "You are given two complete ID columns from two different datasets:\n"
-        f"- The first column is `business_ref` from a review dataset: {json.dumps(business_refs[:20], indent=2)}\n"
-        f"- The second column is `business_id` from a business metadata dataset: {json.dumps(business_ids[:20], indent=2)}\n\n"
+        f"- The first column is `business_ref` from a review dataset: {json.dumps(business_refs, indent=2)}\n"
+        f"- The second column is `business_id` from a business metadata dataset: {json.dumps(business_ids, indent=2)}\n\n"
         "Each business_ref corresponds to a business_id, but the mapping rule is not provided.\n"
         "Determine the mapping relationship between the two sets of IDs.\n"
         "Please respond with:\n"
@@ -117,7 +117,7 @@ for i, biz in enumerate(business_docs):
     categories = [c.strip() for c in cat_str.split(",") if c.strip()]
     for cat in categories:
         category_records.append({"business_id": biz_id, "category": cat})
-    print(f"[{i}] {desc[:60]}... → {cat_str}")
+    print(f"[{i}] {desc}... → {cat_str}")
 
 df_category_map = pd.DataFrame(category_records)
 
@@ -173,6 +173,6 @@ top_category = df_category_stats.iloc[0]
 
 print(f"\n Category with most businesses accepting credit cards: {top_category['category']}")
 print(f" Number of businesses: {top_category['num_businesses']}")
-print(f" Average user rating: {top_category['avg_rating']:.2f}")
+print(f" Average user rating: {top_category['avg_rating']}")
 print(" Top 10 categories with businesses that accept credit cards:\n")
 print(df_category_stats.head(10))
