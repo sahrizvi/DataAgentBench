@@ -22,4 +22,4 @@ Here are the description of these two datasets:
 
 ### Hint: The `Exchange` field in **indexInfo_query.db** refers to the full name of the stock exchange (e.g., "Tokyo Stock Exchange", "New York Stock Exchange"). The `Index` field in **indexTrade_query.duckdb** contains abbreviated index symbols (e.g., "N225", "HSI", "000001.SS"). To join these two datasets, you must perform **semantic matching** between `Exchange` names and `Index` symbols based on world knowledge. For example, match `"Tokyo Stock Exchange"` in `indexInfo` with `"N225"` in `indexTrade`, or `"Hong Kong Stock Exchange"` with `"HSI"`.  
 ### Hint: The region (e.g., Asia, Europe, North America) of each stock exchange is **not explicitly provided**. You must infer the region of a given index or exchange using geographic knowledge. For instance, determine that `"N225"` belongs to the Asia region because it tracks the Tokyo Stock Exchange in Japan.
-
+### Hint: The term **"average intraday volatility"** refers to the average relative fluctuation of a stock index within each trading day. It is typically computed as `(High - Low) / Open` for each day, then averaged across a given time period.
