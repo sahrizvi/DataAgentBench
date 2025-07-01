@@ -79,42 +79,39 @@ index_symbol_list = sorted(df_info["index_symbol"].dropna().unique().tolist())
 index_list = sorted(df_trade["Index"].dropna().unique().tolist())
 
 # ========= Step 7: Prompt for mapping index_symbol → Index ==========
-def build_mapping_prompt(index_symbols, index_list):
+def build_single_mapping_prompt(index_symbol, index_list):
     return (
-        "You are given two lists of stock index codes from two different datasets.\n\n"
-        f"List A (`index_symbol` from metadata):\n{json.dumps(index_symbols, indent=2)}\n\n"
-        f"List B (`Index` from trading data):\n{json.dumps(index_list, indent=2)}\n\n"
-        "Each item in List A corresponds to exactly one semantically equivalent item in List B.\n"
-        "Your job is to map List A to List B.\n\n"
-        "Respond ONLY with a Python dictionary in the following format (no explanation, no markdown):\n"
-        "{\n"
-        "  '<index_symbol_from_list_A>': '<corresponding_Index_from_list_B>',\n"
-        "  ...\n"
-        "}"
+        f"You are given an index symbol from metadata: '{index_symbol}'.\n"
+        "You are also given a list of index symbols from trading data:\n"
+        f"{json.dumps(index_list, indent=2)}\n\n"
+        "Find the exact or closest semantically equivalent symbol from the list.\n"
+        "Respond ONLY with the corresponding symbol from the list (no explanation, no markdown, no quotes)."
     )
 
-prompt = build_mapping_prompt(index_symbol_list, index_list)
-response = client.chat.completions.create(
-    model=deployment_name,
-    messages=[
-        {"role": "system", "content": "You are a financial data assistant matching index symbols across datasets."},
-        {"role": "user", "content": prompt}
-    ],
-    temperature=0,
-    max_tokens=800
-)
+index_symbol_to_index = {}
 
-reply = response.choices[0].message.content.strip()
-try:
-    match = re.search(r"\{.*\}", reply, re.DOTALL)
-    code_str = match.group(0) if match else reply
-    index_symbol_to_index = ast.literal_eval(code_str)
-except Exception as e:
-    print("❌ Failed to parse GPT response:\n", reply)
-    raise e
-
-print("\n✅ Inferred Mapping:")
-print(index_symbol_to_index)
+for symbol in tqdm(index_symbol_list, desc="🔁 Mapping index symbols one-by-one"):
+    prompt = build_single_mapping_prompt(symbol, index_list)
+    try:
+        response = client.chat.completions.create(
+            model=deployment_name,
+            messages=[
+                {"role": "system", "content": "You are a financial data assistant matching index symbols across datasets."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0,
+            max_tokens=20
+        )
+        mapped_symbol = response.choices[0].message.content.strip()
+        if mapped_symbol in index_list:
+            index_symbol_to_index[symbol] = mapped_symbol
+            print(f"✅ {symbol} → {mapped_symbol}")
+        else:
+            index_symbol_to_index[symbol] = None
+            print(f"⚠️ GPT replied with unknown symbol for {symbol}: {mapped_symbol}")
+    except Exception as e:
+        print(f"❌ GPT mapping failed for {symbol}: {e}")
+        index_symbol_to_index[symbol] = None
 
 # ========= Step 8: Merge metadata and trade data ==========
 df_info["index_mapped"] = df_info["index_symbol"].map(index_symbol_to_index)
