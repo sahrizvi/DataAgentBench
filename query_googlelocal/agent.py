@@ -31,22 +31,23 @@ else:
 with open("db_description.txt") as f:
     db_description = f.read()
 
-db_name_mysql = "googlelocal_db"
-sql_file_mysql = "query_dataset/business_description.sql"
+current_project = os.getenv("CURRENT_PROJECT", "GOOGLELOCAL").upper()
+mysql_db_name = os.getenv(f"{current_project}_MYSQL_DB_NAME")
+mysql_sql_file = os.getenv(f"{current_project}_MYSQL_SQL_FILE", "query_dataset/business_description.sql")
 
-print("\n=== 🔗 MySQL: Ensuring database is initialized ===")
+print(f"\n=== 🔗 MySQL: Ensuring database `{mysql_db_name}` is initialized ===")
 ensure_db(
     db_type="mysql",
-    db_name=db_name_mysql,
-    sql_file=sql_file_mysql
+    db_name=mysql_db_name,
+    sql_file=mysql_sql_file
 )
 
 db_clients = {
     "mysql": {
-        "db_name": db_name_mysql
+        "db_name": mysql_db_name
     },
     "sqlite": {
-        "db_path": "query_dataset/review_query.db"
+        "db_path": os.getenv(f"{current_project}_SQLITE_DB_PATH")
     }
 }
 
@@ -86,7 +87,7 @@ When you have determined the final answer and wish to end the task, you MUST out
 
 If you cannot proceed, also use `return_answer` with an appropriate message.
 
-⚠️ Never wrap the JSON in code fences (e.g., ```json … ```), never output multiple lines, and never include any text before or after the JSON.
+Never wrap the JSON in code fences (e.g., ```json … ```), never output multiple lines, and never include any text before or after the JSON.
 Only output a single valid JSON object that I can parse and execute.
 """
     },
