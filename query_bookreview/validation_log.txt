@@ -1,0 +1,12 @@
+=== Validation Log (2025-07-11T15:45:32) ===
+Query: query1
+
+LLM Answer:
+1980s
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: Ground truth '2020' not found in LLM output.
+================================================================================
+
