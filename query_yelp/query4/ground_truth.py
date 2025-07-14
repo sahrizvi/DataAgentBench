@@ -67,4 +67,4 @@ if __name__ == "__main__":
     print(top_category.to_string(index=False))
 
 
-    # top_category.to_csv("top_credit_card_category.csv", index=False)
+    top_category.to_csv("ground_truth.csv", index=False, header=False)
