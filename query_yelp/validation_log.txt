@@ -1,3 +1,15 @@
+=== Validation Log (2025-07-14T11:27:47) ===
+Query: query4
+
+LLM Answer:
+Shopping, 3.46
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Category 'Restaurant' not found in LLM output.
+================================================================================
+
 === Validation Log (2025-07-14T11:10:53) ===
 Query: query3
 
