@@ -69,7 +69,7 @@ def mongo_query(
     collection: str,
     query: dict = None,
     projection: dict = None,
-    limit: int = 5
+    limit: int = None
 ) -> pd.DataFrame:
     """
     Execute a query on a MongoDB collection and return the result as a pandas DataFrame.

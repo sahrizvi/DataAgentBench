@@ -83,4 +83,6 @@ if __name__ == "__main__":
 
 
     # Optional: save to CSV
-    # top_categories.to_csv("top5_categories_by_2016_users.csv", index=False)
+    with open("ground_truth.csv", "w") as f:
+        for cat in top_categories['category']:
+            f.write(f"{cat}\n")
