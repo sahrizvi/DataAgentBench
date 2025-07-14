@@ -1,3 +1,67 @@
+=== Validation Log (2025-07-14T14:13:19) ===
+Query: query7
+
+LLM Answer:
+Restaurants, Food, Shopping, Beauty & Spas, Health & Medical
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: Missing category: american (new)
+================================================================================
+
+=== Validation Log (2025-07-14T13:57:06) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants (Breakfast & Brunch/American (New)/Cafes)
+
+Ground Truth:
+Coffee House Too Cafe,Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-14T13:54:31) ===
+Query: query5
+
+LLM Answer:
+CA, 4.0
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: Missing name: PA
+================================================================================
+
+=== Validation Log (2025-07-14T13:50:23) ===
+Query: query4
+
+LLM Answer:
+Restaurants – approximately 3.64 average rating
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Value '3.63' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-14T13:45:03) ===
+Query: query3
+
+LLM Answer:
+1
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
 === Validation Log (2025-07-14T13:43:51) ===
 Query: query2
 
