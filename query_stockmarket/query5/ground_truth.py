@@ -52,3 +52,6 @@ for symbol, name, days in top5:
     print(f"- {name} ({symbol}): {days} days")
 
 
+with open("ground_truth.csv", "w") as f:
+    for _, name, _ in top5:
+        f.write(f"{name}\n")

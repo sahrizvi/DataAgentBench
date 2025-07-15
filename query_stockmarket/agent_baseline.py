@@ -19,10 +19,11 @@ from common_scaffold.agent_tools import (
     VariableStore,
     format_preview,
     auto_ensure_databases,
-    validate_and_log
+    validate_and_log,
+    log_failed
 )
 
-query_dir = Path(__file__).parent / "query4"
+query_dir = Path(__file__).parent / "query5"
 deployment_name = "o3"
 
 load_dotenv()
@@ -163,6 +164,14 @@ def run_agent_loop(messages, db_clients, _vars):
 
 if __name__ == "__main__":
     _vars = VariableStore()
-    run_agent_loop(messages, db_clients, _vars)
 
+    try:
+        run_agent_loop(messages, db_clients, _vars)
+    except Exception as e:
+        print(f"❌ Agent failed with error: {e}")
 
+        # 写日志，记录这次失败
+        fail_reason = f"Exception: {e}"
+        log_failed(query_dir, fail_reason)
+
+        sys.exit(1)

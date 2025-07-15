@@ -1,3 +1,39 @@
+=== Validation Log (2025-07-15T10:51:49) ===
+Query: query5
+
+LLM Answer:
+TD Holdings, Inc.; CBAK Energy Technology, Inc.; Farmmi, Inc.; Biocept, Inc.; Future FinTech Group Inc.
+
+Ground Truth:
+Synthesis Energy Systems, Inc. - Common Stock
+TD Holdings, Inc. - Common Stock
+TMSR Holding Company Limited - Common Stock
+Verb Technology Company, Inc. - Common Stock
+Sunesis Pharmaceuticals, Inc. - Common Stock
+
+Result: ❌ MISMATCH: ❌ Name not found within 5 edits: 'Synthesis Energy Systems, Inc', closest: 'nc.; cbak energy tec' (distance=18)
+================================================================================
+
+=== Validation Log (2025-07-15T10:38:11) ===
+Query: query4
+
+LLM Answer:
+Argo Group International Holdings
+Albany International Corporation
+Ameriprise Financial
+Salesforce
+AMN Healthcare Services Inc
+
+Ground Truth:
+MFA Financial, Inc
+Argo Group International Holdings, Ltd
+HDFC Bank Limited Common Stock
+Albany International Corporation Common Stock
+DTE Energy Company
+
+Result: ❌ MISMATCH: ❌ Name not found within 5 edits: 'MFA Financial, Inc', closest: 'ise financial s' (distance=7)
+================================================================================
+
 === Validation Log (2025-07-15T09:50:28) ===
 Query: query3
 
