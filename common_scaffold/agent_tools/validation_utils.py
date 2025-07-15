@@ -80,3 +80,14 @@ def write_validation_log(query_name: str, llm_answer: str, match_result: bool, r
         f.write(log_entry + "\n" + old_content)
 
     print(f"\n📄 Validation log updated at: {log_path}")
+
+def log_failed(query_dir: Path, reason: str):
+    """
+    when agent break down due to code issue
+    """
+    write_validation_log(
+        query_name=query_dir.name,
+        llm_answer="FAILED",
+        match_result=False,
+        reason=reason
+    )

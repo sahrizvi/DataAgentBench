@@ -9,6 +9,8 @@ from .preview_formatter import format_preview
 from .auto_db_check import auto_ensure_databases
 from .validation_utils import validate_and_log
 from .validation_utils import write_validation_log
+from .validation_utils import log_failed
+
 
 __all__ = [
     "list_dbs",
@@ -21,5 +23,6 @@ __all__ = [
     "format_preview",
     "auto_ensure_databases",
     "validate_and_log",
-    "write_validation_log"
+    "write_validation_log",
+    "log_failed"
 ]
