@@ -7,7 +7,6 @@ def levenshtein(s1: str, s2: str) -> int:
     if len(s1) < len(s2):
         return levenshtein(s2, s1)
 
-    # now len(s1) >= len(s2)
     if len(s2) == 0:
         return len(s1)
 
@@ -53,41 +52,53 @@ def validate(llm_output: str) -> (bool, str):
         ("Sypris Solutions, Inc", 36836.36),
     ]
 
-    llm_lower = llm_output.lower()
+    llm_output_clean = re.sub(r'\s+', ' ', llm_output).strip().lower()
 
     for name, value in gt_pairs:
-        name_lower = name.lower()
+        name_clean = name.lower()
+        name_len = len(name_clean)
 
-        idx = llm_lower.find(name_lower)
+        idx = llm_output_clean.find(name_clean)
 
-        if idx == -1:
-            # 尝试模糊匹配
+        if idx != -1:
+            print(f"✅ Exact match: {name}")
+        else:
+            # fuzzy match
             min_distance = float('inf')
-            best_match = None
+            best_match = ""
+            window_range = 10
 
-            # 遍历 llm_output 中每个可能的片段
-            for m in re.finditer(r'[\w\s,.-]{3,}', llm_lower):
-                candidate_original = m.group()
-                candidate_clean = re.sub(r'\b\d+([.,]\d+)?\b', '', candidate_original)
-                candidate_clean = re.sub(r'\s+', ' ', candidate_clean).strip()
-                candidate_lower = candidate_clean.lower()
-                dist = levenshtein(name_lower, candidate_lower)
-                if dist < min_distance:
-                    min_distance = dist
-                    best_match = candidate_lower
-                    if min_distance == 0:
-                        break
+            for i in range(len(llm_output_clean) - name_len + 1):
+                for extra in range(-window_range, window_range + 1):
+                    start = i
+                    end = i + name_len + extra
+                    if end > len(llm_output_clean) or end <= start:
+                        continue
+                    candidate = llm_output_clean[start:end]
+                    candidate = re.sub(r'\b\d+([.,]\d+)?\b', '', candidate)
+                    candidate = re.sub(r'\s+', ' ', candidate).strip()
+                    if not candidate:
+                        continue
 
-            if min_distance > 5:
-                reason = f"Name not found within 5 edits: {name}, closest: {best_match} (distance {min_distance})"
-                print(f"❌ {reason}")
-                return False, reason
-            else:
+                    dist = levenshtein(name_clean, candidate)
+                    if dist < min_distance:
+                        min_distance = dist
+                        best_match = candidate
+                        if min_distance == 0:
+                            break
+                if min_distance == 0:
+                    break
+
+            if min_distance <= 5:
                 print(f"⚠️ Fuzzy match: GT='{name}' ↔ LLM='{best_match}' (distance={min_distance})")
-                idx = llm_lower.find(best_match)
+                idx = llm_output_clean.find(best_match)
+            else:
+                reason = f"❌ Name not found within 5 edits: '{name}', closest: '{best_match}' (distance={min_distance})"
+                print(reason)
+                return False, reason
 
-        # 找名字后面50个字符内的数字
-        window = llm_output[idx: idx + len(name) + 50]
+        # check number after name
+        window = llm_output_clean[idx: idx + name_len + 50]
         matches = re.findall(r"\d+(?:\.\d+)?", window)
 
         if not matches:
@@ -112,5 +123,5 @@ def validate(llm_output: str) -> (bool, str):
             print(f"❌ {reason}")
             return False, reason
 
-    print("✅ All names (≤5 edits allowed) and rounded numbers matched.")
+    print("✅ All names (exact or ≤5 edits) and rounded numbers matched.")
     return True, "OK"
