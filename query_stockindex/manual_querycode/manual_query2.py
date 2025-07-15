@@ -14,11 +14,13 @@ df_info = pd.read_sql("SELECT * FROM index_info", conn_info)
 conn_info.close()
 
 # ========= Step 2: Setup Azure OpenAI Client ==========
+import os
 client = AzureOpenAI(
-    api_key="609ced4d971240b8a08f7fb0e6d846ea",
-    api_version="2024-08-01-preview",
-    azure_endpoint="https://promptdelta-nc.openai.azure.com",
-)
+        api_key=os.getenv("AZURE_API_KEY"),
+        api_version=os.getenv("AZURE_API_VERSION", "2023-05-15"),
+        azure_endpoint=os.getenv("AZURE_API_BASE")
+    )
+
 deployment_name = "gpt-4o"
 
 # ========= Step 3: Define LLM inference function ==========
