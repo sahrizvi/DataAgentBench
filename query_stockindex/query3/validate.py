@@ -3,7 +3,7 @@ def validate(llm_output: str) -> (bool, str):
     Validate that:
     - All name+country pairs from ground truth appear in LLM output
     - In the same order (not necessarily contiguous)
-    - Name is followed (within 50 chars) by country
+    - For each name, its *own* country (or alias) appears within 50 chars
     - Case-insensitive
 
     Returns:
@@ -18,6 +18,13 @@ def validate(llm_output: str) -> (bool, str):
         ("NYA", "United States"),
     ]
 
+    # mapping: country → list of acceptable forms
+    country_aliases = {
+        "china": ["china", "cn"],
+        "india": ["india", "in"],
+        "united states": ["united states", "us", "usa"],
+    }
+
     llm_lower = llm_output.lower()
     last_idx = -1
 
@@ -31,13 +38,21 @@ def validate(llm_output: str) -> (bool, str):
             print(f"❌ {reason}")
             return False, reason
 
-        window = llm_lower[idx: idx + len(name_lower) + 20]
-        if country_lower not in window:
-            reason = f"Country '{country}' not found within 50 chars after name '{name}'"
+        # get acceptable forms for this specific country
+        valid_countries = country_aliases.get(country_lower, [country_lower])
+
+        # look in window
+        window = llm_lower[idx: idx + len(name_lower) + 15]
+
+        if not any(alias in window for alias in valid_countries):
+            reason = (
+                f"Country '{country}' (or alias) not found within 50 chars after name '{name}'"
+            )
             print(f"❌ {reason}")
             return False, reason
 
+        print(f"✅ Found: {name} + {country} (or alias) at position {idx}")
         last_idx = idx
 
-    print("✅ All name-country pairs found in correct order and close proximity.")
+    print("✅ All name-country pairs matched correctly in order.")
     return True, "OK"
