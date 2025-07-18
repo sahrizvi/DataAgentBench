@@ -108,16 +108,16 @@ You can also run our benchmark on your own dataset by following these steps:
 1️⃣ Prepare your dataset folder
 
 Create a new folder under the project root, e.g., `MyDataset`, with the following structure:
-```bash
+```
 MyDataset/
-├── query_dataset/             <- Your data, stored in a supported format (MySQL, MongoDB, SQLite, or DuckDB)
-├── db_description.txt         <- A plain text description of the database
-├── db_config.yaml             <-Basic database configuration (used for agent initialization and connection)
-├── run_experiments.py         <- Copy an existing run_experiments.py here and adjust if needed
+├── query_dataset/               <- Your data, stored in a supported format (MySQL, MongoDB, SQLite, or DuckDB)
+├── db_description.txt           <- A plain text description of the database
+├── db_config.yaml               <- Basic database configuration (used for agent initialization and connection)
+├── run_experiments.py           <- Copy an existing run_experiments.py here and adjust if needed
 ├── query_folder/
-│ ├── query.json               <- Benchmark queries
-│ ├── ground_truth.csv         <- Ground truth answers
-│ └── validation.py            <- Script to validate agent results against ground truth
+│       ├── query.json           <- Benchmark queries
+│       ├── ground_truth.csv     <- Ground truth answers
+│       └── validation.py        <- Script to validate agent results against ground truth
 ```
 2️⃣ Notes
 
