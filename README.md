@@ -82,3 +82,54 @@ AZURE_API_VERSION=2023-05-15
 
 ```
 You only need to provide the API key for either OpenAI, Azure OpenAI, or another provider, depending on the service you’re using.
+
+## 🚀 Run the Benchmark
+This benchmark can be run in two ways:  
+✅ Run on the provided datasets  
+✅ Run on your own custom dataset
+
+### 📂 Run on our datasets
+We have prepared **five datasets** for this benchmark study: `GoogleLocal`, `BookReview`, `Yelp`, `StockIndex`, `StockMarket`.
+
+Each dataset corresponds to a folder in the project directory.  
+To run the benchmark on a specific dataset, simply execute the `run_experiments.py` script located in that folder.  
+
+Example:
+```bash
+cd query_yelp
+python run_experiments.py
+```
+
+### 📂 Run on your own datasets
+
+You can also run our benchmark on your own dataset by following these steps:
+---
+
+1️⃣ Prepare your dataset folder
+
+Create a new folder under the project root, e.g., `MyDataset`, with the following structure:
+```bash
+MyDataset/
+├── query_dataset/             <- Your data, stored in a supported format (MySQL, MongoDB, SQLite, or DuckDB)
+├── db_description.txt         <- A plain text description of the database
+├── db_config.yaml             <-Basic database configuration (used for agent initialization and connection)
+├── run_experiments.py         <- Copy an existing run_experiments.py here and adjust if needed
+├── query_folder/
+│ ├── query.json               <- Benchmark queries
+│ ├── ground_truth.csv         <- Ground truth answers
+│ └── validation.py            <- Script to validate agent results against ground truth
+```
+2️⃣ Notes
+
+- Make sure your dataset in `query_dataset/` is in one of the supported database formats: **MySQL**, **MongoDB**, **SQLite**, or **DuckDB**. 
+- You can use the existing datasets (`GoogleLocal`, `BookReview`, etc.) as templates for all these files.
+- The `run_experiments.py` script and related modules in `common_scaffold/agent_tools` and `common_scaffold/db_utils` already implement the core logic — you just need to prepare your data and config.
+
+---
+
+3️⃣ Run the benchmark
+Once everything is ready, run:
+```bash
+cd MyDataset
+python run_experiments.py
+```
