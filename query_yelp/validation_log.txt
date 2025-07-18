@@ -1,3 +1,4626 @@
+=== Validation Log (2025-07-18T08:09:00) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: BinderException: Binder Error: Could not choose a best candidate function for the function call "strftime(STRING_LITERAL, VARCHAR)". In order to select one, please add explicit type casts.
+	Candidate functions:
+	strftime(TIMESTAMP, VARCHAR) -> VARCHAR
+	strftime(TIMESTAMP_NS, VARCHAR) -> VARCHAR
+	strftime(TIMESTAMP WITH TIME ZONE, VARCHAR) -> VARCHAR
+	strftime(DATE, VARCHAR) -> VARCHAR
+
+
+LINE 1: SELECT user_id FROM user WHERE strftime('%Y', yelping_since) = '2016';
+                                       ^
+================================================================================
+
+=== Validation Log (2025-07-18T08:08:52) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type ObjectId is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T08:07:15) ===
+Query: query7
+
+LLM Answer:
+Restaurants, Food, American (New), Shopping, Grocery
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: Missing category: breakfast & brunch
+================================================================================
+
+=== Validation Log (2025-07-18T08:03:56) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: ConversionException: Conversion Error: Could not convert string 'Augu' to INT32
+
+LINE 4: WHERE u.yelping_since LIKE '%2016%' AND CAST(substr(r.date,1,4) AS INTEGER) >= 2016
+                                                ^
+================================================================================
+
+=== Validation Log (2025-07-18T08:01:36) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: InvalidInputException: Invalid Input Error: Could not parse string "15 Jan 2009, 16:40" according to format specifier "%Y-%m-%d"
+15 Jan 2009, 16:40
+   ^
+Error: Literal does not match, expected -
+================================================================================
+
+=== Validation Log (2025-07-18T08:01:00) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: InvalidInputException: Invalid Input Error: Could not parse string "15 Jan 2009, 16:40" according to format specifier "%Y-%m-%d"
+15 Jan 2009, 16:40
+   ^
+Error: Literal does not match, expected -
+================================================================================
+
+=== Validation Log (2025-07-18T08:00:49) ===
+Query: query7
+
+LLM Answer:
+Restaurants, Shopping, Food, American (New), Grocery
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: Missing category: breakfast & brunch
+================================================================================
+
+=== Validation Log (2025-07-18T07:57:35) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting ',' delimiter: line 1 column 192 (char 191)
+================================================================================
+
+=== Validation Log (2025-07-18T07:56:26) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: BinderException: Binder Error: Referenced column "user_id" not found in FROM clause!
+
+LINE 1: SELECT user_id, business_ref WHERE FALSE;
+               ^
+================================================================================
+
+=== Validation Log (2025-07-18T07:55:53) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 62 (char 61)
+================================================================================
+
+=== Validation Log (2025-07-18T07:51:29) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: OperationFailure: unknown operator: $oid, full error: {'ok': 0.0, 'errmsg': 'unknown operator: $oid', 'code': 2, 'codeName': 'BadValue'}
+================================================================================
+
+=== Validation Log (2025-07-18T07:50:34) ===
+Query: query7
+
+LLM Answer:
+Restaurants
+Shopping
+Food
+American (New)
+Chinese
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: Missing category: breakfast & brunch
+================================================================================
+
+=== Validation Log (2025-07-18T07:48:32) ===
+Query: query7
+
+LLM Answer:
+Beauty & Spas
+Health & Medical
+Specialty Food
+Food
+Cosmetic Dentists
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: Missing category: restaurants
+================================================================================
+
+=== Validation Log (2025-07-18T07:45:14) ===
+Query: query7
+
+LLM Answer:
+Restaurants, Shopping, Food, Grocery, Beauty & Spas
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: Missing category: american (new)
+================================================================================
+
+=== Validation Log (2025-07-18T07:43:23) ===
+Query: query7
+
+LLM Answer:
+Beauty & Spas
+Hair Removal
+Health & Medical
+Dentists
+Cosmetic Dentists
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: Missing category: restaurants
+================================================================================
+
+=== Validation Log (2025-07-18T07:39:43) ===
+Query: query7
+
+LLM Answer:
+Restaurants
+Shopping
+Food
+Grocery
+American (New)
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: Missing category: breakfast & brunch
+================================================================================
+
+=== Validation Log (2025-07-18T07:38:11) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 62 (char 61)
+================================================================================
+
+=== Validation Log (2025-07-18T07:37:42) ===
+Query: query7
+
+LLM Answer:
+Beauty & Spas
+Nail Salons
+Hair Removal
+Waxing
+Health & Medical
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: Missing category: restaurants
+================================================================================
+
+=== Validation Log (2025-07-18T07:34:54) ===
+Query: query7
+
+LLM Answer:
+Restaurants, Food, Shopping, American (New), Breakfast & Brunch
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T07:31:03) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 63 (char 62)
+================================================================================
+
+=== Validation Log (2025-07-18T07:29:42) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: InvalidInputException: Invalid Input Error: Could not parse string "15 Jan 2009, 16:40" according to format specifier "%Y-%m-%d"
+15 Jan 2009, 16:40
+   ^
+Error: Literal does not match, expected -
+================================================================================
+
+=== Validation Log (2025-07-18T07:29:24) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type ObjectId is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T07:27:18) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: OperationFailure: unknown operator: $oid, full error: {'ok': 0.0, 'errmsg': 'unknown operator: $oid', 'code': 2, 'codeName': 'BadValue'}
+================================================================================
+
+=== Validation Log (2025-07-18T07:26:19) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 57 (char 56)
+================================================================================
+
+=== Validation Log (2025-07-18T07:25:46) ===
+Query: query7
+
+LLM Answer:
+Beauty & Spas
+Health & Medical
+Cosmetic Dentists
+Dentists
+Food
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: Missing category: restaurants
+================================================================================
+
+=== Validation Log (2025-07-18T07:24:00) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: InvalidInputException: Invalid Input Error: Could not parse string "15 Jan 2009, 16:40" according to format specifier "%Y-%m-%d"
+15 Jan 2009, 16:40
+   ^
+Error: Literal does not match, expected -
+================================================================================
+
+=== Validation Log (2025-07-18T07:23:47) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 62 (char 61)
+================================================================================
+
+=== Validation Log (2025-07-18T07:20:58) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: ParserException: Parser Error: syntax error at end of input
+================================================================================
+
+=== Validation Log (2025-07-18T07:18:43) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: BinderException: Binder Error: Could not choose a best candidate function for the function call "strftime(VARCHAR, STRING_LITERAL)". In order to select one, please add explicit type casts.
+	Candidate functions:
+	strftime(VARCHAR, TIMESTAMP) -> VARCHAR
+	strftime(VARCHAR, TIMESTAMP_NS) -> VARCHAR
+	strftime(VARCHAR, DATE) -> VARCHAR
+
+
+LINE 1: SELECT user_id FROM user WHERE strftime(yelping_since, '%Y') = '2016'
+                                       ^
+================================================================================
+
+=== Validation Log (2025-07-18T07:17:53) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 60 (char 59)
+================================================================================
+
+=== Validation Log (2025-07-18T07:17:18) ===
+Query: query7
+
+LLM Answer:
+Restaurants
+Local Services
+Food
+Shopping
+Beauty
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: Missing category: american (new)
+================================================================================
+
+=== Validation Log (2025-07-18T07:11:41) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: BinderException: Binder Error: Could not choose a best candidate function for the function call "strftime(STRING_LITERAL, VARCHAR)". In order to select one, please add explicit type casts.
+	Candidate functions:
+	strftime(TIMESTAMP, VARCHAR) -> VARCHAR
+	strftime(TIMESTAMP_NS, VARCHAR) -> VARCHAR
+	strftime(TIMESTAMP WITH TIME ZONE, VARCHAR) -> VARCHAR
+	strftime(DATE, VARCHAR) -> VARCHAR
+
+
+LINE 1: SELECT COUNT(*) AS cnt FROM user WHERE CAST(strftime('%Y', yelping_since) AS INTEGER) = 2016;
+                                                    ^
+================================================================================
+
+=== Validation Log (2025-07-18T07:11:31) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 59 (char 58)
+================================================================================
+
+=== Validation Log (2025-07-18T07:11:00) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting ',' delimiter: line 1 column 910 (char 909)
+================================================================================
+
+=== Validation Log (2025-07-18T07:07:47) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 62 (char 61)
+================================================================================
+
+=== Validation Log (2025-07-18T07:05:20) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type ObjectId is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T07:03:01) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 63 (char 62)
+================================================================================
+
+=== Validation Log (2025-07-18T06:59:50) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 63 (char 62)
+================================================================================
+
+=== Validation Log (2025-07-18T06:54:32) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 62 (char 61)
+================================================================================
+
+=== Validation Log (2025-07-18T06:50:58) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type ObjectId is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T06:50:26) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: OperationFailure: Cannot do exclusion on field name in inclusion projection, full error: {'ok': 0.0, 'errmsg': 'Cannot do exclusion on field name in inclusion projection', 'code': 31254, 'codeName': 'Location31254'}
+================================================================================
+
+=== Validation Log (2025-07-18T06:50:09) ===
+Query: query7
+
+LLM Answer:
+Restaurants
+Food
+Breakfast
+Shopping
+Brunch
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: Missing category: american (new)
+================================================================================
+
+=== Validation Log (2025-07-18T06:45:56) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: ConversionException: Conversion Error: Could not convert string 'Augu' to INT32
+
+LINE 4:   AND CAST(LEFT(date, 4) AS INTEGER) >= 2016
+              ^
+================================================================================
+
+=== Validation Log (2025-07-18T06:44:51) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: BinderException: Binder Error: Could not choose a best candidate function for the function call "strftime(VARCHAR, STRING_LITERAL)". In order to select one, please add explicit type casts.
+	Candidate functions:
+	strftime(VARCHAR, TIMESTAMP) -> VARCHAR
+	strftime(VARCHAR, TIMESTAMP_NS) -> VARCHAR
+	strftime(VARCHAR, DATE) -> VARCHAR
+
+
+LINE 1: SELECT user_id FROM user WHERE strftime(yelping_since, '%Y') = '2016';
+                                       ^
+================================================================================
+
+=== Validation Log (2025-07-18T06:44:39) ===
+Query: query7
+
+LLM Answer:
+Shopping – 9 reviews
+Restaurants – 8 reviews
+Food – 6 reviews
+Grocery – 6 reviews
+Beauty & Spas – 5 reviews
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: Missing category: american (new)
+================================================================================
+
+=== Validation Log (2025-07-18T06:41:55) ===
+Query: query7
+
+LLM Answer:
+Restaurants
+Food
+Shopping
+Grocery
+Beauty & Spas
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: Missing category: american (new)
+================================================================================
+
+=== Validation Log (2025-07-18T06:35:32) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 61 (char 60)
+================================================================================
+
+=== Validation Log (2025-07-18T06:31:25) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting ',' delimiter: line 1 column 77 (char 76)
+================================================================================
+
+=== Validation Log (2025-07-18T06:29:12) ===
+Query: query7
+
+LLM Answer:
+This environment's subsets contain placeholder datasets. The merging relies on synthetic identifiers and generic categories, which don’t reveal real category names. Therefore, a reliable top-5 list cannot be produced from these demo data.
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: Missing category: restaurants
+================================================================================
+
+=== Validation Log (2025-07-18T06:28:36) ===
+Query: query7
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type ObjectId is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T06:28:01) ===
+Query: query6
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type ObjectId is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T06:27:05) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: Missing category: breakfast & brunch
+================================================================================
+
+=== Validation Log (2025-07-18T06:25:22) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants (Breakfast & Brunch, American (New), Cafes)
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T06:24:50) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants (Breakfast & Brunch, American (New), Cafes)
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T06:23:31) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe, Restaurants
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: Missing category: breakfast & brunch
+================================================================================
+
+=== Validation Log (2025-07-18T06:22:34) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T06:21:28) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T06:20:50) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T06:19:38) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants (Breakfast & Brunch, American (New), Cafes)
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T06:18:35) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T06:17:30) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe — Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T06:16:56) ===
+Query: query6
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: ❌ Agent crashed: OperationFailure: Cannot do exclusion on field attributes in inclusion projection, full error: {'ok': 0.0, 'errmsg': 'Cannot do exclusion on field attributes in inclusion projection', 'code': 31254, 'codeName': 'Location31254'}
+================================================================================
+
+=== Validation Log (2025-07-18T06:16:47) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T06:15:30) ===
+Query: query6
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type ObjectId is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T06:13:45) ===
+Query: query6
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type DataFrame is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T06:13:33) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe, Coffee & Tea
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: Missing category: restaurants
+================================================================================
+
+=== Validation Log (2025-07-18T06:13:11) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: Missing category: restaurants
+================================================================================
+
+=== Validation Log (2025-07-18T06:12:33) ===
+Query: query6
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type DataFrame is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T06:11:57) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants (Breakfast & Brunch, American (New), Cafes)
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T06:10:51) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe — Cafes (classified under Restaurants, Breakfast & Brunch, American (New))
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T06:09:21) ===
+Query: query6
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type DataFrame is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T06:08:29) ===
+Query: query6
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type DataFrame is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T06:08:15) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T06:07:10) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants (Breakfast & Brunch, American (New), Cafes)
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T06:06:24) ===
+Query: query6
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type int64 is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T06:05:38) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe — Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T06:04:58) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe — Restaurants / Breakfast & Brunch / American (New) / Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T06:03:38) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe, Restaurants
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: Missing category: breakfast & brunch
+================================================================================
+
+=== Validation Log (2025-07-18T06:02:29) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe — Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: Missing category: restaurants
+================================================================================
+
+=== Validation Log (2025-07-18T06:01:19) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T06:00:07) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe, categories: Restaurants; Breakfast & Brunch; American (New); Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T05:59:06) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T05:58:18) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe — Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T05:57:41) ===
+Query: query6
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: ❌ Agent crashed: OperationFailure: Cannot do exclusion on field attributes in inclusion projection, full error: {'ok': 0.0, 'errmsg': 'Cannot do exclusion on field attributes in inclusion projection', 'code': 31254, 'codeName': 'Location31254'}
+================================================================================
+
+=== Validation Log (2025-07-18T05:57:33) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe — Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T05:56:52) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants (Breakfast & Brunch/Cafes)
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: Missing category: american (new)
+================================================================================
+
+=== Validation Log (2025-07-18T05:55:14) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T05:54:42) ===
+Query: query6
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type int64 is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T05:54:17) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T05:53:29) ===
+Query: query6
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type DataFrame is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T05:52:08) ===
+Query: query6
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type int64 is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T05:51:41) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe — Restaurants; Breakfast & Brunch; American (New); Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T05:50:40) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Breakfast & Brunch (Restaurants/Cafes)
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: Missing category: american (new)
+================================================================================
+
+=== Validation Log (2025-07-18T05:49:55) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T05:48:01) ===
+Query: query6
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type DataFrame is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T05:47:30) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T05:46:38) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe — Restaurants; Breakfast & Brunch; American (New); Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T05:45:58) ===
+Query: query6
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type int64 is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T05:45:25) ===
+Query: query6
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type DataFrame is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T05:44:58) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants / Breakfast & Brunch / American (New) / Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T05:43:49) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT AVG(rating) as avg_rating FROM review_table WHERE business_ref IN ('businessid_89','busine...
+                                              ^
+================================================================================
+
+=== Validation Log (2025-07-18T05:41:19) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Invalid \escape: line 1 column 97 (char 96)
+================================================================================
+
+=== Validation Log (2025-07-18T05:38:32) ===
+Query: query5
+
+LLM Answer:
+Pennsylvania, 3.48
+
+Ground Truth:
+PA,3.48
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T05:36:22) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: OperationFailure: Path collision at attributes, full error: {'ok': 0.0, 'errmsg': 'Path collision at attributes', 'code': 31250, 'codeName': 'Location31250'}
+================================================================================
+
+=== Validation Log (2025-07-18T05:36:15) ===
+Query: query5
+
+LLM Answer:
+CA, 4.0
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: Neither 'PA' nor 'Pennsylvania' found in LLM output
+================================================================================
+
+=== Validation Log (2025-07-18T05:34:31) ===
+Query: query5
+
+LLM Answer:
+Pennsylvania (PA), 3.48
+
+Ground Truth:
+PA,3.48
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T05:32:10) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type Series is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T05:29:50) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: OperationFailure: unknown operator: $oid, full error: {'ok': 0.0, 'errmsg': 'unknown operator: $oid', 'code': 2, 'codeName': 'BadValue'}
+================================================================================
+
+=== Validation Log (2025-07-18T05:28:41) ===
+Query: query5
+
+LLM Answer:
+California; approximately 4.0 stars
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: Neither 'PA' nor 'Pennsylvania' found in LLM output
+================================================================================
+
+=== Validation Log (2025-07-18T05:26:43) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: OperationFailure: Path collision at attributes, full error: {'ok': 0.0, 'errmsg': 'Path collision at attributes', 'code': 31250, 'codeName': 'Location31250'}
+================================================================================
+
+=== Validation Log (2025-07-18T05:26:38) ===
+Query: query5
+
+LLM Answer:
+Pennsylvania, 3.48
+
+Ground Truth:
+PA,3.48
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T05:24:06) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting ',' delimiter: line 1 column 156 (char 155)
+================================================================================
+
+=== Validation Log (2025-07-18T05:23:38) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 85 (char 84)
+================================================================================
+
+=== Validation Log (2025-07-18T05:23:20) ===
+Query: query5
+
+LLM Answer:
+PA, 3.48
+
+Ground Truth:
+PA,3.48
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T05:21:12) ===
+Query: query5
+
+LLM Answer:
+"NV, 12 businesses, 3.65 average rating"
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: Neither 'PA' nor 'Pennsylvania' found in LLM output
+================================================================================
+
+=== Validation Log (2025-07-18T05:20:31) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type Series is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T05:18:12) ===
+Query: query5
+
+LLM Answer:
+Pennsylvania, 3.48
+
+Ground Truth:
+PA,3.48
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T05:16:09) ===
+Query: query5
+
+LLM Answer:
+PA, 3.47
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: Number near 'PA' does not match ≈3.48
+================================================================================
+
+=== Validation Log (2025-07-18T05:14:52) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: ParserException: Parser Error: unterminated quoted string at or near "'"
+================================================================================
+
+=== Validation Log (2025-07-18T05:13:52) ===
+Query: query5
+
+LLM Answer:
+Pennsylvania (PA): 3.48
+
+Ground Truth:
+PA,3.48
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T05:11:56) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT business_ref, rating FROM review_table
+                                         ^
+================================================================================
+
+=== Validation Log (2025-07-18T05:10:00) ===
+Query: query5
+
+LLM Answer:
+California – average rating about 4.0
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: Neither 'PA' nor 'Pennsylvania' found in LLM output
+================================================================================
+
+=== Validation Log (2025-07-18T05:06:33) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name df_business_step19 does not exist!
+Did you mean "user"?
+
+LINE 1: ... FROM review WHERE business_ref IN (SELECT business_id from df_business_step19) GROUP BY business_ref
+                                                                       ^
+================================================================================
+
+=== Validation Log (2025-07-18T05:04:38) ===
+Query: query5
+
+LLM Answer:
+Pennsylvania, 3.48
+
+Ground Truth:
+PA,3.48
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T04:59:18) ===
+Query: query5
+
+LLM Answer:
+California, 3.7
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: Neither 'PA' nor 'Pennsylvania' found in LLM output
+================================================================================
+
+=== Validation Log (2025-07-18T04:55:50) ===
+Query: query5
+
+LLM Answer:
+PA,3.48
+
+Ground Truth:
+PA,3.48
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T04:51:40) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 85 (char 84)
+================================================================================
+
+=== Validation Log (2025-07-18T04:49:39) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: ... business_ref, AVG(rating) as avg_rating, COUNT(*) as cnt FROM review_table GROUP BY business_ref
+                                                                          ^
+================================================================================
+
+=== Validation Log (2025-07-18T04:46:55) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 67 (char 66)
+================================================================================
+
+=== Validation Log (2025-07-18T04:45:43) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting ',' delimiter: line 1 column 138 (char 137)
+================================================================================
+
+=== Validation Log (2025-07-18T04:45:31) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type DataFrame is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T04:45:02) ===
+Query: query5
+
+LLM Answer:
+Pennsylvania, 3.48
+
+Ground Truth:
+PA,3.48
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T04:43:28) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name wf does not exist!
+Did you mean "information_schema.referential_constraints"?
+
+LINE 1: ... FROM review WHERE business_ref IN (SELECT business_id FROM wf) GROUP BY business_ref LIMIT 5;
+                                                                       ^
+================================================================================
+
+=== Validation Log (2025-07-18T04:42:44) ===
+Query: query5
+
+LLM Answer:
+PA, 3.48
+
+Ground Truth:
+PA,3.48
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T04:41:41) ===
+Query: query5
+
+LLM Answer:
+Pennsylvania – 8 businesses, average rating 3.48
+
+Ground Truth:
+PA,3.48
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T04:38:10) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: BinderException: Binder Error: column "business_ref" must appear in the GROUP BY clause or must be part of an aggregate function.
+Either add it to the GROUP BY list, or use "ANY_VALUE(business_ref)" if the exact value of "business_ref" is not important.
+
+LINE 1: SELECT business_ref, AVG(rating) AS avg_rating FROM review WHERE...
+               ^
+================================================================================
+
+=== Validation Log (2025-07-18T04:35:49) ===
+Query: query5
+
+LLM Answer:
+Unable to determine the state and average rating with the available data.
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: Neither 'PA' nor 'Pennsylvania' found in LLM output
+================================================================================
+
+=== Validation Log (2025-07-18T04:31:41) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 167 (char 166)
+================================================================================
+
+=== Validation Log (2025-07-18T04:29:08) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type ObjectId is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T04:26:48) ===
+Query: query5
+
+LLM Answer:
+Pennsylvania, 3.48
+
+Ground Truth:
+PA,3.48
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T04:24:46) ===
+Query: query5
+
+LLM Answer:
+Pennsylvania, 3.48
+
+Ground Truth:
+PA,3.48
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T04:21:27) ===
+Query: query5
+
+LLM Answer:
+PA, 3.48
+
+Ground Truth:
+PA,3.48
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T04:20:14) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 83 (char 82)
+================================================================================
+
+=== Validation Log (2025-07-18T04:19:41) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: OperationFailure: Path collision at attributes, full error: {'ok': 0.0, 'errmsg': 'Path collision at attributes', 'code': 31250, 'codeName': 'Location31250'}
+================================================================================
+
+=== Validation Log (2025-07-18T04:19:36) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type int64 is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T04:18:02) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting ',' delimiter: line 1 column 92 (char 91)
+================================================================================
+
+=== Validation Log (2025-07-18T04:17:43) ===
+Query: query5
+
+LLM Answer:
+Pennsylvania, 3.48
+
+Ground Truth:
+PA,3.48
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T04:15:27) ===
+Query: query5
+
+LLM Answer:
+Pennsylvania, 3.48
+
+Ground Truth:
+PA,3.48
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T04:12:57) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting ',' delimiter: line 1 column 81 (char 80)
+================================================================================
+
+=== Validation Log (2025-07-18T04:12:46) ===
+Query: query5
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.48
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 2: FROM review_table
+             ^
+================================================================================
+
+=== Validation Log (2025-07-18T04:11:09) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT * FROM review_table LIMIT 5;
+                      ^
+================================================================================
+
+=== Validation Log (2025-07-18T04:08:55) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting ',' delimiter: line 1 column 153 (char 152)
+================================================================================
+
+=== Validation Log (2025-07-18T04:07:15) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 95 (char 94)
+================================================================================
+
+=== Validation Log (2025-07-18T04:06:49) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type ObjectId is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T04:05:28) ===
+Query: query4
+
+LLM Answer:
+Shopping, 3.46
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Category 'Restaurant' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T04:03:10) ===
+Query: query4
+
+LLM Answer:
+Restaurants, 3.33
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Value '3.63' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T03:59:38) ===
+Query: query4
+
+LLM Answer:
+Restaurants – 3.43
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Value '3.63' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T03:54:58) ===
+Query: query4
+
+LLM Answer:
+Chinese, 3.75
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Category 'Restaurant' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T03:51:30) ===
+Query: query4
+
+LLM Answer:
+Shopping, 3.45
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Category 'Restaurant' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T03:48:44) ===
+Query: query4
+
+LLM Answer:
+Restaurants, 3.50
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Value '3.63' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T03:45:30) ===
+Query: query4
+
+LLM Answer:
+Shopping, 3.63
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Category 'Restaurant' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T03:43:11) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT business_ref, AVG(rating) as avg_rating FROM review_table WHERE business_ref IN ('businessid_95','busine...
+                                                            ^
+================================================================================
+
+=== Validation Log (2025-07-18T03:40:36) ===
+Query: query4
+
+LLM Answer:
+Restaurants, 3.7
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Value '3.63' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T03:36:53) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 89 (char 88)
+================================================================================
+
+=== Validation Log (2025-07-18T03:36:21) ===
+Query: query4
+
+LLM Answer:
+Restaurants 3.97
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Value '3.63' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T03:34:18) ===
+Query: query4
+
+LLM Answer:
+Beauty & Spas – average rating 4.0
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Category 'Restaurant' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T03:30:00) ===
+Query: query4
+
+LLM Answer:
+Shopping; 3.45
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Category 'Restaurant' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T03:27:43) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type ObjectId is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T03:26:23) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type ObjectId is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T03:24:42) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: ParserException: Parser Error: syntax error at end of input
+================================================================================
+
+=== Validation Log (2025-07-18T03:21:54) ===
+Query: query4
+
+LLM Answer:
+Shopping, 3.73
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Category 'Restaurant' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T03:18:27) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type int64 is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T03:16:22) ===
+Query: query4
+
+LLM Answer:
+Restaurants, 4.2
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Value '3.63' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T03:11:06) ===
+Query: query4
+
+LLM Answer:
+Restaurants – 3.49
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Value '3.63' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T03:07:49) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type ObjectId is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T03:07:04) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type ObjectId is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T03:05:58) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting ',' delimiter: line 1 column 166 (char 165)
+================================================================================
+
+=== Validation Log (2025-07-18T03:05:15) ===
+Query: query4
+
+LLM Answer:
+Shopping, 3.47
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Category 'Restaurant' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T03:01:40) ===
+Query: query4
+
+LLM Answer:
+Restaurants, approximately 3.7
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Value '3.63' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T02:59:21) ===
+Query: query4
+
+LLM Answer:
+Shopping, 3.45
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Category 'Restaurant' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T02:56:24) ===
+Query: query4
+
+LLM Answer:
+Restaurants, 3.7
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Value '3.63' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T02:54:34) ===
+Query: query4
+
+LLM Answer:
+Shopping, 3.90
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Category 'Restaurant' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T02:49:07) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type ObjectId is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T02:47:43) ===
+Query: query4
+
+LLM Answer:
+Beauty & Spas – average rating 4.04
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Category 'Restaurant' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T02:44:13) ===
+Query: query4
+
+LLM Answer:
+Beauty & Spas – average rating 4.04
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Category 'Restaurant' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T02:40:29) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: ParserException: Parser Error: syntax error at end of input
+================================================================================
+
+=== Validation Log (2025-07-18T02:36:34) ===
+Query: query4
+
+LLM Answer:
+Restaurant, 3.55
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Value '3.63' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T02:32:14) ===
+Query: query4
+
+LLM Answer:
+Restaurants, 3.49
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Value '3.63' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T02:28:50) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: OperationFailure: unknown operator: $oid, full error: {'ok': 0.0, 'errmsg': 'unknown operator: $oid', 'code': 2, 'codeName': 'BadValue'}
+================================================================================
+
+=== Validation Log (2025-07-18T02:27:01) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting ',' delimiter: line 1 column 80 (char 79)
+================================================================================
+
+=== Validation Log (2025-07-18T02:25:41) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting ',' delimiter: line 1 column 133 (char 132)
+================================================================================
+
+=== Validation Log (2025-07-18T02:25:32) ===
+Query: query4
+
+LLM Answer:
+Restaurants, 3.9
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Value '3.63' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T02:21:31) ===
+Query: query4
+
+LLM Answer:
+Restaurants, 3.65
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Value '3.63' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T02:17:03) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type ObjectId is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T02:15:43) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: OperationFailure: Path collision at attributes, full error: {'ok': 0.0, 'errmsg': 'Path collision at attributes', 'code': 31250, 'codeName': 'Location31250'}
+================================================================================
+
+=== Validation Log (2025-07-18T02:15:36) ===
+Query: query4
+
+LLM Answer:
+Cannot determine the answer with current database schema and time constraints.
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Category 'Restaurant' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T02:12:30) ===
+Query: query4
+
+LLM Answer:
+Restaurants, 3.46
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Value '3.63' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T02:09:24) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting ',' delimiter: line 1 column 107 (char 106)
+================================================================================
+
+=== Validation Log (2025-07-18T02:08:40) ===
+Query: query4
+
+LLM Answer:
+Shopping, 3.64
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Category 'Restaurant' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T02:05:31) ===
+Query: query4
+
+LLM Answer:
+Restaurants, 3.50
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Value '3.63' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T02:02:12) ===
+Query: query3
+
+LLM Answer:
+21
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T02:01:22) ===
+Query: query3
+
+LLM Answer:
+35
+
+Ground Truth:
+35
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T02:00:28) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT DISTINCT business_ref FROM review_table WHERE date LIKE '2018%';
+                                          ^
+================================================================================
+
+=== Validation Log (2025-07-18T02:00:15) ===
+Query: query3
+
+LLM Answer:
+1
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:59:27) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 62 (char 61)
+================================================================================
+
+=== Validation Log (2025-07-18T01:58:21) ===
+Query: query3
+
+LLM Answer:
+21
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:56:04) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT DISTINCT business_ref FROM review_table WHERE date >= '2018-01-01' AND date < '2019...
+                                          ^
+================================================================================
+
+=== Validation Log (2025-07-18T01:55:56) ===
+Query: query3
+
+LLM Answer:
+1
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:55:23) ===
+Query: query3
+
+LLM Answer:
+21
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:55:00) ===
+Query: query3
+
+LLM Answer:
+5
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:53:59) ===
+Query: query3
+
+LLM Answer:
+5
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:53:17) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT DISTINCT business_ref FROM review_table WHERE strptime(date, '%Y-%m-%d %H:%M:%S') BETWEEN...
+                                          ^
+================================================================================
+
+=== Validation Log (2025-07-18T01:53:10) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT DISTINCT business_ref FROM review_table WHERE date >= '2018-01-01' AND date < '2019...
+                                          ^
+================================================================================
+
+=== Validation Log (2025-07-18T01:52:54) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 63 (char 62)
+================================================================================
+
+=== Validation Log (2025-07-18T01:52:11) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT DISTINCT business_ref FROM review_table WHERE date >= '2018-01-01' AND date < '2019...
+                                          ^
+================================================================================
+
+=== Validation Log (2025-07-18T01:52:03) ===
+Query: query3
+
+LLM Answer:
+5
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:51:09) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 63 (char 62)
+================================================================================
+
+=== Validation Log (2025-07-18T01:50:20) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: ❌ Agent crashed: InvalidInputException: Invalid Input Error: Could not parse string "August 01, 2016 at 03:44 AM" according to format specifier "%Y-%m-%d"
+August 01, 2016 at 03:44 AM
+^
+Error: Expected a number
+================================================================================
+
+=== Validation Log (2025-07-18T01:50:10) ===
+Query: query3
+
+LLM Answer:
+5
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:49:29) ===
+Query: query3
+
+LLM Answer:
+25
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:48:56) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 63 (char 62)
+================================================================================
+
+=== Validation Log (2025-07-18T01:47:46) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 59 (char 58)
+================================================================================
+
+=== Validation Log (2025-07-18T01:47:22) ===
+Query: query3
+
+LLM Answer:
+21
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:47:01) ===
+Query: query3
+
+LLM Answer:
+1
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:46:33) ===
+Query: query3
+
+LLM Answer:
+25
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:45:14) ===
+Query: query3
+
+LLM Answer:
+25
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:44:45) ===
+Query: query3
+
+LLM Answer:
+1
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:44:01) ===
+Query: query3
+
+LLM Answer:
+21
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:43:23) ===
+Query: query3
+
+LLM Answer:
+0
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:42:38) ===
+Query: query3
+
+LLM Answer:
+1
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:42:07) ===
+Query: query3
+
+LLM Answer:
+21
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:41:29) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT DISTINCT business_ref FROM review_table WHERE date >= '2018-01-01' AND date < '2019...
+                                          ^
+================================================================================
+
+=== Validation Log (2025-07-18T01:41:18) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 63 (char 62)
+================================================================================
+
+=== Validation Log (2025-07-18T01:40:47) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT business_ref, date FROM review_table LIMIT 5;
+                                       ^
+================================================================================
+
+=== Validation Log (2025-07-18T01:40:42) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: ❌ Agent crashed: OperationFailure: Path collision at attributes, full error: {'ok': 0.0, 'errmsg': 'Path collision at attributes', 'code': 31250, 'codeName': 'Location31250'}
+================================================================================
+
+=== Validation Log (2025-07-18T01:40:32) ===
+Query: query3
+
+LLM Answer:
+25
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:40:05) ===
+Query: query3
+
+LLM Answer:
+3
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:39:07) ===
+Query: query3
+
+LLM Answer:
+3
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:38:11) ===
+Query: query3
+
+LLM Answer:
+5
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:36:30) ===
+Query: query3
+
+LLM Answer:
+21
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:35:41) ===
+Query: query3
+
+LLM Answer:
+0
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:35:10) ===
+Query: query3
+
+LLM Answer:
+24
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:34:32) ===
+Query: query3
+
+LLM Answer:
+21
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:33:45) ===
+Query: query3
+
+LLM Answer:
+1
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:33:18) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: ❌ Agent crashed: BinderException: Binder Error: Could not choose a best candidate function for the function call "strftime(STRING_LITERAL, VARCHAR)". In order to select one, please add explicit type casts.
+	Candidate functions:
+	strftime(TIMESTAMP, VARCHAR) -> VARCHAR
+	strftime(TIMESTAMP_NS, VARCHAR) -> VARCHAR
+	strftime(TIMESTAMP WITH TIME ZONE, VARCHAR) -> VARCHAR
+	strftime(DATE, VARCHAR) -> VARCHAR
+
+
+LINE 1: SELECT DISTINCT business_ref FROM review WHERE strftime('%Y', date) = '2018';
+                                                       ^
+================================================================================
+
+=== Validation Log (2025-07-18T01:33:08) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT DISTINCT business_ref FROM review_table WHERE date >= '2018-01-01' AND date < '2019...
+                                          ^
+================================================================================
+
+=== Validation Log (2025-07-18T01:33:01) ===
+Query: query3
+
+LLM Answer:
+24
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:32:27) ===
+Query: query3
+
+LLM Answer:
+3
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: Number 35 not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T01:31:33) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+35
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT DISTINCT business_ref FROM review_table WHERE date >= '2018-01-01' AND date < '2019...
+                                          ^
+================================================================================
+
+=== Validation Log (2025-07-18T01:31:13) ===
+Query: query3
+
+LLM Answer:
+35
+
+Ground Truth:
+35
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T01:28:49) ===
+Query: query2
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type ObjectId is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T01:28:29) ===
+Query: query2
+
+LLM Answer:
+MO 3.90
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: Missing name: ['PA', 'Pennsylvania']
+================================================================================
+
+=== Validation Log (2025-07-18T01:27:56) ===
+Query: query2
+
+LLM Answer:
+Pennsylvania (PA), 3.7
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T01:25:52) ===
+Query: query2
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: ❌ Agent crashed: OperationFailure: Cannot do exclusion on field attributes in inclusion projection, full error: {'ok': 0.0, 'errmsg': 'Cannot do exclusion on field attributes in inclusion projection', 'code': 31254, 'codeName': 'Location31254'}
+================================================================================
+
+=== Validation Log (2025-07-18T01:25:42) ===
+Query: query2
+
+LLM Answer:
+PA;3.699
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T01:24:13) ===
+Query: query2
+
+LLM Answer:
+MO, 3.90
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: Missing name: ['PA', 'Pennsylvania']
+================================================================================
+
+=== Validation Log (2025-07-18T01:21:18) ===
+Query: query2
+
+LLM Answer:
+PA, 3.7
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T01:20:10) ===
+Query: query2
+
+LLM Answer:
+Pennsylvania, 3.70
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T01:17:36) ===
+Query: query2
+
+LLM Answer:
+PA, 3.7
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T01:15:59) ===
+Query: query2
+
+LLM Answer:
+PA, 3.70
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T01:14:12) ===
+Query: query2
+
+LLM Answer:
+MO, 3.9
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: Missing name: ['PA', 'Pennsylvania']
+================================================================================
+
+=== Validation Log (2025-07-18T01:12:54) ===
+Query: query2
+
+LLM Answer:
+Pennsylvania (PA) — 662 reviews, average rating 3.7
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T01:12:03) ===
+Query: query2
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type DataFrame is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T01:11:08) ===
+Query: query2
+
+LLM Answer:
+PA, 3.7
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T01:10:03) ===
+Query: query2
+
+LLM Answer:
+PA, 3.70
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T01:08:48) ===
+Query: query2
+
+LLM Answer:
+Pennsylvania, 3.7
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T01:05:36) ===
+Query: query2
+
+LLM Answer:
+Pennsylvania, 3.70
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T01:04:09) ===
+Query: query2
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT business_ref AS business_id, rating FROM review_table
+                                                        ^
+================================================================================
+
+=== Validation Log (2025-07-18T01:03:27) ===
+Query: query2
+
+LLM Answer:
+PA, 3.70
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T01:01:52) ===
+Query: query2
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type DataFrame is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T01:01:22) ===
+Query: query2
+
+LLM Answer:
+Pennsylvania, 3.65
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: Number near 'Pennsylvania' does not match ≈3.7
+================================================================================
+
+=== Validation Log (2025-07-18T00:57:36) ===
+Query: query2
+
+LLM Answer:
+Missouri (MO), 3.90
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: Missing name: ['PA', 'Pennsylvania']
+================================================================================
+
+=== Validation Log (2025-07-18T00:56:54) ===
+Query: query2
+
+LLM Answer:
+MO, 3.9
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: Missing name: ['PA', 'Pennsylvania']
+================================================================================
+
+=== Validation Log (2025-07-18T00:54:27) ===
+Query: query2
+
+LLM Answer:
+Missouri – approximately 3.9
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: Missing name: ['PA', 'Pennsylvania']
+================================================================================
+
+=== Validation Log (2025-07-18T00:48:44) ===
+Query: query2
+
+LLM Answer:
+PA, 3.7
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:47:45) ===
+Query: query2
+
+LLM Answer:
+Pennsylvania (PA): average rating 3.70
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:46:05) ===
+Query: query2
+
+LLM Answer:
+Pennsylvania, 3.7
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:45:20) ===
+Query: query2
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: ❌ Agent crashed: OperationFailure: Cannot do exclusion on field attributes in inclusion projection, full error: {'ok': 0.0, 'errmsg': 'Cannot do exclusion on field attributes in inclusion projection', 'code': 31254, 'codeName': 'Location31254'}
+================================================================================
+
+=== Validation Log (2025-07-18T00:45:14) ===
+Query: query2
+
+LLM Answer:
+PA, 3.7
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:43:56) ===
+Query: query2
+
+LLM Answer:
+PA, 3.7
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:42:53) ===
+Query: query2
+
+LLM Answer:
+Pennsylvania; 3.70
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:40:52) ===
+Query: query2
+
+LLM Answer:
+PA, 3.70
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:39:33) ===
+Query: query2
+
+LLM Answer:
+Pennsylvania (PA) — average business rating 3.70
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:37:57) ===
+Query: query2
+
+LLM Answer:
+Pennsylvania – 662 reviews, average rating 3.70
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:36:36) ===
+Query: query2
+
+LLM Answer:
+Pennsylvania (PA) – average rating 3.70
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:35:03) ===
+Query: query2
+
+LLM Answer:
+MO, 3.90
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: Missing name: ['PA', 'Pennsylvania']
+================================================================================
+
+=== Validation Log (2025-07-18T00:33:57) ===
+Query: query2
+
+LLM Answer:
+FL, 922, 3.63
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: Missing name: ['PA', 'Pennsylvania']
+================================================================================
+
+=== Validation Log (2025-07-18T00:33:07) ===
+Query: query2
+
+LLM Answer:
+Pennsylvania, 3.7
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:29:35) ===
+Query: query2
+
+LLM Answer:
+PA, 3.7
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:29:10) ===
+Query: query2
+
+LLM Answer:
+Missouri (MO) – average business rating approximately 3.90
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: Missing name: ['PA', 'Pennsylvania']
+================================================================================
+
+=== Validation Log (2025-07-18T00:27:44) ===
+Query: query2
+
+LLM Answer:
+Unable to determine the result with the available data.
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: Missing name: ['PA', 'Pennsylvania']
+================================================================================
+
+=== Validation Log (2025-07-18T00:25:18) ===
+Query: query2
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: ❌ Agent crashed: OperationFailure: FieldPath field names may not start with '$'. Consider using $getField or $setField., full error: {'ok': 0.0, 'errmsg': "FieldPath field names may not start with '$'. Consider using $getField or $setField.", 'code': 16410, 'codeName': 'Location16410'}
+================================================================================
+
+=== Validation Log (2025-07-18T00:24:01) ===
+Query: query2
+
+LLM Answer:
+PA, 3.7
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:22:45) ===
+Query: query2
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type int64 is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-18T00:21:41) ===
+Query: query2
+
+LLM Answer:
+Pennsylvania (PA) – average business rating about 3.70
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:20:11) ===
+Query: query2
+
+LLM Answer:
+PA, 3.7
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:18:04) ===
+Query: query2
+
+LLM Answer:
+PA, 3.70
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:16:50) ===
+Query: query2
+
+LLM Answer:
+PA, 3.7
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:15:49) ===
+Query: query2
+
+LLM Answer:
+MO, 3.9
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: Missing name: ['PA', 'Pennsylvania']
+================================================================================
+
+=== Validation Log (2025-07-18T00:15:13) ===
+Query: query2
+
+LLM Answer:
+MO, 3.9
+
+Ground Truth:
+PA,3.699395770392749
+
+Result: ❌ MISMATCH: Missing name: ['PA', 'Pennsylvania']
+================================================================================
+
+=== Validation Log (2025-07-18T00:13:26) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:12:13) ===
+Query: query1
+
+LLM Answer:
+3.86
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: No matching number (≈ 3.55) found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T00:11:01) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:10:32) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:09:57) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT business_ref, rating FROM review_table WHERE business_ref IN ('businessid_52','busine...
+                                         ^
+================================================================================
+
+=== Validation Log (2025-07-18T00:09:38) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:08:50) ===
+Query: query1
+
+LLM Answer:
+3.86
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: No matching number (≈ 3.55) found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T00:08:08) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: ❌ Agent crashed: OperationFailure: unknown operator: $oid, full error: {'ok': 0.0, 'errmsg': 'unknown operator: $oid', 'code': 2, 'codeName': 'BadValue'}
+================================================================================
+
+=== Validation Log (2025-07-18T00:07:31) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT business_ref, rating FROM review_table WHERE business_ref IN ('businessid_52','busine...
+                                         ^
+================================================================================
+
+=== Validation Log (2025-07-18T00:07:19) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:06:31) ===
+Query: query1
+
+LLM Answer:
+3.86
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: No matching number (≈ 3.55) found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-18T00:05:50) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:05:17) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: ❌ Agent crashed: OperationFailure: Cannot do exclusion on field attributes in inclusion projection, full error: {'ok': 0.0, 'errmsg': 'Cannot do exclusion on field attributes in inclusion projection', 'code': 31254, 'codeName': 'Location31254'}
+================================================================================
+
+=== Validation Log (2025-07-18T00:05:10) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:04:15) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:03:33) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:03:09) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-18T00:02:43) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: ❌ Agent crashed: JSONDecodeError: Expecting value: line 1 column 63 (char 62)
+================================================================================
+
+=== Validation Log (2025-07-18T00:01:33) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT business_ref, rating FROM review_table WHERE business_ref IN ('businessid_52', 'busin...
+                                         ^
+================================================================================
+
+=== Validation Log (2025-07-18T00:01:04) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: projection must be a mapping or list of key names
+================================================================================
+
+=== Validation Log (2025-07-18T00:00:24) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-17T23:59:07) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-17T23:58:27) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-17T23:57:45) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT business_ref, rating FROM review_table WHERE business_ref IN ('businessid_52','busine...
+                                         ^
+================================================================================
+
+=== Validation Log (2025-07-17T23:57:34) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-17T23:56:48) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-17T23:56:21) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-17T23:55:31) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: ..., AVG(rating) as avg_rating, COUNT(*) as num_reviews FROM review_table WHERE business_ref IN ('businessid_52','busine...
+                                                                     ^
+================================================================================
+
+=== Validation Log (2025-07-17T23:55:14) ===
+Query: query1
+
+LLM Answer:
+3.86
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: No matching number (≈ 3.55) found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-17T23:54:23) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-17T23:53:40) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT business_ref, rating FROM review_table WHERE business_ref IN ('businessid_52','busine...
+                                         ^
+================================================================================
+
+=== Validation Log (2025-07-17T23:53:01) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type ObjectId is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-17T23:52:17) ===
+Query: query1
+
+LLM Answer:
+3.86
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: No matching number (≈ 3.55) found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-17T23:51:30) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-17T23:50:55) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-17T23:50:15) ===
+Query: query1
+
+LLM Answer:
+3.86
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: No matching number (≈ 3.55) found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-17T23:49:26) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-17T23:48:41) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT business_ref, rating FROM review_table WHERE business_ref IN ('businessid_52','busine...
+                                         ^
+================================================================================
+
+=== Validation Log (2025-07-17T23:48:24) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-17T23:47:35) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-17T23:47:03) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name df_business_step3 does not exist!
+Did you mean "duckdb_indexes"?
+
+LINE 1: ... FROM review WHERE business_ref IN (SELECT business_id FROM df_business_step3) GROUP BY business_ref
+                                                                       ^
+================================================================================
+
+=== Validation Log (2025-07-17T23:46:33) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-17T23:45:59) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-17T23:44:55) ===
+Query: query1
+
+LLM Answer:
+3.86
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: No matching number (≈ 3.55) found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-17T23:43:34) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-17T23:42:10) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT * FROM review_table LIMIT 5
+                      ^
+================================================================================
+
+=== Validation Log (2025-07-17T23:41:39) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: ❌ Agent crashed: CatalogException: Catalog Error: Table with name review_table does not exist!
+Did you mean "review"?
+
+LINE 1: SELECT business_ref, AVG(rating) as avg_rating FROM review_table WHERE business_ref IN ('businessid_52','busine...
+                                                            ^
+================================================================================
+
+=== Validation Log (2025-07-17T23:41:04) ===
+Query: query1
+
+LLM Answer:
+3.86
+
+Ground Truth:
+3.547008547008547
+
+Result: ❌ MISMATCH: No matching number (≈ 3.55) found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-17T23:40:35) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-17T23:39:43) ===
+Query: query1
+
+LLM Answer:
+3.55
+
+Ground Truth:
+3.547008547008547
+
+Result: ✅ MATCH
+================================================================================
+
 === Validation Log (2025-07-16T10:50:10) ===
 Query: query7
 
