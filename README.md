@@ -32,7 +32,7 @@ This project interacts with distributed databases, combining both server-based a
 You need to ensure the required services are running and files are available.
 
 #### ✅ MySQL
-- requires a **local MySQL server** to be installed and running.  
+- Requires a **local MySQL server** to be installed and running.  
 - Install [MySQL](https://www.mysql.com/) on your machine according to your operating system.
 - After installation, start the MySQL server. Verify that you can connect using:
   ```bash
@@ -41,14 +41,14 @@ You need to ensure the required services are running and files are available.
 - The agent reads MySQL host, port, username, password, and database name from the .env file.
 
 #### ✅ MongoDB
-- requires a **local MongoDB server** to be installed and running.  
+- Requires a **local MongoDB server** to be installed and running.  
 - Install [MongoDB Community Edition](https://www.mongodb.com/) on your machine according to your operating system.
 - After installation, start the MongoDB server. Verify that you can connect.
-- The agent reads MySQL host, port, username, password, and database name from the .env file.
+- The agent reads the MongoDB connection string (`MONGO_URI`) from the `.env` file.
 
 #### 📄 SQLite & DuckDB 
-- does **not** require a separate service.
-The agent automatically detects and loads the `.db` files directly from the filesystem.
+- Does **not** require a separate service.
+- The agent automatically detects and loads the `.db` files directly from the filesystem.
 
 Only **MySQL** and **MongoDB** require you to have their respective servers running locally (or accessible on a specified host). Please make sure both database services are properly installed and configured **before running the project**. 
 **SQLite** and **DuckDB** work as standalone files — no separate server installation is needed for them.
@@ -68,10 +68,9 @@ MYSQL_PASSWORD=your_password
 MYSQL_DB=test
 
 # MongoDB configuration
-MONGO_HOST=localhost
-MONGO_PORT=27017
-MONGO_USER=your_mongo_username   
-MONGO_PASSWORD=your_mongo_password
+MONGO_URI=mongodb://localhost:27017/
+# If your MongoDB requires authentication, use a URI like:
+MONGO_URI=mongodb://username:password@localhost:27017/?authSource=admin
 
 # OpenAI
 OPENAI_API_KEY=your_openai_api_key_here
@@ -82,4 +81,4 @@ AZURE_API_KEY=your_azure_api_key_here
 AZURE_API_VERSION=2023-05-15
 
 ```
-You only need to provide either the OpenAI or Azure OpenAI API key (or any other provider's API key), depending on which service you’re using.
+You only need to provide the API key for either OpenAI, Azure OpenAI, or another provider, depending on the service you’re using.
