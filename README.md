@@ -3,6 +3,25 @@
 This project is a **benchmark study of data agents (LLM-based agents) in querying distributed databases**, evaluating the capabilities of LLM-driven agents in accessing and reasoning over diverse data sources.
 The agent automatically reads database connection parameters from the `.env` file, detects and loads database files, and establishes connections as needed.
 
+## 📋 Table of Contents
+
+- [📄 UCB Query Benchmark Study](#-ucb-query-benchmark-study)
+- [🚀 Installation](#-installation)
+  - [Clone the repository](#clone-the-repository)
+  - [Create a virtual environment](#create-a-virtual-environment)
+  - [Install dependencies](#install-dependencies)
+- [🗄️ Database Setup](#️-database-setup)
+  - [✅ MySQL](#-mysql)
+  - [✅ MongoDB](#-mongodb)
+  - [📄 SQLite & DuckDB](#-sqlite--duckdb)
+- [🔧 Configure .env](#-configure-env)
+- [🚀 Run the Benchmark](#-run-the-benchmark)
+  - [📂 Run on our datasets](#-run-on-our-datasets)
+  - [📂 Run on your own agent](#-run-on-your-own-agent)
+    - [How to load the databases in your own agent](#how-to-load-the-databases-in-your-own-agent)
+    - [🔴 If you prefer not to use our agent_tools and db_utils](#-if-you-prefer-not-to-use-our-agent_tools-and-db_utils)
+  - [📂 Run on your own datasets](#-run-on-your-own-datasets)
+
 ---
 ## Installation
 ### Clone the repository
