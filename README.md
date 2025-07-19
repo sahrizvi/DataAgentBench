@@ -14,7 +14,7 @@ The agent automatically reads database connection parameters from the `.env` fil
 - [🔧 Configure .env](#-configure-env)
 - [🚀 Run the Benchmark](#-run-the-benchmark)
   - [📂 Run our provided agent on our datasets](#-run-our-provided-agent-on-our-datasets)
-  - [📂 Run your own agent on our datasets](#using-your-own-agent-with-this-project)
+  - [📂 Run your own agent on our datasets](#-run-your-own-agent-on-our-datasets)
     - [How to load the databases in your own agent with our tools](#how-to-load-the-databases-in-your-own-agent)
     - [🔴 If you prefer not to use our agent_tools and db_utils](#-if-you-prefer-not-to-use-our-agent_tools-and-db_utils)
   - [📂 Run on your own datasets](#-run-on-your-own-datasets)
