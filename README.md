@@ -103,9 +103,10 @@ This benchmark can be run in two ways:
 ✅ Run on the provided datasets 
 - Using our provided agent
 - Using your own agent
+- 
 ✅ Run on your own custom dataset
 
-### 📂 Run on our datasets
+### 📂 Run our provided agent on our datasets
 We have prepared **five datasets** for this benchmark study: `GoogleLocal`, `BookReview`, `Yelp`, `StockIndex`, `StockMarket`.
 
 Each dataset corresponds to a folder in the project directory.  
@@ -117,7 +118,7 @@ cd query_yelp
 python run_experiments.py
 ```
 
-### 📂 Run on your own agent
+### 📂 Run your own agent on our datasets
 
 If you want to implement and run **your own agent** (instead of using the provided baseline agent), you can still leverage the built-in database loading and management logic from this project.  
 We have already encapsulated all the database initialization and checking into a few utility functions under `common_scaffold/`, so you don’t need to manually connect or verify the databases.
