@@ -45,14 +45,14 @@ pip install -r requirements.txt
 This project interacts with distributed databases, combining both server-based and file-based databases.
 You need to ensure the required services are running and files are available.
 
-#### ✅ MySQL
-- Requires a **local MySQL server** to be installed and running.  
-- Install [MySQL](https://www.mysql.com/) on your machine according to your operating system.
-- After installation, start the MySQL server. Verify that you can connect using:
+#### ✅ PostgreSQL
+- Requires a **local PostgreSQL server** to be installed and running.  
+- Install [PostgreSQL](https://www.postgresql.org/) on your machine according to your operating system.
+- After installation, start the PostgreSQL server. Verify that you can connect using:
   ```bash
-  mysql -u root -p
+  psql -U postgres
   ```
-- The agent reads MySQL host, port, username, password, and database name from the .env file.
+- The agent reads PostgreSQL connection parameters from the `.env` file.
 
 #### ✅ MongoDB
 - Requires a **local MongoDB server** to be installed and running.  
@@ -64,8 +64,9 @@ You need to ensure the required services are running and files are available.
 - Does **not** require a separate service.
 - The agent automatically detects and loads the `.db` files directly from the filesystem.
 
-Only **MySQL** and **MongoDB** require you to have their respective servers running locally (or accessible on a specified host). Please make sure both database services are properly installed and configured **before running the project**. 
+Only **PostgreSQL** and **MongoDB** require you to have their respective servers running locally (or accessible on a specified host). Please make sure both database services are properly installed and configured **before running the project**. 
 **SQLite** and **DuckDB** work as standalone files — no separate server installation is needed for them.
+Although MySQL is no longer the default choice, it is still supported and can be used if desired.
 
 ---
 ## 🔧 Configure .env 
@@ -73,13 +74,13 @@ Create a `.env` file in the project root directory with your actual credentials.
 Here is an example:
 
 ```env
-# MySQL configuration
-MYSQL_CLIENT=your_local_mysql.exe_path
-MYSQL_HOST=localhost
-MYSQL_PORT=3306
-MYSQL_USER=root
-MYSQL_PASSWORD=your_password
-MYSQL_DB=test
+# PostgreSQL configuration
+PG_CLIENT=your_local_psql.exe_path
+PG_USER=postgres
+PG_PASSWORD=your_password
+PG_HOST=localhost
+PG_PORT=5432
+PG_DB=mydb
 
 # MongoDB configuration
 MONGO_URI=mongodb://localhost:27017/
@@ -146,7 +147,7 @@ After these three lines execute, all databases defined in `db_config.yaml` will 
 
 Once done, you can also use `agent_tools.list_dbs()` and `agent_tools.query_db()` to interact with the databases seamlessly — they will use the correct connections under the hood.
 
-You only need to make sure to **correctly fill in the MongoDB and MySQL connection parameters in the `.env` file** — the rest is handled automatically.
+You only need to make sure to **correctly fill in the MongoDB and PostgreSQL connection parameters in the `.env` file** — the rest is handled automatically.
 
 
 #### What happens under the hood?
@@ -162,7 +163,7 @@ This calls:
 
 If the database is being used for the first time:
 - It checks if the database files or connections exist.
-- If not, it sets up the connections (for MySQL/MongoDB) and imports the database if needed.
+- If not, it sets up the connections (for PostgreSQL/MongoDB) and imports the database if needed.
 
 
 #### Notes
@@ -243,32 +244,30 @@ data = list(cursor)
 client.close()
 ```
 
-For MySQL: 
-Use the MySQL config to construct the URI and connect:
+For PostgreSQL:
+Use the PostgreSQL config to construct the URI and connect:
 ```python
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 import pandas as pd
 
-db_name = MYSQL_DB_FROM_CONFIG
+# fallback to config if db_name is not provided
+db_name = PG_DB_FROM_CONFIG
 
 uri = (
-    f"mysql+mysqlconnector://{MYSQL_USER}:{MYSQL_PASSWORD}"
-    f"@{MYSQL_HOST}:{MYSQL_PORT}/{db_name}"
+    f"postgresql+psycopg2://{PG_USER}:{PG_PASSWORD}"
+    f"@{PG_HOST}:{PG_PORT}/{db_name}"
 )
 
 engine = create_engine(uri)
 
 with engine.connect() as conn:
-    df = pd.read_sql(sql, conn)
+    df = pd.read_sql(text(sql), conn, params=None)
 ```
 **Notes**
 
 - These examples assume you have already run `auto_ensure_databases()` to ensure databases and connections are properly set up.
 - The `agent_tools` and `db_utils` already encapsulate these steps for you — if you use them, you don’t need to write these manually.
 - You may refer to the respective `<db>_utils.py` under `common_scaffold/db_utils/` for implementation details.
-
-📌 **TODO:** We will soon add support for **PostgreSQL** with a dedicated `postgres_utils.py`, and migrate the MySQL-format datasets to PostgreSQL.
-
 
 
 ### 📂 Run on your own datasets
@@ -291,8 +290,8 @@ MyDataset/
 ```
 2️⃣ Notes
 
-- Make sure your datasets in `query_dataset/` is in the supported database formats: **MySQL**, **MongoDB**, **SQLite**, or **DuckDB**. 
-- You can use the existing datasets (`GoogleLocal`, `BookReview`, etc.) as templates for all these files.
+- Make sure your datasets in `query_dataset/` is in the supported database formats: **PostgreSQL**， **MySQL**, **MongoDB**, **SQLite**, or **DuckDB**. 
+- You can use the existing datasets (`GoogleLocal`, `StockMarket`, etc.) as templates for all these files.
 - The `run_experiments.py` script and related modules in `common_scaffold/agent_tools` and `common_scaffold/db_utils` already implement the core logic — you just need to prepare your data and config.
 
 3️⃣ Run the benchmark
