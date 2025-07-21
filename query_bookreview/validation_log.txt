@@ -1,3 +1,4307 @@
+=== Validation Log (2025-07-21T16:29:11) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still; The Old Man and the Pirate Princess; Egypt (Enchantment of the World); Clark the Shark: Tooth Trouble, No. 1; Favorite Thorton W. Burgess Stories: 6 Books; Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised); Cheer Up, Ben Franklin! (Young Historians); The Library Book; Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1); LunaLu the Llamacorn; Trouble in the CTC!: The Terra Prime Adventures Book 2; Around the World Mazes; Cleo Porter and the Body Electric; Pokémon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:28:34) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Cheer Up, Ben Franklin! (Young Historians)
+Clark the Shark: Tooth Trouble, No. 1
+Cleo Porter and the Body Electric
+Egypt (Enchantment of the World)
+Favorite Thorton W. Burgess Stories: 6 Books
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+Pokémon: Sun & Moon, Vol. 8 (8)
+The Library Book
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:28:06) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Cheer Up, Ben Franklin! (Young Historians)
+Clark the Shark: Tooth Trouble, No. 1
+Cleo Porter and the Body Electric
+Egypt (Enchantment of the World)
+Favorite Thorton W. Burgess Stories: 6 Books
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+Pokémon: Sun & Moon, Vol. 8 (8)
+The Library Book
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:27:31) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pokémon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:26:39) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pokémon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:26:07) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pokémon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:25:25) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Cheer Up, Ben Franklin! (Young Historians)
+Clark the Shark: Tooth Trouble, No. 1
+Cleo Porter and the Body Electric
+Egypt (Enchantment of the World)
+Favorite Thorton W. Burgess Stories: 6 Books
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+Pokémon: Sun & Moon, Vol. 8 (8)
+The Library Book
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:24:53) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Cheer Up, Ben Franklin! (Young Historians)
+Clark the Shark: Tooth Trouble, No. 1
+Cleo Porter and the Body Electric
+Egypt (Enchantment of the World)
+Favorite Thorton W. Burgess Stories: 6 Books
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+Pokémon: Sun & Moon, Vol. 8 (8)
+The Library Book
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:24:28) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Cheer Up, Ben Franklin! (Young Historians)
+Clark the Shark: Tooth Trouble, No. 1
+Cleo Porter and the Body Electric
+Egypt (Enchantment of the World)
+Favorite Thorton W. Burgess Stories: 6 Books
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+Pokémon: Sun & Moon, Vol. 8 (8)
+The Library Book
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:23:50) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Cheer Up, Ben Franklin! (Young Historians)
+Clark the Shark: Tooth Trouble, No. 1
+Cleo Porter and the Body Electric
+Egypt (Enchantment of the World)
+Favorite Thorton W. Burgess Stories: 6 Books
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+Pokémon: Sun & Moon, Vol. 8 (8)
+The Library Book
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:23:21) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pok01mon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ❌ MISMATCH: Missing book title in LLM output: Pokémon: Sun & Moon, Vol. 8 (8)
+================================================================================
+
+=== Validation Log (2025-07-21T16:22:44) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pokémon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:21:46) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pokémon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:20:34) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pokémon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:19:47) ===
+Query: query3
+
+LLM Answer:
+The Library Book; Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1); The Old Man and the Pirate Princess; LunaLu the Llamacorn; Trouble in the CTC!: The Terra Prime Adventures Book 2; Around the World Mazes; Cleo Porter and the Body Electric; Pokémon: Sun & Moon, Vol. 8 (8); Monstrous Stories #4: The Day the Mice Stood Still; Egypt (Enchantment of the World); Clark the Shark: Tooth Trouble, No. 1; Favorite Thorton W. Burgess Stories: 6 Books; Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised); Cheer Up, Ben Franklin! (Young Historians)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:19:13) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Cheer Up, Ben Franklin! (Young Historians)
+Clark the Shark: Tooth Trouble, No. 1
+Cleo Porter and the Body Electric
+Egypt (Enchantment of the World)
+Favorite Thorton W. Burgess Stories: 6 Books
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+Pokémon: Sun & Moon, Vol. 8 (8)
+The Library Book
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:18:10) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Cheer Up, Ben Franklin! (Young Historians)
+Clark the Shark: Tooth Trouble, No. 1
+Cleo Porter and the Body Electric
+Egypt (Enchantment of the World)
+Favorite Thorton W. Burgess Stories: 6 Books
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+Pokémon: Sun & Moon, Vol. 8 (8)
+The Library Book
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:17:16) ===
+Query: query3
+
+LLM Answer:
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+The Old Man and the Pirate Princess
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pokémon: Sun & Moon, Vol. 8 (8)
+Monstrous Stories #4: The Day the Mice Stood Still
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:16:34) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ❌ MISMATCH: ❌ Agent crashed: ProgrammingError: (psycopg2.errors.SyntaxError) 错误:  语法错误 在 "s" 或附近的
+LINE 1: ...ROM books_info WHERE categories ILIKE '%Children\'s Books%' ...
+                                                             ^
+
+[SQL: SELECT book_id, title, categories FROM books_info WHERE categories ILIKE '%%Children\'s Books%%' LIMIT 20;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+================================================================================
+
+=== Validation Log (2025-07-21T16:16:14) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes; Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised); Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1); Cheer Up, Ben Franklin! (Young Historians); Clark the Shark: Tooth Trouble, No. 1; Cleo Porter and the Body Electric; Egypt (Enchantment of the World); Favorite Thorton W. Burgess Stories: 6 Books; LunaLu the Llamacorn; Monstrous Stories #4: The Day the Mice Stood Still; Pokémon: Sun & Moon, Vol. 8 (8); The Library Book; The Old Man and the Pirate Princess; Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:15:51) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Cheer Up, Ben Franklin! (Young Historians)
+Clark the Shark: Tooth Trouble, No. 1
+Cleo Porter and the Body Electric
+Egypt (Enchantment of the World)
+Favorite Thorton W. Burgess Stories: 6 Books
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+Pokémon: Sun & Moon, Vol. 8 (8)
+The Library Book
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:15:06) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+The Very Hungry Caterpillar (English and Arabic Edition)
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+I Hadn't Meant to Tell You This
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Goodnight Riley and the Moon, It's Almost Bedtime: Personalized Children’s Books, Personalized Gifts, and Bedtime Stories (A Magnificent Me! estorytime.com Series)
+Cheer Up, Ben Franklin! (Young Historians)
+Buddy the Soldier Bear
+The Library Book
+Can You Buy Me The Wind?
+From the Earth to the Moon by Jules Verne, Fiction, Fantasy & Magic
+Caroline's Color Dreams: Los Sueños Coloridos De Carolina : Babl Children's Books in Spanish and English
+Skeleton Play: A Fun, Rhyming Halloween Book for Kids! (1)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Mae and Jane in the Rain
+Kirsten: An American Girl : 1854 (The American Girls Collection/Boxed Set)
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Monster Kisses
+Pokémon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:14:11) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes; Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised); Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1); Cheer Up, Ben Franklin! (Young Historians); Clark the Shark: Tooth Trouble, No. 1; Cleo Porter and the Body Electric; Egypt (Enchantment of the World); Favorite Thorton W. Burgess Stories: 6 Books; LunaLu the Llamacorn; Monstrous Stories #4: The Day the Mice Stood Still; Pokémon: Sun & Moon, Vol. 8 (8); The Library Book; The Old Man and the Pirate Princess; Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:13:38) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Cheer Up, Ben Franklin! (Young Historians)
+Clark the Shark: Tooth Trouble, No. 1
+Cleo Porter and the Body Electric
+Egypt (Enchantment of the World)
+Favorite Thorton W. Burgess Stories: 6 Books
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+Pokémon: Sun & Moon, Vol. 8 (8)
+The Library Book
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:13:06) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pokémon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:12:32) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pokémon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:11:37) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Cheer Up, Ben Franklin! (Young Historians)
+Clark the Shark: Tooth Trouble, No. 1
+Cleo Porter and the Body Electric
+Egypt (Enchantment of the World)
+Favorite Thorton W. Burgess Stories: 6 Books
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+Pokémon: Sun & Moon, Vol. 8 (8)
+The Library Book
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:11:03) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Cheer Up, Ben Franklin! (Young Historians)
+Clark the Shark: Tooth Trouble, No. 1
+Cleo Porter and the Body Electric
+Egypt (Enchantment of the World)
+Favorite Thorton W. Burgess Stories: 6 Books
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+Pokémon: Sun & Moon, Vol. 8 (8)
+The Library Book
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:10:33) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Cheer Up, Ben Franklin! (Young Historians)
+Clark the Shark: Tooth Trouble, No. 1
+Cleo Porter and the Body Electric
+Egypt (Enchantment of the World)
+Favorite Thorton W. Burgess Stories: 6 Books
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+Pokémon: Sun & Moon, Vol. 8 (8)
+The Library Book
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:09:21) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes; Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised); Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1); Cheer Up, Ben Franklin! (Young Historians); Clark the Shark: Tooth Trouble, No. 1; Cleo Porter and the Body Electric; Egypt (Enchantment of the World); Favorite Thorton W. Burgess Stories: 6 Books; LunaLu the Llamacorn; Monstrous Stories #4: The Day the Mice Stood Still; Pokémon: Sun & Moon, Vol. 8 (8); The Library Book; The Old Man and the Pirate Princess; Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:07:38) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ❌ MISMATCH: ❌ Agent crashed: ProgrammingError: (psycopg2.errors.UndefinedTable) 错误:  关系 "books" 不存在
+LINE 1: SELECT book_id, title, categories FROM books WHERE categorie...
+                                               ^
+
+[SQL: SELECT book_id, title, categories FROM books WHERE categories ILIKE '%%Children''s Books%%';]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+================================================================================
+
+=== Validation Log (2025-07-21T16:07:34) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pokémon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:06:46) ===
+Query: query3
+
+LLM Answer:
+The Library Book; Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1); The Old Man and the Pirate Princess; LunaLu the Llamacorn; Trouble in the CTC!: The Terra Prime Adventures Book 2; Around the World Mazes; Cleo Porter and the Body Electric; Pokémon: Sun & Moon, Vol. 8 (8); Monstrous Stories #4: The Day the Mice Stood Still; Egypt (Enchantment of the World); Clark the Shark: Tooth Trouble, No. 1; Favorite Thorton W. Burgess Stories: 6 Books; Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised); Cheer Up, Ben Franklin! (Young Historians)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:06:07) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ❌ MISMATCH: ❌ Agent crashed: DatabaseError: Execution failed on sql 'SELECT purchase_id, AVG(rating) AS avg_rating
+FROM reviews
+WHERE review_time >= '2020-01-01'
+GROUP BY purchase_id
+HAVING avg_rating >= 4.5;': no such table: reviews
+================================================================================
+
+=== Validation Log (2025-07-21T16:06:02) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pokémon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:05:17) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pokémon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:04:24) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Cheer Up, Ben Franklin! (Young Historians)
+Clark the Shark: Tooth Trouble, No. 1
+Cleo Porter and the Body Electric
+Egypt (Enchantment of the World)
+Favorite Thorton W. Burgess Stories: 6 Books
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+Pokémon: Sun & Moon, Vol. 8 (8)
+The Library Book
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:03:33) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pokémon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:02:37) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Cheer Up, Ben Franklin! (Young Historians)
+Clark the Shark: Tooth Trouble, No. 1
+Cleo Porter and the Body Electric
+Egypt (Enchantment of the World)
+Favorite Thorton W. Burgess Stories: 6 Books
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+Pokémon: Sun & Moon, Vol. 8 (8)
+The Library Book
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:01:46) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes; Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised); Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1); Cheer Up, Ben Franklin! (Young Historians); Clark the Shark: Tooth Trouble, No. 1; Cleo Porter and the Body Electric; Egypt (Enchantment of the World); Favorite Thorton W. Burgess Stories: 6 Books; LunaLu the Llamacorn; Monstrous Stories #4: The Day the Mice Stood Still; Pokémon: Sun & Moon, Vol. 8 (8); The Library Book; The Old Man and the Pirate Princess; Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T16:01:07) ===
+Query: query3
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ❌ MISMATCH: ❌ Agent crashed: ProgrammingError: (psycopg2.errors.WrongObjectType) 错误:  操作ANY/ALL (array)需要产生布尔值的操作符.
+LINE 1: ..., categories FROM books_info WHERE book_id ~ '_(' || ANY(ARR...
+                                                             ^
+
+[SQL: SELECT book_id, title, categories FROM books_info WHERE book_id ~ '_(' || ANY(ARRAY['10','105','108','110','115','118','12','122','126','129','13','130','14','144','146','149','152','154','158','161','169','170','172','178','182','184','185','187','192','196','198','200','22','23','3','33','37','38','39','4','40','41','46','48','50','54','55','6','60','66','72','74','76','8','80','83','88','94','96']) || '$']
+(Background on this error at: https://sqlalche.me/e/20/f405)
+================================================================================
+
+=== Validation Log (2025-07-21T16:00:31) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still; The Old Man and the Pirate Princess; Egypt (Enchantment of the World); Clark the Shark: Tooth Trouble, No. 1; Favorite Thorton W. Burgess Stories: 6 Books; Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised); Cheer Up, Ben Franklin! (Young Historians); The Library Book; Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1); LunaLu the Llamacorn; Trouble in the CTC!: The Terra Prime Adventures Book 2; Around the World Mazes; Cleo Porter and the Body Electric; Pokémon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:59:50) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Cheer Up, Ben Franklin! (Young Historians)
+Clark the Shark: Tooth Trouble, No. 1
+Cleo Porter and the Body Electric
+Egypt (Enchantment of the World)
+Favorite Thorton W. Burgess Stories: 6 Books
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+Pokémon: Sun & Moon, Vol. 8 (8)
+The Library Book
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:59:04) ===
+Query: query3
+
+LLM Answer:
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+The Old Man and the Pirate Princess
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pokémon: Sun & Moon, Vol. 8 (8)
+Monstrous Stories #4: The Day the Mice Stood Still
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:58:06) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pok3mon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ❌ MISMATCH: Missing book title in LLM output: Pokémon: Sun & Moon, Vol. 8 (8)
+================================================================================
+
+=== Validation Log (2025-07-21T15:57:22) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pokémon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:56:16) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Cheer Up, Ben Franklin! (Young Historians)
+Clark the Shark: Tooth Trouble, No. 1
+Cleo Porter and the Body Electric
+Egypt (Enchantment of the World)
+Favorite Thorton W. Burgess Stories: 6 Books
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+Pokémon: Sun & Moon, Vol. 8 (8)
+The Library Book
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:55:43) ===
+Query: query3
+
+LLM Answer:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+Cheer Up, Ben Franklin! (Young Historians)
+Clark the Shark: Tooth Trouble, No. 1
+Cleo Porter and the Body Electric
+Egypt (Enchantment of the World)
+Favorite Thorton W. Burgess Stories: 6 Books
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+Pokémon: Sun & Moon, Vol. 8 (8)
+The Library Book
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:55:18) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pokémon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:54:33) ===
+Query: query3
+
+LLM Answer:
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Egypt (Enchantment of the World)
+Clark the Shark: Tooth Trouble, No. 1
+Favorite Thorton W. Burgess Stories: 6 Books
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Cheer Up, Ben Franklin! (Young Historians)
+The Library Book
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+LunaLu the Llamacorn
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+Around the World Mazes
+Cleo Porter and the Body Electric
+Pokémon: Sun & Moon, Vol. 8 (8)
+
+Ground Truth:
+Around the World Mazes
+Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)
+Benny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)
+"Cheer Up, Ben Franklin! (Young Historians)"
+Favorite Thorton W. Burgess Stories: 6 Books
+Egypt (Enchantment of the World)
+"Pokémon: Sun & Moon, Vol. 8 (8)"
+The Library Book
+LunaLu the Llamacorn
+Monstrous Stories #4: The Day the Mice Stood Still
+The Old Man and the Pirate Princess
+Trouble in the CTC!: The Terra Prime Adventures Book 2
+"Clark the Shark: Tooth Trouble, No. 1"
+Cleo Porter and the Body Electric
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:53:35) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:52:29) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:51:39) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:50:48) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park; The Prophet: With Original 1923 Illustrations by the Author; The Melancholy Strumpet Master; Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message; Fire Cracker; Local Honey; Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries); Knowing When To Die: Uncollected Stories; Childe Harold of Dysna; Forged in Blood (Freehold); Exits, Desires, & Slow Fires; Kennebago Moments; The Sludge; Liza of Lambeth; Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:49:37) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:48:57) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:48:15) ===
+Query: query2
+
+LLM Answer:
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message; Childe Harold of Dysna; Exits, Desires, & Slow Fires; Fire Cracker; Forged in Blood (Freehold); Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries); Kennebago Moments; Knowing When To Die: Uncollected Stories; Liza of Lambeth; Local Honey; Reunion: The Children of Lauderdale Park; Something That Feels Like Truth (Switchgrass Books); The Melancholy Strumpet Master; The Prophet: With Original 1923 Illustrations by the Author; The Sludge
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:47:18) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:46:33) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:45:47) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:44:53) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:44:07) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:43:23) ===
+Query: query2
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ❌ MISMATCH: ❌ Agent crashed: ProgrammingError: (psycopg2.errors.SyntaxError) 错误:  语法错误 在输入的末尾
+LINE 1: ...ook_id, title, categories FROM books_info WHERE book_id IN (
+                                                                       ^
+
+[SQL: SELECT book_id, title, categories FROM books_info WHERE book_id IN (]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+================================================================================
+
+=== Validation Log (2025-07-21T15:42:54) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:41:54) ===
+Query: query2
+
+LLM Answer:
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Childe Harold of Dysna
+Exits, Desires, & Slow Fires
+Fire Cracker
+Forged in Blood (Freehold)
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Kennebago Moments
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Local Honey
+Reunion: The Children of Lauderdale Park
+Something That Feels Like Truth (Switchgrass Books)
+The Melancholy Strumpet Master
+The Prophet: With Original 1923 Illustrations by the Author
+The Sludge
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:40:53) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:40:00) ===
+Query: query2
+
+LLM Answer:
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Childe Harold of Dysna
+Exits, Desires, & Slow Fires
+Fire Cracker
+Forged in Blood (Freehold)
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Kennebago Moments
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Local Honey
+Reunion: The Children of Lauderdale Park
+Something That Feels Like Truth (Switchgrass Books)
+The Melancholy Strumpet Master
+The Prophet: With Original 1923 Illustrations by the Author
+The Sludge
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:39:27) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:38:46) ===
+Query: query2
+
+LLM Answer:
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ❌ MISMATCH: Missing book title in LLM output: Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+================================================================================
+
+=== Validation Log (2025-07-21T15:37:49) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:37:01) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:35:59) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:35:17) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:34:09) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:33:17) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:32:04) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:30:48) ===
+Query: query2
+
+LLM Answer:
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Childe Harold of Dysna
+Exits, Desires, & Slow Fires
+Fire Cracker
+Forged in Blood (Freehold)
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Kennebago Moments
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Local Honey
+Reunion: The Children of Lauderdale Park
+Something That Feels Like Truth (Switchgrass Books)
+The Melancholy Strumpet Master
+The Prophet: With Original 1923 Illustrations by the Author
+The Sludge
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:30:14) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:28:55) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:28:17) ===
+Query: query2
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ❌ MISMATCH: ❌ Agent crashed: ProgrammingError: (psycopg2.errors.SyntaxError) 错误:  语法错误 在输入的末尾
+LINE 1: ...itle, categories, details FROM books_info WHERE book_id IN (
+                                                                       ^
+
+[SQL: SELECT title, categories, details FROM books_info WHERE book_id IN (]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+================================================================================
+
+=== Validation Log (2025-07-21T15:27:41) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:25:50) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park; The Prophet: With Original 1923 Illustrations by the Author; The Melancholy Strumpet Master; Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message; Fire Cracker; Local Honey; Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries); Knowing When To Die: Uncollected Stories; Childe Harold of Dysna; Forged in Blood (Freehold); Exits, Desires, & Slow Fires; Kennebago Moments; The Sludge; Liza of Lambeth; Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:24:46) ===
+Query: query2
+
+LLM Answer:
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Childe Harold of Dysna
+Exits, Desires, & Slow Fires
+Fire Cracker
+Forged in Blood (Freehold)
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Kennebago Moments
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Local Honey
+Reunion: The Children of Lauderdale Park
+Something That Feels Like Truth (Switchgrass Books)
+The Melancholy Strumpet Master
+The Prophet: With Original 1923 Illustrations by the Author
+The Sludge
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:23:23) ===
+Query: query2
+
+LLM Answer:
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Childe Harold of Dysna
+Exits, Desires, & Slow Fires
+Fire Cracker
+Forged in Blood (Freehold)
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Kennebago Moments
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Local Honey
+Reunion: The Children of Lauderdale Park
+Something That Feels Like Truth (Switchgrass Books)
+The Melancholy Strumpet Master
+The Prophet: With Original 1923 Illustrations by the Author
+The Sludge
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:22:37) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:21:22) ===
+Query: query2
+
+LLM Answer:
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Childe Harold of Dysna
+Exits, Desires, & Slow Fires
+Fire Cracker
+Forged in Blood (Freehold)
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Kennebago Moments
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Local Honey
+Reunion: The Children of Lauderdale Park
+Something That Feels Like Truth (Switchgrass Books)
+The Melancholy Strumpet Master
+The Prophet: With Original 1923 Illustrations by the Author
+The Sludge
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:20:32) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:19:36) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:19:05) ===
+Query: query2
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ❌ MISMATCH: ❌ Agent crashed: ProgrammingError: (psycopg2.errors.SyntaxError) 错误:  语法错误 在输入的末尾
+LINE 1: ...ook_id, title, categories FROM books_info WHERE book_id IN (
+                                                                       ^
+
+[SQL: SELECT book_id, title, categories FROM books_info WHERE book_id IN (]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+================================================================================
+
+=== Validation Log (2025-07-21T15:18:43) ===
+Query: query2
+
+LLM Answer:
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Childe Harold of Dysna
+Exits, Desires, & Slow Fires
+Fire Cracker
+Forged in Blood (Freehold)
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Kennebago Moments
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Local Honey
+Reunion: The Children of Lauderdale Park
+Something That Feels Like Truth (Switchgrass Books)
+The Melancholy Strumpet Master
+The Prophet: With Original 1923 Illustrations by the Author
+The Sludge
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:17:42) ===
+Query: query2
+
+LLM Answer:
+Knowing When To Die: Uncollected Stories; Childe Harold of Dysna
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ❌ MISMATCH: Missing book title in LLM output: The Sludge
+================================================================================
+
+=== Validation Log (2025-07-21T15:17:05) ===
+Query: query2
+
+LLM Answer:
+["Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message", "Childe Harold of Dysna", "Exits, Desires, & Slow Fires", "Fire Cracker", "Forged in Blood (Freehold)", "Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)", "Kennebago Moments", "Knowing When To Die: Uncollected Stories", "Liza of Lambeth", "Local Honey", "Reunion: The Children of Lauderdale Park", "Something That Feels Like Truth (Switchgrass Books)", "The Melancholy Strumpet Master", "The Prophet: With Original 1923 Illustrations by the Author", "The Sludge"]
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:16:27) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:15:41) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:14:43) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:13:50) ===
+Query: query2
+
+LLM Answer:
+bookid_9	Reunion: The Children of Lauderdale Park
+bookid_38	The Prophet: With Original 1923 Illustrations by the Author
+bookid_39	The Melancholy Strumpet Master
+bookid_74	Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+bookid_82	Fire Cracker
+bookid_84	Local Honey
+bookid_98	Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+bookid_101	Knowing When To Die: Uncollected Stories
+bookid_122	Childe Harold of Dysna
+bookid_144	Forged in Blood (Freehold)
+bookid_171	Exits, Desires, & Slow Fires
+bookid_177	Kennebago Moments
+bookid_180	The Sludge
+bookid_182	Liza of Lambeth
+bookid_195	Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:12:43) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:12:01) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:11:21) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:10:18) ===
+Query: query2
+
+LLM Answer:
+Reunion: The Children of Lauderdale Park
+The Prophet: With Original 1923 Illustrations by the Author
+The Melancholy Strumpet Master
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+Fire Cracker
+Local Honey
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Knowing When To Die: Uncollected Stories
+Childe Harold of Dysna
+Forged in Blood (Freehold)
+Exits, Desires, & Slow Fires
+Kennebago Moments
+The Sludge
+Liza of Lambeth
+Something That Feels Like Truth (Switchgrass Books)
+
+Ground Truth:
+The Sludge
+Something That Feels Like Truth (Switchgrass Books)
+Kennebago Moments
+Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)
+Forged in Blood (Freehold)
+Local Honey
+"Exits, Desires, & Slow Fires"
+Fire Cracker
+Reunion: The Children of Lauderdale Park
+Childe Harold of Dysna
+The Prophet: With Original 1923 Illustrations by the Author
+Knowing When To Die: Uncollected Stories
+Liza of Lambeth
+Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message
+The Melancholy Strumpet Master
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:09:23) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type DataFrame is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-21T15:08:14) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:07:04) ===
+Query: query1
+
+LLM Answer:
+1980s
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: Ground truth '2020' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-21T15:05:51) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:04:44) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:03:31) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:02:31) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T15:01:14) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:59:23) ===
+Query: query1
+
+LLM Answer:
+1980s
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: Ground truth '2020' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-21T14:58:02) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type DataFrame is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-21T14:55:32) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:54:24) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:53:01) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:51:30) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type DataFrame is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-21T14:49:30) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:48:17) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:47:22) ===
+Query: query1
+
+LLM Answer:
+1980s
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: Ground truth '2020' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-21T14:45:22) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:44:32) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: ❌ Agent crashed: StatementError: (sqlalchemy.exc.InvalidRequestError) A value is required for bind parameter '19'
+[SQL: SELECT book_id, substring(details FROM '(?%(19)s|20)[0-9]{2}') AS year FROM books_info LIMIT 20;]
+(Background on this error at: https://sqlalche.me/e/20/cd3x)
+================================================================================
+
+=== Validation Log (2025-07-21T14:43:23) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type DataFrame is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-21T14:42:17) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type DataFrame is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-21T14:40:10) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:38:45) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:37:28) ===
+Query: query1
+
+LLM Answer:
+1980s
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: Ground truth '2020' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-21T14:36:38) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: ❌ Agent crashed: NotSupportedError: (psycopg2.errors.FeatureNotSupported) 错误:  返回集合函数不允许出现在WHERE中
+LINE 3: WHERE (regexp_matches(details, '(18[0-9]{2}|19[0-9]{2}|20[0-...
+               ^
+
+[SQL: SELECT book_id, (regexp_matches(details, '(18[0-9]{2}|19[0-9]{2}|20[0-9]{2})'))[1]::int AS pub_year
+FROM books_info
+WHERE (regexp_matches(details, '(18[0-9]{2}|19[0-9]{2}|20[0-9]{2})')) IS NOT NULL;]
+(Background on this error at: https://sqlalche.me/e/20/tw8g)
+================================================================================
+
+=== Validation Log (2025-07-21T14:34:34) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type Series is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-21T14:32:56) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:31:59) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:30:49) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:29:12) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: ❌ Agent crashed: ProgrammingError: (psycopg2.errors.SyntaxError) 错误:  语法错误 在输入的末尾
+LINE 1: SELECT book_id, details FROM books_info WHERE book_id IN (
+                                                                  ^
+
+[SQL: SELECT book_id, details FROM books_info WHERE book_id IN (]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+================================================================================
+
+=== Validation Log (2025-07-21T14:27:37) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:26:07) ===
+Query: query1
+
+LLM Answer:
+1980s
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: Ground truth '2020' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-21T14:24:40) ===
+Query: query1
+
+LLM Answer:
+20s
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: Ground truth '2020' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-21T14:22:59) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:22:08) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:20:39) ===
+Query: query1
+
+LLM Answer:
+20s
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: Ground truth '2020' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-21T14:19:31) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: ❌ Agent crashed: ProgrammingError: (psycopg2.errors.SyntaxError) 错误:  语法错误 在输入的末尾
+LINE 1: SELECT book_id, details FROM books_info WHERE book_id IN (
+                                                                  ^
+
+[SQL: SELECT book_id, details FROM books_info WHERE book_id IN (]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+================================================================================
+
+=== Validation Log (2025-07-21T14:18:06) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: ❌ Agent crashed: ProgrammingError: (psycopg2.errors.UndefinedTable) 错误:  关系 "books" 不存在
+LINE 1: SELECT details FROM books LIMIT 5;
+                            ^
+
+[SQL: SELECT details FROM books LIMIT 5;]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+================================================================================
+
+=== Validation Log (2025-07-21T14:18:01) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: ❌ Agent crashed: ProgrammingError: (psycopg2.errors.SyntaxError) 错误:  语法错误 在输入的末尾
+LINE 1: SELECT book_id, details FROM books_info WHERE book_id IN (
+                                                                  ^
+
+[SQL: SELECT book_id, details FROM books_info WHERE book_id IN (]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+================================================================================
+
+=== Validation Log (2025-07-21T14:17:12) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:16:13) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: ❌ Agent crashed: ProgrammingError: (psycopg2.errors.UndefinedTable) 错误:  关系 "review" 不存在
+LINE 1: ... WHERE book_id IN (SELECT DISTINCT purchase_id FROM review);
+                                                               ^
+
+[SQL: SELECT COUNT(*) FROM books_info WHERE book_id IN (SELECT DISTINCT purchase_id FROM review);]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+================================================================================
+
+=== Validation Log (2025-07-21T14:15:27) ===
+Query: query1
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: ❌ Agent crashed: TypeError: Object of type DataFrame is not JSON serializable
+================================================================================
+
+=== Validation Log (2025-07-21T14:14:42) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:11:56) ===
+Query: query1
+
+LLM Answer:
+1980s
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: Ground truth '2020' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-21T14:11:07) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:10:21) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:09:05) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:08:10) ===
+Query: query1
+
+LLM Answer:
+1980s
+
+Ground Truth:
+2020
+
+Result: ❌ MISMATCH: Ground truth '2020' not found in LLM output.
+================================================================================
+
+=== Validation Log (2025-07-21T14:07:14) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-21T14:06:21) ===
+Query: query1
+
+LLM Answer:
+2020s
+
+Ground Truth:
+2020
+
+Result: ✅ MATCH
+================================================================================
+
 === Validation Log (2025-07-17T17:56:55) ===
 Query: query3
 
