@@ -1,3 +1,242 @@
+=== Validation Log (2025-07-23T15:22:33) ===
+Query: query3
+
+LLM Answer:
+Taba Rug Gallery | [["Thursday", "10AM–7PM"], ["Friday", "10AM–7PM"], ["Saturday", "10AM–7PM"], ["Sunday", "11AM–6PM"], ["Monday", "10AM–7PM"], ["Tuesday", "10AM–7PM"], ["Wednesday", "10AM–7PM"]] | 5.00
+Beauty Divine Artistry | [["Thursday", "9AM–8PM"], ["Friday", "9AM–8PM"], ["Saturday", "10AM–7PM"], ["Sunday", "11AM–6PM"], ["Monday", "9AM–8PM"], ["Tuesday", "9AM–8PM"], ["Wednesday", "9AM–8PM"]] | 5.00
+White Barn Candle Co | [["Thursday", "10AM–9PM"], ["Friday", "10AM–9PM"], ["Saturday", "10AM–9PM"], ["Sunday", "11AM–7PM"], ["Monday", "10AM–9PM"], ["Tuesday", "10AM–9PM"], ["Wednesday", "10AM–9PM"]] | 5.00
+TACOS LA CABANA | [["Thursday", "Closed"], ["Friday", "5–11PM"], ["Saturday", "5–11PM"], ["Sunday", "5–11PM"], ["Monday", "5–11PM"], ["Tuesday", "Closed"], ["Wednesday", "Closed"]] | 5.00
+Mariscos el poblano | [["Thursday", "Open 24 hours"], ["Friday", "8AM–3:30PM"], ["Saturday", "8AM–3:30PM"], ["Sunday", "8AM–3:30PM"], ["Monday", "9AM–3:30AM"], ["Tuesday", "8AM–3:30PM"], ["Wednesday", "8AM–3:30PM"]] | 5.00
+
+Ground Truth:
+TACOS LA CABANA,"[['Thursday', 'Closed'], ['Friday', '5–11PM'], ['Saturday', '5–11PM'], ['Sunday', '5–11PM'], ['Monday', '5–11PM'], ['Tuesday', 'Closed'], ['Wednesday', 'Closed']]",5.0
+White Barn Candle Co,"[['Thursday', '10AM–9PM'], ['Friday', '10AM–9PM'], ['Saturday', '10AM–9PM'], ['Sunday', '11AM–7PM'], ['Monday', '10AM–9PM'], ['Tuesday', '10AM–9PM'], ['Wednesday', '10AM–9PM']]",5.0
+Mariscos el poblano,"[['Thursday', 'Open 24 hours'], ['Friday', '8AM–3:30PM'], ['Saturday', '8AM–3:30PM'], ['Sunday', '8AM–3:30PM'], ['Monday', '9AM–3:30AM'], ['Tuesday', '8AM–3:30PM'], ['Wednesday', '8AM–3:30PM']]",5.0
+Beauty Divine Artistry,"[['Thursday', '9AM–8PM'], ['Friday', '9AM–8PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '9AM–8PM'], ['Tuesday', '9AM–8PM'], ['Wednesday', '9AM–8PM']]",5.0
+Taba Rug Gallery,"[['Thursday', '10AM–7PM'], ['Friday', '10AM–7PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '10AM–7PM'], ['Tuesday', '10AM–7PM'], ['Wednesday', '10AM–7PM']]",5.0
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-23T15:17:05) ===
+Query: query3
+
+LLM Answer:
+Taba Rug Gallery | [['Thursday', '10AM–7PM'], ['Friday', '10AM–7PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '10AM–7PM'], ['Tuesday', '10AM–7PM'], ['Wednesday', '10AM–7PM']] | 5.00
+Beauty Divine Artistry | [['Thursday', '9AM–8PM'], ['Friday', '9AM–8PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '9AM–8PM'], ['Tuesday', '9AM–8PM'], ['Wednesday', '9AM–8PM']] | 5.00
+White Barn Candle Co | [['Thursday', '10AM–9PM'], ['Friday', '10AM–9PM'], ['Saturday', '10AM–9PM'], ['Sunday', '11AM–7PM'], ['Monday', '10AM–9PM'], ['Tuesday', '10AM–9PM'], ['Wednesday', '10AM–9PM']] | 5.00
+TACOS LA CABANA | [['Thursday', 'Closed'], ['Friday', '5–11PM'], ['Saturday', '5–11PM'], ['Sunday', '5–11PM'], ['Monday', '5–11PM'], ['Tuesday', 'Closed'], ['Wednesday', 'Closed']] | 5.00
+Mariscos el poblano | [['Thursday', 'Open 24 hours'], ['Friday', '8AM–3:30PM'], ['Saturday', '8AM–3:30PM'], ['Sunday', '8AM–3:30PM'], ['Monday', '9AM–3:30AM'], ['Tuesday', '8AM–3:30PM'], ['Wednesday', '8AM–3:30PM']] | 5.00
+
+Ground Truth:
+TACOS LA CABANA,"[['Thursday', 'Closed'], ['Friday', '5–11PM'], ['Saturday', '5–11PM'], ['Sunday', '5–11PM'], ['Monday', '5–11PM'], ['Tuesday', 'Closed'], ['Wednesday', 'Closed']]",5.0
+White Barn Candle Co,"[['Thursday', '10AM–9PM'], ['Friday', '10AM–9PM'], ['Saturday', '10AM–9PM'], ['Sunday', '11AM–7PM'], ['Monday', '10AM–9PM'], ['Tuesday', '10AM–9PM'], ['Wednesday', '10AM–9PM']]",5.0
+Mariscos el poblano,"[['Thursday', 'Open 24 hours'], ['Friday', '8AM–3:30PM'], ['Saturday', '8AM–3:30PM'], ['Sunday', '8AM–3:30PM'], ['Monday', '9AM–3:30AM'], ['Tuesday', '8AM–3:30PM'], ['Wednesday', '8AM–3:30PM']]",5.0
+Beauty Divine Artistry,"[['Thursday', '9AM–8PM'], ['Friday', '9AM–8PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '9AM–8PM'], ['Tuesday', '9AM–8PM'], ['Wednesday', '9AM–8PM']]",5.0
+Taba Rug Gallery,"[['Thursday', '10AM–7PM'], ['Friday', '10AM–7PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '10AM–7PM'], ['Tuesday', '10AM–7PM'], ['Wednesday', '10AM–7PM']]",5.0
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-23T15:03:29) ===
+Query: query3
+
+LLM Answer:
+Taba Rug Gallery | [["Thursday", "10AM–7PM"], ["Friday", "10AM–7PM"], ["Saturday", "10AM–7PM"], ["Sunday", "11AM–6PM"], ["Monday", "10AM–7PM"], ["Tuesday", "10AM–7PM"], ["Wednesday", "10AM–7PM"]] | 5.0
+Beauty Divine Artistry | [["Thursday", "9AM–8PM"], ["Friday", "9AM–8PM"], ["Saturday", "10AM–7PM"], ["Sunday", "11AM–6PM"], ["Monday", "9AM–8PM"], ["Tuesday", "9AM–8PM"], ["Wednesday", "9AM–8PM"]] | 5.0
+White Barn Candle Co | [["Thursday", "10AM–9PM"], ["Friday", "10AM–9PM"], ["Saturday", "10AM–9PM"], ["Sunday", "11AM–7PM"], ["Monday", "10AM–9PM"], ["Tuesday", "10AM–9PM"], ["Wednesday", "10AM–9PM"]] | 5.0
+TACOS LA CABANA | [["Thursday", "Closed"], ["Friday", "5–11PM"], ["Saturday", "5–11PM"], ["Sunday", "5–11PM"], ["Monday", "5–11PM"], ["Tuesday", "Closed"], ["Wednesday", "Closed"]] | 5.0
+Mariscos el poblano | [["Thursday", "Open 24 hours"], ["Friday", "8AM–3:30PM"], ["Saturday", "8AM–3:30PM"], ["Sunday", "8AM–3:30PM"], ["Monday", "9AM–3:30AM"], ["Tuesday", "8AM–3:30PM"], ["Wednesday", "8AM–3:30PM"]] | 5.0
+
+Ground Truth:
+TACOS LA CABANA,"[['Thursday', 'Closed'], ['Friday', '5–11PM'], ['Saturday', '5–11PM'], ['Sunday', '5–11PM'], ['Monday', '5–11PM'], ['Tuesday', 'Closed'], ['Wednesday', 'Closed']]",5.0
+White Barn Candle Co,"[['Thursday', '10AM–9PM'], ['Friday', '10AM–9PM'], ['Saturday', '10AM–9PM'], ['Sunday', '11AM–7PM'], ['Monday', '10AM–9PM'], ['Tuesday', '10AM–9PM'], ['Wednesday', '10AM–9PM']]",5.0
+Mariscos el poblano,"[['Thursday', 'Open 24 hours'], ['Friday', '8AM–3:30PM'], ['Saturday', '8AM–3:30PM'], ['Sunday', '8AM–3:30PM'], ['Monday', '9AM–3:30AM'], ['Tuesday', '8AM–3:30PM'], ['Wednesday', '8AM–3:30PM']]",5.0
+Beauty Divine Artistry,"[['Thursday', '9AM–8PM'], ['Friday', '9AM–8PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '9AM–8PM'], ['Tuesday', '9AM–8PM'], ['Wednesday', '9AM–8PM']]",5.0
+Taba Rug Gallery,"[['Thursday', '10AM–7PM'], ['Friday', '10AM–7PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '10AM–7PM'], ['Tuesday', '10AM–7PM'], ['Wednesday', '10AM–7PM']]",5.0
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-23T14:54:38) ===
+Query: query3
+
+LLM Answer:
+White Barn Candle Co – [['Thursday', '10AM–9PM'], ['Friday', '10AM–9PM'], ['Saturday', '10AM–9PM'], ['Sunday', '11AM–7PM'], ['Monday', '10AM–9PM'], ['Tuesday', '10AM–9PM'], ['Wednesday', '10AM–9PM']] – 5
+Beauty Divine Artistry – [['Thursday', '9AM–8PM'], ['Friday', '9AM–8PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '9AM–8PM'], ['Tuesday', '9AM–8PM'], ['Wednesday', '9AM–8PM']] – 5
+TACOS LA CABANA – [['Thursday', 'Closed'], ['Friday', '5–11PM'], ['Saturday', '5–11PM'], ['Sunday', '5–11PM'], ['Monday', '5–11PM'], ['Tuesday', 'Closed'], ['Wednesday', 'Closed']] – 5
+Taba Rug Gallery – [['Thursday', '10AM–7PM'], ['Friday', '10AM–7PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '10AM–7PM'], ['Tuesday', '10AM–7PM'], ['Wednesday', '10AM–7PM']] – 5
+Paradise tattoo – [['Thursday', '12–10PM'], ['Friday', '12PM–12AM'], ['Saturday', '12PM–12AM'], ['Sunday', '12–10PM'], ['Monday', '12–10PM'], ['Tuesday', '12–10PM'], ['Wednesday', '12–10PM']] – 4.96031746031746
+
+Ground Truth:
+TACOS LA CABANA,"[['Thursday', 'Closed'], ['Friday', '5–11PM'], ['Saturday', '5–11PM'], ['Sunday', '5–11PM'], ['Monday', '5–11PM'], ['Tuesday', 'Closed'], ['Wednesday', 'Closed']]",5.0
+White Barn Candle Co,"[['Thursday', '10AM–9PM'], ['Friday', '10AM–9PM'], ['Saturday', '10AM–9PM'], ['Sunday', '11AM–7PM'], ['Monday', '10AM–9PM'], ['Tuesday', '10AM–9PM'], ['Wednesday', '10AM–9PM']]",5.0
+Mariscos el poblano,"[['Thursday', 'Open 24 hours'], ['Friday', '8AM–3:30PM'], ['Saturday', '8AM–3:30PM'], ['Sunday', '8AM–3:30PM'], ['Monday', '9AM–3:30AM'], ['Tuesday', '8AM–3:30PM'], ['Wednesday', '8AM–3:30PM']]",5.0
+Beauty Divine Artistry,"[['Thursday', '9AM–8PM'], ['Friday', '9AM–8PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '9AM–8PM'], ['Tuesday', '9AM–8PM'], ['Wednesday', '9AM–8PM']]",5.0
+Taba Rug Gallery,"[['Thursday', '10AM–7PM'], ['Friday', '10AM–7PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '10AM–7PM'], ['Tuesday', '10AM–7PM'], ['Wednesday', '10AM–7PM']]",5.0
+
+Result: ❌ MISMATCH: Missing business name: Mariscos el poblano
+================================================================================
+
+=== Validation Log (2025-07-23T14:48:01) ===
+Query: query3
+
+LLM Answer:
+Taba Rug Gallery | [["Thursday", "10AM–7PM"], ["Friday", "10AM–7PM"], ["Saturday", "10AM–7PM"], ["Sunday", "11AM–6PM"], ["Monday", "10AM–7PM"], ["Tuesday", "10AM–7PM"], ["Wednesday", "10AM–7PM"]] | 5.00
+Beauty Divine Artistry | [["Thursday", "9AM–8PM"], ["Friday", "9AM–8PM"], ["Saturday", "10AM–7PM"], ["Sunday", "11AM–6PM"], ["Monday", "9AM–8PM"], ["Tuesday", "9AM–8PM"], ["Wednesday", "9AM–8PM"]] | 5.00
+White Barn Candle Co | [["Thursday", "10AM–9PM"], ["Friday", "10AM–9PM"], ["Saturday", "10AM–9PM"], ["Sunday", "11AM–7PM"], ["Monday", "10AM–9PM"], ["Tuesday", "10AM–9PM"], ["Wednesday", "10AM–9PM"]] | 5.00
+TACOS LA CABANA | [["Thursday", "Closed"], ["Friday", "5–11PM"], ["Saturday", "5–11PM"], ["Sunday", "5–11PM"], ["Monday", "5–11PM"], ["Tuesday", "Closed"], ["Wednesday", "Closed"]] | 5.00
+Mariscos el poblano | [["Thursday", "Open 24 hours"], ["Friday", "8AM–3:30PM"], ["Saturday", "8AM–3:30PM"], ["Sunday", "8AM–3:30PM"], ["Monday", "9AM–3:30AM"], ["Tuesday", "8AM–3:30PM"], ["Wednesday", "8AM–3:30PM"]] | 5.00
+
+Ground Truth:
+TACOS LA CABANA,"[['Thursday', 'Closed'], ['Friday', '5–11PM'], ['Saturday', '5–11PM'], ['Sunday', '5–11PM'], ['Monday', '5–11PM'], ['Tuesday', 'Closed'], ['Wednesday', 'Closed']]",5.0
+White Barn Candle Co,"[['Thursday', '10AM–9PM'], ['Friday', '10AM–9PM'], ['Saturday', '10AM–9PM'], ['Sunday', '11AM–7PM'], ['Monday', '10AM–9PM'], ['Tuesday', '10AM–9PM'], ['Wednesday', '10AM–9PM']]",5.0
+Mariscos el poblano,"[['Thursday', 'Open 24 hours'], ['Friday', '8AM–3:30PM'], ['Saturday', '8AM–3:30PM'], ['Sunday', '8AM–3:30PM'], ['Monday', '9AM–3:30AM'], ['Tuesday', '8AM–3:30PM'], ['Wednesday', '8AM–3:30PM']]",5.0
+Beauty Divine Artistry,"[['Thursday', '9AM–8PM'], ['Friday', '9AM–8PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '9AM–8PM'], ['Tuesday', '9AM–8PM'], ['Wednesday', '9AM–8PM']]",5.0
+Taba Rug Gallery,"[['Thursday', '10AM–7PM'], ['Friday', '10AM–7PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '10AM–7PM'], ['Tuesday', '10AM–7PM'], ['Wednesday', '10AM–7PM']]",5.0
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-23T14:43:31) ===
+Query: query3
+
+LLM Answer:
+Beauty Divine Artistry | [["Thursday","9AM–8PM"],["Friday","9AM–8PM"],["Saturday","10AM–7PM"],["Sunday","11AM–6PM"],["Monday","9AM–8PM"],["Tuesday","9AM–8PM"],["Wednesday","9AM–8PM"]] | 5.00
+Taba Rug Gallery | [["Thursday","10AM–7PM"],["Friday","10AM–7PM"],["Saturday","10AM–7PM"],["Sunday","11AM–6PM"],["Monday","10AM–7PM"],["Tuesday","10AM–7PM"],["Wednesday","10AM–7PM"]] | 5.00
+White Barn Candle Co | [["Thursday","10AM–9PM"],["Friday","10AM–9PM"],["Saturday","10AM–9PM"],["Sunday","11AM–7PM"],["Monday","10AM–9PM"],["Tuesday","10AM–9PM"],["Wednesday","10AM–9PM"]] | 5.00
+The Beauty Bar | [["Thursday","9AM–8PM"],["Friday","9AM–8PM"],["Saturday","9AM–8PM"],["Sunday","Closed"],["Monday","9AM–8PM"],["Tuesday","9AM–8PM"],["Wednesday","9AM–8PM"]] | 4.86
+Regus - California, Irvine - Oracle Tower | [["Thursday","Open 24 hours"],["Friday","Open 24 hours"],["Saturday","Open 24 hours"],["Sunday","Open 24 hours"],["Monday","Open 24 hours"],["Tuesday","Open 24 hours"],["Wednesday","Open 24 hours"]] | 4.44
+
+Ground Truth:
+TACOS LA CABANA,"[['Thursday', 'Closed'], ['Friday', '5–11PM'], ['Saturday', '5–11PM'], ['Sunday', '5–11PM'], ['Monday', '5–11PM'], ['Tuesday', 'Closed'], ['Wednesday', 'Closed']]",5.0
+White Barn Candle Co,"[['Thursday', '10AM–9PM'], ['Friday', '10AM–9PM'], ['Saturday', '10AM–9PM'], ['Sunday', '11AM–7PM'], ['Monday', '10AM–9PM'], ['Tuesday', '10AM–9PM'], ['Wednesday', '10AM–9PM']]",5.0
+Mariscos el poblano,"[['Thursday', 'Open 24 hours'], ['Friday', '8AM–3:30PM'], ['Saturday', '8AM–3:30PM'], ['Sunday', '8AM–3:30PM'], ['Monday', '9AM–3:30AM'], ['Tuesday', '8AM–3:30PM'], ['Wednesday', '8AM–3:30PM']]",5.0
+Beauty Divine Artistry,"[['Thursday', '9AM–8PM'], ['Friday', '9AM–8PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '9AM–8PM'], ['Tuesday', '9AM–8PM'], ['Wednesday', '9AM–8PM']]",5.0
+Taba Rug Gallery,"[['Thursday', '10AM–7PM'], ['Friday', '10AM–7PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '10AM–7PM'], ['Tuesday', '10AM–7PM'], ['Wednesday', '10AM–7PM']]",5.0
+
+Result: ❌ MISMATCH: Missing business name: TACOS LA CABANA
+================================================================================
+
+=== Validation Log (2025-07-23T14:30:40) ===
+Query: query3
+
+LLM Answer:
+White Barn Candle Co | Thursday: 10AM–9PM; Friday: 10AM–9PM; Saturday: 10AM–9PM; Sunday: 11AM–7PM; Monday: 10AM–9PM; Tuesday: 10AM–9PM; Wednesday: 10AM–9PM | 5.0
+Beauty Divine Artistry | Thursday: 9AM–8PM; Friday: 9AM–8PM; Saturday: 10AM–7PM; Sunday: 11AM–6PM; Monday: 9AM–8PM; Tuesday: 9AM–8PM; Wednesday: 9AM–8PM | 5.0
+TACOS LA CABANA | Thursday: Closed; Friday: 5–11PM; Saturday: 5–11PM; Sunday: 5–11PM; Monday: 5–11PM; Tuesday: Closed; Wednesday: Closed | 5.0
+Taba Rug Gallery | Thursday: 10AM–7PM; Friday: 10AM–7PM; Saturday: 10AM–7PM; Sunday: 11AM–6PM; Monday: 10AM–7PM; Tuesday: 10AM–7PM; Wednesday: 10AM–7PM | 5.0
+Paradise tattoo | Thursday: 12–10PM; Friday: 12PM–12AM; Saturday: 12PM–12AM; Sunday: 12–10PM; Monday: 12–10PM; Tuesday: 12–10PM; Wednesday: 12–10PM | 4.96
+
+Ground Truth:
+TACOS LA CABANA,"[['Thursday', 'Closed'], ['Friday', '5–11PM'], ['Saturday', '5–11PM'], ['Sunday', '5–11PM'], ['Monday', '5–11PM'], ['Tuesday', 'Closed'], ['Wednesday', 'Closed']]",5.0
+White Barn Candle Co,"[['Thursday', '10AM–9PM'], ['Friday', '10AM–9PM'], ['Saturday', '10AM–9PM'], ['Sunday', '11AM–7PM'], ['Monday', '10AM–9PM'], ['Tuesday', '10AM–9PM'], ['Wednesday', '10AM–9PM']]",5.0
+Mariscos el poblano,"[['Thursday', 'Open 24 hours'], ['Friday', '8AM–3:30PM'], ['Saturday', '8AM–3:30PM'], ['Sunday', '8AM–3:30PM'], ['Monday', '9AM–3:30AM'], ['Tuesday', '8AM–3:30PM'], ['Wednesday', '8AM–3:30PM']]",5.0
+Beauty Divine Artistry,"[['Thursday', '9AM–8PM'], ['Friday', '9AM–8PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '9AM–8PM'], ['Tuesday', '9AM–8PM'], ['Wednesday', '9AM–8PM']]",5.0
+Taba Rug Gallery,"[['Thursday', '10AM–7PM'], ['Friday', '10AM–7PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '10AM–7PM'], ['Tuesday', '10AM–7PM'], ['Wednesday', '10AM–7PM']]",5.0
+
+Result: ❌ MISMATCH: Missing business name: Mariscos el poblano
+================================================================================
+
+=== Validation Log (2025-07-23T14:21:57) ===
+Query: query3
+
+LLM Answer:
+Taba Rug Gallery | [["Thursday", "10AM–7PM"], ["Friday", "10AM–7PM"], ["Saturday", "10AM–7PM"], ["Sunday", "11AM–6PM"], ["Monday", "10AM–7PM"], ["Tuesday", "10AM–7PM"], ["Wednesday", "10AM–7PM"]] | 5.000
+Beauty Divine Artistry | [["Thursday", "9AM–8PM"], ["Friday", "9AM–8PM"], ["Saturday", "10AM–7PM"], ["Sunday", "11AM–6PM"], ["Monday", "9AM–8PM"], ["Tuesday", "9AM–8PM"], ["Wednesday", "9AM–8PM"]] | 5.000
+Mariscos el poblano | [["Thursday", "Open 24 hours"], ["Friday", "8AM–3:30PM"], ["Saturday", "8AM–3:30PM"], ["Sunday", "8AM–3:30PM"], ["Monday", "9AM–3:30AM"], ["Tuesday", "8AM–3:30PM"], ["Wednesday", "8AM–3:30PM"]] | 5.000
+White Barn Candle Co | [["Thursday", "10AM–9PM"], ["Friday", "10AM–9PM"], ["Saturday", "10AM–9PM"], ["Sunday", "11AM–7PM"], ["Monday", "10AM–9PM"], ["Tuesday", "10AM–9PM"], ["Wednesday", "10AM–9PM"]] | 5.000
+TACOS LA CABANA | [["Thursday", "Closed"], ["Friday", "5–11PM"], ["Saturday", "5–11PM"], ["Sunday", "5–11PM"], ["Monday", "5–11PM"], ["Tuesday", "Closed"], ["Wednesday", "Closed"]] | 5.000
+
+Ground Truth:
+TACOS LA CABANA,"[['Thursday', 'Closed'], ['Friday', '5–11PM'], ['Saturday', '5–11PM'], ['Sunday', '5–11PM'], ['Monday', '5–11PM'], ['Tuesday', 'Closed'], ['Wednesday', 'Closed']]",5.0
+White Barn Candle Co,"[['Thursday', '10AM–9PM'], ['Friday', '10AM–9PM'], ['Saturday', '10AM–9PM'], ['Sunday', '11AM–7PM'], ['Monday', '10AM–9PM'], ['Tuesday', '10AM–9PM'], ['Wednesday', '10AM–9PM']]",5.0
+Mariscos el poblano,"[['Thursday', 'Open 24 hours'], ['Friday', '8AM–3:30PM'], ['Saturday', '8AM–3:30PM'], ['Sunday', '8AM–3:30PM'], ['Monday', '9AM–3:30AM'], ['Tuesday', '8AM–3:30PM'], ['Wednesday', '8AM–3:30PM']]",5.0
+Beauty Divine Artistry,"[['Thursday', '9AM–8PM'], ['Friday', '9AM–8PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '9AM–8PM'], ['Tuesday', '9AM–8PM'], ['Wednesday', '9AM–8PM']]",5.0
+Taba Rug Gallery,"[['Thursday', '10AM–7PM'], ['Friday', '10AM–7PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '10AM–7PM'], ['Tuesday', '10AM–7PM'], ['Wednesday', '10AM–7PM']]",5.0
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-23T14:13:09) ===
+Query: query3
+
+LLM Answer:
+Regus - California, Irvine - Oracle Tower | Thursday Open 24 hours; Friday Open 24 hours; Saturday Open 24 hours; Sunday Open 24 hours; Monday Open 24 hours; Tuesday Open 24 hours; Wednesday Open 24 hours | 4.44
+Black Tie Ski Rental Delivery of Mammoth | Thursday 8AM–5PM; Friday 8AM–5PM; Saturday 8AM–5PM; Sunday 8AM–5PM; Monday Closed; Tuesday Closed; Wednesday Closed | 4.97
+The Boochyard @ Local Roots | Thursday 3–8PM; Friday 3–9PM; Saturday 12–9PM; Sunday 12–8PM; Monday Closed; Tuesday 3–8PM; Wednesday 3–8PM | 4.89
+The Beauty Bar | Thursday 9AM–8PM; Friday 9AM–8PM; Saturday 9AM–8PM; Sunday Closed; Monday 9AM–8PM; Tuesday 9AM–8PM; Wednesday 9AM–8PM | 4.86
+Zuby's Brake Tires & Wheels | Thursday 8AM–5:30PM; Friday 8AM–5:30PM; Saturday 8AM–4PM; Sunday Closed; Monday 8AM–5:30PM; Tuesday 8AM–5:30PM; Wednesday 8AM–5:30PM | 4.84
+
+Ground Truth:
+TACOS LA CABANA,"[['Thursday', 'Closed'], ['Friday', '5–11PM'], ['Saturday', '5–11PM'], ['Sunday', '5–11PM'], ['Monday', '5–11PM'], ['Tuesday', 'Closed'], ['Wednesday', 'Closed']]",5.0
+White Barn Candle Co,"[['Thursday', '10AM–9PM'], ['Friday', '10AM–9PM'], ['Saturday', '10AM–9PM'], ['Sunday', '11AM–7PM'], ['Monday', '10AM–9PM'], ['Tuesday', '10AM–9PM'], ['Wednesday', '10AM–9PM']]",5.0
+Mariscos el poblano,"[['Thursday', 'Open 24 hours'], ['Friday', '8AM–3:30PM'], ['Saturday', '8AM–3:30PM'], ['Sunday', '8AM–3:30PM'], ['Monday', '9AM–3:30AM'], ['Tuesday', '8AM–3:30PM'], ['Wednesday', '8AM–3:30PM']]",5.0
+Beauty Divine Artistry,"[['Thursday', '9AM–8PM'], ['Friday', '9AM–8PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '9AM–8PM'], ['Tuesday', '9AM–8PM'], ['Wednesday', '9AM–8PM']]",5.0
+Taba Rug Gallery,"[['Thursday', '10AM–7PM'], ['Friday', '10AM–7PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '10AM–7PM'], ['Tuesday', '10AM–7PM'], ['Wednesday', '10AM–7PM']]",5.0
+
+Result: ❌ MISMATCH: Missing business name: TACOS LA CABANA
+================================================================================
+
+=== Validation Log (2025-07-23T13:18:50) ===
+Query: query3
+
+LLM Answer:
+White Barn Candle Co | Thursday 10AM–9PM; Friday 10AM–9PM; Saturday 10AM–9PM; Sunday 11AM–7PM; Monday 10AM–9PM; Tuesday 10AM–9PM; Wednesday 10AM–9PM | 5.00
+Beauty Divine Artistry | Thursday 9AM–8PM; Friday 9AM–8PM; Saturday 10AM–7PM; Sunday 11AM–6PM; Monday 9AM–8PM; Tuesday 9AM–8PM; Wednesday 9AM–8PM | 5.00
+TACOS LA CABANA | Thursday Closed; Friday 5–11PM; Saturday 5–11PM; Sunday 5–11PM; Monday 5–11PM; Tuesday Closed; Wednesday Closed | 5.00
+Taba Rug Gallery | Thursday 10AM–7PM; Friday 10AM–7PM; Saturday 10AM–7PM; Sunday 11AM–6PM; Monday 10AM–7PM; Tuesday 10AM–7PM; Wednesday 10AM–7PM | 5.00
+Paradise tattoo | Thursday 12–10PM; Friday 12PM–12AM; Saturday 12PM–12AM; Sunday 12–10PM; Monday 12–10PM; Tuesday 12–10PM; Wednesday 12–10PM | 4.96
+
+Ground Truth:
+TACOS LA CABANA,"[['Thursday', 'Closed'], ['Friday', '5–11PM'], ['Saturday', '5–11PM'], ['Sunday', '5–11PM'], ['Monday', '5–11PM'], ['Tuesday', 'Closed'], ['Wednesday', 'Closed']]",5.0
+White Barn Candle Co,"[['Thursday', '10AM–9PM'], ['Friday', '10AM–9PM'], ['Saturday', '10AM–9PM'], ['Sunday', '11AM–7PM'], ['Monday', '10AM–9PM'], ['Tuesday', '10AM–9PM'], ['Wednesday', '10AM–9PM']]",5.0
+Mariscos el poblano,"[['Thursday', 'Open 24 hours'], ['Friday', '8AM–3:30PM'], ['Saturday', '8AM–3:30PM'], ['Sunday', '8AM–3:30PM'], ['Monday', '9AM–3:30AM'], ['Tuesday', '8AM–3:30PM'], ['Wednesday', '8AM–3:30PM']]",5.0
+Beauty Divine Artistry,"[['Thursday', '9AM–8PM'], ['Friday', '9AM–8PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '9AM–8PM'], ['Tuesday', '9AM–8PM'], ['Wednesday', '9AM–8PM']]",5.0
+Taba Rug Gallery,"[['Thursday', '10AM–7PM'], ['Friday', '10AM–7PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '10AM–7PM'], ['Tuesday', '10AM–7PM'], ['Wednesday', '10AM–7PM']]",5.0
+
+Result: ❌ MISMATCH: Missing business name: Mariscos el poblano
+================================================================================
+
+=== Validation Log (2025-07-23T11:39:26) ===
+Query: query3
+
+LLM Answer:
+White Barn Candle Co | [["Thursday", "10AM–9PM"], ["Friday", "10AM–9PM"], ["Saturday", "10AM–9PM"], ["Sunday", "11AM–7PM"], ["Monday", "10AM–9PM"], ["Tuesday", "10AM–9PM"], ["Wednesday", "10AM–9PM"]] | 5.00
+Beauty Divine Artistry | [["Thursday", "9AM–8PM"], ["Friday", "9AM–8PM"], ["Saturday", "10AM–7PM"], ["Sunday", "11AM–6PM"], ["Monday", "9AM–8PM"], ["Tuesday", "9AM–8PM"], ["Wednesday", "9AM–8PM"]] | 5.00
+TACOS LA CABANA | [["Thursday", "Closed"], ["Friday", "5–11PM"], ["Saturday", "5–11PM"], ["Sunday", "5–11PM"], ["Monday", "5–11PM"], ["Tuesday", "Closed"], ["Wednesday", "Closed"]] | 5.00
+Taba Rug Gallery | [["Thursday", "10AM–7PM"], ["Friday", "10AM–7PM"], ["Saturday", "10AM–7PM"], ["Sunday", "11AM–6PM"], ["Monday", "10AM–7PM"], ["Tuesday", "10AM–7PM"], ["Wednesday", "10AM–7PM"]] | 5.00
+Paradise tattoo | [["Thursday", "12–10PM"], ["Friday", "12PM–12AM"], ["Saturday", "12PM–12AM"], ["Sunday", "12–10PM"], ["Monday", "12–10PM"], ["Tuesday", "12–10PM"], ["Wednesday", "12–10PM"]] | 4.96
+
+Ground Truth:
+TACOS LA CABANA,"[['Thursday', 'Closed'], ['Friday', '5–11PM'], ['Saturday', '5–11PM'], ['Sunday', '5–11PM'], ['Monday', '5–11PM'], ['Tuesday', 'Closed'], ['Wednesday', 'Closed']]",5.0
+White Barn Candle Co,"[['Thursday', '10AM–9PM'], ['Friday', '10AM–9PM'], ['Saturday', '10AM–9PM'], ['Sunday', '11AM–7PM'], ['Monday', '10AM–9PM'], ['Tuesday', '10AM–9PM'], ['Wednesday', '10AM–9PM']]",5.0
+Mariscos el poblano,"[['Thursday', 'Open 24 hours'], ['Friday', '8AM–3:30PM'], ['Saturday', '8AM–3:30PM'], ['Sunday', '8AM–3:30PM'], ['Monday', '9AM–3:30AM'], ['Tuesday', '8AM–3:30PM'], ['Wednesday', '8AM–3:30PM']]",5.0
+Beauty Divine Artistry,"[['Thursday', '9AM–8PM'], ['Friday', '9AM–8PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '9AM–8PM'], ['Tuesday', '9AM–8PM'], ['Wednesday', '9AM–8PM']]",5.0
+Taba Rug Gallery,"[['Thursday', '10AM–7PM'], ['Friday', '10AM–7PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '10AM–7PM'], ['Tuesday', '10AM–7PM'], ['Wednesday', '10AM–7PM']]",5.0
+
+Result: ❌ MISMATCH: Missing business name: Mariscos el poblano
+================================================================================
+
+=== Validation Log (2025-07-23T11:27:19) ===
+Query: query3
+
+LLM Answer:
+Regus - California, Irvine - Oracle Tower | [["Thursday", "Open 24 hours"], ["Friday", "Open 24 hours"], ["Saturday", "Open 24 hours"], ["Sunday", "Open 24 hours"], ["Monday", "Open 24 hours"], ["Tuesday", "Open 24 hours"], ["Wednesday", "Open 24 hours"]] | 4.44
+J & T Plumbing Pros | [["Thursday", "7AM–5PM"], ["Friday", "7AM–5PM"], ["Saturday", "Closed"], ["Sunday", "Closed"], ["Monday", "7AM–5PM"], ["Tuesday", "7AM–5PM"], ["Wednesday", "7AM–5PM"]] | 5.0
+Dunn-Edwards Paints | [["Thursday", "6:30AM–5PM"], ["Friday", "6:30AM–5PM"], ["Saturday", "7AM–3PM"], ["Sunday", "Closed"], ["Monday", "6:30AM–5PM"], ["Tuesday", "6:30AM–5PM"], ["Wednesday", "6:30AM–5PM"]] | 4.69
+SkyBasket? Possibly 3 others??
+
+Ground Truth:
+TACOS LA CABANA,"[['Thursday', 'Closed'], ['Friday', '5–11PM'], ['Saturday', '5–11PM'], ['Sunday', '5–11PM'], ['Monday', '5–11PM'], ['Tuesday', 'Closed'], ['Wednesday', 'Closed']]",5.0
+White Barn Candle Co,"[['Thursday', '10AM–9PM'], ['Friday', '10AM–9PM'], ['Saturday', '10AM–9PM'], ['Sunday', '11AM–7PM'], ['Monday', '10AM–9PM'], ['Tuesday', '10AM–9PM'], ['Wednesday', '10AM–9PM']]",5.0
+Mariscos el poblano,"[['Thursday', 'Open 24 hours'], ['Friday', '8AM–3:30PM'], ['Saturday', '8AM–3:30PM'], ['Sunday', '8AM–3:30PM'], ['Monday', '9AM–3:30AM'], ['Tuesday', '8AM–3:30PM'], ['Wednesday', '8AM–3:30PM']]",5.0
+Beauty Divine Artistry,"[['Thursday', '9AM–8PM'], ['Friday', '9AM–8PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '9AM–8PM'], ['Tuesday', '9AM–8PM'], ['Wednesday', '9AM–8PM']]",5.0
+Taba Rug Gallery,"[['Thursday', '10AM–7PM'], ['Friday', '10AM–7PM'], ['Saturday', '10AM–7PM'], ['Sunday', '11AM–6PM'], ['Monday', '10AM–7PM'], ['Tuesday', '10AM–7PM'], ['Wednesday', '10AM–7PM']]",5.0
+
+Result: ❌ MISMATCH: Missing business name: TACOS LA CABANA
+================================================================================
+
 === Validation Log (2025-07-23T10:56:04) ===
 Query: query3
 
