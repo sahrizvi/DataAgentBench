@@ -112,11 +112,11 @@ def _try_decode_code_string(v: str) -> str:
     except Exception:
         return v
 
-def _detect_code_language(text: str, key_hint: str = "") -> str:
+def _detect_code_language(text: str) -> str:
     t = text.lstrip().lower()
-    if key_hint == "sql" or t.startswith("select") or "\nselect " in t:
+    if t.startswith("select") or "\nselect " in t:
         return "sql"
-    if key_hint == "code" or "def " in t or "import " in t or "pd." in t or "print(" in t:
+    if "def " in t or "import " in t or "pd." in t or "print(" in t:
         return "python"
     return ""
 
@@ -168,6 +168,7 @@ def _render_single_message(msg: dict) -> str:
 
     if "tool_calls" in msg and msg["tool_calls"]:
         lines.append("tool_calls:\n")
+        block_lines = []
         for call in msg["tool_calls"]:
             cid = call.get("id")
             ctype = call.get("type")
@@ -175,30 +176,32 @@ def _render_single_message(msg: dict) -> str:
             fname = fn.get("name")
             fargs_raw = fn.get("arguments", "")
 
-            lines.append(_indent_block(f"- id: {cid}", 2))
-            lines.append(_indent_block(f"type: {ctype}", 4))
-            lines.append(_indent_block("function:", 4))
-            lines.append(_indent_block(f"name: {fname}", 6))
-            lines.append(_indent_block("arguments:", 6))
+            block_lines.append(_indent_block(f"- id: {cid}", 2))
+            block_lines.append(_indent_block(f"type: {ctype}", 4))
+            block_lines.append(_indent_block("function:", 4))
+            block_lines.append(_indent_block(f"name: {fname}", 6))
+            block_lines.append(_indent_block("arguments:", 6))
 
             parsed_args = _parse_possible_json(fargs_raw)
             if parsed_args is not None and isinstance(parsed_args, dict):
                 for k, v in parsed_args.items():
-                    lines.append(_indent_block(f"{k}:", 8))
+                    block_lines.append(_indent_block(f"{k}:", 8))
                     if isinstance(v, str) and ("\\n" in v or "\n" in v):
                         decoded = _try_decode_code_string(v)
-                        lang = _detect_code_language(decoded, key_hint=k)
+                        lang = _detect_code_language(decoded) if k in ("sql", "code") else ""
                         if lang:
                             fenced = f"```{lang}\n{_dedent_text(decoded).strip()}\n```"
-                            lines.append(_indent_block(fenced, 10))
+                            block_lines.append(_indent_block(fenced, 10))
                         else:
-                            lines.append(_indent_block(_dedent_text(decoded), 10))
+                            block_lines.append(_indent_block(_dedent_text(decoded), 10))
                     else:
-                        lines.append(_indent_block(_dump_yaml(v), 10))
+                        block_lines.append(_indent_block(_dump_yaml(v), 10))
             else:
-                lines.append(_indent_block(_dedent_text(fargs_raw), 8))
+                block_lines.append(_indent_block(_dedent_text(fargs_raw), 8))
+            block_lines.append("\n")
 
-            lines.append("\n")
+        lines.append(_indent_block("```yaml\n" + "".join(block_lines) + "```", 2))
+        lines.append("\n")
 
     for k in ("tool_call_id", "name"):
         if k in msg:
@@ -241,6 +244,7 @@ def _render_tool_content(content: str) -> str:
         lines.append(_indent_block("null", 4))
 
     return "".join(lines)
+
 # -----------------------------------------------------------------------------
 # Load query + DB config
 # -----------------------------------------------------------------------------
