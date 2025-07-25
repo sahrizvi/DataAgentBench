@@ -25,7 +25,7 @@ import textwrap
 # -----------------------------------------------------------------------------
 # Config
 # -----------------------------------------------------------------------------
-query_dir = Path(__file__).parent / "query2"
+query_dir = Path(__file__).parent / "query5"
 deployment_name = "o3"
 
 load_dotenv()
