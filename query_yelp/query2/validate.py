@@ -50,7 +50,7 @@ def validate(llm_output: str) -> (bool, str):
         except:
             continue
 
-    reason = f"Number near '{found_name}' does not match ≈{gt_rounded}"
+    reason = f"Number near '{found_name}' does not match ≈{ground_truth_value}"
     print(f"❌ {reason}")
     return False, reason
 
