@@ -477,6 +477,9 @@ function_call: None
 
 
 ## 🪜 Step 14
+CODES: ["SQL", "join", "projection", "filter"]
+Explanation: This step performs a MongoDB query to retrieve the name and categories fields for the business with business_id = 'businessref_9', which was identified as having the highest average rating. 
+It completes the join between the review and business datasets and selects specific columns, making it a join and projection step within the broader query process.
 
 ------------------------------------------------------------
 role: assistant
@@ -504,6 +507,10 @@ function_call: None
 
 
 ## 🪜 Step 15
+CODES: ["fixing query b/c of runtime error", "SQL", "filter", "projection"]
+Explanation: This step revises the previous query, which likely failed due to referencing a nonexistent business ID or malformed query. 
+It now performs a safer operation by filtering for documents that have a categories field and applying a projection to retrieve business_id and categories, 
+while also limiting the results. This is a recovery attempt addressing a runtime error, and involves both filtering and projection.
 
 ------------------------------------------------------------
 role: assistant
@@ -529,42 +536,11 @@ annotations: []
 audio: None
 function_call: None
 
-## 🪜 Step 28
 
-------------------------------------------------------------
-role: tool
-content:
-  available_variables: - tables_businessinfo_dataset_step1
-  - tables_user_dataset_step2
-  - df_business_step3
-  - df_business_step4
-  - df_business_step5
-  - df_review_step6
-  - df_review_step7
-  - df_review_step8
-  - df_review_step9
-  - pd
-  - __builtins__
-  - result
-  - exec_result_step10
-  - parser
-  - df
-  - parse_date
-  - mask
-  - df_period
-  - stats
-  - stats_filtered
-  - stats_top
-  - exec_result_step11
-  - df_business_step12
-  - df_business_step13
-  result_variable: df_business_step13
-  result_preview:
-
-tool_call_id: call_FVWrsrlrTZey8pEr09BfIg7p
-name: query_db
-
-## 🪜 Step 29
+## 🪜 Step 16
+CODES: ["fixing query b/c of runtime error", "exploring specific columns", "SQL", "projection"]
+Explanation: This step attempts to resolve a previous runtime error by removing the filter condition entirely and broadening the query to include all documents, while still projecting specific columns (business_id, name, categories). 
+It serves both as a recovery from a failed query and as a way to inspect the structure and content of key fields in the dataset.
 
 ------------------------------------------------------------
 role: assistant
@@ -590,64 +566,11 @@ annotations: []
 audio: None
 function_call: None
 
-## 🪜 Step 30
 
-------------------------------------------------------------
-role: tool
-content:
-  available_variables: - tables_businessinfo_dataset_step1
-  - tables_user_dataset_step2
-  - df_business_step3
-  - df_business_step4
-  - df_business_step5
-  - df_review_step6
-  - df_review_step7
-  - df_review_step8
-  - df_review_step9
-  - pd
-  - __builtins__
-  - result
-  - exec_result_step10
-  - parser
-  - df
-  - parse_date
-  - mask
-  - df_period
-  - stats
-  - stats_filtered
-  - stats_top
-  - exec_result_step11
-  - df_business_step12
-  - df_business_step13
-  - df_business_step14
-  result_variable: df_business_step14
-  result_preview:
-    |    | _id                      | business_id   | name                                   |
-    |---:|:-------------------------|:--------------|:---------------------------------------|
-    |  0 | 6859a000fe8b31cd7362e2ab | businessid_49 | Steps to Learning Montessori Preschool |
-    |  1 | 6859a000fe8b31cd7362e2ac | businessid_47 | Breeze Blow Dry Bar                    |
-    |  2 | 6859a000fe8b31cd7362e2ad | businessid_88 | Impact Guns                            |
-    |  3 | 6859a000fe8b31cd7362e2ae | businessid_41 | Palms Primary Care                     |
-    |  4 | 6859a000fe8b31cd7362e2af | businessid_33 | J&Q Nails                              |
-    |  5 | 6859a000fe8b31cd7362e2b0 | businessid_74 | Candy Barrel                           |
-    |  6 | 6859a000fe8b31cd7362e2b1 | businessid_92 | Luminosity                             |
-    |  7 | 6859a000fe8b31cd7362e2b2 | businessid_64 | Nail Care Salon                        |
-    |  8 | 6859a000fe8b31cd7362e2b3 | businessid_52 | Architectural Antiques of Indianapolis |
-    |  9 | 6859a000fe8b31cd7362e2b4 | businessid_29 | Aster's Floral Shop                    |
-    | 10 | 6859a000fe8b31cd7362e2b5 | businessid_10 | China Wok                              |
-    | 11 | 6859a000fe8b31cd7362e2b6 | businessid_61 | Brandon Family Medical Care            |
-    | 12 | 6859a000fe8b31cd7362e2b7 | businessid_54 | 7-Eleven                               |
-    | 13 | 6859a000fe8b31cd7362e2b8 | businessid_8  | Uber                                   |
-    | 14 | 6859a000fe8b31cd7362e2b9 | businessid_59 | Chestnut St. Cafe                      |
-    | 15 | 6859a000fe8b31cd7362e2ba | businessid_91 | Cafe Porche and snowbar                |
-    | 16 | 6859a000fe8b31cd7362e2bb | businessid_83 | Eyeglass World                         |
-    | 17 | 6859a000fe8b31cd7362e2bc | businessid_93 | Callahan's Corner                      |
-    | 18 | 6859a000fe8b31cd7362e2bd | businessid_1  | Spa Guy Dave                           |
-    | 19 | 6859a000fe8b31cd7362e2be | businessid_24 | FroYo Frozen Yogurt                    |
-tool_call_id: call_UUN2NsNOWaWsGwv2rbIhslrb
-name: query_db
-
-## 🪜 Step 31
+## 🪜 Step 17
+CODES: ["attempting part of the query", "SQL", "projection", "filter"]
+Explanation: This step attempts to retrieve relevant information (business ID, name, and categories) for a specific business using a filter on business_id, 
+which contributes a partial resolution toward the full query. It also includes a projection clause to limit the returned fields.
 
 ------------------------------------------------------------
 role: assistant
@@ -673,46 +596,8 @@ annotations: []
 audio: None
 function_call: None
 
-## 🪜 Step 32
 
-------------------------------------------------------------
-role: tool
-content:
-  available_variables: - tables_businessinfo_dataset_step1
-  - tables_user_dataset_step2
-  - df_business_step3
-  - df_business_step4
-  - df_business_step5
-  - df_review_step6
-  - df_review_step7
-  - df_review_step8
-  - df_review_step9
-  - pd
-  - __builtins__
-  - result
-  - exec_result_step10
-  - parser
-  - df
-  - parse_date
-  - mask
-  - df_period
-  - stats
-  - stats_filtered
-  - stats_top
-  - exec_result_step11
-  - df_business_step12
-  - df_business_step13
-  - df_business_step14
-  - df_business_step15
-  result_variable: df_business_step15
-  result_preview:
-    |    | _id                      | business_id   | name                  |
-    |---:|:-------------------------|:--------------|:----------------------|
-    |  0 | 6859a000fe8b31cd7362e2f3 | businessid_9  | Coffee House Too Cafe |
-tool_call_id: call_SQcaCW5gaORvF3CDbiuO5Oma
-name: query_db
-
-## 🪜 Step 33
+## 🪜 Step 18
 
 ------------------------------------------------------------
 role: assistant
@@ -732,50 +617,8 @@ annotations: []
 audio: None
 function_call: None
 
-## 🪜 Step 34
 
-------------------------------------------------------------
-role: tool
-content:
-  available_variables: - tables_businessinfo_dataset_step1
-  - tables_user_dataset_step2
-  - df_business_step3
-  - df_business_step4
-  - df_business_step5
-  - df_review_step6
-  - df_review_step7
-  - df_review_step8
-  - df_review_step9
-  - pd
-  - __builtins__
-  - result
-  - exec_result_step10
-  - parser
-  - df
-  - parse_date
-  - mask
-  - df_period
-  - stats
-  - stats_filtered
-  - stats_top
-  - exec_result_step11
-  - df_business_step12
-  - df_business_step13
-  - df_business_step14
-  - df_business_step15
-  - stats_filtered_sorted
-  - exec_result_step16
-  result_variable: exec_result_step16
-  result_preview:
-    |    | business_ref   |   count |   avg_rating |
-    |---:|:---------------|--------:|-------------:|
-    | 48 | businessref_9  |      16 |        4.375 |
-    | 18 | businessref_37 |       7 |        4     |
-    | 41 | businessref_8  |       5 |        3.6   |
-tool_call_id: call_kcjdEDbzNeNN3ka48InPz2tx
-name: execute_python
-
-## 🪜 Step 35
+## 🪜 Step 19
 
 ------------------------------------------------------------
 role: assistant
