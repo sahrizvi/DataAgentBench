@@ -35,7 +35,7 @@ load_dotenv()
 # ----------------------------------------------------------------------
 
 class TraceRecorder:
-    def __init__(self, path="agent_trace.html"):
+    def __init__(self, path="Q1_nh2.html"):
         self.path = path
         self.lines = []
         self._last_messages = None
