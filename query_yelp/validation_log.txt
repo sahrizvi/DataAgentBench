@@ -1,3 +1,59 @@
+=== Validation Log (2025-07-26T12:38:34) ===
+Query: query7
+
+LLM Answer:
+Cannot determine categories because business IDs in review data do not match those in business metadata; unable to map reviews to categories.
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: Missing category: restaurants
+================================================================================
+
+=== Validation Log (2025-07-26T12:35:12) ===
+Query: query7
+
+LLM Answer:
+Restaurants, Shopping, Food, American (New), Grocery
+
+Ground Truth:
+Restaurants
+Food
+American (New)
+Shopping
+Breakfast & Brunch
+
+Result: ❌ MISMATCH: Missing category: breakfast & brunch
+================================================================================
+
+=== Validation Log (2025-07-26T12:30:10) ===
+Query: query6
+
+LLM Answer:
+Coffee House Too Cafe – Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Ground Truth:
+Coffee House Too Cafe, Restaurants, Breakfast & Brunch, American (New), Cafes
+
+Result: ✅ MATCH
+================================================================================
+
+=== Validation Log (2025-07-26T12:28:40) ===
+Query: query5
+
+LLM Answer:
+Pennsylvania (PA), 3.48
+
+Ground Truth:
+PA,3.48
+
+Result: ✅ MATCH
+================================================================================
+
 === Validation Log (2025-07-26T12:07:42) ===
 Query: query2
 
