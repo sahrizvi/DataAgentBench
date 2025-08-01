@@ -18,16 +18,21 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-def postgres_query(sql: str, db_name: str = None, params: dict = None) -> pd.DataFrame:
+def postgres_query(sql: str, db_name: str = None, params: dict = None):
     """
-    Execute a PostgreSQL query and return result as a pandas DataFrame.
+    Execute a PostgreSQL query and return standardized result format.
 
     Args:
         sql (str): SQL query to execute.
         db_name (str): Database name. If None, use config.PG_DB.
+        params (dict, optional): Optional SQL parameters.
 
     Returns:
-        pd.DataFrame: Query result.
+        dict: {
+            "success": True, "data": DataFrame
+        } or {
+            "success": False, "error": error message
+        }
     """
     db_name = db_name or config.PG_DB
 
@@ -37,10 +42,12 @@ def postgres_query(sql: str, db_name: str = None, params: dict = None) -> pd.Dat
     )
     engine = create_engine(uri)
 
-    with engine.connect() as conn:
-        df = pd.read_sql(text(sql), conn, params=None)
-
-    return df
+    try:
+        with engine.connect() as conn:
+            df = pd.read_sql(text(sql), conn, params=params)
+        return {"success": True, "data": df}
+    except Exception as e:
+        return {"success": False, "error": f"{type(e).__name__}: {str(e)}"}
 
 
 ###

@@ -8,9 +8,9 @@ import pandas as pd
 from common_scaffold.config import SQLITE_PATH
 
 
-def sqlite_query(sql: str, db_path: str = None) -> pd.DataFrame:
+def sqlite_query(sql: str, db_path: str = None):
     """
-    Execute an SQL query on a SQLite database and return the result as a pandas DataFrame.
+    Execute an SQL query on a SQLite database and return standardized result format.
 
     Args:
         sql (str): SQL query to execute.
@@ -18,12 +18,17 @@ def sqlite_query(sql: str, db_path: str = None) -> pd.DataFrame:
                                  Defaults to config.SQLITE_PATH.
 
     Returns:
-        pd.DataFrame: Query result.
+        dict: {
+            "success": True, "data": DataFrame
+        } or {
+            "success": False, "error": error message
+        }
     """
-    db_path = db_path or SQLITE_PATH
 
-    conn = sqlite3.connect(db_path)
-    df = pd.read_sql_query(sql, conn)
-    conn.close()
-
-    return df
+    try:
+        conn = sqlite3.connect(db_path)
+        df = pd.read_sql_query(sql, conn)
+        conn.close()
+        return {"success": True, "data": df}
+    except Exception as e:
+        return {"success": False, "error": f"{type(e).__name__}: {str(e)}"}
