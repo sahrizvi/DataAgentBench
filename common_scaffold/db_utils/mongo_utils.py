@@ -70,35 +70,45 @@ def mongo_query(
     query: dict = None,
     projection: dict = None,
     limit: int = None
-) -> pd.DataFrame:
+):
     """
-    Execute a query on a MongoDB collection and return the result as a pandas DataFrame.
+    Execute a query on a MongoDB collection and return standardized result format.
 
     Args:
         db_name (str): Target database name.
         collection (str): Collection name to query.
         query (dict): MongoDB query filter. Default is empty (all documents).
         projection (dict): MongoDB projection fields. Default is None (all fields).
-        limit (int): Maximum number of documents to return. Default is 5.
+        limit (int): Maximum number of documents to return. Default is None (no limit).
 
     Returns:
-        pd.DataFrame: Query result.
+        dict: {
+            "success": True, "data": DataFrame
+        } or {
+            "success": False, "error": error message
+        }
     """
     query = query or {}
 
-    client = MongoClient(config.MONGO_URI)
-    db = client[db_name]
+    try:
+        client = MongoClient(config.MONGO_URI)
+        db = client[db_name]
 
-    cursor = db[collection].find(query, projection).limit(limit)
-    data = list(cursor)
+        cursor = db[collection].find(query, projection)
+        if limit is not None:
+            cursor = cursor.limit(limit)
 
-    client.close()
+        data = list(cursor)
+        client.close()
 
-    if not data:
-        print(f"⚠️ No data found in collection '{collection}'.")
-        return pd.DataFrame()
+        if not data:
+            return {"success": True, "data": pd.DataFrame()} 
 
-    return pd.DataFrame(data)
+        df = pd.DataFrame(data)
+        return {"success": True, "data": df}
+
+    except Exception as e:
+        return {"success": False, "error": f"{type(e).__name__}: {str(e)}"}
 
 
 def list_collections(db_name: str) -> list:

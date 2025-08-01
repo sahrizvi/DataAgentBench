@@ -44,7 +44,7 @@ def query_db(db_type, **kwargs):
             params=kwargs.get("params")
         )
     else:
-        raise ValueError(f"Unsupported db_type: {db_type}")
+        return {"success": False, "error": f"Unsupported db_type: {db_type}"}
 
 
 def ensure_db(db_type, **kwargs):

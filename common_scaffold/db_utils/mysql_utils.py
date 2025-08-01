@@ -19,17 +19,20 @@ MYSQL_HOST = os.getenv("MYSQL_HOST", "localhost")
 MYSQL_PORT = os.getenv("MYSQL_PORT", "3306")
 
 load_dotenv()
-def mysql_query(sql: str, db_name: str = None) -> pd.DataFrame:
+def mysql_query(sql: str, db_name: str = None):
     """
-    Execute a MySQL query and return result as a pandas DataFrame.
-    Uses SQLAlchemy for better compatibility.
+    Execute a MySQL query and return standardized result format.
 
     Args:
         sql (str): SQL query to execute.
-        db (str): Database name. If None, use config.MYSQL_DB.
+        db_name (str): Database name. If None, use config.MYSQL_DB.
 
     Returns:
-        pd.DataFrame: Query result.
+        dict: {
+            "success": True, "data": DataFrame
+        } or {
+            "success": False, "error": error message
+        }
     """
     db_name = db_name or config.MYSQL_DB
 
@@ -39,10 +42,12 @@ def mysql_query(sql: str, db_name: str = None) -> pd.DataFrame:
     )
     engine = create_engine(uri)
 
-    with engine.connect() as conn:
-        df = pd.read_sql(sql, conn)
-
-    return df
+    try:
+        with engine.connect() as conn:
+            df = pd.read_sql(sql, conn)
+        return {"success": True, "data": df}
+    except Exception as e:
+        return {"success": False, "error": f"{type(e).__name__}: {str(e)}"}
 
 
 def database_exists(db_name: str) -> bool:

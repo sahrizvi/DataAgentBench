@@ -139,11 +139,33 @@ def run_baseline_agent(
             result = TOOLS[tool_name](**tool_args)
 
             var_name = generate_var_name(tool_name, tool_args, step)
-            _vars[var_name] = result
 
-            print(f"📄 Tool result stored in `{var_name}`")
+            if tool_name == "query_db":
+                if isinstance(result, dict) and not result.get("success", False):
+                    error_msg = result.get("error", "Unknown query_db error.")
+                    print(f"❌ query_db failed: {error_msg}")
+                    _vars[var_name] = error_msg  
+                    preview = f"[ERROR] query_db failed: {error_msg}"
+                else:
+                    df = result["data"]
+                    _vars[var_name] = df
+                    preview = format_preview(df)
 
-            preview = format_preview(result)
+            elif tool_name == "execute_python":
+                if isinstance(result, dict) and not result.get("success", False):
+                    error_msg = result.get("error", "Unknown Python error.")
+                    print(f"❌ execute_python failed: {error_msg}")
+                    _vars[var_name] = error_msg
+                    preview = f"[ERROR] execute_python failed: {error_msg}"
+                else:
+                    _vars[var_name] = result["data"]
+                    preview = format_preview(result["data"])
+
+            else:
+                _vars[var_name] = result
+                print(f"📄 Tool result stored in `{var_name}`")
+                preview = format_preview(result)
+            
 
             messages.append(assistant_msg)
             messages.append({

@@ -8,25 +8,42 @@ import pandas as pd
 from pathlib import Path
 
 
-def duckdb_query(db_path: str, sql: str) -> pd.DataFrame:
+def duckdb_query(db_path: str, sql: str):
     """
-    Execute a query on a DuckDB database and return the result as a pandas DataFrame.
+    Execute a query on a DuckDB database and return a standardized result format.
 
     Args:
         db_path (str): Path to the .duckdb file.
         sql (str): SQL query to execute.
 
     Returns:
-        pd.DataFrame: Query result.
+        dict: {
+            "success": True, "data": DataFrame
+        } or {
+            "success": False, "error": error message
+        }
     """
     db_file = Path(db_path)
     if not db_file.exists():
-        raise FileNotFoundError(f"DuckDB file not found: {db_path}")
-    
-    conn = duckdb.connect(database=str(db_file))
-    df = conn.execute(sql).fetchdf()
-    conn.close()
-    return df
+        return {
+            "success": False,
+            "error": f"DuckDB file not found: {db_path}"
+        }
+
+    try:
+        conn = duckdb.connect(database=str(db_file))
+        df = conn.execute(sql).fetchdf()
+        conn.close()
+        return {
+            "success": True,
+            "data": df
+        }
+    except Exception as e:
+        return {
+            "success": False,
+            "error": f"{type(e).__name__}: {str(e)}"
+        }
+
 
 
 def list_tables(db_path: str) -> pd.DataFrame:
