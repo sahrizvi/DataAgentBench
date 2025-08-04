@@ -1,3 +1,27 @@
+=== Validation Log (2025-08-04T16:16:53) ===
+Query: query4
+
+LLM Answer:
+FAILED due to agent crash
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: ❌ Agent repeated the same call to `query_db` >5 times. Terminating.
+================================================================================
+
+=== Validation Log (2025-08-04T16:15:06) ===
+Query: query4
+
+LLM Answer:
+Beauty & Spas, 3.52
+
+Ground Truth:
+Restaurant,3.633676092544987
+
+Result: ❌ MISMATCH: Category 'Restaurant' not found in LLM output.
+================================================================================
+
 === Validation Log (2025-08-04T16:12:06) ===
 Query: query4
 
