@@ -149,7 +149,7 @@ def run_baseline_agent(
                 print(f"🔷 Args: {tool_args}")
 
                 if repeat_tracker.check_and_update(tool_name, tool_args):
-                    log_failed(query_dir, f"❌ Agent repeated the same call to `{tool_name}` >5 times. Terminating.")
+                    log_failed(query_dir, f"❌ Agent repeated the same call to `{tool_name}` >=5 times. Terminating.")
                     return False
 
                 if tool_name == "return_answer":

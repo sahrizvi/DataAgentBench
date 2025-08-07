@@ -1,3 +1,261 @@
+=== Validation Log (2025-08-06T22:30:23) ===
+Query: query2
+
+LLM Answer:
+No NYSE Arca ETFs listed in the stockinfo dataset have corresponding price data in the stocktrade dataset, so the answer is zero.
+
+Ground Truth:
+ProShares Ultra Bloomberg Natural Gas
+ProShares UltraShort MSCI Brazil Capped
+Direxion Auspice Broad Commodity Strategy ETF
+Direxion Daily Gold Miners Index Bear 2X Shares
+Direxion Emerging Markets Bear 3X Shares
+Direxion Energy Bull 2X Shares
+Direxion Financial Bear 3X Shares
+ProShares Ultrashort FTSE China 50
+Goldman Sachs Motif Finance Reimagined ETF
+Direxion Daily S&P Oil & Gas Exp. & Prod. Bull 2X Shares
+Xtrackers High Beta High Yield Bond ETF
+Direxion Daily Junior Gold Miners Index Bear 2X Shares
+Direxion Daily Junior Gold Miners Index Bull 2X Shares
+Xtrackers Japan JPX-Nikkei 400 Equity ETF
+Direxion Daily S&P Biotech Bear 3X Shares
+Direxion Daily S&P Biotech Bull 3X Shares
+Direxion Daily Latin America 3x Bull Shares
+SPDR MidCap Trust Series I
+Pacer Trendpilot International ETF
+Pacer Benchmark Retail Real Estate SCTR ETF
+UltraPro Short Dow30
+Direxion Daily Semiconductor Bear 3x Shares
+ProShares UltraShort Semiconductors
+Direxion Technology Bear 3X Shares
+Direxion Small Cap Bear 3X Shares
+ProShares Trust Ultra VIX Short Term Futures ETF
+ProShares Trust VIX Short-Term Futures ETF
+Virtus Private Credit Strategy ETF
+SPDR Series Trust SPDR S&P Oil & Gas Equipment & Services ETF
+SPDR S&P Oil & Gas Explor & Product
+Direxion Daily FTSE China Bear 3x Shares
+Total: 31
+
+Result: ❌ MISMATCH: Missing number: 31
+================================================================================
+
+=== Validation Log (2025-08-06T22:30:12) ===
+Query: query2
+
+LLM Answer:
+No ETF securities listed on NYSE Arca were found in the database, so none reached an adjusted closing price above $200 during 2015. Total number: 0
+
+Ground Truth:
+ProShares Ultra Bloomberg Natural Gas
+ProShares UltraShort MSCI Brazil Capped
+Direxion Auspice Broad Commodity Strategy ETF
+Direxion Daily Gold Miners Index Bear 2X Shares
+Direxion Emerging Markets Bear 3X Shares
+Direxion Energy Bull 2X Shares
+Direxion Financial Bear 3X Shares
+ProShares Ultrashort FTSE China 50
+Goldman Sachs Motif Finance Reimagined ETF
+Direxion Daily S&P Oil & Gas Exp. & Prod. Bull 2X Shares
+Xtrackers High Beta High Yield Bond ETF
+Direxion Daily Junior Gold Miners Index Bear 2X Shares
+Direxion Daily Junior Gold Miners Index Bull 2X Shares
+Xtrackers Japan JPX-Nikkei 400 Equity ETF
+Direxion Daily S&P Biotech Bear 3X Shares
+Direxion Daily S&P Biotech Bull 3X Shares
+Direxion Daily Latin America 3x Bull Shares
+SPDR MidCap Trust Series I
+Pacer Trendpilot International ETF
+Pacer Benchmark Retail Real Estate SCTR ETF
+UltraPro Short Dow30
+Direxion Daily Semiconductor Bear 3x Shares
+ProShares UltraShort Semiconductors
+Direxion Technology Bear 3X Shares
+Direxion Small Cap Bear 3X Shares
+ProShares Trust Ultra VIX Short Term Futures ETF
+ProShares Trust VIX Short-Term Futures ETF
+Virtus Private Credit Strategy ETF
+SPDR Series Trust SPDR S&P Oil & Gas Equipment & Services ETF
+SPDR S&P Oil & Gas Explor & Product
+Direxion Daily FTSE China Bear 3x Shares
+Total: 31
+
+Result: ❌ MISMATCH: Missing number: 31
+================================================================================
+
+=== Validation Log (2025-08-06T22:30:00) ===
+Query: query2
+
+LLM Answer:
+No ETF securities listed on NYSE Arca reached an adjusted closing price above $200 at any point during 2015. Total: 0
+
+Ground Truth:
+ProShares Ultra Bloomberg Natural Gas
+ProShares UltraShort MSCI Brazil Capped
+Direxion Auspice Broad Commodity Strategy ETF
+Direxion Daily Gold Miners Index Bear 2X Shares
+Direxion Emerging Markets Bear 3X Shares
+Direxion Energy Bull 2X Shares
+Direxion Financial Bear 3X Shares
+ProShares Ultrashort FTSE China 50
+Goldman Sachs Motif Finance Reimagined ETF
+Direxion Daily S&P Oil & Gas Exp. & Prod. Bull 2X Shares
+Xtrackers High Beta High Yield Bond ETF
+Direxion Daily Junior Gold Miners Index Bear 2X Shares
+Direxion Daily Junior Gold Miners Index Bull 2X Shares
+Xtrackers Japan JPX-Nikkei 400 Equity ETF
+Direxion Daily S&P Biotech Bear 3X Shares
+Direxion Daily S&P Biotech Bull 3X Shares
+Direxion Daily Latin America 3x Bull Shares
+SPDR MidCap Trust Series I
+Pacer Trendpilot International ETF
+Pacer Benchmark Retail Real Estate SCTR ETF
+UltraPro Short Dow30
+Direxion Daily Semiconductor Bear 3x Shares
+ProShares UltraShort Semiconductors
+Direxion Technology Bear 3X Shares
+Direxion Small Cap Bear 3X Shares
+ProShares Trust Ultra VIX Short Term Futures ETF
+ProShares Trust VIX Short-Term Futures ETF
+Virtus Private Credit Strategy ETF
+SPDR Series Trust SPDR S&P Oil & Gas Equipment & Services ETF
+SPDR S&P Oil & Gas Explor & Product
+Direxion Daily FTSE China Bear 3x Shares
+Total: 31
+
+Result: ❌ MISMATCH: Missing number: 31
+================================================================================
+
+=== Validation Log (2025-08-06T22:29:53) ===
+Query: query2
+
+LLM Answer:
+ETF securities listed on NYSE Arca that reached an adjusted closing price above $200 at any point during 2015: JPN, SDOW. Total number of such ETFs: 2.
+
+Ground Truth:
+ProShares Ultra Bloomberg Natural Gas
+ProShares UltraShort MSCI Brazil Capped
+Direxion Auspice Broad Commodity Strategy ETF
+Direxion Daily Gold Miners Index Bear 2X Shares
+Direxion Emerging Markets Bear 3X Shares
+Direxion Energy Bull 2X Shares
+Direxion Financial Bear 3X Shares
+ProShares Ultrashort FTSE China 50
+Goldman Sachs Motif Finance Reimagined ETF
+Direxion Daily S&P Oil & Gas Exp. & Prod. Bull 2X Shares
+Xtrackers High Beta High Yield Bond ETF
+Direxion Daily Junior Gold Miners Index Bear 2X Shares
+Direxion Daily Junior Gold Miners Index Bull 2X Shares
+Xtrackers Japan JPX-Nikkei 400 Equity ETF
+Direxion Daily S&P Biotech Bear 3X Shares
+Direxion Daily S&P Biotech Bull 3X Shares
+Direxion Daily Latin America 3x Bull Shares
+SPDR MidCap Trust Series I
+Pacer Trendpilot International ETF
+Pacer Benchmark Retail Real Estate SCTR ETF
+UltraPro Short Dow30
+Direxion Daily Semiconductor Bear 3x Shares
+ProShares UltraShort Semiconductors
+Direxion Technology Bear 3X Shares
+Direxion Small Cap Bear 3X Shares
+ProShares Trust Ultra VIX Short Term Futures ETF
+ProShares Trust VIX Short-Term Futures ETF
+Virtus Private Credit Strategy ETF
+SPDR Series Trust SPDR S&P Oil & Gas Equipment & Services ETF
+SPDR S&P Oil & Gas Explor & Product
+Direxion Daily FTSE China Bear 3x Shares
+Total: 31
+
+Result: ❌ MISMATCH: Missing number: 31
+================================================================================
+
+=== Validation Log (2025-08-06T22:29:00) ===
+Query: query2
+
+LLM Answer:
+ETF securities listed on NYSE Arca that reached an adjusted closing price above $200 at any point during 2015 are: JPN, SDOW. Total number of such ETFs: 2.
+
+Ground Truth:
+ProShares Ultra Bloomberg Natural Gas
+ProShares UltraShort MSCI Brazil Capped
+Direxion Auspice Broad Commodity Strategy ETF
+Direxion Daily Gold Miners Index Bear 2X Shares
+Direxion Emerging Markets Bear 3X Shares
+Direxion Energy Bull 2X Shares
+Direxion Financial Bear 3X Shares
+ProShares Ultrashort FTSE China 50
+Goldman Sachs Motif Finance Reimagined ETF
+Direxion Daily S&P Oil & Gas Exp. & Prod. Bull 2X Shares
+Xtrackers High Beta High Yield Bond ETF
+Direxion Daily Junior Gold Miners Index Bear 2X Shares
+Direxion Daily Junior Gold Miners Index Bull 2X Shares
+Xtrackers Japan JPX-Nikkei 400 Equity ETF
+Direxion Daily S&P Biotech Bear 3X Shares
+Direxion Daily S&P Biotech Bull 3X Shares
+Direxion Daily Latin America 3x Bull Shares
+SPDR MidCap Trust Series I
+Pacer Trendpilot International ETF
+Pacer Benchmark Retail Real Estate SCTR ETF
+UltraPro Short Dow30
+Direxion Daily Semiconductor Bear 3x Shares
+ProShares UltraShort Semiconductors
+Direxion Technology Bear 3X Shares
+Direxion Small Cap Bear 3X Shares
+ProShares Trust Ultra VIX Short Term Futures ETF
+ProShares Trust VIX Short-Term Futures ETF
+Virtus Private Credit Strategy ETF
+SPDR Series Trust SPDR S&P Oil & Gas Equipment & Services ETF
+SPDR S&P Oil & Gas Explor & Product
+Direxion Daily FTSE China Bear 3x Shares
+Total: 31
+
+Result: ❌ MISMATCH: Missing number: 31
+================================================================================
+
+=== Validation Log (2025-08-06T22:28:30) ===
+Query: query2
+
+LLM Answer:
+No NYSE Arca-listed ETFs reached an adjusted closing price above $200 at any point during 2015.
+
+Ground Truth:
+ProShares Ultra Bloomberg Natural Gas
+ProShares UltraShort MSCI Brazil Capped
+Direxion Auspice Broad Commodity Strategy ETF
+Direxion Daily Gold Miners Index Bear 2X Shares
+Direxion Emerging Markets Bear 3X Shares
+Direxion Energy Bull 2X Shares
+Direxion Financial Bear 3X Shares
+ProShares Ultrashort FTSE China 50
+Goldman Sachs Motif Finance Reimagined ETF
+Direxion Daily S&P Oil & Gas Exp. & Prod. Bull 2X Shares
+Xtrackers High Beta High Yield Bond ETF
+Direxion Daily Junior Gold Miners Index Bear 2X Shares
+Direxion Daily Junior Gold Miners Index Bull 2X Shares
+Xtrackers Japan JPX-Nikkei 400 Equity ETF
+Direxion Daily S&P Biotech Bear 3X Shares
+Direxion Daily S&P Biotech Bull 3X Shares
+Direxion Daily Latin America 3x Bull Shares
+SPDR MidCap Trust Series I
+Pacer Trendpilot International ETF
+Pacer Benchmark Retail Real Estate SCTR ETF
+UltraPro Short Dow30
+Direxion Daily Semiconductor Bear 3x Shares
+ProShares UltraShort Semiconductors
+Direxion Technology Bear 3X Shares
+Direxion Small Cap Bear 3X Shares
+ProShares Trust Ultra VIX Short Term Futures ETF
+ProShares Trust VIX Short-Term Futures ETF
+Virtus Private Credit Strategy ETF
+SPDR Series Trust SPDR S&P Oil & Gas Equipment & Services ETF
+SPDR S&P Oil & Gas Explor & Product
+Direxion Daily FTSE China Bear 3x Shares
+Total: 31
+
+Result: ❌ MISMATCH: Missing number: 31
+================================================================================
+
 === Validation Log (2025-08-06T22:27:10) ===
 Query: query2
 
