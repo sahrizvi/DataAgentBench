@@ -1,3 +1,5 @@
 .env
-query_DEPS_DEV_V1/filtered_dataset/PACKAGEVERSIONS.csv
 *.csv
+*.json
+!**/ground_truth.csv
+!**/query.json
