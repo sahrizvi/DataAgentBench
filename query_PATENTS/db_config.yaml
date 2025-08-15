@@ -4,7 +4,7 @@ db_clients:
     db_path: query_dataset/patent_publication.db
   CPCDefinition_dataset:
     db_type: postgres
-    db_name: bookreview_db
-    sql_file: query_dataset/books_info.sql
+    db_name: patent_CPCDefinition
+    sql_file: query_dataset/patent_CPCDefinition.sql
 
 
