@@ -1,17 +1,17 @@
 import pandas as pd
 import json
 
-# 读取数据
+# Read input datasets
 df_pub = pd.read_csv("../ground_truth_dataset/PUBLICATIONS.csv")
 df_cpc_def = pd.read_csv("../ground_truth_dataset/CPC_DEFINITION.csv")
 
-# 确保 application_number 不为空
+# Keep only rows where application_number is not empty
 df_pub = df_pub[df_pub["application_number"].notna() & (df_pub["application_number"] != "")]
 
-# 每个 application_number 取一条记录（取 filing_date 最大的那条）
+# For each application_number, keep only the record with the latest filing_date
 df_pub = df_pub.sort_values("filing_date", ascending=False).drop_duplicates(subset=["application_number"])
 
-# 展开 cpc JSON
+# Extract CPC codes where "first" = True from JSON string
 def extract_first_cpcs(cpc_str):
     try:
         cpcs = json.loads(cpc_str)
@@ -21,7 +21,7 @@ def extract_first_cpcs(cpc_str):
 
 df_pub["cpc_list"] = df_pub["cpc"].apply(extract_first_cpcs)
 
-# 与 CPC_DEFINITION 表关联
+# Join with CPC_DEFINITION to enrich CPC details
 df_cpc = df_pub.explode("cpc_list").merge(
     df_cpc_def,
     left_on="cpc_list",
@@ -29,7 +29,7 @@ df_cpc = df_pub.explode("cpc_list").merge(
     how="inner"
 )
 
-# 展开 parents 作为 cpc_group
+# Parse CPC parents JSON to get cpc_group
 def parse_parents(parents_str):
     try:
         return json.loads(parents_str)
@@ -39,15 +39,15 @@ def parse_parents(parents_str):
 df_cpc["parents_list"] = df_cpc["parents"].apply(parse_parents)
 df_cpc = df_cpc.explode("parents_list").rename(columns={"parents_list": "cpc_group"})
 
-# 提取 filing_year
+# Extract filing year from filing_date (YYYYMMDD format)
 df_cpc["filing_year"] = (df_cpc["filing_date"] // 10000).astype(int)
 df_cpc = df_cpc[df_cpc["filing_year"] > 0]
 
-# 每年计数
+# Count patents per CPC group per year
 yearly_counts = df_cpc.groupby(["cpc_group", "filing_year"]).size().reset_index(name="cnt")
 yearly_counts = yearly_counts.sort_values(["cpc_group", "filing_year"])
 
-# 计算 EMA
+# Compute Exponential Moving Average (EMA) with smoothing factor alpha
 alpha = 0.2
 ema_results = []
 for group, subdf in yearly_counts.groupby("cpc_group"):
@@ -58,21 +58,24 @@ for group, subdf in yearly_counts.groupby("cpc_group"):
         ema_prev = ema
 ema_df = pd.DataFrame(ema_results, columns=["cpc_group", "filing_year", "ema"])
 
-# 找出 EMA 最大的年份（年份相同取更大年份）
+# For each CPC group, keep the year with the highest EMA (break ties by latest year)
 best_years = (
     ema_df.sort_values(["cpc_group", "ema", "filing_year"], ascending=[True, False, False])
     .drop_duplicates(subset=["cpc_group"])
 )
 
-# 过滤 level=5
+# Keep only CPC groups with level = 5
 best_years = best_years.merge(df_cpc_def, left_on="cpc_group", right_on="symbol")
 best_years = best_years[best_years["level"] == 5]
 
-# 选择输出列
-output = best_years[["titleFull", "cpc_group", "filing_year"]].rename(columns={"filing_year": "best_filing_year"})
+# Keep only results where the best year is 2022
+best_years = best_years[best_years["filing_year"] == 2022]
 
-# 保存
-output.to_csv("ground_truth_cpc_best_year.csv", index=False, encoding="utf-8")
+# Output only the CPC group column, removing duplicates
+output = best_years[["cpc_group"]].drop_duplicates()
 
-print("✅ Ground truth 生成完成，保存到 ground_truth_cpc_best_year.csv")
+# Save the final ground truth file
+output.to_csv("ground_truth.csv", index=False, encoding="utf-8")
+
+print("✅ Ground truth generated and saved to ground_truth.csv")
 print(output.head(10))

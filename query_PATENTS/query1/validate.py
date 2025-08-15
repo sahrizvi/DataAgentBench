@@ -1,45 +1,32 @@
-import re
-
-# Ground truth (Name, Version)
-gt_pairs = [
-    ("@dmrvos/infrajs>0.0.6>typescript", "2.6.2"),
-    ("@dmrvos/infrajs>0.0.5>typescript", "2.6.2"),
-    ("@dylanvann/svelte", "3.25.4"),
-    ("@dumc11/tailwindcss", "0.4.0"),
-    ("@dwarvesf/react-scripts>0.7.0>lodash.indexof", "4.0.5"),
-]
-
 def validate(llm_output: str) -> (bool, str):
     """
-    Validate:
-    - Each name in ground truth appears in LLM output (case-insensitive)
-    - The corresponding version appears in the 50 characters *after* the name (excluding the name itself)
+    Validate that all CPC codes in ground truth appear in the LLM output.
+
+    - Case-insensitive
+    - No proximity constraint
+    - Each code must appear at least once
 
     Returns:
-        (True, "OK") if all match
-        (False, reason) otherwise
+        (True, "OK") if all CPC codes are present
+        (False, reason) if any are missing
     """
+    ground_truth = [
+        "A22B", "A23J", "A23P", "A24D", "A24F", "A41G", "A47F", "A61P", "A62B", "A62D",
+        "A63H", "B08B", "B09B", "B09C", "B24B", "B27C", "B27G", "B28D", "B30B", "B60H",
+        "B60P", "B63G", "B65G", "C01D", "C01G", "C21B", "C25B", "E02D", "E04G", "E21D",
+        "E21F", "F16M", "F17B", "F24D", "F25J", "F26B", "G01H", "G01L", "G05G", "G06J",
+        "G06N", "G06T", "G06V", "G08G", "G16B", "G16C", "G16H", "G21F", "H02B", "H02G"
+    ]
+
     llm_lower = llm_output.lower()
 
-    for name, version in gt_pairs:
-        name_lower = name.lower()
-        idx = llm_lower.find(name_lower)
-
-        if idx == -1:
-            reason = f"Missing name: {name}"
+    for code in ground_truth:
+        if code.lower() not in llm_lower:
+            reason = f"Missing CPC code: {code}"
             print(f"❌ {reason}")
             return False, reason
+        else:
+            print(f"✅ Found CPC code: {code}")
 
-        # Only check in the 50 characters *after* the name
-        start = idx + len(name_lower)
-        window = llm_lower[start: start + 10]
-
-        if version.lower() not in window:
-            reason = f"Version '{version}' not found after name '{name}'"
-            print(f"❌ {reason}")
-            return False, reason
-
-        print(f"✅ Matched name + version: {name} → {version}")
-
-    print("✅ All name-version pairs validated successfully.")
+    print("✅ All CPC codes present in LLM output.")
     return True, "OK"
