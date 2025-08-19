@@ -1,2 +1,9 @@
 Hint: In gene expression analysis, the average log10-transformed value is typically computed as the mean of log10(normalized_count + 1) across samples.
 Match expression profiles and clinical records by ParticipantBarcode.
+
+Compute chi-square statistic Steps:
+1. Filter BRCA patients with non-null histological_type; mutation must have FILTER=PASS.
+2. Mark patients as YES if CDH1 mutation exists, else NO.
+3. Build contingency table (histological_type × mutation status).
+4. Exclude any row/column with total ≤ 10.
+5. Compute chi-square: sum((Oij - Eij)^2 / Eij), where Eij = (row_total * col_total) / grand_total.
