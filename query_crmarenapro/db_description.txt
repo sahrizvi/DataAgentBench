@@ -1,0 +1,54 @@
+You are working with six datasets to solve this query.
+
+Here are the descriptions of these six datasets:
+
+1. **core_crm** {core_crm.db}
+   - This dataset is stored in a SQLite database and contains core CRM data including users, accounts, and contacts from Salesforce CRMArena.
+   - Fields:
+     - User: Id, FirstName, LastName, Email, Phone, Username, Alias
+     - Account: Id, Name, Phone, Industry, Description, NumberOfEmployees, ShippingState
+     - Contact: Id, FirstName, LastName, Email, AccountId
+
+2. **sales_pipeline** {sales_pipeline.duckdb}
+   - This dataset is stored in a DuckDB database and contains sales pipeline data including opportunities, quotes, contracts, and leads.
+   - Fields:
+     - Opportunity: Id, AccountId, Name, StageName, Amount, CloseDate, Probability, OwnerId
+     - OpportunityLineItem: Id, OpportunityId, Product2Id, Quantity, UnitPrice, TotalPrice
+     - Quote: Id, OpportunityId, Name, Status, GrandTotal, ExpirationDate
+     - QuoteLineItem: Id, QuoteId, Product2Id, Quantity, UnitPrice, Subtotal
+     - Contract: Id, AccountId, Status, StartDate, ContractTerm, CompanySignedDate
+     - Lead: Id, FirstName, LastName, Company, Email, Status, LeadSource
+
+3. **support** {support.sql}
+   - This dataset is stored in a PostgreSQL database and contains customer support data including cases, knowledge articles, and communications.
+   - Fields:
+     - Case: Id, AccountId, ContactId, Subject, Status, Priority, Origin
+     - Knowledge__kav: Id, Title, Summary, Content, ArticleType
+     - Issue__c: Id, Name, Status__c, Priority__c, Description__c
+     - CaseHistory__c: Id, Case__c, Status__c, CreatedDate
+     - EmailMessage: Id, FromAddress, ToAddress, Subject, MessageDate, TextBody
+     - LiveChatTranscript: Id, CaseId, Name, StartTime, EndTime, Body
+
+4. **products_orders** {products_orders.db}
+   - This dataset is stored in a SQLite database and contains product catalog and order data.
+   - Fields:
+     - ProductCategory: Id, Name, Description, SortOrder
+     - Product2: Id, Name, Description, ProductCode, Family, IsActive
+     - ProductCategoryProduct: Id, ProductCategoryId, Product2Id
+     - Pricebook2: Id, Name, Description, IsActive, IsStandard
+     - PricebookEntry: Id, Pricebook2Id, Product2Id, UnitPrice, IsActive
+     - Order: Id, AccountId, EffectiveDate, Status, TotalAmount
+     - OrderItem: Id, OrderId, Product2Id, Quantity, UnitPrice, TotalPrice
+
+5. **activities** {activities.duckdb}
+   - This dataset is stored in a DuckDB database and contains activity data including tasks, events, and voice call transcripts.
+   - Fields:
+     - Task: Id, Subject, Status, Priority, ActivityDate, WhatId, WhoId, OwnerId
+     - Event: Id, Subject, StartDateTime, EndDateTime, WhatId, WhoId, OwnerId
+     - VoiceCallTranscript__c: Id, Name, CallDateTime__c, Duration__c, Transcript__c, RelatedTo__c
+
+6. **territory** {territory.db}
+   - This dataset is stored in a SQLite database and contains sales territory management data.
+   - Fields:
+     - Territory2: Id, Name, Territory2ModelId, ParentTerritory2Id
+     - UserTerritory2Association: Id, UserId, Territory2Id, RoleInTerritory2
