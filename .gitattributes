@@ -3,3 +3,9 @@
 *.zip filter=lfs diff=lfs merge=lfs -text
 *.db filter=lfs diff=lfs merge=lfs -text
 *.sql filter=lfs diff=lfs merge=lfs -text
+query_crmarenapro/query_dataset/*.db filter=lfs diff=lfs merge=lfs -text
+query_crmarenapro/query_dataset/*.duckdb filter=lfs diff=lfs merge=lfs -text
+query_crmarenapro/query_dataset/*.sql filter=lfs diff=lfs merge=lfs -text
+query_crmarenapro/query_dataset/hidden/*.db filter=lfs diff=lfs merge=lfs -text
+query_crmarenapro/query_dataset/hidden/*.duckdb filter=lfs diff=lfs merge=lfs -text
+query_crmarenapro/query_dataset/hidden/*.sql filter=lfs diff=lfs merge=lfs -text
