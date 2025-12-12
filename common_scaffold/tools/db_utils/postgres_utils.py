@@ -136,6 +136,7 @@ class PostgresQueryDBTool:
         uri = (
             f"postgresql+psycopg2://{db_config.PG_USER}:{db_config.PG_PASSWORD}"
             f"@{db_config.PG_HOST}:{db_config.PG_PORT}/{db_name}"
+            "?options=-c default_transaction_read_only=on"
         )
 
         with sqlalchemy.create_engine(uri).connect() as conn:
@@ -161,6 +162,7 @@ class PostgresListDBTool:
         uri = (
             f"postgresql+psycopg2://{db_config.PG_USER}:{db_config.PG_PASSWORD}"
             f"@{db_config.PG_HOST}:{db_config.PG_PORT}/{db_name}"
+            "?options=-c default_transaction_read_only=on"
         )
 
         with sqlalchemy.create_engine(uri).connect() as conn:

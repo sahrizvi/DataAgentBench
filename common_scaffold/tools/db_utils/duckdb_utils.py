@@ -10,7 +10,7 @@ DuckDB config:
 
 def check_db_exists(db_path):
     try:
-        with duckdb.connect(database=str(db_path)) as conn:
+        with duckdb.connect(database=str(db_path), read_only=True) as conn:
             # Simple query to check if the database is accessible
             conn.execute("SELECT 1;")
             return True
@@ -30,7 +30,7 @@ class DuckdbQueryDBTool:
 
     @staticmethod
     def exec(db_path, sql):
-        with duckdb.connect(database=str(db_path)) as conn:
+        with duckdb.connect(database=str(db_path), read_only=True) as conn:
             try:
                 result_df = conn.execute(sql).fetchdf()
             except Exception as e:
@@ -52,7 +52,7 @@ class DuckdbListDBTool:
 
     @staticmethod
     def exec(db_path, query):
-        with duckdb.connect(database=str(db_path)) as conn:
+        with duckdb.connect(database=str(db_path), read_only=True) as conn:
             try:
                 result_df = conn.execute(query).fetchdf()
                 return result_df.iloc[:, 0].tolist()

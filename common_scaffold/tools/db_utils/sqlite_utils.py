@@ -31,7 +31,8 @@ class SqliteQueryDBTool:
     
     @staticmethod
     def exec(db_path, sql):
-        with sqlite3.connect(db_path) as conn:
+        uri = f"file:{db_path}?mode=ro"
+        with sqlite3.connect(uri, uri=True) as conn:
             try:
                 result_df = pd.read_sql_query(sql, conn)
             except Exception as e:
@@ -52,7 +53,8 @@ class SqliteListDBTool:
     
     @staticmethod
     def exec(db_path, query):
-        with sqlite3.connect(db_path) as conn:
+        uri = f"file:{db_path}?mode=ro"
+        with sqlite3.connect(uri, uri=True) as conn:
             try:
                 result_df = pd.read_sql_query(query, conn)
                 return result_df.iloc[:, 0].tolist()
