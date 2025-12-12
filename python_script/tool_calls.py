@@ -15,6 +15,8 @@ def tool_calls_analysis_per_query(result_dir: Path, tool_name, runs: list):
     for rid in runs:
         run_dir = result_dir / f"run_{rid}"
         tool_json_path = run_dir / f"tool_calls.jsonl"
+        if not tool_json_path.exists():
+            continue
         call_num = 0
         tot_time = 0.0
         success_count = 0

@@ -9,16 +9,17 @@ import yaml
 
 def list_all():
     for task in [
-        "bookreview",
-        "crmarenapro",
-        "DEPS_DEV_V1",
-        "GITHUB_REPOS",
-        "googlelocal",
-        "PANCANCER_ATLAS",
-        "PATENTS",
-        "stockindex",
-        "stockmarket",
-        "yelp"
+        # "bookreview",
+        # "crmarenapro",
+        # "DEPS_DEV_V1",
+        # "GITHUB_REPOS",
+        # "googlelocal",
+        # "PANCANCER_ATLAS",
+        # "PATENTS",
+        # "stockindex",
+        # "stockmarket",
+        # "yelp",
+        "agnews",
     ]:
         db_config_path = f"/home/ruiying/DataAgentBench/query_{task}/db_config.yaml"
         tool = ListDBTool(
