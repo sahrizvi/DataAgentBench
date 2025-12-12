@@ -2804,3 +2804,6 @@ yelp/businessinfo_database/business: ['_id', 'business_id', 'name', 'review_coun
 yelp/user_database/review: ['review_id', 'user_id', 'business_ref', 'rating', 'useful', 'funny', 'cool', 'text', 'date']
 yelp/user_database/tip: ['user_id', 'business_ref', 'text', 'date', 'compliment_count']
 yelp/user_database/user: ['user_id', 'name', 'review_count', 'yelping_since', 'useful', 'funny', 'cool', 'elite']
+agnews/articles_database/articles: ['_id', 'article_id', 'title', 'description']
+agnews/metadata_database/authors: ['author_id', 'name']
+agnews/metadata_database/article_metadata: ['article_id', 'author_id', 'region', 'publication_date']

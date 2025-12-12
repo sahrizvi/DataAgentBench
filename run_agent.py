@@ -17,7 +17,8 @@ TASK_LIST = [
     "PATENTS",
     "stockindex",
     "stockmarket",
-    "yelp"
+    "yelp",
+    "agnews"
 ]
 
 if __name__ == "__main__":
