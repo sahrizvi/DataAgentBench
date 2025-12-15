@@ -21,7 +21,8 @@ def get_schemas():
         # "stockindex",
         # "stockmarket",
         # "yelp"
-        "agnews",
+        # "agnews",
+        "music_brainz_20k",
     ]:
         db_config_path = f"/home/ruiying/DataAgentBench/query_{task}/db_config.yaml"
         list_tool = ListDBTool(

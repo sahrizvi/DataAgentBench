@@ -2807,3 +2807,5 @@ yelp/user_database/user: ['user_id', 'name', 'review_count', 'yelping_since', 'u
 agnews/articles_database/articles: ['_id', 'article_id', 'title', 'description']
 agnews/metadata_database/authors: ['author_id', 'name']
 agnews/metadata_database/article_metadata: ['article_id', 'author_id', 'region', 'publication_date']
+music_brainz_20k/tracks_database/tracks: ['track_id', 'source_id', 'source_track_id', 'title', 'artist', 'album', 'year', 'length', 'language']
+music_brainz_20k/sales_database/sales: ['sale_id', 'track_id', 'country', 'store', 'units_sold', 'revenue_usd']
