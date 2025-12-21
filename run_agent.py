@@ -18,7 +18,8 @@ TASK_LIST = [
     "stockindex",
     "stockmarket",
     "yelp",
-    "agnews"
+    "agnews",
+    "music_brainz_20k",
 ]
 
 if __name__ == "__main__":
