@@ -102,15 +102,14 @@ def mongo_query(
 
         data = list(cursor)
         client.close()
-        #print(type(data))
-        
+
+        if not data:
+            return {"success": True, "data": pd.DataFrame()} 
+
         if basic:
             output = dumps(data)
         else:
-            if not data:
-                output = pd.DataFrame()
-            else:
-                output = pd.DataFrame(data)
+            output = pd.DataFrame(data)
         return {"success": True, "data": output}
 
     except Exception as e:
@@ -130,6 +129,5 @@ def list_collections(db_name: str) -> list:
     client = MongoClient(config.MONGO_URI)
     db = client[db_name]
     collections = db.list_collection_names()
-    print(client.list_database_names())
     client.close()
     return collections
