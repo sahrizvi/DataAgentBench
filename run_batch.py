@@ -32,6 +32,12 @@ def run_query(task: str, query_id: int, llm: str, iterations: int = 20):
 
     db_description_path = db_dir / "db_description.txt"
     db_description = db_description_path.read_text().strip()
+
+    # Append hints if available
+    db_hints_path = db_dir / "db_description_withhint.txt"
+    if db_hints_path.exists():
+        db_description += "\n\n" + db_hints_path.read_text().strip()
+
     db_config_path = db_dir / "db_config.yaml"
 
     data_agent = DataAgent(
