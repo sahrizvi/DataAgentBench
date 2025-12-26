@@ -11,3 +11,6 @@
 
 query_PATENTS/query_dataset/patent_publication.db
 
+*pycache*
+
+.DS_Store
