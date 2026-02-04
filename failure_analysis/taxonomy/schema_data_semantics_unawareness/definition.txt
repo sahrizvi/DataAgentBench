@@ -1,0 +1,11 @@
+The agent lacks or misuses knowledge of the underlying data schema or semantics, despite that information being provided in the prompt or directly obtainable via inspection (e.g., schema listing, sample tuples), and fails to compensate by querying or inspecting the data.
+
+Necessary & sufficient conditions of this FM:
+- The correct solution requires understanding schema and/or data semantics
+- The agent uses incorrect columns, joins, or interpretations
+- The agent does not attempt to resolve uncertainty via exploration
+
+This FM excludes:
+- Correct schema understanding but faulty execution
+- Correct schema but wrong objective
+- Failures caused by tool misuse
