@@ -6,10 +6,14 @@ from pathlib import Path
 from datetime import datetime
 import time
 import logging
+import logging_config
 from openai import AzureOpenAI, OpenAI
 from dotenv import load_dotenv
 from failure_analysis.get_prompt import get_prompt
 from failure_analysis.get_trace import get_trace
+
+CNT_PER_QUERY = 5
+JUDGE_MODEL = "gpt-5"
 
 load_dotenv()
 client = AzureOpenAI(
@@ -18,17 +22,9 @@ client = AzureOpenAI(
     azure_endpoint=os.getenv("AZURE_API_BASE")
 )
 
-fm_list = [
-    "incorrect_exeuction_despite_correct_intent",
-    "instruction_interface_non_compliance",
-    "intermediate_state_loss",
-    "objective_deviation",
-    "premature_termination",
-    "schema_data_semantics_unawareness",
-]
 
 model_list = [
-    "gemini-2.5-flash",
+    # "gemini-2.5-flash",
     "gemini-3-pro",
     "gpt-5-mini",
     "gpt-5.2",
@@ -36,21 +32,20 @@ model_list = [
     "kimi-k2-thinking",
 ]
 
-
 task_list = [
-    "bookreview",
-    "crmarenapro",
-    "DEPS_DEV_V1",
-    "GITHUB_REPOS",
-    "googlelocal",
-    "PANCANCER_ATLAS",
-    "PATENTS",
-    "stockindex",
-    "stockmarket",
-    "yelp",
-    "agnews",
-    "music_brainz_20k",
-    "civic_unstructured",
+    # "bookreview",
+    # "crmarenapro",
+    # "DEPS_DEV_V1",
+    # "GITHUB_REPOS",
+    # "googlelocal",
+    # "PANCANCER_ATLAS",
+    # "PATENTS",
+    # "stockindex",
+    # "stockmarket",
+    # "yelp",
+    # "agnews",
+    # "music_brainz_20k",
+    # "civic_unstructured",
     "paper_unstructured"
 ]
 
@@ -66,21 +61,48 @@ for model in model_list:
             except:
                 continue
         for query_id in sorted(query_id_list):
+            if task in ["civic_unstructured"]:
+                answer_file = os.path.join(query_dir, f"query{query_id}", "ground_truth.json")
+                with open(answer_file, 'r', encoding="utf-8") as f:
+                    gt_answer = json.load(f)
+                query_file = os.path.join(query_dir, f"query{query_id}", "query.json")
+                with open(query_file, 'r', encoding="utf-8") as f:
+                    query_json = json.load(f)
+            else:
+                answer_file = os.path.join(query_dir, f"query{query_id}", "ground_truth.csv")
+                with open(answer_file, "r", encoding="utf-8") as f:
+                    gt_answer = f.read().strip()
+                query_file = os.path.join(query_dir, f"query{query_id}", "query.json")
+                with open(query_file, "r", encoding="utf-8") as f:
+                    query_json = json.load(f)
+
             llm_judge_cnt = 0
             judge_result_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "failure_analysis", f"results-{model}", f"query_{task}", f"query{query_id}.jsonl")
             os.makedirs(os.path.dirname(judge_result_path), exist_ok=True)
+            existing_judge_results = set()
+            if os.path.exists(judge_result_path):
+                with open(judge_result_path, 'r') as file:
+                    for line in file:
+                        try:
+                            log_entry = json.loads(line)
+                            existing_judge_results.add(log_entry["run_id"])
+                        except:
+                            continue
             for run_id in range(50):
-                if llm_judge_cnt >= 5:
+                if llm_judge_cnt >= CNT_PER_QUERY:
                     break
+                if run_id in existing_judge_results:
+                    logging.getLogger(__name__).info(f"ℹ LLM judge already exists for query_{task} query{query_id} run_{run_id} using {model}, skipping...")
+                    continue
                 is_failed, failed_reason, failed_trace = get_trace(model, task, query_id, run_id)
                 judge_result = None
                 if failed_trace != None:
                     assert is_failed == True
                     assert failed_reason == "return_answer", f"Expected failed_reason to be 'return_answer', but got {failed_reason}"
-                    prompt = get_prompt(fm_list, failed_trace)
+                    prompt = get_prompt(failed_trace, gt_answer, str(query_json))
                     try:
                         response = client.chat.completions.create(
-                            model="o4-mini",
+                            model=JUDGE_MODEL,
                             messages=[
                                 {
                                     "role": "user",

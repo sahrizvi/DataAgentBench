@@ -77,38 +77,39 @@ def format_trace(messages):
     for msg in clean_msg:
         role = msg['role']
         if role == "system":
-            trace_str += f"==========[system begin]==========\n{msg['content'].strip()}\n==========[system end]==========\n"
+            trace_str += f"==========[system message]==========\n{msg['content'].strip()}\n"
         elif role == "user":
-            contents = msg['content'].split("DATABASE DESCRIPTION:")
-            assert len(contents) == 2
-            query = contents[0].strip().replace("QUERY:\n", "query: ").strip()
-            db_description = contents[1].strip()
-            trace_str += f"==========[data description begin]==========\n{db_description}\n==========[data description end]==========\n"
-            trace_str += f"==========[user begin]==========\n{query}\n==========[user end]==========\n"
+            trace_str += f"==========[user message]==========\n{msg['content'].strip()}\n"
         elif role == "assistant":
             tool_calls = msg['tool_calls']
-            trace_str += "==========[agent begin]==========\n"
+            trace_str += "==========[assistant message]==========\n"
             for tool_call in tool_calls:
                 tool_id = tool_call['id']
                 tool_name = tool_call['function']['name']
                 tool_arg_dict = tool_call['function']['arguments']
                 assert isinstance(tool_arg_dict, dict)
-                trace_str += f'''--------[tool call begin]--------\nid: "{tool_id}"\nname: {tool_name}\narguments: {', '.join(list(tool_arg_dict.keys()))}\n'''
+                trace_str += f'''--------[tool call]--------\nid: "{tool_id}"\nname: {tool_name}\narguments: {', '.join(list(tool_arg_dict.keys()))}\n'''
                 for arg_key, arg_value in tool_arg_dict.items():
-                    trace_str += f"--[{arg_key} argument begin]--\n"
+                    trace_str += f"--[{arg_key} argument]--\n"
                     trace_str += f"{arg_value}\n"
-                    trace_str += f"--[{arg_key} argument end]--\n"
-                trace_str += f'''--------[tool call end]--------\n'''
-            trace_str += "==========[agent end]==========\n"
         elif role == "tool":
-            trace_str += f"==========[tool begin]==========\n"
-            tool_id = msg['tool_call_id']
             tool_name = msg['name']
+            if tool_name == "return_answer":
+                break
+            trace_str += f"==========[tool message]==========\n"
+            tool_id = msg['tool_call_id']
             tool_result = msg['content'].strip()
-            trace_str += f'''id: "{tool_id}"\nname: {tool_name}\n--[execution result begin]--\n{tool_result}\n--[execution result end]--\n'''
-            trace_str += f"==========[tool end]==========\n"
+            trace_str += f'''id: "{tool_id}"\nname: {tool_name}\n--[execution result]--\n{tool_result}\n'''
 
     return trace_str.strip()
 
+if __name__ == "__main__":
+    is_failed, failed_reason, failed_trace = get_trace(
+        model="gpt5.1",
+        task="civic_unstructured",
+        query_id=1,
+        run_id=1
+    )
 
+    print(failed_trace)
     

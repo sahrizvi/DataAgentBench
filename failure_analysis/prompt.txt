@@ -1,0 +1,71 @@
+You are given a trace of a FAILED task executed by a data agent, along with the task query and the ground-truth answer. Your task is to diagnose WHY the agent's final answer does not match the ground truth using the failure modes FM1-4 defined below.
+
+The agent had access to the following tools:
+- list_db: list tables in a database
+- query_db: execute SQL queries
+- execute_python: run Python code for data processing
+- return_answer: terminate and return the final answer
+
+The trace records the complete interaction between the data agent and the available tools. That is, the trace contains:
+- Exploratory tool calls (trial-and-error)
+- Tool calls that directly contributed to the final answer
+
+## IMPORTANT INSTRUCTIONS:
+1. First, identify ONLY the tool calls whose outputs were used (directly or indirectly) to produce the final answer. Ignore abandoned, failed, or exploratory tool calls that did not affect the final output.
+2. Base your failure analysis ONLY on those contributing tool calls.
+3. You must mark at least one failure mode as "yes". By default, select exactly one failure mode—the most specific one that best explains why the final answer is incorrect. Select multiple failure modes only if the failure cannot be adequately explained by any single mode alone (i.e., each selected mode captures a distinct, necessary cause visible in the contributing tool calls).
+4. Only mark a failure mode as "yes" if you can point to a concrete example in the trace.
+5. Provide a single-sentence summary explaining the failure, explicitly referencing the trace behavior.
+
+## FAILURE MODELS
+FM1 — Fails Before Planning
+Definition:
+- The agent does not attempt to solve the query.
+Example:
+- The agent does not issue any tool calls.
+
+FM2 — Incorrect Plan
+Definition:
+- The agent attempts to solve the user's query, but the PLAN (i.e., the logical structure) of the solution is wrong. That is, even if all steps were executed perfectly (e.g., correct data selection, correct implementation, no execution errors), the plan cannot produce the ground-truth answer.
+Examples:
+- Missing operations specified or implied by the user.
+- Adding constraints not requested by the user.
+- Stops early and returns an answer before all requirements of the query are completed.
+
+FM3 — Correct Plan, Wrong Data Selection
+Definition:
+- The agent follows a theoretically correct plan for answering the user's query, but selects incorrect data sources in its implementation, such that the required information exists but is retrieved from the wrong database, table, collection, column, or field.
+Example:
+- Using an incorrect column in a selection or filtering condition (e.g., a WHERE clause references a column that does not represent the queried attribute, even though the correct column exists elsewhere in the schema).
+- Querying or joining a table that does not represent the queried entity, despite the correct table exists elsewhere in the schema.
+
+FM4 — Correct Plan and Data Selection, Incorrect Implementation
+Definition:
+The agent the correct plan and selects the correct tables and columns, but implements the computation incorrectly.
+Examples:
+- Arithmetic errors, such as computing an aggregate with an incorrect formula (e.g., dividing by the number of unique entities rather than the total number of contributing entities or records when calculating an overall average).
+- Incorrect regular expressions or parsing rules, such that extracted values include unintended matches or miss required values (e.g., patterns that capture unrelated numbers or fail to match the intended tokens).
+- Parsing errors, such as using unsupported syntax, improper escaping, or assumptions about the execution environment that cause incorrect behavior or failed execution.
+- Incorrect join implementation, where the agent applies an invalid join condition or fails to normalize or transform identifiers before joining, even though the trace indicates awareness that normalization or alignment is required.
+
+## QUERY
+some query
+
+## GROUND-TRUTH ANSWER
+<some gt answer>
+
+## FAILED TRACE
+<some trace>
+
+## OUTPUT FORMAT
+Your output MUST follow this exact format, starting after @@ and ending before @@:
+
+@@
+A. Freeform text summary of the failure:
+<one sentence>
+B. Failure modes encountered:
+FM1: <yes or no>
+FM2: <yes or no>
+FM3: <yes or no>
+FM4: <yes or no>
+@@

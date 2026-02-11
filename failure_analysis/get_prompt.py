@@ -9,14 +9,3 @@ def get_prompt(trace, gt_answer, query) -> str:
 
     return instruction.replace('<fm_defn>', fm_defns).replace('<query>', query).replace('<failed_trace>', trace).replace('<gt_answer>', gt_answer)
 
-
-
-if __name__ == "__main__":
-
-    trace = "<some trace>"
-
-    gt_answer = "<some gt answer>"
-
-    prompt = get_prompt(trace, gt_answer, "some query")
-
-    print(prompt)

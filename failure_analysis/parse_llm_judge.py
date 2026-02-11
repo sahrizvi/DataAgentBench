@@ -1,7 +1,8 @@
 import os
 import re
+import logging
 
-def parse_responses(fm_list, responses):
+def parse_responses(responses):
     """
     Parse the LLM responses to extract yes/no answers for each failure mode.
     
@@ -12,27 +13,11 @@ def parse_responses(fm_list, responses):
         Dictionary mapping failure mode codes to lists of binary values (0 for no, 1 for yes)
     """
 
-    m_fm_names = dict()
-    m_fm_defns = dict()
-    m_fm_examples = dict()
-    for fm in fm_list:
-        fm_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), "taxonomy", fm)
-        assert os.path.exists(fm_folder), f"Failure mode folder {fm_folder} does not exist."
-        name_file = os.path.join(fm_folder, "name.txt")
-        with open(name_file, "r") as f:
-            m_fm_names[fm] = f.read().strip()
-        definition_file = os.path.join(fm_folder, "definition.txt")
-        with open(definition_file, "r") as f:
-            m_fm_defns[fm] = f.read().strip()
-        example_file = os.path.join(fm_folder, "examples.txt")
-        with open(example_file, "r") as f:
-            m_fm_examples[fm] = f.read().strip()
-    
     # Initialize dictionary with empty lists for each failure mode
     failure_modes = {
-        f"FM{i + 1}": [] for i in range(len(fm_list))
+        f"FM{i + 1}": [] for i in range(4)
     }
-    
+    tot_response_cnt = 0
     for i, response in enumerate(responses):
         try:
             # Clean up the response - remove @@ markers if present
@@ -43,6 +28,7 @@ def parse_responses(fm_list, responses):
                 cleaned_response = cleaned_response[:-2]
             
             # Process each failure mode
+            has_mode = False
             for mode in failure_modes.keys():
                 # Various patterns to match different response formats
                 patterns = [
@@ -67,6 +53,7 @@ def parse_responses(fm_list, responses):
                         value = 1 if matches[0].lower() == 'yes' else 0
                         failure_modes[mode].append(value)
                         found = True
+                        has_mode = True
                         break
                 
                 if not found:
@@ -78,10 +65,13 @@ def parse_responses(fm_list, responses):
                     if match:
                         value = 1 if match.group(1).lower() == 'yes' else 0
                         failure_modes[mode].append(value)
+                        has_mode = True
                     else:
                         # If all attempts fail, default to 'no'
-                        print(f"Warning: Could not find mode {mode} in response {i}")
+                        logging.warning(f"Warning: Could not find mode {mode} in response {i}")
                         failure_modes[mode].append(0)
+            if has_mode == True:
+                tot_response_cnt += 1
                     
         except Exception as e:
             print(f"Error processing response {i}: {e}")
@@ -96,4 +86,4 @@ def parse_responses(fm_list, responses):
         if len(failure_modes[mode]) < max_length:
             failure_modes[mode].extend([0] * (max_length - len(failure_modes[mode])))
     
-    return failure_modes
+    return failure_modes, tot_response_cnt
