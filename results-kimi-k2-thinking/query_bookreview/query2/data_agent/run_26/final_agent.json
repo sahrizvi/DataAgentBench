@@ -1,9 +1,9 @@
 {
-  "timestamp": "20260109_161345",
-  "start_time": 1768003958.129223,
-  "end_time": 1768004025.7131684,
-  "duration": 67.58394527435303,
-  "final_result": "Based on the analysis, the following English-language books in the 'Literature & Fiction' category have a perfect average rating of 5.0:\n\n1. Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message (8 reviews)\n2. Forged in Blood (Freehold) (6 reviews)\n3. The Prophet: With Original 1923 Illustrations by the Author (4 reviews)\n4. Exits, Desires, & Slow Fires (3 reviews)\n5. Reunion: The Children of Lauderdale Park (3 reviews)\n6. Something That Feels Like Truth (Switchgrass Books) (2 reviews)\n7. Knowing When To Die: Uncollected Stories (2 reviews)\n8. The Melancholy Strumpet Master (2 reviews)\n9. Fire Cracker (2 reviews)\n10. Local Honey (2 reviews)\n11. Childe Harold of Dysna (1 review)\n12. Liza of Lambeth (1 review)\n13. The Sludge (1 review)\n14. Kennebago Moments (1 review)\n15. Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries) (1 review)\n\nAll 15 books have an average rating of exactly 5.0 and are categorized under Literature & Fiction with English language details.",
+  "timestamp": "20260214_200147",
+  "start_time": 1771127976.8437622,
+  "end_time": 1771128107.4293652,
+  "duration": 130.58560299873352,
+  "final_result": "Based on the analysis of the book database and review data, here are the English-language books in the 'Literature & Fiction' category that have a perfect average rating of 5.0:\n\n1. **Knowing When To Die: Uncollected Stories** by Mort Castle\n   - Categories: [\"Books\", \"Literature & Fiction\", \"Genre Fiction\"]\n   - Details: Published June 19, 2018, 216 pages, paperback, English\n   - Review Count: 2\n\n2. **Childe Harold of Dysna** by Unknown\n   - Categories: [\"Books\", \"Literature & Fiction\", \"History & Criticism\"]\n   - Details: Published July 27, 2021, 80 pages, paperback, English\n   - Review Count: 1\n\n3. **Forged in Blood (Freehold)** by Michael Z. Williamson\n   - Categories: [\"Books\", \"Literature & Fiction\", \"Short Stories & Anthologies\"]\n   - Details: Published September 25, 2018, 528 pages, mass market paperback, English\n   - Review Count: 6\n\n4. **Exits, Desires, & Slow Fires** by J.R. Rogue\n   - Categories: [\"Books\", \"Literature & Fiction\", \"Poetry\"]\n   - Details: Published September 20, 2017, 83 pages, English\n   - Review Count: 3\n\n5. **Kennebago Moments** by Betsy Wolff Frey\n   - Categories: [\"Books\", \"Literature & Fiction\", \"Poetry\"]\n   - Details: Published November 24, 2010, 52 pages, paperback, English\n   - Review Count: 1\n\n6. **The Sludge** by David Bernstein\n   - Categories: [\"Books\", \"Literature & Fiction\", \"Genre Fiction\"]\n   - Details: Published July 5, 2016, 198 pages, English\n   - Review Count: 1\n\n7. **Liza of Lambeth** by Unknown\n   - Categories: [\"Books\", \"Literature & Fiction\", \"Classics\"]\n   - Details: Published June 1, 2020, 125 pages, paperback, English\n   - Review Count: 1\n\n8. **Something That Feels Like Truth (Switchgrass Books)** by DONALD LYSTRA\n   - Categories: [\"Books\", \"Literature & Fiction\", \"Short Stories & Anthologies\"]\n   - Details: Published September 1, 2013, 290 pages, paperback, English\n   - Review Count: 2\n\n9. **The Prophet: With Original 1923 Illustrations by the Author** by Kahlil Gibran\n   - Categories: [\"Books\", \"Literature & Fiction\", \"Poetry\"]\n   - Details: Published February 14, 2019, 48 pages, English\n   - Review Count: 4\n\n10. **The Melancholy Strumpet Master** by Zeb Beck\n    - Categories: [\"Books\", \"Literature & Fiction\", \"Humor & Satire\"]\n    - Details: Published February 19, 2023, 257 pages, paperback, English\n    - Review Count: 2\n\n11. **Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message** by K. G. Ingram\n    - Categories: [\"Books\", \"Literature & Fiction\"]\n    - Details: Published December 1, 2022, 192 pages, English\n    - Review Count: 8\n\n12. **Fire Cracker** by Shirley Kennett\n    - Categories: [\"Books\", \"Literature & Fiction\", \"United States\"]\n    - Details: Published July 1, 1997, 312 pages, paperback, English\n    - Review Count: 2\n\n13. **Local Honey** by Jo Stewart Wray\n    - Categories: [\"Books\", \"Literature & Fiction\"]\n    - Details: Published June 26, 2015, 166 pages, paperback, English\n    - Review Count: 2\n\n14. **Reunion: The Children of Lauderdale Park** by Unknown\n    - Categories: [\"Books\", \"Literature & Fiction\", \"Genre Fiction\"]\n    - Details: Published September 25, 2019, 367 pages, paperback, English\n    - Review Count: 3\n\n15. **Hollywood Confessions: Hollywood Headlines Book #3** by Gemma Halliday\n    - Categories: [\"Books\", \"Literature & Fiction\", \"Genre Fiction\"]\n    - Details: Published May 31, 2011, 209 pages, paperback, English\n    - Review Count: 1\n\nTotal: 15 books found with a perfect 5.0 average rating in the Literature & Fiction category.",
   "terminate_reason": "return_answer",
   "messages": [
     {
@@ -12,7 +12,11 @@
     },
     {
       "role": "user",
-      "content": "QUERY:\nWhich English-language books in the 'Literature & Fiction' category have a perfect average rating of 5.0? Return all matching books.\n\nDATABASE DESCRIPTION:\nYou are working with two databases to solve this query.\n\nHere are the descriptions of these two databases:\n\n1. review_database\n   - This database is stored in a SQLite database and contains Amazon book review information including ratings, text, helpfulness votes, etc. up to 2023.\n   - This database consists of one table:\n    - review_database:\n      - Fields:\n        - rating (float): Rating given by reviewer (1.0-5.0 scale)\n        - title (str): Book title\n        - text (str): Review text content\n        - purchase_id (str): Unique identifier linking to book_id in books_database\n        - review_time (str): Timestamp when review was posted\n        - helpful_vote (int): Number of helpful votes received\n        - verified_purchase (bool): Whether purchase was verified\n\n2. books_database\n   - This database is stored in a PostgreSQL database and contains Amazon book information including descriptions, price, details, title, etc. up to 2023.\n   - This database consists of one table:\n    - books_info:\n      - Fields:\n        - title (str): Book title\n        - subtitle (str): Book subtitle\n        - author (str): Book author(s)\n        - rating_number (int): Total number of ratings received\n        - features (str): Book features (stored as string representation of list/dict)\n        - description (str): Book description (stored as string representation of list/dict)\n        - price (float): Book price\n        - store (str): Store information\n        - categories (str): Book categories (stored as string representation of list/dict)\n        - details (str): Additional book details\n        - book_id (str): Unique book identifier\n\nHINTS: \n- In books_info, the \"description\", \"categories\", and \"features\" content appears to be in list or dictionary format, but they are actually stored as strings in the .sql file.\n- The fields \"book_id\" in books_info and \"purchase_id\" in review_query.db refer to the same book entities across different tables. While the field names are not exact matches, they can be joined using a fuzzy join approach to solve the query.\n- For some queries, you could get needed information from \"categories\" or \"details\" columns in books_database."
+      "content": "QUERY:\nWhich English-language books in the 'Literature & Fiction' category have a perfect average rating of 5.0? Return all matching books.\n\nDATABASE DESCRIPTION:\nYou are working with two databases to solve this query.\n\nHere are the descriptions of these two databases:\n\n1. books_database\n   - This database is stored in a PostgreSQL database and contains Amazon book information including descriptions, price, details, title, etc. up to 2023.\n   - This database consists of one table:\n    - books_info:\n      - Fields:\n        - title (str): Book title\n        - subtitle (str): Book subtitle\n        - author (str): Book author(s)\n        - rating_number (int): Total number of ratings received\n        - features (str): Book features (stored as string representation of list/dict)\n        - description (str): Book description (stored as string representation of list/dict)\n        - price (float): Book price\n        - store (str): Store information\n        - categories (str): Book categories (stored as string representation of list/dict)\n        - details (str): Additional book details\n        - book_id (str): Unique book identifier\n\n2. review_database\n   - This database is stored in a SQLite database and contains Amazon book review information including ratings, text, helpfulness votes, etc. up to 2023.\n   - This database consists of one table:\n    - review\n      - Fields:\n        - rating (float): Rating given by reviewer (1.0-5.0 scale)\n        - title (str): Review Title\n        - text (str): Review text content\n        - purchase_id (str): Unique identifier linking to book_id in books_info table in books_database\n        - review_time (str): Timestamp when review was posted\n        - helpful_vote (int): Number of helpful votes received\n        - verified_purchase (bool): Whether purchase was verified\n\nHINTS: \n- In books_info, the \"description\", \"categories\", and \"features\" content appears to be in list or dictionary format, but they are actually stored as strings in the .sql file.\n- The fields \"book_id\" in books_info and \"purchase_id\" in review refer to the same book entities across different tables. While the field names are not exact matches, they can be joined using a fuzzy join approach to solve the query.\n- For some queries, you could get needed information from \"categories\" or \"details\" columns in books_info."
+    },
+    {
+      "role": "assistant",
+      "tool_calls": []
     },
     {
       "role": "assistant",
@@ -40,7 +44,7 @@
         {
           "id": "functions.query_db:2",
           "function": {
-            "arguments": "{\"db_name\": \"books_database\", \"query\": \"SELECT book_id, title, categories, details FROM books_info LIMIT 10;\"}",
+            "arguments": "{\"db_name\": \"books_database\", \"query\": \"SELECT title, author, categories, details, book_id FROM books_info LIMIT 5\"}",
             "name": "query_db"
           },
           "type": "function",
@@ -52,35 +56,15 @@
       "role": "tool",
       "tool_call_id": "functions.query_db:2",
       "name": "query_db",
-      "content": "\nThe tool query_db was executed successfully.\n\nThe result is stored under key:\nvar_functions.query_db:2\n\nThe result is:\n[{\"book_id\": \"bookid_1\", \"title\": \"Chaucer\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"History & Criticism\\\"]\", \"details\": \"Published by Chatto & Windus, the first edition of this book was released on January 1, 2004. It is written in English and comes in a hardcover format, comprising 196 pages. The book has an ISBN-10 of 0701169850 and an ISBN-13 of 978-0701169855. Weighing 10.1 ounces, its dimensions are 5.39 x 0.71 x 7.48 inches.\"}, {\"book_id\": \"bookid_2\", \"title\": \"Notes from a Kidwatcher\", \"categories\": \"[\\\"Books\\\", \\\"Reference\\\", \\\"Words, Language & Grammar\\\"]\", \"details\": \"This book, published by Heinemann in its first edition on May 20, 1996, is written in English and is available in paperback format, consisting of 316 pages. It has an ISBN-10 of 0435088688 and an ISBN-13 of 978-0435088682. The item weighs 1.05 pounds and its dimensions are 6.03 x 0.67 x 8.95 inches.\"}, {\"book_id\": \"bookid_3\", \"title\": \"Service: A Navy SEAL at War\", \"categories\": \"[\\\"Books\\\", \\\"Biographies & Memoirs\\\", \\\"Leaders & Notable People\\\"]\", \"details\": \"This book, published by Little, Brown and Company in its first edition on May 8, 2012, is available in English and is bound as a hardcover with a total of 384 pages. It has an ISBN-10 of 9780316185363 and an ISBN-13 of 978-0316185363. The item weighs 1.4 pounds and its dimensions are 6.25 inches in width, 1.55 inches in depth, and 9.55 inches in height.\"}, {\"book_id\": \"bookid_4\", \"title\": \"Monstrous Stories #4: The Day the Mice Stood Still\", \"categories\": \"[\\\"Books\\\", \\\"Children's Books\\\", \\\"Science Fiction & Fantasy\\\"]\", \"details\": \"This book, published by Scholastic Paperbacks in a reprint edition on October 29, 2013, is written in English and consists of 64 pages. It has an ISBN-10 of 0545425573 and an ISBN-13 of 978-0545425575. The reading age is suitable for children between 7 and 10 years old, and it corresponds to a Lexile measure of 590L. The book is appropriate for students in grades 2 through 5. Weighing 1.92 ounces, its dimensions are 5.25 x 0.2 x 7.5 inches.\"}, {\"book_id\": \"bookid_5\", \"title\": \"Parker & Knight\", \"categories\": \"[\\\"Books\\\", \\\"Mystery, Thriller & Suspense\\\", \\\"Thrillers & Suspense\\\"]\", \"details\": \"The book was published on May 18, 2014, and is available in English. It has a file size of 1542 KB and allows for unlimited simultaneous device usage. Text-to-speech functionality is enabled, and it supports screen readers, enhancing accessibility for readers. Enhanced typesetting is also enabled, while the X-Ray feature is not available. Word Wise is enabled to assist with comprehension, and sticky notes can be used on Kindle Scribe. The print length of the book is 233 pages.\"}, {\"book_id\": \"bookid_6\", \"title\": \"Writings from a Black Woman Living in the Land of the \\\"Free\\\": Strength, Power, Resilience\", \"categories\": \"[\\\"Books\\\", \\\"Arts & Photography\\\", \\\"History & Criticism\\\"]\", \"details\": \"This book, published independently on December 30, 2021, is written in English and consists of 24 pages. It has an ISBN 13 of 979-8528537702 and weighs 3.2 ounces. The dimensions of the book are 7 x 0.06 x 9 inches.\"}, {\"book_id\": \"bookid_7\", \"title\": \"Child Development: A Practitioner's Guide:2nd (Second) edition\", \"categories\": \"[\\\"Books\\\", \\\"Parenting & Relationships\\\", \\\"Parenting\\\"]\", \"details\": \"The book, published by Guilford in its second edition in January 2004, is also noted as the 8082nd edition from January 1, 1994. It has a remarkably light item weight of just 0.01 ounces.\"}, {\"book_id\": \"bookid_8\", \"title\": \"Make: Electronics: Learning Through Discovery\", \"categories\": \"[\\\"Books\\\", \\\"Engineering & Transportation\\\", \\\"Engineering\\\"]\", \"details\": \"This book, published by Make Community, LLC, in its second edition on September 22, 2015, is available in English and spans 352 pages in paperback format. It has an ISBN of 9781680450262 for the 10-digit version and 978-1680450262 for the 13-digit version. The content is suitable for readers aged 11 to 17 years. The book weighs 2.91 pounds and its dimensions are 8 inches in width, 0.5 inches in thickness, and 10 inches in height.\"}, {\"book_id\": \"bookid_9\", \"title\": \"Reunion: The Children of Lauderdale Park\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\", \"details\": \"This book, published independently on September 25, 2019, is written in English and spans 367 pages. It is available in paperback format and has an ISBN-10 of 1694621731 and an ISBN-13 of 978-1694621733. The item weighs 1.38 pounds and measures 6 x 0.92 x 9 inches.\"}, {\"book_id\": \"bookid_10\", \"title\": \"Four Centuries of American Education\", \"categories\": \"[\\\"Books\\\", \\\"Education & Teaching\\\", \\\"Schools & Teaching\\\"]\", \"details\": \"This book, published by WallBuilder Press in its first edition on November 8, 2004, is available in English and comprises 51 pages in paperback format. It has an ISBN-10 of 1932225323 and an ISBN-13 of 978-1932225327, with a total item weight of 3.52 ounces.\"}]\n"
+      "content": "\nThe tool query_db was executed successfully.\n\nThe result is stored under key:\nvar_functions.query_db:2\n\nThe result is:\n[{\"title\": \"Chaucer\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/I/21Je2zja9pL._SY600_.jpg\\\", \\\"name\\\": \\\"Peter Ackroyd\\\", \\\"about\\\": [\\\"Peter Ackroyd, (born 5 October 1949) is an English biographer, novelist and critic with a particular interest in the history and culture of London. For his novels about English history and culture and his biographies of, among others, William Blake, Charles Dickens, T. S. Eliot and Sir Thomas More, he won the Somerset Maugham Award and two Whitbread Awards. He is noted for the volume of work he has produced, the range of styles therein, his skill at assuming different voices and the depth of his research.\\\", \\\"He was elected a fellow of the Royal Society of Literature in 1984 and appointed a Commander of the Order of the British Empire in 2003.\\\", \\\"Bio from Wikipedia, the free encyclopedia.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"History & Criticism\\\"]\", \"details\": \"Published by Chatto & Windus, the first edition of this book was released on January 1, 2004. It is written in English and comes in a hardcover format, comprising 196 pages. The book has an ISBN-10 of 0701169850 and an ISBN-13 of 978-0701169855. Weighing 10.1 ounces, its dimensions are 5.39 x 0.71 x 7.48 inches.\", \"book_id\": \"bookid_1\"}, {\"title\": \"Notes from a Kidwatcher\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/I/01Kv-W2ysOL._SY600_.png\\\", \\\"name\\\": \\\"Yetta M. Goodman\\\", \\\"about\\\": [\\\"Discover more of the author\\u2019s books, see similar authors, read author blogs and more\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Reference\\\", \\\"Words, Language & Grammar\\\"]\", \"details\": \"This book, published by Heinemann in its first edition on May 20, 1996, is written in English and is available in paperback format, consisting of 316 pages. It has an ISBN-10 of 0435088688 and an ISBN-13 of 978-0435088682. The item weighs 1.05 pounds and its dimensions are 6.03 x 0.67 x 8.95 inches.\", \"book_id\": \"bookid_2\"}, {\"title\": \"Service: A Navy SEAL at War\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/I/31rBoNEHiFL._SY600_.jpg\\\", \\\"name\\\": \\\"Marcus Luttrell\\\", \\\"about\\\": [\\\"Petty Officer First Class Marcus Luttrell was born in Huntsville, Texas in 1975.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Biographies & Memoirs\\\", \\\"Leaders & Notable People\\\"]\", \"details\": \"This book, published by Little, Brown and Company in its first edition on May 8, 2012, is available in English and is bound as a hardcover with a total of 384 pages. It has an ISBN-10 of 9780316185363 and an ISBN-13 of 978-0316185363. The item weighs 1.4 pounds and its dimensions are 6.25 inches in width, 1.55 inches in depth, and 9.55 inches in height.\", \"book_id\": \"bookid_3\"}, {\"title\": \"Monstrous Stories #4: The Day the Mice Stood Still\", \"author\": \"None\", \"categories\": \"[\\\"Books\\\", \\\"Children's Books\\\", \\\"Science Fiction & Fantasy\\\"]\", \"details\": \"This book, published by Scholastic Paperbacks in a reprint edition on October 29, 2013, is written in English and consists of 64 pages. It has an ISBN-10 of 0545425573 and an ISBN-13 of 978-0545425575. The reading age is suitable for children between 7 and 10 years old, and it corresponds to a Lexile measure of 590L. The book is appropriate for students in grades 2 through 5. Weighing 1.92 ounces, its dimensions are 5.25 x 0.2 x 7.5 inches.\", \"book_id\": \"bookid_4\"}, {\"title\": \"Parker & Knight\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/p5em8p7bskq0m3fr3tncs8ghcf._SY600_.jpg\\\", \\\"name\\\": \\\"Donald Wells\\\", \\\"about\\\": [\\\"Discover more of the author\\u2019s books, see similar authors, read author blogs and more\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Mystery, Thriller & Suspense\\\", \\\"Thrillers & Suspense\\\"]\", \"details\": \"The book was published on May 18, 2014, and is available in English. It has a file size of 1542 KB and allows for unlimited simultaneous device usage. Text-to-speech functionality is enabled, and it supports screen readers, enhancing accessibility for readers. Enhanced typesetting is also enabled, while the X-Ray feature is not available. Word Wise is enabled to assist with comprehension, and sticky notes can be used on Kindle Scribe. The print length of the book is 233 pages.\", \"book_id\": \"bookid_5\"}]\n"
     },
     {
       "role": "assistant",
       "tool_calls": [
         {
-          "id": "functions.list_db:4",
+          "id": "functions.query_db:5",
           "function": {
-            "arguments": "{\"db_name\": \"review_database\"}",
-            "name": "list_db"
-          },
-          "type": "function",
-          "index": 2
-        }
-      ]
-    },
-    {
-      "role": "tool",
-      "tool_call_id": "functions.list_db:4",
-      "name": "list_db",
-      "content": "\nThe tool list_db was executed successfully.\n\nThe result is stored under key:\nvar_functions.list_db:4\n\nThe result is:\n[\"review\"]\n"
-    },
-    {
-      "role": "assistant",
-      "tool_calls": [
-        {
-          "id": "functions.query_db:6",
-          "function": {
-            "arguments": "{\"db_name\": \"books_database\", \"query\": \"SELECT book_id, title FROM books_info WHERE categories LIKE '%Literature & Fiction%' AND details LIKE '%English%';\"}",
+            "arguments": "{\"db_name\": \"books_database\", \"query\": \"SELECT title, author, categories, details, book_id FROM books_info WHERE categories LIKE '%Literature & Fiction%'\"}",
             "name": "query_db"
           },
           "type": "function",
@@ -90,9 +74,29 @@
     },
     {
       "role": "tool",
-      "tool_call_id": "functions.query_db:6",
+      "tool_call_id": "functions.query_db:5",
       "name": "query_db",
-      "content": "\nThe tool query_db was executed successfully.\n\nThe result is stored under key:\nvar_functions.query_db:6\n\nThe result is:\n[{\"book_id\": \"bookid_1\", \"title\": \"Chaucer\"}, {\"book_id\": \"bookid_9\", \"title\": \"Reunion: The Children of Lauderdale Park\"}, {\"book_id\": \"bookid_13\", \"title\": \"Girl Made of Glass\"}, {\"book_id\": \"bookid_30\", \"title\": \"Sugary Sweets (A Taste of Love Series)\"}, {\"book_id\": \"bookid_36\", \"title\": \"Therapy Mammals\"}, {\"book_id\": \"bookid_37\", \"title\": \"A Most Dangerous Book: Tacitus's Germania from the Roman Empire to the Third Reich\"}, {\"book_id\": \"bookid_38\", \"title\": \"The Prophet: With Original 1923 Illustrations by the Author\"}, {\"book_id\": \"bookid_39\", \"title\": \"The Melancholy Strumpet Master\"}, {\"book_id\": \"bookid_44\", \"title\": \"Reptilian\"}, {\"book_id\": \"bookid_49\", \"title\": \"Primeval: A Journal of the Uncanny - Issue #1\"}, {\"book_id\": \"bookid_55\", \"title\": \"Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)\"}, {\"book_id\": \"bookid_69\", \"title\": \"Out of Sheer Rage: Wrestling with D. H. Lawrence\"}, {\"book_id\": \"bookid_70\", \"title\": \"Polly and the Shadow Goblin: Book 2, Mother of Witches\"}, {\"book_id\": \"bookid_74\", \"title\": \"Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message\"}, {\"book_id\": \"bookid_77\", \"title\": \"One September Morning\"}, {\"book_id\": \"bookid_82\", \"title\": \"Fire Cracker\"}, {\"book_id\": \"bookid_84\", \"title\": \"Local Honey\"}, {\"book_id\": \"bookid_89\", \"title\": \"I'll Ride For My Hood: A Salty Love Story\"}, {\"book_id\": \"bookid_92\", \"title\": \"Outage\"}, {\"book_id\": \"bookid_93\", \"title\": \"Simantov\"}, {\"book_id\": \"bookid_98\", \"title\": \"Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)\"}, {\"book_id\": \"bookid_99\", \"title\": \"Buddy the Soldier Bear\"}, {\"book_id\": \"bookid_101\", \"title\": \"Knowing When To Die: Uncollected Stories\"}, {\"book_id\": \"bookid_106\", \"title\": \"Looking for Peyton Place: A Novel\"}, {\"book_id\": \"bookid_109\", \"title\": \"All the Way to the Gallows\"}, {\"book_id\": \"bookid_111\", \"title\": \"Can You Buy Me The Wind?\"}, {\"book_id\": \"bookid_122\", \"title\": \"Childe Harold of Dysna\"}, {\"book_id\": \"bookid_137\", \"title\": \"Oligarchy\"}, {\"book_id\": \"bookid_142\", \"title\": \"The Jordan Tracks\"}, {\"book_id\": \"bookid_144\", \"title\": \"Forged in Blood (Freehold)\"}, {\"book_id\": \"bookid_161\", \"title\": \"Time's Demon: BOOK II OF THE ISLEVALE CYCLE\"}, {\"book_id\": \"bookid_167\", \"title\": \"Dead Silence\"}, {\"book_id\": \"bookid_171\", \"title\": \"Exits, Desires, & Slow Fires\"}, {\"book_id\": \"bookid_177\", \"title\": \"Kennebago Moments\"}, {\"book_id\": \"bookid_179\", \"title\": \"A Cherry Cola Christmas (A Cherry Cola Book Club Novel)\"}, {\"book_id\": \"bookid_180\", \"title\": \"The Sludge\"}, {\"book_id\": \"bookid_182\", \"title\": \"Liza of Lambeth\"}, {\"book_id\": \"bookid_187\", \"title\": \"Consort (A Dark(ish) Faerie Tale Book 3)\"}, {\"book_id\": \"bookid_188\", \"title\": \"The Vampyre and Other Tales of the Macabre (Oxford World's Classics)\"}, {\"book_id\": \"bookid_195\", \"title\": \"Something That Feels Like Truth (Switchgrass Books)\"}]\n"
+      "content": "\nThe tool query_db was executed successfully.\n\nThe result is too large, so it is stored in a file. The file path is stored under key: \nvar_functions.query_db:5\n\nThe preview (first 10000 characters) of the result is:\n[{\"title\": \"Chaucer\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/I/21Je2zja9pL._SY600_.jpg\\\", \\\"name\\\": \\\"Peter Ackroyd\\\", \\\"about\\\": [\\\"Peter Ackroyd, (born 5 October 1949) is an English biographer, novelist and critic with a particular interest in the history and culture of London. For his novels about English history and culture and his biographies of, among others, William Blake, Charles Dickens, T. S. Eliot and Sir Thomas More, he won the Somerset Maugham Award and two Whitbread Awards. He is noted for the volume of work he has produced, the range of styles therein, his skill at assuming different voices and the depth of his research.\\\", \\\"He was elected a fellow of the Royal Society of Literature in 1984 and appointed a Commander of the Order of the British Empire in 2003.\\\", \\\"Bio from Wikipedia, the free encyclopedia.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"History & Criticism\\\"]\", \"details\": \"Published by Chatto & Windus, the first edition of this book was released on January 1, 2004. It is written in English and comes in a hardcover format, comprising 196 pages. The book has an ISBN-10 of 0701169850 and an ISBN-13 of 978-0701169855. Weighing 10.1 ounces, its dimensions are 5.39 x 0.71 x 7.48 inches.\", \"book_id\": \"bookid_1\"}, {\"title\": \"Reunion: The Children of Lauderdale Park\", \"author\": \"None\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\", \"details\": \"This book, published independently on September 25, 2019, is written in English and spans 367 pages. It is available in paperback format and has an ISBN-10 of 1694621731 and an ISBN-13 of 978-1694621733. The item weighs 1.38 pounds and measures 6 x 0.92 x 9 inches.\", \"book_id\": \"bookid_9\"}, {\"title\": \"Girl Made of Glass\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/5av23i12r4p62nfrr8koq0blld._SY600_.jpg\\\", \\\"name\\\": \\\"Shelby Leigh\\\", \\\"about\\\": [\\\"Shelby Leigh is a mental health poet writing about self-love, insecurities, anxiety, relationships and more. Her third poetry book, girl made of glass, released in 2023 with Central Avenue Publishing. Her longest collection yet, the book uncovers how our past - past relationships, memories, and ourselves - can haunt us.\\\", \\\"Her second poetry book, changing with the tides, is a #1 amazon bestseller, originally released in 2019. The new edition was released by Gallery Books in July 2022.\\\", \\\"In addition to writing, Shelby runs an online poetry community with workshops and edits poetry books.\\\", \\\"Connect with her on Instagram and TikTok @shelbyleighpoetry, Twitter @shelbyleighpoet, and on her website www.shelbyleigh.co.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Poetry\\\"]\", \"details\": \"The book, published by Central Avenue Publishing on January 24, 2023, is available in English and comes in paperback format, consisting of 144 pages. It has an ISBN-10 number of 1771682760 and an ISBN-13 number of 978-1771682763. The item weighs 5.1 ounces and has dimensions of 5.25 x 0.4 x 8 inches.\", \"book_id\": \"bookid_13\"}, {\"title\": \"Sugary Sweets (A Taste of Love Series)\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/i6g5m3i4a99kmtvj00g6v6h55o._SY600_.jpg\\\", \\\"name\\\": \\\"A.M. Willard\\\", \\\"about\\\": [\\\"Bestselling Author, A.M. Willard resides in Savannah, Georgia. She joined the Peach State many years ago after leaving the crystal blue waters and sugary white sand behind from the Panhandle of Florida. She's also known for being a wife, mother, and caretaker for her farm animals. A.M. loves anything sassy, glittery, and is a sucker for the Hallmark Channel. That last one might be the reason she believes in soulmates or it could be because she married her high school sweetheart for twenty years ago.\\\", \\\"After releasing her first novella series back in 2014, A.M. set out on a new goal to bring her readers a broad range of romantic stories from her desk. This includes Romantic Comedy, Contemporary Romance, and from time to time some Sexy Romance.\\\", \\\"A.M. is an active member of RWA (Romance Writers of America).\\\", \\\"To learn more about A.M. Willard visit her at www.amwillard.com\\\", \\\"Facebook: @authoramwillard\\\", \\\"Twitter: @AMWillardAuthor\\\", \\\"Instagram: authoramwillard\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Humor & Satire\\\"]\", \"details\": \"This book, published by CreateSpace Independent Publishing Platform on August 18, 2016, is written in English and is available in paperback, consisting of 140 pages. It has an ISBN-10 of 1536832286 and an ISBN-13 of 978-1536832280. The item weighs 6.6 ounces and its dimensions are 5.51 x 0.33 x 8.5 inches.\", \"book_id\": \"bookid_30\"}, {\"title\": \"Therapy Mammals\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/I/616DZHsJxTL._SY600_.jpg\\\", \\\"name\\\": \\\"Jon Methven\\\", \\\"about\\\": [\\\"I am a novelist and essayist from New York City. My work has appeared in Timothy McSweeney's Internet Tendency, The New York Times, The Atlantic, New York Magazine, Buzzfeed, The Morning News, n+1 and The Awl. My first novel, THIS IS YOUR CAPTAIN SPEAKING, was published by Simon & Schuster in June 2012. A second novel, STRANGE BOAT, published by Rare Bird Books in April 2016.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\", \"details\": \"This book, published by Rare Bird Books as part of the Barnacle Books series on June 12, 2018, is written in English and consists of 376 pages. It has an ISBN-10 of 194557299X and an ISBN-13 of 978-1945572999. Weighing 12.8 ounces, its dimensions are 5.5 x 1 x 8.5 inches.\", \"book_id\": \"bookid_36\"}, {\"title\": \"A Most Dangerous Book: Tacitus's Germania from the Roman Empire to the Third Reich\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/I/01Kv-W2ysOL._SY600_.png\\\", \\\"name\\\": \\\"Christopher B. Krebs\\\", \\\"about\\\": [\\\"Christopher B Krebs teaches Classics at Stanford University. He is the author of \\\\\\\"A Most Dangerous Book. Tacitus' Germania from the Roman Empire to the Third Reich\\\\\\\" as well as \\\\\\\"The Cambridge Companion to the Writings of Julius Caesar\\\\\\\" and two further books.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"History & Criticism\\\"]\", \"details\": \"This illustrated edition, published by W. W. Norton & Company on May 2, 2011, is available in English and features a hardcover format comprising 304 pages. The book has an ISBN-10 of 0393062651 and an ISBN-13 of 978-0393062656. It weighs 1.03 pounds and has dimensions of 5.8 x 1.1 x 8.6 inches.\", \"book_id\": \"bookid_37\"}, {\"title\": \"The Prophet: With Original 1923 Illustrations by the Author\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/b61g45vrb7u1g1rbso6rd26qpd._SY600_.jpg\\\", \\\"name\\\": \\\"Kahlil Gibran\\\", \\\"about\\\": [\\\"Khalil Gibran (/d\\u0292\\u026a\\u02c8br\\u0251\\u02d0n/; Full Arabic name Gibran Khalil Gibran, sometimes spelled Kahlil;[a] Arabic: \\u062c\\u0628\\u0631\\u0627\\u0646 \\u062e\\u0644\\u064a\\u0644 \\u062c\\u0628\\u0631\\u0627\\u0646\\u200e / ALA-LC: Jubr\\u0101n Khal\\u012bl Jubr\\u0101n or Jibr\\u0101n Khal\\u012bl Jibr\\u0101n) (January 6, 1883 \\u2013 April 10, 1931) was a Lebanese-American artist, poet, and writer of the New York Pen League.\\\", \\\"Khalil Gibran was born in the town of Bsharri in the Mount Lebanon Mutasarrifate, Ottoman Empire (north of modern-day Lebanon), to Khalil Gibran and Kamila Gibran(Rahmeh). As a young man Khalil emigrated with his family to the United States, where he studied art and began his literary career, writing in both English and Arabic. In the Arab world, Gibran is regarded as a literary and political rebel. His romantic style was at the heart of a renaissance in modern Arabic literature, especially prose poetry, breaking away from the classical school. In Lebanon, he is still celebrated as a literary hero.\\\", \\\"He is chiefly known in the English-speaking world for his 1923 book The Prophet, an early example of inspirational fiction including a series of philosophical essays written in poetic English prose. The book sold well despite a cool critical reception, gaining popularity in the 1930s and again especially in the 1960s counterculture. Gibran is the third best-selling poet of all time, behind Shakespeare and Laozi.\\\", \\\"Bio from Wikipedia, the free encyclopedia. Photo by unknown [Public domain], via Wikimedia Commons.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Poetry\\\"]\", \"details\": \"The book, published by Suzeteo Enterprises on February 14, 2019, is available in English and consists of 48 pages. It has an ISBN-10 of 1947844938 and an ISBN-13 of 978-1947844933. The Lexile measure for this book is 990L. Weighing 2.08 ounces, its dimensions are 5 inches in width, 0.1 inches in thickness, and 8 inches in height.\", \"book_id\": \"bookid_38\"}, {\"title\": \"The Melancholy Strumpet Master\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/qni9n7pv1s2e14ilckdh94bvpp._SY600_.jpg\\\", \\\"name\\\": \\\"Zeb Beck\\\", \\\"about\\\": [\\\"Zeb Beck lives in Los Angeles with his lovely wife and difficult pets. He likes and dislikes the same things you do.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Humor & Satire\\\"]\", \"details\": \"This book, published independently on February 19, 2023, is written in English and spans 257 pages in paperback format. It has an ISBN 13 of 979-8378201969 and weighs 14.1 ounces. The dimensions of the book are 5.5 x 0.65 x 8.5 inches.\", \"book_id\": \"bookid_39\"}, {\"title\": \"Reptilian\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/ganjbcmlq8kfej28tr0ktf6crh._SY600_.jpg\\\", \\\"name\\\": \\\"John J. Rust\\\", \\\"about\\\": [\\\"Sci-Fi, sports, action/adventure, cryptozoology, history, John J. Rust loves writing about all of them. A native of New Jersey, John graduated from Mercer County Community College and the College of Mt. St. Vincent with degrees in communications. He worked for New Jersey 101.5 FM before moving to\n"
+    },
+    {
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "id": "functions.list_db:6",
+          "function": {
+            "arguments": "{\"db_name\": \"review_database\"}",
+            "name": "list_db"
+          },
+          "type": "function",
+          "index": 3
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "functions.list_db:6",
+      "name": "list_db",
+      "content": "\nThe tool list_db was executed successfully.\n\nThe result is stored under key:\nvar_functions.list_db:6\n\nThe result is:\n[\"review\"]\n"
     },
     {
       "role": "assistant",
@@ -100,7 +104,7 @@
         {
           "id": "functions.query_db:8",
           "function": {
-            "arguments": "{\"db_name\": \"review_database\", \"query\": \"SELECT * FROM review LIMIT 5;\"}",
+            "arguments": "{\"db_name\": \"review_database\", \"query\": \"SELECT rating, purchase_id FROM review LIMIT 5\"}",
             "name": "query_db"
           },
           "type": "function",
@@ -112,7 +116,7 @@
       "role": "tool",
       "tool_call_id": "functions.query_db:8",
       "name": "query_db",
-      "content": "\nThe tool query_db was executed successfully.\n\nThe result is stored under key:\nvar_functions.query_db:8\n\nThe result is:\n[{\"rating\": \"4\", \"title\": \"Ha! On me!  I thought this was a cookbook!\", \"text\": \"Lucky for me it's more than a cookbook.<br /><br />The story of a modern Daniel Boone, growing up in Michigan, one of three sons of a hunter.  Beginning at age eight when he shot a squirrel, to age 13 his first deer, then hunting his way through college, a career as a fur trapper, hunting sheep in Alaska, canoeing the Missouri River for deer and ending in Brooklyn age 37. Brooklyn?<br /><br />I especially liked that I share his disgust at catch & release fishing - if you fish it, you have to eat it - anything else is sadism (my words).<br /><br />My brother in law is the cook in the family and I wanted to see if this would be a good gift for him and I struck pay dirt following each chapter are \\\"Tasting Notes\\\" where the author speaks of cooking wild game.<br /><br />I also enjoyed it for the history of the land he has hunted as well as the history of the hunt (I too was a big Daniel Boone fan growing up!).<br /><br />I think more pictures (everything but dead things) would have made this a keeper.\", \"review_time\": \"2012-11-24 18:52:00\", \"helpful_vote\": \"0\", \"verified_purchase\": \"0\", \"purchase_id\": \"purchaseid_186\"}, {\"rating\": \"4\", \"title\": \"Four Stars\", \"text\": \"Not as developed as Stephanie but I like the characters so far.\", \"review_time\": \"2015-12-31 13:35:00\", \"helpful_vote\": \"0\", \"verified_purchase\": \"1\", \"purchase_id\": \"purchaseid_191\"}, {\"rating\": \"4\", \"title\": \"A wonderful adventure in France\", \"text\": \"I loved this book all the way until the end. I have recently discovered that the author is intending to release another book, and from what I understand it will continue where this one left off. I am thankful for this, as the way this book ended was definitely a negative for me. I wanted to know more! What happened to the author, did she learn what she came to learn? Did she get the job she was hoping for? So many questions.<br /><br />From the beginning of Linda's book, it is easy to love her. She is open, honest and definitely has the type of personality you want your heroine to have, whether the book is fiction or reality. I couldn't help but root for Linda throughout her trials with her host family, even when I thought she acted as a bit of a brat herself. Listening to her internal thoughts about what she went through and her desire to achieve her goals made this book feel close to my heart.<br /><br />I applaud the adventurous spirit of the author and her decision to keep journal entries from that chapter of her life. What great material to have later to inspire a book! While I enjoyed the entire memoir, my favourite part of this book would have to be the author's descriptions of the many places she visited and the people she met along the way. While I think she could definitely have made a better impression on the family she worked for if she had been honest about her lack of French language skills from the beginning, she is a pioneer. Her drive and desire to learn the language from those in the actual country was inspiring. Not many people would have been gutsy enough to do what Linda did.<br /><br />I also particularly enjoyed the relationship between Linda and Antoine. The Kind heart of the author was apparent in her actions toward the children, even when she struggled with them.<br /><br />There is some romance, and I appreciated the way the author handled it. While sex scenes are not necessarily automatically offensive, there is something about memoirs that makes me uncomfortable if they are filled with them. This author manages to hint at her experiences without going into too much detail, leaving the reader to decide exactly what happened. Great writing.<br /><br />When you step into reading this book, you learn a lot about French customs, French cuisine and wine. You also get the opportunity to brush up on your French skills a bit and get to step outside yourself and live an adventure through the eyes of the author. I read this book in one sitting with very few breaks in between and found myself enthralled in the sights, sounds and atmosphere of this memoir.<br /><br />In the end, I was disappointed that the book ended. I could have kept reading about Linda's experiences without stopping anytime in the foreseeable future. The end of the book leaves many unanswered questions, that I am assuming the author will be answering in her next book. Were this a standalone, I would be very disappointed with the way the book ended, but with the knowledge that she is writing another book to continue with her story, I can't fault this one. One thing is for sure, if you read this book, you will be anxiously awaiting the next.<br /><br />I would recommend this to anyone who likes books about travel, memoirs or just a good story that came from the recollections and heart of the author. Read it, you will be glad you did. Overall, this was a VERY enjoyable read that gave me many reasons to wish I could drop everything and head off to France!\", \"review_time\": \"2013-05-05 10:47:00\", \"helpful_vote\": \"1\", \"verified_purchase\": \"0\", \"purchase_id\": \"purchaseid_190\"}, {\"rating\": \"5\", \"title\": \"Best beginner book.  Been looking for something like this for a long time.\", \"text\": \"Looked online for years for something like this.  It's the best I've seen.\", \"review_time\": \"2020-08-12 11:06:00\", \"helpful_vote\": \"0\", \"verified_purchase\": \"1\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"4\", \"title\": \"Referance Guide\", \"text\": \"Good reference guide for the basics\", \"review_time\": \"2014-11-13 18:55:00\", \"helpful_vote\": \"0\", \"verified_purchase\": \"1\", \"purchase_id\": \"purchaseid_178\"}]\n"
+      "content": "\nThe tool query_db was executed successfully.\n\nThe result is stored under key:\nvar_functions.query_db:8\n\nThe result is:\n[{\"rating\": \"4\", \"purchase_id\": \"purchaseid_186\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_191\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_190\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_178\"}]\n"
     },
     {
       "role": "assistant",
@@ -120,7 +124,7 @@
         {
           "id": "functions.query_db:10",
           "function": {
-            "arguments": "{\"db_name\": \"books_database\", \"query\": \"SELECT book_id, title FROM books_info WHERE categories LIKE '%Literature & Fiction%' AND details LIKE '%English%';\"}",
+            "arguments": "{\"db_name\": \"books_database\", \"query\": \"SELECT b.book_id, b.title, b.author, b.categories, b.details FROM books_info b WHERE b.categories LIKE '%Literature & Fiction%' AND b.details LIKE '%English%'\"}",
             "name": "query_db"
           },
           "type": "function",
@@ -132,7 +136,7 @@
       "role": "tool",
       "tool_call_id": "functions.query_db:10",
       "name": "query_db",
-      "content": "\nThe tool query_db was executed successfully.\n\nThe result is stored under key:\nvar_functions.query_db:10\n\nThe result is:\n[{\"book_id\": \"bookid_1\", \"title\": \"Chaucer\"}, {\"book_id\": \"bookid_9\", \"title\": \"Reunion: The Children of Lauderdale Park\"}, {\"book_id\": \"bookid_13\", \"title\": \"Girl Made of Glass\"}, {\"book_id\": \"bookid_30\", \"title\": \"Sugary Sweets (A Taste of Love Series)\"}, {\"book_id\": \"bookid_36\", \"title\": \"Therapy Mammals\"}, {\"book_id\": \"bookid_37\", \"title\": \"A Most Dangerous Book: Tacitus's Germania from the Roman Empire to the Third Reich\"}, {\"book_id\": \"bookid_38\", \"title\": \"The Prophet: With Original 1923 Illustrations by the Author\"}, {\"book_id\": \"bookid_39\", \"title\": \"The Melancholy Strumpet Master\"}, {\"book_id\": \"bookid_44\", \"title\": \"Reptilian\"}, {\"book_id\": \"bookid_49\", \"title\": \"Primeval: A Journal of the Uncanny - Issue #1\"}, {\"book_id\": \"bookid_55\", \"title\": \"Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)\"}, {\"book_id\": \"bookid_69\", \"title\": \"Out of Sheer Rage: Wrestling with D. H. Lawrence\"}, {\"book_id\": \"bookid_70\", \"title\": \"Polly and the Shadow Goblin: Book 2, Mother of Witches\"}, {\"book_id\": \"bookid_74\", \"title\": \"Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message\"}, {\"book_id\": \"bookid_77\", \"title\": \"One September Morning\"}, {\"book_id\": \"bookid_82\", \"title\": \"Fire Cracker\"}, {\"book_id\": \"bookid_84\", \"title\": \"Local Honey\"}, {\"book_id\": \"bookid_89\", \"title\": \"I'll Ride For My Hood: A Salty Love Story\"}, {\"book_id\": \"bookid_92\", \"title\": \"Outage\"}, {\"book_id\": \"bookid_93\", \"title\": \"Simantov\"}, {\"book_id\": \"bookid_98\", \"title\": \"Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)\"}, {\"book_id\": \"bookid_99\", \"title\": \"Buddy the Soldier Bear\"}, {\"book_id\": \"bookid_101\", \"title\": \"Knowing When To Die: Uncollected Stories\"}, {\"book_id\": \"bookid_106\", \"title\": \"Looking for Peyton Place: A Novel\"}, {\"book_id\": \"bookid_109\", \"title\": \"All the Way to the Gallows\"}, {\"book_id\": \"bookid_111\", \"title\": \"Can You Buy Me The Wind?\"}, {\"book_id\": \"bookid_122\", \"title\": \"Childe Harold of Dysna\"}, {\"book_id\": \"bookid_137\", \"title\": \"Oligarchy\"}, {\"book_id\": \"bookid_142\", \"title\": \"The Jordan Tracks\"}, {\"book_id\": \"bookid_144\", \"title\": \"Forged in Blood (Freehold)\"}, {\"book_id\": \"bookid_161\", \"title\": \"Time's Demon: BOOK II OF THE ISLEVALE CYCLE\"}, {\"book_id\": \"bookid_167\", \"title\": \"Dead Silence\"}, {\"book_id\": \"bookid_171\", \"title\": \"Exits, Desires, & Slow Fires\"}, {\"book_id\": \"bookid_177\", \"title\": \"Kennebago Moments\"}, {\"book_id\": \"bookid_179\", \"title\": \"A Cherry Cola Christmas (A Cherry Cola Book Club Novel)\"}, {\"book_id\": \"bookid_180\", \"title\": \"The Sludge\"}, {\"book_id\": \"bookid_182\", \"title\": \"Liza of Lambeth\"}, {\"book_id\": \"bookid_187\", \"title\": \"Consort (A Dark(ish) Faerie Tale Book 3)\"}, {\"book_id\": \"bookid_188\", \"title\": \"The Vampyre and Other Tales of the Macabre (Oxford World's Classics)\"}, {\"book_id\": \"bookid_195\", \"title\": \"Something That Feels Like Truth (Switchgrass Books)\"}]\n"
+      "content": "\nThe tool query_db was executed successfully.\n\nThe result is too large, so it is stored in a file. The file path is stored under key: \nvar_functions.query_db:10\n\nThe preview (first 10000 characters) of the result is:\n[{\"book_id\": \"bookid_1\", \"title\": \"Chaucer\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/I/21Je2zja9pL._SY600_.jpg\\\", \\\"name\\\": \\\"Peter Ackroyd\\\", \\\"about\\\": [\\\"Peter Ackroyd, (born 5 October 1949) is an English biographer, novelist and critic with a particular interest in the history and culture of London. For his novels about English history and culture and his biographies of, among others, William Blake, Charles Dickens, T. S. Eliot and Sir Thomas More, he won the Somerset Maugham Award and two Whitbread Awards. He is noted for the volume of work he has produced, the range of styles therein, his skill at assuming different voices and the depth of his research.\\\", \\\"He was elected a fellow of the Royal Society of Literature in 1984 and appointed a Commander of the Order of the British Empire in 2003.\\\", \\\"Bio from Wikipedia, the free encyclopedia.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"History & Criticism\\\"]\", \"details\": \"Published by Chatto & Windus, the first edition of this book was released on January 1, 2004. It is written in English and comes in a hardcover format, comprising 196 pages. The book has an ISBN-10 of 0701169850 and an ISBN-13 of 978-0701169855. Weighing 10.1 ounces, its dimensions are 5.39 x 0.71 x 7.48 inches.\"}, {\"book_id\": \"bookid_9\", \"title\": \"Reunion: The Children of Lauderdale Park\", \"author\": \"None\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\", \"details\": \"This book, published independently on September 25, 2019, is written in English and spans 367 pages. It is available in paperback format and has an ISBN-10 of 1694621731 and an ISBN-13 of 978-1694621733. The item weighs 1.38 pounds and measures 6 x 0.92 x 9 inches.\"}, {\"book_id\": \"bookid_13\", \"title\": \"Girl Made of Glass\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/5av23i12r4p62nfrr8koq0blld._SY600_.jpg\\\", \\\"name\\\": \\\"Shelby Leigh\\\", \\\"about\\\": [\\\"Shelby Leigh is a mental health poet writing about self-love, insecurities, anxiety, relationships and more. Her third poetry book, girl made of glass, released in 2023 with Central Avenue Publishing. Her longest collection yet, the book uncovers how our past - past relationships, memories, and ourselves - can haunt us.\\\", \\\"Her second poetry book, changing with the tides, is a #1 amazon bestseller, originally released in 2019. The new edition was released by Gallery Books in July 2022.\\\", \\\"In addition to writing, Shelby runs an online poetry community with workshops and edits poetry books.\\\", \\\"Connect with her on Instagram and TikTok @shelbyleighpoetry, Twitter @shelbyleighpoet, and on her website www.shelbyleigh.co.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Poetry\\\"]\", \"details\": \"The book, published by Central Avenue Publishing on January 24, 2023, is available in English and comes in paperback format, consisting of 144 pages. It has an ISBN-10 number of 1771682760 and an ISBN-13 number of 978-1771682763. The item weighs 5.1 ounces and has dimensions of 5.25 x 0.4 x 8 inches.\"}, {\"book_id\": \"bookid_30\", \"title\": \"Sugary Sweets (A Taste of Love Series)\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/i6g5m3i4a99kmtvj00g6v6h55o._SY600_.jpg\\\", \\\"name\\\": \\\"A.M. Willard\\\", \\\"about\\\": [\\\"Bestselling Author, A.M. Willard resides in Savannah, Georgia. She joined the Peach State many years ago after leaving the crystal blue waters and sugary white sand behind from the Panhandle of Florida. She's also known for being a wife, mother, and caretaker for her farm animals. A.M. loves anything sassy, glittery, and is a sucker for the Hallmark Channel. That last one might be the reason she believes in soulmates or it could be because she married her high school sweetheart for twenty years ago.\\\", \\\"After releasing her first novella series back in 2014, A.M. set out on a new goal to bring her readers a broad range of romantic stories from her desk. This includes Romantic Comedy, Contemporary Romance, and from time to time some Sexy Romance.\\\", \\\"A.M. is an active member of RWA (Romance Writers of America).\\\", \\\"To learn more about A.M. Willard visit her at www.amwillard.com\\\", \\\"Facebook: @authoramwillard\\\", \\\"Twitter: @AMWillardAuthor\\\", \\\"Instagram: authoramwillard\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Humor & Satire\\\"]\", \"details\": \"This book, published by CreateSpace Independent Publishing Platform on August 18, 2016, is written in English and is available in paperback, consisting of 140 pages. It has an ISBN-10 of 1536832286 and an ISBN-13 of 978-1536832280. The item weighs 6.6 ounces and its dimensions are 5.51 x 0.33 x 8.5 inches.\"}, {\"book_id\": \"bookid_36\", \"title\": \"Therapy Mammals\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/I/616DZHsJxTL._SY600_.jpg\\\", \\\"name\\\": \\\"Jon Methven\\\", \\\"about\\\": [\\\"I am a novelist and essayist from New York City. My work has appeared in Timothy McSweeney's Internet Tendency, The New York Times, The Atlantic, New York Magazine, Buzzfeed, The Morning News, n+1 and The Awl. My first novel, THIS IS YOUR CAPTAIN SPEAKING, was published by Simon & Schuster in June 2012. A second novel, STRANGE BOAT, published by Rare Bird Books in April 2016.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\", \"details\": \"This book, published by Rare Bird Books as part of the Barnacle Books series on June 12, 2018, is written in English and consists of 376 pages. It has an ISBN-10 of 194557299X and an ISBN-13 of 978-1945572999. Weighing 12.8 ounces, its dimensions are 5.5 x 1 x 8.5 inches.\"}, {\"book_id\": \"bookid_37\", \"title\": \"A Most Dangerous Book: Tacitus's Germania from the Roman Empire to the Third Reich\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/I/01Kv-W2ysOL._SY600_.png\\\", \\\"name\\\": \\\"Christopher B. Krebs\\\", \\\"about\\\": [\\\"Christopher B Krebs teaches Classics at Stanford University. He is the author of \\\\\\\"A Most Dangerous Book. Tacitus' Germania from the Roman Empire to the Third Reich\\\\\\\" as well as \\\\\\\"The Cambridge Companion to the Writings of Julius Caesar\\\\\\\" and two further books.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"History & Criticism\\\"]\", \"details\": \"This illustrated edition, published by W. W. Norton & Company on May 2, 2011, is available in English and features a hardcover format comprising 304 pages. The book has an ISBN-10 of 0393062651 and an ISBN-13 of 978-0393062656. It weighs 1.03 pounds and has dimensions of 5.8 x 1.1 x 8.6 inches.\"}, {\"book_id\": \"bookid_38\", \"title\": \"The Prophet: With Original 1923 Illustrations by the Author\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/b61g45vrb7u1g1rbso6rd26qpd._SY600_.jpg\\\", \\\"name\\\": \\\"Kahlil Gibran\\\", \\\"about\\\": [\\\"Khalil Gibran (/d\\u0292\\u026a\\u02c8br\\u0251\\u02d0n/; Full Arabic name Gibran Khalil Gibran, sometimes spelled Kahlil;[a] Arabic: \\u062c\\u0628\\u0631\\u0627\\u0646 \\u062e\\u0644\\u064a\\u0644 \\u062c\\u0628\\u0631\\u0627\\u0646\\u200e / ALA-LC: Jubr\\u0101n Khal\\u012bl Jubr\\u0101n or Jibr\\u0101n Khal\\u012bl Jibr\\u0101n) (January 6, 1883 \\u2013 April 10, 1931) was a Lebanese-American artist, poet, and writer of the New York Pen League.\\\", \\\"Khalil Gibran was born in the town of Bsharri in the Mount Lebanon Mutasarrifate, Ottoman Empire (north of modern-day Lebanon), to Khalil Gibran and Kamila Gibran(Rahmeh). As a young man Khalil emigrated with his family to the United States, where he studied art and began his literary career, writing in both English and Arabic. In the Arab world, Gibran is regarded as a literary and political rebel. His romantic style was at the heart of a renaissance in modern Arabic literature, especially prose poetry, breaking away from the classical school. In Lebanon, he is still celebrated as a literary hero.\\\", \\\"He is chiefly known in the English-speaking world for his 1923 book The Prophet, an early example of inspirational fiction including a series of philosophical essays written in poetic English prose. The book sold well despite a cool critical reception, gaining popularity in the 1930s and again especially in the 1960s counterculture. Gibran is the third best-selling poet of all time, behind Shakespeare and Laozi.\\\", \\\"Bio from Wikipedia, the free encyclopedia. Photo by unknown [Public domain], via Wikimedia Commons.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Poetry\\\"]\", \"details\": \"The book, published by Suzeteo Enterprises on February 14, 2019, is available in English and consists of 48 pages. It has an ISBN-10 of 1947844938 and an ISBN-13 of 978-1947844933. The Lexile measure for this book is 990L. Weighing 2.08 ounces, its dimensions are 5 inches in width, 0.1 inches in thickness, and 8 inches in height.\"}, {\"book_id\": \"bookid_39\", \"title\": \"The Melancholy Strumpet Master\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/qni9n7pv1s2e14ilckdh94bvpp._SY600_.jpg\\\", \\\"name\\\": \\\"Zeb Beck\\\", \\\"about\\\": [\\\"Zeb Beck lives in Los Angeles with his lovely wife and difficult pets. He likes and dislikes the same things you do.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Humor & Satire\\\"]\", \"details\": \"This book, published independently on February 19, 2023, is written in English and spans 257 pages in paperback format. It has an ISBN 13 of 979-8378201969 and weighs 14.1 ounces. The dimensions of the book are 5.5 x 0.65 x 8.5 inches.\"}, {\"book_id\": \"bookid_44\", \"title\": \"Reptilian\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/ganjbcmlq8kfej28tr0ktf6crh._SY600_.jpg\\\", \\\"name\\\": \\\"John J. Rust\\\", \\\"about\\\": [\\\"Sci-Fi, sports, action/adventure, cryptozoology, history, John J. Rust loves writing about all of them. A native of New Jersey, John graduated from Mercer County Community College and the College of Mt. St. Vincent with degrees in communications. He worked for New Jersey 1\n"
     },
     {
       "role": "assistant",
@@ -140,7 +144,7 @@
         {
           "id": "functions.query_db:12",
           "function": {
-            "arguments": "{\"db_name\": \"review_database\", \"query\": \"SELECT purchase_id, rating FROM review;\"}",
+            "arguments": "{\"query\": \"SELECT book_id FROM books_info WHERE categories LIKE '%Literature & Fiction%' AND details LIKE '%English%'\", \"db_name\": \"books_database\"}",
             "name": "query_db"
           },
           "type": "function",
@@ -152,16 +156,16 @@
       "role": "tool",
       "tool_call_id": "functions.query_db:12",
       "name": "query_db",
-      "content": "\nThe tool query_db was executed successfully.\n\nThe result is too large, so it is stored in a file. The file path is stored under key: \nvar_functions.query_db:12\n\nThe preview (first 10000 characters) of the result is:\n[{\"purchase_id\": \"purchaseid_186\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_191\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_190\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_186\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_76\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_186\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_115\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_167\", \"rating\": \"2\"}, {\"purchase_id\": \"purchaseid_188\", \"rating\": \"1\"}, {\"purchase_id\": \"purchaseid_23\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_196\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_196\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_3\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_48\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_154\", \"rating\": \"3\"}, {\"purchase_id\": \"purchaseid_99\", \"rating\": \"2\"}, {\"purchase_id\": \"purchaseid_190\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_3\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_169\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_3\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_145\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_194\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_81\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_199\", \"rating\": \"1\"}, {\"purchase_id\": \"purchaseid_48\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_96\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_167\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_196\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_196\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_196\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_148\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_145\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_200\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"1\"}, {\"purchase_id\": \"purchaseid_20\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_52\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_159\", \"rating\": \"2\"}, {\"purchase_id\": \"purchaseid_83\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_67\", \"rating\": \"3\"}, {\"purchase_id\": \"purchaseid_3\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_58\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_196\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_95\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_76\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_3\", \"rating\": \"3\"}, {\"purchase_id\": \"purchaseid_62\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_136\", \"rating\": \"3\"}, {\"purchase_id\": \"purchaseid_10\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_3\", \"rating\": \"3\"}, {\"purchase_id\": \"purchaseid_10\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_3\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_186\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_46\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_38\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_145\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_48\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_10\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_31\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_115\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_48\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_196\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_7\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_4\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_104\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_162\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_145\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_3\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_186\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_5\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_20\", \"rating\": \"3\"}, {\"purchase_id\": \"purchaseid_158\", \"rating\": \"3\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_165\", \"rating\": \"3\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_6\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_158\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_196\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_5\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_115\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_46\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_83\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_86\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_174\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_48\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_3\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_3\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_177\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_187\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_188\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_63\", \"rating\": \"2\"}, {\"purchase_id\": \"purchaseid_33\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_62\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_10\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_48\", \"rating\": \"2\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_62\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_32\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_157\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_193\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_196\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_186\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_185\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_187\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_196\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_13\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_3\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_72\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_196\", \"rating\": \"3\"}, {\"purchase_id\": \"purchaseid_42\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_96\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_73\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_188\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_145\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_97\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_59\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_192\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_193\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"2\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_109\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_3\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_99\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_76\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_3\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_3\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_154\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_148\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_163\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_52\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_109\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_196\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_196\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_106\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_130\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_118\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_167\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_103\", \"rating\": \"1\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_5\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_103\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_5\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_3\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_20\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_3\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"2\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_115\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_3\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_154\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_154\", \"rating\": \"2\"}, {\"purchase_id\": \"purchaseid_32\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_186\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_161\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_41\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_36\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_145\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_196\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_8\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_145\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_20\", \"rating\": \"4\"}, {\"purchase_id\": \"purchaseid_124\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_48\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_32\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_196\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_3\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_148\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_196\", \"rating\": \"3\"}, {\"purchase_id\": \"purchaseid_197\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_196\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_41\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_196\", \"rating\": \"1\"}, {\"purchase_id\": \"purchaseid_178\", \"rating\": \"5\"}, {\"purchase_id\": \"purchaseid_173\", \"rating\": \"3\n"
+      "content": "\nThe tool query_db was executed successfully.\n\nThe result is stored under key:\nvar_functions.query_db:12\n\nThe result is:\n[{\"book_id\": \"bookid_1\"}, {\"book_id\": \"bookid_9\"}, {\"book_id\": \"bookid_13\"}, {\"book_id\": \"bookid_30\"}, {\"book_id\": \"bookid_36\"}, {\"book_id\": \"bookid_37\"}, {\"book_id\": \"bookid_38\"}, {\"book_id\": \"bookid_39\"}, {\"book_id\": \"bookid_44\"}, {\"book_id\": \"bookid_49\"}, {\"book_id\": \"bookid_55\"}, {\"book_id\": \"bookid_69\"}, {\"book_id\": \"bookid_70\"}, {\"book_id\": \"bookid_74\"}, {\"book_id\": \"bookid_77\"}, {\"book_id\": \"bookid_82\"}, {\"book_id\": \"bookid_84\"}, {\"book_id\": \"bookid_89\"}, {\"book_id\": \"bookid_92\"}, {\"book_id\": \"bookid_93\"}, {\"book_id\": \"bookid_98\"}, {\"book_id\": \"bookid_99\"}, {\"book_id\": \"bookid_101\"}, {\"book_id\": \"bookid_106\"}, {\"book_id\": \"bookid_109\"}, {\"book_id\": \"bookid_111\"}, {\"book_id\": \"bookid_122\"}, {\"book_id\": \"bookid_137\"}, {\"book_id\": \"bookid_142\"}, {\"book_id\": \"bookid_144\"}, {\"book_id\": \"bookid_161\"}, {\"book_id\": \"bookid_167\"}, {\"book_id\": \"bookid_171\"}, {\"book_id\": \"bookid_177\"}, {\"book_id\": \"bookid_179\"}, {\"book_id\": \"bookid_180\"}, {\"book_id\": \"bookid_182\"}, {\"book_id\": \"bookid_187\"}, {\"book_id\": \"bookid_188\"}, {\"book_id\": \"bookid_195\"}]\n"
     },
     {
       "role": "assistant",
       "tool_calls": [
         {
-          "id": "functions.execute_python:14",
+          "id": "functions.query_db:14",
           "function": {
-            "arguments": "{\"code\": \"import json\\nimport pandas as pd\\n\\n# Read the review data from file\\nreview_file_path = var_functions.query_db:12\\nwith open(review_file_path, 'r') as f:\\n    review_data = json.load(f)\\n\\n# Load Literature & Fiction English books\\nlit_fiction_books = var_functions.query_db:6\\n\\n# Create DataFrames\\ndf_reviews = pd.DataFrame(review_data)\\ndf_books = pd.DataFrame(lit_fiction_books)\\n\\n# Convert rating to numeric\\ndf_reviews['rating'] = pd.to_numeric(df_reviews['rating'])\\n\\n# Extract book_id from purchase_id (remove 'purchaseid_' prefix)\\ndf_reviews['book_id'] = df_reviews['purchase_id'].str.replace('purchaseid_', 'bookid_')\\n\\n# Merge reviews with books\\nmerged_df = df_reviews.merge(df_books, on='book_id', how='inner')\\n\\n# Calculate average rating per book\\nbook_ratings = merged_df.groupby(['book_id', 'title_y'])['rating'].agg(['mean', 'count']).reset_index()\\nbook_ratings.columns = ['book_id', 'title', 'avg_rating', 'review_count']\\n\\n# Filter for books with perfect 5.0 average rating\\nperfect_books = book_ratings[book_ratings['avg_rating'] == 5.0]\\n\\n# Sort by review count (descending) to show books with more reviews first\\nperfect_books = perfect_books.sort_values('review_count', ascending=False)\\n\\n# Print result\\nresult = perfect_books.to_dict('records')\\nprint('__RESULT__:')\\nprint(json.dumps(result))\"}",
-            "name": "execute_python"
+            "arguments": "{\"db_name\": \"review_database\", \"query\": \"SELECT rating, purchase_id FROM review\"}",
+            "name": "query_db"
           },
           "type": "function",
           "index": 7
@@ -170,18 +174,18 @@
     },
     {
       "role": "tool",
-      "tool_call_id": "functions.execute_python:14",
-      "name": "execute_python",
-      "content": "\nThe tool execute_python execution failed. The error message is:\n\"Execution failed with exit code 1\\nSyntaxError: invalid syntax\"\n"
+      "tool_call_id": "functions.query_db:14",
+      "name": "query_db",
+      "content": "\nThe tool query_db was executed successfully.\n\nThe result is too large, so it is stored in a file. The file path is stored under key: \nvar_functions.query_db:14\n\nThe preview (first 10000 characters) of the result is:\n[{\"rating\": \"4\", \"purchase_id\": \"purchaseid_186\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_191\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_190\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_186\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_76\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_186\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_115\"}, {\"rating\": \"2\", \"purchase_id\": \"purchaseid_167\"}, {\"rating\": \"1\", \"purchase_id\": \"purchaseid_188\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_23\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_196\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_196\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_3\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_48\"}, {\"rating\": \"3\", \"purchase_id\": \"purchaseid_154\"}, {\"rating\": \"2\", \"purchase_id\": \"purchaseid_99\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_190\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_3\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_169\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_3\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_145\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_194\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_81\"}, {\"rating\": \"1\", \"purchase_id\": \"purchaseid_199\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_48\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_96\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_167\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_196\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_196\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_196\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_148\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_145\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_200\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"1\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_20\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_52\"}, {\"rating\": \"2\", \"purchase_id\": \"purchaseid_159\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_83\"}, {\"rating\": \"3\", \"purchase_id\": \"purchaseid_67\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_3\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_58\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_196\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_95\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_76\"}, {\"rating\": \"3\", \"purchase_id\": \"purchaseid_3\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_62\"}, {\"rating\": \"3\", \"purchase_id\": \"purchaseid_136\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_10\"}, {\"rating\": \"3\", \"purchase_id\": \"purchaseid_3\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_10\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_3\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_186\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_46\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_38\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_145\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_48\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_10\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_31\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_115\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_48\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_196\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_7\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_4\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_104\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_162\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_145\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_3\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_186\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_5\"}, {\"rating\": \"3\", \"purchase_id\": \"purchaseid_20\"}, {\"rating\": \"3\", \"purchase_id\": \"purchaseid_158\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"3\", \"purchase_id\": \"purchaseid_165\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_6\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_158\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_196\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_5\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_115\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_46\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_83\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_86\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_174\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_48\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_3\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_3\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_177\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_187\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_188\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"2\", \"purchase_id\": \"purchaseid_63\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_33\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_62\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_10\"}, {\"rating\": \"2\", \"purchase_id\": \"purchaseid_48\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_62\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_32\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_157\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_193\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_196\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_186\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_185\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_187\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_196\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_13\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_3\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_72\"}, {\"rating\": \"3\", \"purchase_id\": \"purchaseid_196\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_42\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_96\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_73\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_188\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_145\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_97\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_59\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_192\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_193\"}, {\"rating\": \"2\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_109\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_3\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_99\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_76\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_3\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_3\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_154\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_148\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_163\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_52\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_109\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_196\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_196\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_106\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_130\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_118\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_167\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"1\", \"purchase_id\": \"purchaseid_103\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_5\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_103\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_5\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_3\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_20\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_3\"}, {\"rating\": \"2\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_115\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_3\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_154\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"2\", \"purchase_id\": \"purchaseid_154\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_32\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_186\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_161\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_41\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_36\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_145\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_196\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_8\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_145\"}, {\"rating\": \"4\", \"purchase_id\": \"purchaseid_20\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_124\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_48\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_32\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_196\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_3\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_148\"}, {\"rating\": \"3\", \"purchase_id\": \"purchaseid_196\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_197\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_196\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_41\"}, {\"rating\": \"1\", \"purchase_id\": \"purchaseid_196\"}, {\"rating\": \"5\", \"purchase_id\": \"purchaseid_178\"}, {\"rating\": \"3\", \"purchase_id\": \"purchaseid_173\n"
     },
     {
       "role": "assistant",
       "tool_calls": [
         {
-          "id": "functions.execute_python:16",
+          "id": "functions.query_db:16",
           "function": {
-            "arguments": "{\"code\": \"import json\\nimport pandas as pd\\n\\n# Read the review data from file\\nreview_file_path = locals()['var_functions.query_db:12']\\nwith open(review_file_path, 'r') as f:\\n    review_data = json.load(f)\\n\\n# Load Literature & Fiction English books\\nlit_fiction_books = locals()['var_functions.query_db:6']\\n\\n# Create DataFrames\\ndf_reviews = pd.DataFrame(review_data)\\ndf_books = pd.DataFrame(lit_fiction_books)\\n\\n# Convert rating to numeric\\ndf_reviews['rating'] = pd.to_numeric(df_reviews['rating'])\\n\\n# Extract book_id from purchase_id (remove 'purchaseid_' prefix)\\ndf_reviews['book_id'] = df_reviews['purchase_id'].str.replace('purchaseid_', 'bookid_')\\n\\n# Merge reviews with books\\nmerged_df = df_reviews.merge(df_books, on='book_id', how='inner')\\n\\n# Calculate average rating per book\\nbook_ratings = merged_df.groupby(['book_id', 'title'])['rating'].agg(['mean', 'count']).reset_index()\\nbook_ratings.columns = ['book_id', 'title', 'avg_rating', 'review_count']\\n\\n# Filter for books with perfect 5.0 average rating\\nperfect_books = book_ratings[book_ratings['avg_rating'] == 5.0]\\n\\n# Sort by review count (descending) to show books with more reviews first\\nif not perfect_books.empty:\\n    perfect_books = perfect_books.sort_values('review_count', ascending=False)\\n    result = perfect_books.to_dict('records')\\nelse:\\n    result = []\\n\\nprint('__RESULT__:')\\nprint(json.dumps(result))\"}",
-            "name": "execute_python"
+            "arguments": "{\"db_name\": \"books_database\", \"query\": \"SELECT book_id, title, author, categories, details FROM books_info WHERE categories LIKE '%Literature & Fiction%'\"}",
+            "name": "query_db"
           },
           "type": "function",
           "index": 8
@@ -190,18 +194,18 @@
     },
     {
       "role": "tool",
-      "tool_call_id": "functions.execute_python:16",
-      "name": "execute_python",
-      "content": "\nThe tool execute_python was executed successfully.\n\nThe result is stored under key:\nvar_functions.execute_python:16\n\nThe result is:\n[{\"book_id\": \"bookid_74\", \"title\": \"Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message\", \"avg_rating\": 5.0, \"review_count\": 8}, {\"book_id\": \"bookid_144\", \"title\": \"Forged in Blood (Freehold)\", \"avg_rating\": 5.0, \"review_count\": 6}, {\"book_id\": \"bookid_38\", \"title\": \"The Prophet: With Original 1923 Illustrations by the Author\", \"avg_rating\": 5.0, \"review_count\": 4}, {\"book_id\": \"bookid_171\", \"title\": \"Exits, Desires, & Slow Fires\", \"avg_rating\": 5.0, \"review_count\": 3}, {\"book_id\": \"bookid_9\", \"title\": \"Reunion: The Children of Lauderdale Park\", \"avg_rating\": 5.0, \"review_count\": 3}, {\"book_id\": \"bookid_195\", \"title\": \"Something That Feels Like Truth (Switchgrass Books)\", \"avg_rating\": 5.0, \"review_count\": 2}, {\"book_id\": \"bookid_101\", \"title\": \"Knowing When To Die: Uncollected Stories\", \"avg_rating\": 5.0, \"review_count\": 2}, {\"book_id\": \"bookid_39\", \"title\": \"The Melancholy Strumpet Master\", \"avg_rating\": 5.0, \"review_count\": 2}, {\"book_id\": \"bookid_82\", \"title\": \"Fire Cracker\", \"avg_rating\": 5.0, \"review_count\": 2}, {\"book_id\": \"bookid_84\", \"title\": \"Local Honey\", \"avg_rating\": 5.0, \"review_count\": 2}, {\"book_id\": \"bookid_122\", \"title\": \"Childe Harold of Dysna\", \"avg_rating\": 5.0, \"review_count\": 1}, {\"book_id\": \"bookid_182\", \"title\": \"Liza of Lambeth\", \"avg_rating\": 5.0, \"review_count\": 1}, {\"book_id\": \"bookid_180\", \"title\": \"The Sludge\", \"avg_rating\": 5.0, \"review_count\": 1}, {\"book_id\": \"bookid_177\", \"title\": \"Kennebago Moments\", \"avg_rating\": 5.0, \"review_count\": 1}, {\"book_id\": \"bookid_98\", \"title\": \"Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)\", \"avg_rating\": 5.0, \"review_count\": 1}]\n"
+      "tool_call_id": "functions.query_db:16",
+      "name": "query_db",
+      "content": "\nThe tool query_db was executed successfully.\n\nThe result is too large, so it is stored in a file. The file path is stored under key: \nvar_functions.query_db:16\n\nThe preview (first 10000 characters) of the result is:\n[{\"book_id\": \"bookid_1\", \"title\": \"Chaucer\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/I/21Je2zja9pL._SY600_.jpg\\\", \\\"name\\\": \\\"Peter Ackroyd\\\", \\\"about\\\": [\\\"Peter Ackroyd, (born 5 October 1949) is an English biographer, novelist and critic with a particular interest in the history and culture of London. For his novels about English history and culture and his biographies of, among others, William Blake, Charles Dickens, T. S. Eliot and Sir Thomas More, he won the Somerset Maugham Award and two Whitbread Awards. He is noted for the volume of work he has produced, the range of styles therein, his skill at assuming different voices and the depth of his research.\\\", \\\"He was elected a fellow of the Royal Society of Literature in 1984 and appointed a Commander of the Order of the British Empire in 2003.\\\", \\\"Bio from Wikipedia, the free encyclopedia.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"History & Criticism\\\"]\", \"details\": \"Published by Chatto & Windus, the first edition of this book was released on January 1, 2004. It is written in English and comes in a hardcover format, comprising 196 pages. The book has an ISBN-10 of 0701169850 and an ISBN-13 of 978-0701169855. Weighing 10.1 ounces, its dimensions are 5.39 x 0.71 x 7.48 inches.\"}, {\"book_id\": \"bookid_9\", \"title\": \"Reunion: The Children of Lauderdale Park\", \"author\": \"None\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\", \"details\": \"This book, published independently on September 25, 2019, is written in English and spans 367 pages. It is available in paperback format and has an ISBN-10 of 1694621731 and an ISBN-13 of 978-1694621733. The item weighs 1.38 pounds and measures 6 x 0.92 x 9 inches.\"}, {\"book_id\": \"bookid_13\", \"title\": \"Girl Made of Glass\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/5av23i12r4p62nfrr8koq0blld._SY600_.jpg\\\", \\\"name\\\": \\\"Shelby Leigh\\\", \\\"about\\\": [\\\"Shelby Leigh is a mental health poet writing about self-love, insecurities, anxiety, relationships and more. Her third poetry book, girl made of glass, released in 2023 with Central Avenue Publishing. Her longest collection yet, the book uncovers how our past - past relationships, memories, and ourselves - can haunt us.\\\", \\\"Her second poetry book, changing with the tides, is a #1 amazon bestseller, originally released in 2019. The new edition was released by Gallery Books in July 2022.\\\", \\\"In addition to writing, Shelby runs an online poetry community with workshops and edits poetry books.\\\", \\\"Connect with her on Instagram and TikTok @shelbyleighpoetry, Twitter @shelbyleighpoet, and on her website www.shelbyleigh.co.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Poetry\\\"]\", \"details\": \"The book, published by Central Avenue Publishing on January 24, 2023, is available in English and comes in paperback format, consisting of 144 pages. It has an ISBN-10 number of 1771682760 and an ISBN-13 number of 978-1771682763. The item weighs 5.1 ounces and has dimensions of 5.25 x 0.4 x 8 inches.\"}, {\"book_id\": \"bookid_30\", \"title\": \"Sugary Sweets (A Taste of Love Series)\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/i6g5m3i4a99kmtvj00g6v6h55o._SY600_.jpg\\\", \\\"name\\\": \\\"A.M. Willard\\\", \\\"about\\\": [\\\"Bestselling Author, A.M. Willard resides in Savannah, Georgia. She joined the Peach State many years ago after leaving the crystal blue waters and sugary white sand behind from the Panhandle of Florida. She's also known for being a wife, mother, and caretaker for her farm animals. A.M. loves anything sassy, glittery, and is a sucker for the Hallmark Channel. That last one might be the reason she believes in soulmates or it could be because she married her high school sweetheart for twenty years ago.\\\", \\\"After releasing her first novella series back in 2014, A.M. set out on a new goal to bring her readers a broad range of romantic stories from her desk. This includes Romantic Comedy, Contemporary Romance, and from time to time some Sexy Romance.\\\", \\\"A.M. is an active member of RWA (Romance Writers of America).\\\", \\\"To learn more about A.M. Willard visit her at www.amwillard.com\\\", \\\"Facebook: @authoramwillard\\\", \\\"Twitter: @AMWillardAuthor\\\", \\\"Instagram: authoramwillard\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Humor & Satire\\\"]\", \"details\": \"This book, published by CreateSpace Independent Publishing Platform on August 18, 2016, is written in English and is available in paperback, consisting of 140 pages. It has an ISBN-10 of 1536832286 and an ISBN-13 of 978-1536832280. The item weighs 6.6 ounces and its dimensions are 5.51 x 0.33 x 8.5 inches.\"}, {\"book_id\": \"bookid_36\", \"title\": \"Therapy Mammals\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/I/616DZHsJxTL._SY600_.jpg\\\", \\\"name\\\": \\\"Jon Methven\\\", \\\"about\\\": [\\\"I am a novelist and essayist from New York City. My work has appeared in Timothy McSweeney's Internet Tendency, The New York Times, The Atlantic, New York Magazine, Buzzfeed, The Morning News, n+1 and The Awl. My first novel, THIS IS YOUR CAPTAIN SPEAKING, was published by Simon & Schuster in June 2012. A second novel, STRANGE BOAT, published by Rare Bird Books in April 2016.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\", \"details\": \"This book, published by Rare Bird Books as part of the Barnacle Books series on June 12, 2018, is written in English and consists of 376 pages. It has an ISBN-10 of 194557299X and an ISBN-13 of 978-1945572999. Weighing 12.8 ounces, its dimensions are 5.5 x 1 x 8.5 inches.\"}, {\"book_id\": \"bookid_37\", \"title\": \"A Most Dangerous Book: Tacitus's Germania from the Roman Empire to the Third Reich\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/I/01Kv-W2ysOL._SY600_.png\\\", \\\"name\\\": \\\"Christopher B. Krebs\\\", \\\"about\\\": [\\\"Christopher B Krebs teaches Classics at Stanford University. He is the author of \\\\\\\"A Most Dangerous Book. Tacitus' Germania from the Roman Empire to the Third Reich\\\\\\\" as well as \\\\\\\"The Cambridge Companion to the Writings of Julius Caesar\\\\\\\" and two further books.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"History & Criticism\\\"]\", \"details\": \"This illustrated edition, published by W. W. Norton & Company on May 2, 2011, is available in English and features a hardcover format comprising 304 pages. The book has an ISBN-10 of 0393062651 and an ISBN-13 of 978-0393062656. It weighs 1.03 pounds and has dimensions of 5.8 x 1.1 x 8.6 inches.\"}, {\"book_id\": \"bookid_38\", \"title\": \"The Prophet: With Original 1923 Illustrations by the Author\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/b61g45vrb7u1g1rbso6rd26qpd._SY600_.jpg\\\", \\\"name\\\": \\\"Kahlil Gibran\\\", \\\"about\\\": [\\\"Khalil Gibran (/d\\u0292\\u026a\\u02c8br\\u0251\\u02d0n/; Full Arabic name Gibran Khalil Gibran, sometimes spelled Kahlil;[a] Arabic: \\u062c\\u0628\\u0631\\u0627\\u0646 \\u062e\\u0644\\u064a\\u0644 \\u062c\\u0628\\u0631\\u0627\\u0646\\u200e / ALA-LC: Jubr\\u0101n Khal\\u012bl Jubr\\u0101n or Jibr\\u0101n Khal\\u012bl Jibr\\u0101n) (January 6, 1883 \\u2013 April 10, 1931) was a Lebanese-American artist, poet, and writer of the New York Pen League.\\\", \\\"Khalil Gibran was born in the town of Bsharri in the Mount Lebanon Mutasarrifate, Ottoman Empire (north of modern-day Lebanon), to Khalil Gibran and Kamila Gibran(Rahmeh). As a young man Khalil emigrated with his family to the United States, where he studied art and began his literary career, writing in both English and Arabic. In the Arab world, Gibran is regarded as a literary and political rebel. His romantic style was at the heart of a renaissance in modern Arabic literature, especially prose poetry, breaking away from the classical school. In Lebanon, he is still celebrated as a literary hero.\\\", \\\"He is chiefly known in the English-speaking world for his 1923 book The Prophet, an early example of inspirational fiction including a series of philosophical essays written in poetic English prose. The book sold well despite a cool critical reception, gaining popularity in the 1930s and again especially in the 1960s counterculture. Gibran is the third best-selling poet of all time, behind Shakespeare and Laozi.\\\", \\\"Bio from Wikipedia, the free encyclopedia. Photo by unknown [Public domain], via Wikimedia Commons.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Poetry\\\"]\", \"details\": \"The book, published by Suzeteo Enterprises on February 14, 2019, is available in English and consists of 48 pages. It has an ISBN-10 of 1947844938 and an ISBN-13 of 978-1947844933. The Lexile measure for this book is 990L. Weighing 2.08 ounces, its dimensions are 5 inches in width, 0.1 inches in thickness, and 8 inches in height.\"}, {\"book_id\": \"bookid_39\", \"title\": \"The Melancholy Strumpet Master\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/qni9n7pv1s2e14ilckdh94bvpp._SY600_.jpg\\\", \\\"name\\\": \\\"Zeb Beck\\\", \\\"about\\\": [\\\"Zeb Beck lives in Los Angeles with his lovely wife and difficult pets. He likes and dislikes the same things you do.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Humor & Satire\\\"]\", \"details\": \"This book, published independently on February 19, 2023, is written in English and spans 257 pages in paperback format. It has an ISBN 13 of 979-8378201969 and weighs 14.1 ounces. The dimensions of the book are 5.5 x 0.65 x 8.5 inches.\"}, {\"book_id\": \"bookid_44\", \"title\": \"Reptilian\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/ganjbcmlq8kfej28tr0ktf6crh._SY600_.jpg\\\", \\\"name\\\": \\\"John J. Rust\\\", \\\"about\\\": [\\\"Sci-Fi, sports, action/adventure, cryptozoology, history, John J. Rust loves writing about all of them. A native of New Jersey, John graduated from Mercer County Community College and the College of Mt. St. Vincent with degrees in communications. He worked for New Jersey 1\n"
     },
     {
       "role": "assistant",
       "tool_calls": [
         {
-          "id": "functions.return_answer:18",
+          "id": "functions.execute_python:18",
           "function": {
-            "arguments": "{\"answer\": \"Based on the analysis, the following English-language books in the 'Literature & Fiction' category have a perfect average rating of 5.0:\\n\\n1. Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message (8 reviews)\\n2. Forged in Blood (Freehold) (6 reviews)\\n3. The Prophet: With Original 1923 Illustrations by the Author (4 reviews)\\n4. Exits, Desires, & Slow Fires (3 reviews)\\n5. Reunion: The Children of Lauderdale Park (3 reviews)\\n6. Something That Feels Like Truth (Switchgrass Books) (2 reviews)\\n7. Knowing When To Die: Uncollected Stories (2 reviews)\\n8. The Melancholy Strumpet Master (2 reviews)\\n9. Fire Cracker (2 reviews)\\n10. Local Honey (2 reviews)\\n11. Childe Harold of Dysna (1 review)\\n12. Liza of Lambeth (1 review)\\n13. The Sludge (1 review)\\n14. Kennebago Moments (1 review)\\n15. Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries) (1 review)\\n\\nAll 15 books have an average rating of exactly 5.0 and are categorized under Literature & Fiction with English language details.\"}",
-            "name": "return_answer"
+            "arguments": "{\"code\": \"import json\\nimport pandas as pd\\nimport re\\n\\n# Load literature books data\\nlit_books_path = var_functions.query_db_16\\nwith open(lit_books_path, 'r') as f:\\n    lit_books = json.load(f)\\n\\n# Load review data\\nreviews_path = var_functions.query_db_14\\nwith open(reviews_path, 'r') as f:\\n    reviews = json.load(f)\\n\\n# Convert to DataFrames\\ndf_books = pd.DataFrame(lit_books)\\ndf_reviews = pd.DataFrame(reviews)\\n\\n# Extract numeric IDs\\ndf_books['book_num_id'] = df_books['book_id'].str.extract(r'bookid_(\\\\d+)').astype(int)\\ndf_reviews['review_num_id'] = df_reviews['purchase_id'].str.extract(r'purchaseid_(\\\\d+)').astype(int)\\n\\n# Convert rating to float\\ndf_reviews['rating'] = df_reviews['rating'].astype(float)\\n\\n# Merge on numeric IDs\\ndf_merged = pd.merge(df_books, df_reviews, left_on='book_num_id', right_on='review_num_id', how='inner')\\n\\n# Filter for English-language books (check details field contains \\\"English\\\")\\ndf_english = df_merged[df_merged['details'].str.contains('English', case=False, na=False)]\\n\\n# Calculate average rating per book\\ndf_avg_ratings = df_english.groupby(['book_id', 'title', 'author', 'categories', 'details']).agg({\\n    'rating': 'mean'\\n}).reset_index()\\n\\n# Filter for perfect 5.0 average rating\\ndf_perfect = df_avg_ratings[abs(df_avg_ratings['rating'] - 5.0) < 0.001]\\n\\n# Prepare result\\nresult = df_perfect[['title', 'author', 'categories', 'details', 'rating']].copy()\\n\\n# Convert to JSON string\\nresult_json = result.to_json(orient='records', indent=2)\\n\\nprint('__RESULT__:')\\nprint(result_json)\"}",
+            "name": "execute_python"
           },
           "type": "function",
           "index": 9
@@ -210,9 +214,189 @@
     },
     {
       "role": "tool",
-      "tool_call_id": "functions.return_answer:18",
+      "tool_call_id": "functions.execute_python:18",
+      "name": "execute_python",
+      "content": "\nThe tool execute_python execution failed. The error message is:\n\"Execution failed with exit code 1\\nNameError: name 'var_functions' is not defined\"\n"
+    },
+    {
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "id": "functions.execute_python:20",
+          "function": {
+            "arguments": "{\"code\": \"import json\\nimport pandas as pd\\nimport re\\n\\n# Load literature books data\\nlit_books_path = var_functions.query_db_16\\nwith open(lit_books_path, 'r') as f:\\n    lit_books = json.load(f)\\n\\n# Load review data\\nreviews_path = var_functions.query_db_14\\nwith open(reviews_path, 'r') as f:\\n    reviews = json.load(f)\\n\\n# Convert to DataFrames\\ndf_books = pd.DataFrame(lit_books)\\ndf_reviews = pd.DataFrame(reviews)\\n\\n# Extract numeric IDs\\ndf_books['book_num_id'] = df_books['book_id'].str.extract(r'bookid_(\\\\d+)').astype(int)\\ndf_reviews['review_num_id'] = df_reviews['purchase_id'].str.extract(r'purchaseid_(\\\\d+)').astype(int)\\n\\n# Convert rating to float\\ndf_reviews['rating'] = df_reviews['rating'].astype(float)\\n\\n# Merge on numeric IDs\\ndf_merged = pd.merge(df_books, df_reviews, left_on='book_num_id', right_on='review_num_id', how='inner')\\n\\n# Filter for English-language books (check details field contains \\\"English\\\")\\ndf_english = df_merged[df_merged['details'].str.contains('English', case=False, na=False)]\\n\\n# Calculate average rating per book\\ndf_avg_ratings = df_english.groupby(['book_id', 'title', 'author', 'categories', 'details']).agg({\\n    'rating': 'mean'\\n}).reset_index()\\n\\n# Filter for perfect 5.0 average rating\\ndf_perfect = df_avg_ratings[abs(df_avg_ratings['rating'] - 5.0) < 0.001]\\n\\n# Prepare result\\nresult = df_perfect[['title', 'author', 'categories', 'details', 'rating']].copy()\\n\\n# Convert to JSON string\\nresult_json = result.to_json(orient='records', indent=2)\\n\\nprint('__RESULT__:')\\nprint(result_json)\"}",
+            "name": "execute_python"
+          },
+          "type": "function",
+          "index": 10
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "functions.execute_python:20",
+      "name": "execute_python",
+      "content": "\nThe tool execute_python execution failed. The error message is:\n\"Execution failed with exit code 1\\nNameError: name 'var_functions' is not defined\"\n"
+    },
+    {
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "id": "functions.execute_python:22",
+          "function": {
+            "arguments": "{\"code\": \"import json\\nimport pandas as pd\\n\\n# Load literature books data\\nbooks_path = var_functions.query_db_16\\nwith open(books_path, 'r') as f:\\n    lit_books = json.load(f)\\n\\n# Load review data\\nreviews_path = var_functions.query_db_14\\nwith open(reviews_path, 'r') as f:\\n    reviews = json.load(f)\\n\\n# Convert to DataFrames\\ndf_books = pd.DataFrame(lit_books)\\ndf_reviews = pd.DataFrame(reviews)\\n\\n# Extract numeric IDs\\ndf_books['book_num_id'] = df_books['book_id'].str.extract(r'bookid_(\\\\d+)').astype(int)\\ndf_reviews['review_num_id'] = df_reviews['purchase_id'].str.extract(r'purchaseid_(\\\\d+)').astype(int)\\n\\n# Convert rating to float\\ndf_reviews['rating'] = df_reviews['rating'].astype(float)\\n\\n# Merge on numeric IDs\\ndf_merged = pd.merge(df_books, df_reviews, left_on='book_num_id', right_on='review_num_id', how='inner')\\n\\n# Filter for English-language books (check details field contains \\\"English\\\")\\ndf_english = df_merged[df_merged['details'].str.contains('English', case=False, na=False)]\\n\\n# Calculate average rating per book\\ndf_avg_ratings = df_english.groupby(['book_id', 'title', 'author', 'categories', 'details']).agg({\\n    'rating': 'mean'\\n}).reset_index()\\n\\n# Filter for perfect 5.0 average rating (allow small floating point tolerance)\\ndf_perfect = df_avg_ratings[abs(df_avg_ratings['rating'] - 5.0) < 0.001]\\n\\n# Prepare result\\nresult = df_perfect[['title', 'author', 'categories', 'details', 'rating']].copy()\\n\\n# Convert to JSON string\\nresult_json = result.to_json(orient='records', indent=2)\\n\\nprint('__RESULT__:')\\nprint(result_json)\"}",
+            "name": "execute_python"
+          },
+          "type": "function",
+          "index": 11
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "functions.execute_python:22",
+      "name": "execute_python",
+      "content": "\nThe tool execute_python execution failed. The error message is:\n\"Execution failed with exit code 1\\nNameError: name 'var_functions' is not defined\"\n"
+    },
+    {
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "id": "functions.execute_python:24",
+          "function": {
+            "arguments": "{\"code\": \"import json\\nimport pandas as pd\\n\\n# Load literature books data\\nbooks_data = locals()['var_functions.query_db_16']\\nif isinstance(books_data, str) and books_data.endswith('.json'):\\n    with open(books_data, 'r') as f:\\n        lit_books = json.load(f)\\nelse:\\n    lit_books = books_data\\n\\n# Load review data\\nreviews_data = locals()['var_functions.query_db_14']\\nif isinstance(reviews_data, str) and reviews_data.endswith('.json'):\\n    with open(reviews_data, 'r') as f:\\n        reviews = json.load(f)\\nelse:\\n    reviews = reviews_data\\n\\n# Convert to DataFrames\\ndf_books = pd.DataFrame(lit_books)\\ndf_reviews = pd.DataFrame(reviews)\\n\\n# Extract numeric IDs\\ndf_books['book_num_id'] = df_books['book_id'].str.extract(r'bookid_(\\\\d+)').astype(int)\\ndf_reviews['review_num_id'] = df_reviews['purchase_id'].str.extract(r'purchaseid_(\\\\d+)').astype(int)\\n\\n# Convert rating to float\\ndf_reviews['rating'] = df_reviews['rating'].astype(float)\\n\\n# Merge on numeric IDs\\ndf_merged = pd.merge(df_books, df_reviews, left_on='book_num_id', right_on='review_num_id', how='inner')\\n\\n# Filter for English-language books (check details field contains \\\"English\\\")\\ndf_english = df_merged[df_merged['details'].str.contains('English', case=False, na=False)]\\n\\n# Calculate average rating per book\\ndf_avg_ratings = df_english.groupby(['book_id', 'title', 'author', 'categories', 'details']).agg({\\n    'rating': 'mean'\\n}).reset_index()\\n\\n# Filter for perfect 5.0 average rating (allow small floating point tolerance)\\ndf_perfect = df_avg_ratings[abs(df_avg_ratings['rating'] - 5.0) < 0.001]\\n\\n# Prepare result\\nresult = df_perfect[['title', 'author', 'categories', 'details', 'rating']].copy()\\n\\n# Convert to JSON string\\nresult_json = result.to_json(orient='records', indent=2)\\n\\nprint('__RESULT__:')\\nprint(result_json)\"}",
+            "name": "execute_python"
+          },
+          "type": "function",
+          "index": 12
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "functions.execute_python:24",
+      "name": "execute_python",
+      "content": "\nThe tool execute_python execution failed. The error message is:\n\"Execution failed with exit code 1\\nKeyError: 'var_functions.query_db_16'\"\n"
+    },
+    {
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "id": "functions.execute_python:26",
+          "function": {
+            "arguments": "{\"code\": \"import json\\nimport pandas as pd\\n\\n# Load literature books data\\nbooks_data = locals()['var_functions_query_db_16']\\nif isinstance(books_data, str) and books_data.endswith('.json'):\\n    with open(books_data, 'r') as f:\\n        lit_books = json.load(f)\\nelse:\\n    lit_books = books_data\\n\\n# Load review data\\nreviews_data = locals()['var_functions_query_db_14']\\nif isinstance(reviews_data, str) and reviews_data.endswith('.json'):\\n    with open(reviews_data, 'r') as f:\\n        reviews = json.load(f)\\nelse:\\n    reviews = reviews_data\\n\\n# Convert to DataFrames\\ndf_books = pd.DataFrame(lit_books)\\ndf_reviews = pd.DataFrame(reviews)\\n\\n# Extract numeric IDs\\ndf_books['book_num_id'] = df_books['book_id'].str.extract(r'bookid_(\\\\d+)').astype(int)\\ndf_reviews['review_num_id'] = df_reviews['purchase_id'].str.extract(r'purchaseid_(\\\\d+)').astype(int)\\n\\n# Convert rating to float\\ndf_reviews['rating'] = pd.to_numeric(df_reviews['rating'], errors='coerce')\\n\\n# Merge on numeric IDs\\ndf_merged = pd.merge(df_books, df_reviews, left_on='book_num_id', right_on='review_num_id', how='inner')\\n\\n# Filter for English-language books (check details field contains \\\"English\\\")\\ndf_english = df_merged[df_merged['details'].str.contains('English', case=False, na=False)]\\n\\n# Calculate average rating per book\\ndf_avg_ratings = df_english.groupby(['book_id', 'title', 'author', 'categories', 'details']).agg({\\n    'rating': 'mean'\\n}).reset_index()\\n\\n# Filter for perfect 5.0 average rating\\ndf_perfect = df_avg_ratings[abs(df_avg_ratings['rating'] - 5.0) < 0.001]\\n\\n# Prepare result\\nif not df_perfect.empty:\\n    result = df_perfect[['title', 'author', 'categories', 'details', 'rating']].copy()\\n    result_json = result.to_json(orient='records', indent=2)\\nelse:\\n    result_json = json.dumps([])\\n\\nprint('__RESULT__:')\\nprint(result_json)\"}",
+            "name": "execute_python"
+          },
+          "type": "function",
+          "index": 13
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "functions.execute_python:26",
+      "name": "execute_python",
+      "content": "\nThe tool execute_python execution failed. The error message is:\n\"Execution failed with exit code 1\\nKeyError: 'var_functions_query_db_16'\"\n"
+    },
+    {
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "id": "functions.execute_python:28",
+          "function": {
+            "arguments": "{\"code\": \"import json\\nimport pandas as pd\\n\\n# Access the stored variables directly\\nprint('Available variables:')\\nfor key in list(locals().keys()):\\n    if 'query_db' in str(key) or 'list_db' in str(key):\\n        print(f'  {key}: {type(locals()[key])}')\\n\\n# Load literature books data - use the correct key\\nbooks_path = locals()['var_functions.query_db:16']\\nprint(f\\\"Books path: {books_path}\\\")\\nprint(f\\\"Books path type: {type(books_path)}\\\")\\n\\nif isinstance(books_path, str) and books_path.endswith('.json'):\\n    with open(books_path, 'r') as f:\\n        lit_books = json.load(f)\\n    print(f\\\"Loaded {len(lit_books)} books\\\")\\nelse:\\n    lit_books = books_path\\n    print(f\\\"Using books data directly, length: {len(lit_books) if hasattr(lit_books, '__len__') else 'N/A'}\\\")\\n\\n# Load review data\\nreviews_path = locals()['var_functions.query_db:14']\\nprint(f\\\"Reviews path: {reviews_path}\\\")\\n\\nif isinstance(reviews_path, str) and reviews_path.endswith('.json'):\\n    with open(reviews_path, 'r') as f:\\n        reviews = json.load(f)\\n    print(f\\\"Loaded {len(reviews)} reviews\\\")\\nelse:\\n    reviews = reviews_path\\n    print(f\\\"Using reviews data directly, length: {len(reviews) if hasattr(reviews, '__len__') else 'N/A'}\\\")\\n\\nprint('__RESULT__:')\\nprint(json.dumps({'books_loaded': len(lit_books), 'reviews_loaded': len(reviews)}))\"}",
+            "name": "execute_python"
+          },
+          "type": "function",
+          "index": 14
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "functions.execute_python:28",
+      "name": "execute_python",
+      "content": "\nThe tool execute_python was executed successfully.\n\nThe result is stored under key:\nvar_functions.execute_python:28\n\nThe result is:\n{\"books_loaded\": 40, \"reviews_loaded\": 1833}\n"
+    },
+    {
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "id": "functions.execute_python:30",
+          "function": {
+            "arguments": "{\"code\": \"import json\\nimport pandas as pd\\n\\n# Load the data\\nwith open(var_functions.query_db_16, 'r') as f:\\n    lit_books = json.load(f)\\n\\nwith open(var_functions.query_db_14, 'r') as f:\\n    reviews = json.load(f)\\n\\n# Create DataFrames\\ndf_books = pd.DataFrame(lit_books)\\ndf_reviews = pd.DataFrame(reviews)\\n\\n# Convert rating to numeric\\ndf_reviews['rating'] = pd.to_numeric(df_reviews['rating'], errors='coerce')\\n\\n# Extract numeric parts from IDs\\ndf_books['book_num'] = df_books['book_id'].str.extract(r'(\\\\d+)').astype(int)\\ndf_reviews['purchase_num'] = df_reviews['purchase_id'].str.extract(r'(\\\\d+)').astype(int)\\n\\n# Try to find any relationship by matching on the numeric part\\nmerged = pd.merge(df_books, df_reviews, left_on='book_num', right_on='purchase_num', how='inner')\\n\\n# Calculate average ratings\\navg_ratings = merged.groupby(['book_id', 'title', 'author', 'categories', 'details']).agg({\\n    'rating': ['mean', 'count']\\n}).reset_index()\\n\\navg_ratings.columns = ['book_id', 'title', 'author', 'categories', 'details', 'avg_rating', 'review_count']\\n\\n# Filter for perfect 5.0 rating\\nperfect_books = avg_ratings[\\n    (avg_ratings['avg_rating'] == 5.0) & \\n    (avg_ratings['details'].str.contains('English', case=False, na=False))\\n]\\n\\nresult = perfect_books[['title', 'author', 'categories', 'details', 'avg_rating', 'review_count']]\\n\\nprint('__RESULT__:')\\nprint(result.to_json(orient='records', indent=2))\"}",
+            "name": "execute_python"
+          },
+          "type": "function",
+          "index": 15
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "functions.execute_python:30",
+      "name": "execute_python",
+      "content": "\nThe tool execute_python execution failed. The error message is:\n\"Execution failed with exit code 1\\nNameError: name 'var_functions' is not defined\"\n"
+    },
+    {
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "id": "functions.execute_python:32",
+          "function": {
+            "arguments": "{\"code\": \"import json\\nimport pandas as pd\\n\\n# Check available variables first\\navailable_vars = list(locals().keys())\\nprint('Available variables:', [v for v in available_vars if 'query_db' in v or 'list_db' in v])\\n\\n# Load the data using the correct variable names\\nbooks_varname = [v for v in available_vars if 'query_db' in v and '16' in v][0]\\nreviews_varname = [v for v in available_vars if 'query_db' in v and '14' in v][0]\\n\\nbooks_data = locals()[books_varname]\\nreviews_data = locals()[reviews_varname]\\n\\nprint(f'Books data type: {type(books_data)}')\\nprint(f'Reviews data type: {type(reviews_data)}')\\n\\n# Load from file if it's a path string\\nif isinstance(books_data, str) and books_data.endswith('.json'):\\n    with open(books_data, 'r') as f:\\n        lit_books = json.load(f)\\nelse:\\n    lit_books = books_data\\n\\nif isinstance(reviews_data, str) and reviews_data.endswith('.json'):\\n    with open(reviews_data, 'r') as f:\\n        reviews = json.load(f)\\nelse:\\n    reviews = reviews_data\\n\\nprint(f'Loaded {len(lit_books)} books and {len(reviews)} reviews')\\n\\n# Create DataFrames\\ndf_books = pd.DataFrame(lit_books)\\ndf_reviews = pd.DataFrame(reviews)\\n\\n# Process data\\ndf_reviews['rating'] = pd.to_numeric(df_reviews['rating'], errors='coerce')\\ndf_books['book_num'] = df_books['book_id'].str.extract(r'(\\\\d+)').astype(int)\\ndf_reviews['purchase_num'] = df_reviews['purchase_id'].str.extract(r'(\\\\d+)').astype(int)\\n\\n# Merge on numeric IDs\\nmerged = pd.merge(df_books, df_reviews, left_on='book_num', right_on='purchase_num', how='inner')\\n\\n# Calculate averages\\navg_ratings = merged.groupby(['book_id', 'title', 'author', 'categories', 'details']).agg({\\n    'rating': ['mean', 'count']\\n}).reset_index()\\n\\navg_ratings.columns = ['book_id', 'title', 'author', 'categories', 'details', 'avg_rating', 'review_count']\\n\\n# Filter for perfect 5.0 rating and English language\\nperfect_books = avg_ratings[\\n    (avg_ratings['avg_rating'] == 5.0) & \\n    (avg_ratings['details'].str.contains('English', case=False, na=False))\\n]\\n\\nresult = perfect_books[['title', 'author', 'categories', 'details', 'avg_rating', 'review_count']]\\nprint('First few results:', result.head())\\n\\nprint('__RESULT__:')\\nprint(result.to_json(orient='records'))\"}",
+            "name": "execute_python"
+          },
+          "type": "function",
+          "index": 16
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "functions.execute_python:32",
+      "name": "execute_python",
+      "content": "\nThe tool execute_python was executed successfully.\n\nThe result is too large, so it is stored in a file. The file path is stored under key: \nvar_functions.execute_python:32\n\nThe preview (first 10000 characters) of the result is:\n[{\"title\": \"Knowing When To Die: Uncollected Stories\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/I/01Kv-W2ysOL._SY600_.png\\\", \\\"name\\\": \\\"Mort Castle\\\", \\\"about\\\": [\\\"Discover more of the author\\u2019s books, see similar authors, read author blogs and more\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\", \"details\": \"This book, published by Independent Legions Publishing in its first edition on June 19, 2018, is written in English and spans 216 pages. It is available in paperback and has an ISBN-10 of 8831959018 and an ISBN-13 of 978-8831959018. The item weighs 9.9 ounces and has dimensions of 5.5 x 0.54 x 8.5 inches.\", \"avg_rating\": 5.0, \"review_count\": 2}, {\"title\": \"Childe Harold of Dysna\", \"author\": \"None\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"History & Criticism\\\"]\", \"details\": \"The book, published by Naydus Press on July 27, 2021, is written in English and features a paperback format consisting of 80 pages. It has an ISBN 10 of 1734193603 and an ISBN 13 of 978-1734193602. Weighing 4 ounces, the book measures 4.9 by 0.3 by 7.8 inches.\", \"avg_rating\": 5.0, \"review_count\": 1}, {\"title\": \"Forged in Blood (Freehold)\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/gq39urdv9inbq41htchmvq1hjv._SY600_.jpg\\\", \\\"name\\\": \\\"Michael Z. Williamson\\\", \\\"about\\\": [\\\"Michael Z. Williamson is retired military, having served twenty-five years in the U.S. Army and the U.S. Air Force. He was deployed for Operation Iraqi Freedom and Operation Desert Fox. Williamson is a state-ranked competitive shooter in combat rifle and combat pistol. He has consulted on military matters, weapons and disaster preparedness for Discovery Channel and Outdoor Channel productions and is Editor-at-Large for Survivalblog, with 300K weekly readers. In addition to these activities, Williamson tests and reviews firearms and gear for manufacturers. Williamson\\u2019s books set in his Freehold Universe include Freehold, Better to Beg Forgiveness, and Do Unto Others. His novel The Hero \\u2013 written in collaboration with New York Times best-selling author John Ringo\\u2013has reached modern classic status. Williamson was born in England, raised in Liverpool and Toronto, Canada, and now resides in Indianapolis with his wife and children.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Short Stories & Anthologies\\\"]\", \"details\": \"The book is published by Baen in a reissue edition dated September 25, 2018. It is written in English and is available as a mass market paperback, consisting of 528 pages. The ISBN-10 for this edition is 1481483536, while the ISBN-13 is 978-1481483537. The item weighs 8.8 ounces and has dimensions of 4.13 x 1.3 x 6.75 inches.\", \"avg_rating\": 5.0, \"review_count\": 6}, {\"title\": \"Exits, Desires, & Slow Fires\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/mcplfdtav0lto4jg57up6btdie._SY600_.jpg\\\", \\\"name\\\": \\\"J.R. Rogue\\\", \\\"about\\\": [\\\"J.R. Rogue is the author of three Goodreads Choice Awards Nominate poetry collections. She first put pen to paper at the age of fifteen after developing an unrequited high school crush & has never stopped writing about heartache, sorrow, and hope. Rogue has published multiple volumes of poetry & novels. In addition, she is a Certified Yoga Teacher with additional certification in Yoga Nidra & Trauma-Informed Yoga.\\\", \\\"She lives in a small town in the midwest with her family, where she enjoys a quiet life reading & telling stories.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Poetry\\\"]\", \"details\": \"The book, published by CreateSpace Independent Publishing Platform in its first edition on September 20, 2017, is written in English and consists of 83 pages. It has an ISBN 10 of 154710435X and an ISBN 13 of 978-1547104352. The item weighs 3.2 ounces and has dimensions of 5 x 0.21 x 8 inches.\", \"avg_rating\": 5.0, \"review_count\": 3}, {\"title\": \"Kennebago Moments\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/7kc4luv1llcllhh7h0k5j7flfe._SY600_.jpg\\\", \\\"name\\\": \\\"Betsy Wolff Frey\\\", \\\"about\\\": [\\\"Betsy Wolff Frey is a software developer and author of stories for children.\\\", \\\"She improvised bedtime stories when her children were young. When she later put the stories on paper, she was horrified to discover that every few sentences screamed for a fresh page with an illustration. Readers might question whether the right side of her brain was up to the illustration task, but she prefers to view her pictures as classic naive art, with its markedly childlike style.\\\", \\\"She is delighted to be able to exercise both sides of her brain, using the logical left side for programming, web design, and writing books that demystify advanced subjects for students. The right side gets its workout from children's stories and artwork.\\\", \\\"She feels very lucky to be able to live in beautiful places and to have enjoyable work that stimulates her mind. She lives with her husband, Eric, in California and Maine.\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Poetry\\\"]\", \"details\": \"This book, published by CreateSpace Independent Publishing Platform on November 24, 2010, is written in English and has a total of 52 pages. It is available in paperback format and weighs 3.2 ounces. The book's dimensions are 5.98 x 0.12 x 9.02 inches. It can be identified by its ISBN 10 number, 1453850171, and its ISBN 13 number, 978-1453850176.\", \"avg_rating\": 5.0, \"review_count\": 1}, {\"title\": \"The Sludge\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/I/71MFjIrVtuL._SY600_.jpg\\\", \\\"name\\\": \\\"David Bernstein\\\", \\\"about\\\": [\\\"I am a dark fiction writer, a horror writer. I write the gamut, from atmospheric horror to extreme gory horror to dark fiction and dark thriller, oh, and the occasional bizarro tale.\\\", \\\"Gory: The Unhinged, Damaged Souls, Witch Island, Apartment 7C, Amongst the Dead\\\", \\\"Extreme horror: The Unhinged (you were warned)\\\", \\\"Horror with a twist: The Tree Man, Apartment 7C\\\", \\\"Zombie fiction: Machines of the Dead trilogy. Amongst the Dead.\\\", \\\"Darkfuse horror: Relic of Death, Surrogate, Skinner (coming July 2015)\\\", \\\"Dark thriller/supernatural/ action: Tears of No Return, Toxic Behemoth\\\", \\\"Monster horror: Toxic Behemoth (Deep Sea/Kaiju book)\\\", \\\"Bizarro/Gross out/funny horror: Fecal Terror\\\", \\\"Please visit me at davidbernsteinauthor.blogspot.com for more about me and my work or on Facebook. https://www.facebook.com/david.bernstein.3\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\", \"details\": \"The book, published by Great Old Ones Publishing in its first edition on July 5, 2016, is written in English and consists of 198 pages. It has an ISBN-10 of 0692726446 and an ISBN-13 of 978-0692726440. Weighing 10.4 ounces, the book measures 6 inches in width, 0.5 inches in thickness, and 9 inches in height.\", \"avg_rating\": 5.0, \"review_count\": 1}, {\"title\": \"Liza of Lambeth\", \"author\": \"None\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Classics\\\"]\", \"details\": \"This book, published independently on June 1, 2020, is available in English and comprises 125 pages in paperback format. It has an ISBN 13 of 979-8650407126 and weighs 6.9 ounces. The dimensions of the book are 6 x 0.32 x 9 inches.\", \"avg_rating\": 5.0, \"review_count\": 1}, {\"title\": \"Something That Feels Like Truth (Switchgrass Books)\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/2j0jkbvj2m08l9s45h9errmr36._SY600_.jpg\\\", \\\"name\\\": \\\"DONALD LYSTRA\\\", \\\"about\\\": [\\\"Discover more of the author\\u2019s books, see similar authors, read author blogs and more\\\"]}\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Short Stories & Anthologies\\\"]\", \"details\": \"This book, published by Northern Illinois University Press in its first edition on September 1, 2013, is available in English and is presented in paperback format with a total of 290 pages. It has an ISBN-10 of 9780875806938 and an ISBN-13 of 978-0875806938. Suitable for readers aged 18 years and older, the book weighs 11.7 ounces and its dimensions are 5 x 0.9 x 8 inches.\", \"avg_rating\": 5.0, \"review_count\": 2}, {\"title\": \"The Prophet: With Original 1923 Illustrations by the Author\", \"author\": \"{\\\"avatar\\\": \\\"https://m.media-amazon.com/images/S/amzn-author-media-prod/b61g45vrb7u1g1rbso6rd26qpd._SY600_.jpg\\\", \\\"name\\\": \\\"Kahlil Gibran\\\", \\\"about\\\": [\\\"Khalil Gibran (/d\\u0292\\u026a\\u02c8br\\u0251\\u02d0n/; Full Arabic name Gibran Khalil Gibran, sometimes spelled Kahlil;[a] Arabic: \\u062c\\u0628\\u0631\\u0627\\u0646 \\u062e\\u0644\\u064a\\u0644 \\u062c\\u0628\\u0631\\u0627\\u0646\\u200e / ALA-LC: Jubr\\u0101n Khal\\u012bl Jubr\\u0101n or Jibr\\u0101n Khal\\u012bl Jibr\\u0101n) (January 6, 1883 \\u2013 April 10, 1931) was a Lebanese-American artist, poet, and writer of the New York Pen League.\\\", \\\"Khalil Gibran was born in the town of Bsharri in the Mount Lebanon Mutasarrifate, Ottoman Empire (north of modern-day Lebanon), to Khalil Gibran and Kamila Gibran(Rahmeh). As a young man Khalil emigrated with his family to the United States, where he studied art and began his literary career, writing in both English and Arabic. In the Arab world, Gibran is regarded as a literary and political rebel. His romantic style was at the heart of a renaissance in modern Arabic literature, especially prose poetry, breaking away from the classical school. In Lebanon, he is still celebrated as a literary hero.\\\", \\\"He is chiefly known in the English-speaking world for his 1923 book The Prophet, an early example of inspirational fiction including a series of philosophical essays written in poetic English prose. The book sold well despite a cool critical reception, gaining popularity in the 1930s and again especially in the 1960s counterculture. Gibran is the third best-selling poet of all time, behind Shakespeare and Laozi.\\\", \\\"Bio from Wikipedia, the fre\n"
+    },
+    {
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "id": "functions.execute_python:34",
+          "function": {
+            "arguments": "{\"code\": \"import json\\nimport pandas as pd\\n\\n# Load the data\\nbooks_path = locals()['var_functions.query_db:16']\\nreviews_path = locals()['var_functions.query_db:14']\\n\\nwith open(books_path, 'r') as f:\\n    lit_books = json.load(f)\\n\\nwith open(reviews_path, 'r') as f:\\n    reviews = json.load(f)\\n\\n# Create DataFrames\\ndf_books = pd.DataFrame(lit_books)\\ndf_reviews = pd.DataFrame(reviews)\\n\\n# Convert rating to numeric\\ndf_reviews['rating'] = pd.to_numeric(df_reviews['rating'], errors='coerce')\\n\\n# Extract numeric parts\\ndf_books['book_num'] = df_books['book_id'].str.extract(r'(\\\\d+)').astype(int)\\ndf_reviews['purchase_num'] = df_reviews['purchase_id'].str.extract(r'(\\\\d+)').astype(int)\\n\\n# Merge on numeric IDs\\nmerged = pd.merge(df_books, df_reviews, left_on='book_num', right_on='purchase_num', how='inner')\\n\\n# Filter for English-language books\\nmerged_english = merged[merged['details'].str.contains('English', case=False, na=False)]\\n\\n# Calculate average ratings and review counts\\navg_ratings = merged_english.groupby(['book_id', 'title', 'author', 'categories', 'details']).agg({\\n    'rating': ['mean', 'count']\\n}).reset_index()\\n\\navg_ratings.columns = ['book_id', 'title', 'author', 'categories', 'details', 'avg_rating', 'review_count']\\n\\n# Filter for perfect 5.0 average rating\\nperfect_books = avg_ratings[\\n    (avg_ratings['avg_rating'] == 5.0)\\n]\\n\\n# Clean up author field to extract just name\\ndef extract_author_name(author_field):\\n    if pd.isna(author_field) or author_field is None or author_field == 'None':\\n        return 'Unknown'\\n    if isinstance(author_field, str) and '\\\"name\\\"' in author_field:\\n        try:\\n            author_dict = eval(author_field)\\n            return author_dict.get('name', 'Unknown')\\n        except:\\n            return 'Unknown'\\n    return author_field\\n\\nperfect_books['author_clean'] = perfect_books['author'].apply(extract_author_name)\\n\\n# Prepare final result\\nresult = perfect_books[['title', 'author_clean', 'categories', 'details', 'avg_rating', 'review_count']]\\nresult = result.rename(columns={'author_clean': 'author'})\\n\\n# Convert to JSON string\\nresult_json = result.to_json(orient='records', indent=2)\\n\\nprint('__RESULT__:')\\nprint(result_json)\"}",
+            "name": "execute_python"
+          },
+          "type": "function",
+          "index": 17
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "functions.execute_python:34",
+      "name": "execute_python",
+      "content": "\nThe tool execute_python was executed successfully.\n\nThe result is stored under key:\nvar_functions.execute_python:34\n\nThe result is:\n[{\"title\": \"Knowing When To Die: Uncollected Stories\", \"author\": \"Mort Castle\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\", \"details\": \"This book, published by Independent Legions Publishing in its first edition on June 19, 2018, is written in English and spans 216 pages. It is available in paperback and has an ISBN-10 of 8831959018 and an ISBN-13 of 978-8831959018. The item weighs 9.9 ounces and has dimensions of 5.5 x 0.54 x 8.5 inches.\", \"avg_rating\": 5.0, \"review_count\": 2}, {\"title\": \"Childe Harold of Dysna\", \"author\": \"Unknown\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"History & Criticism\\\"]\", \"details\": \"The book, published by Naydus Press on July 27, 2021, is written in English and features a paperback format consisting of 80 pages. It has an ISBN 10 of 1734193603 and an ISBN 13 of 978-1734193602. Weighing 4 ounces, the book measures 4.9 by 0.3 by 7.8 inches.\", \"avg_rating\": 5.0, \"review_count\": 1}, {\"title\": \"Forged in Blood (Freehold)\", \"author\": \"Michael Z. Williamson\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Short Stories & Anthologies\\\"]\", \"details\": \"The book is published by Baen in a reissue edition dated September 25, 2018. It is written in English and is available as a mass market paperback, consisting of 528 pages. The ISBN-10 for this edition is 1481483536, while the ISBN-13 is 978-1481483537. The item weighs 8.8 ounces and has dimensions of 4.13 x 1.3 x 6.75 inches.\", \"avg_rating\": 5.0, \"review_count\": 6}, {\"title\": \"Exits, Desires, & Slow Fires\", \"author\": \"J.R. Rogue\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Poetry\\\"]\", \"details\": \"The book, published by CreateSpace Independent Publishing Platform in its first edition on September 20, 2017, is written in English and consists of 83 pages. It has an ISBN 10 of 154710435X and an ISBN 13 of 978-1547104352. The item weighs 3.2 ounces and has dimensions of 5 x 0.21 x 8 inches.\", \"avg_rating\": 5.0, \"review_count\": 3}, {\"title\": \"Kennebago Moments\", \"author\": \"Betsy Wolff Frey\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Poetry\\\"]\", \"details\": \"This book, published by CreateSpace Independent Publishing Platform on November 24, 2010, is written in English and has a total of 52 pages. It is available in paperback format and weighs 3.2 ounces. The book's dimensions are 5.98 x 0.12 x 9.02 inches. It can be identified by its ISBN 10 number, 1453850171, and its ISBN 13 number, 978-1453850176.\", \"avg_rating\": 5.0, \"review_count\": 1}, {\"title\": \"The Sludge\", \"author\": \"David Bernstein\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\", \"details\": \"The book, published by Great Old Ones Publishing in its first edition on July 5, 2016, is written in English and consists of 198 pages. It has an ISBN-10 of 0692726446 and an ISBN-13 of 978-0692726440. Weighing 10.4 ounces, the book measures 6 inches in width, 0.5 inches in thickness, and 9 inches in height.\", \"avg_rating\": 5.0, \"review_count\": 1}, {\"title\": \"Liza of Lambeth\", \"author\": \"Unknown\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Classics\\\"]\", \"details\": \"This book, published independently on June 1, 2020, is available in English and comprises 125 pages in paperback format. It has an ISBN 13 of 979-8650407126 and weighs 6.9 ounces. The dimensions of the book are 6 x 0.32 x 9 inches.\", \"avg_rating\": 5.0, \"review_count\": 1}, {\"title\": \"Something That Feels Like Truth (Switchgrass Books)\", \"author\": \"DONALD LYSTRA\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Short Stories & Anthologies\\\"]\", \"details\": \"This book, published by Northern Illinois University Press in its first edition on September 1, 2013, is available in English and is presented in paperback format with a total of 290 pages. It has an ISBN-10 of 9780875806938 and an ISBN-13 of 978-0875806938. Suitable for readers aged 18 years and older, the book weighs 11.7 ounces and its dimensions are 5 x 0.9 x 8 inches.\", \"avg_rating\": 5.0, \"review_count\": 2}, {\"title\": \"The Prophet: With Original 1923 Illustrations by the Author\", \"author\": \"Kahlil Gibran\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Poetry\\\"]\", \"details\": \"The book, published by Suzeteo Enterprises on February 14, 2019, is available in English and consists of 48 pages. It has an ISBN-10 of 1947844938 and an ISBN-13 of 978-1947844933. The Lexile measure for this book is 990L. Weighing 2.08 ounces, its dimensions are 5 inches in width, 0.1 inches in thickness, and 8 inches in height.\", \"avg_rating\": 5.0, \"review_count\": 4}, {\"title\": \"The Melancholy Strumpet Master\", \"author\": \"Zeb Beck\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Humor & Satire\\\"]\", \"details\": \"This book, published independently on February 19, 2023, is written in English and spans 257 pages in paperback format. It has an ISBN 13 of 979-8378201969 and weighs 14.1 ounces. The dimensions of the book are 5.5 x 0.65 x 8.5 inches.\", \"avg_rating\": 5.0, \"review_count\": 2}, {\"title\": \"Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message\", \"author\": \"K. G. Ingram\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\"]\", \"details\": \"This book, published by Self Publishing on December 1, 2022, is written in English and comprises 192 pages. It has an ISBN 13 of 979-8887592497 and weighs 8.8 ounces. The dimensions of the book are 5.5 by 0.48 by 8.5 inches.\", \"avg_rating\": 5.0, \"review_count\": 8}, {\"title\": \"Fire Cracker\", \"author\": \"Shirley Kennett\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"United States\\\"]\", \"details\": \"This book, published by Kensington on July 1, 1997, is available in English and features a paperback format with a total of 312 pages. It has an ISBN-10 of 1575661810 and an ISBN-13 of 978-1575661810. The item weighs 1.3 pounds and its dimensions are 6.25 inches in width, 1.25 inches in thickness, and 9.5 inches in height.\", \"avg_rating\": 5.0, \"review_count\": 2}, {\"title\": \"Local Honey\", \"author\": \"Jo Stewart Wray\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\"]\", \"details\": \"This book, published by Xlibris on June 26, 2015, is written in English and spans 166 pages in paperback format. It has an ISBN 10 of 1503581098 and an ISBN 13 of 978-1503581098. The item weighs 8.8 ounces and has dimensions of 6 x 0.42 x 9 inches.\", \"avg_rating\": 5.0, \"review_count\": 2}, {\"title\": \"Reunion: The Children of Lauderdale Park\", \"author\": \"Unknown\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\", \"details\": \"This book, published independently on September 25, 2019, is written in English and spans 367 pages. It is available in paperback format and has an ISBN-10 of 1694621731 and an ISBN-13 of 978-1694621733. The item weighs 1.38 pounds and measures 6 x 0.92 x 9 inches.\", \"avg_rating\": 5.0, \"review_count\": 3}, {\"title\": \"Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)\", \"author\": \"Gemma Halliday\", \"categories\": \"[\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\", \"details\": \"This book, published by CreateSpace Independent Publishing Platform on May 31, 2011, is written in English and features a paperback format consisting of 209 pages. It has an ISBN 10 number of 1463534795 and an ISBN 13 number of 978-1463534790. The item weighs 7.8 ounces and has dimensions of 5.25 x 0.48 x 8 inches.\", \"avg_rating\": 5.0, \"review_count\": 1}]\n"
+    },
+    {
+      "role": "assistant",
+      "tool_calls": [
+        {
+          "id": "functions.return_answer:36",
+          "function": {
+            "arguments": "{\"answer\": \"Based on the analysis of the book database and review data, here are the English-language books in the 'Literature & Fiction' category that have a perfect average rating of 5.0:\\n\\n1. **Knowing When To Die: Uncollected Stories** by Mort Castle\\n   - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\\n   - Details: Published June 19, 2018, 216 pages, paperback, English\\n   - Review Count: 2\\n\\n2. **Childe Harold of Dysna** by Unknown\\n   - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"History & Criticism\\\"]\\n   - Details: Published July 27, 2021, 80 pages, paperback, English\\n   - Review Count: 1\\n\\n3. **Forged in Blood (Freehold)** by Michael Z. Williamson\\n   - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Short Stories & Anthologies\\\"]\\n   - Details: Published September 25, 2018, 528 pages, mass market paperback, English\\n   - Review Count: 6\\n\\n4. **Exits, Desires, & Slow Fires** by J.R. Rogue\\n   - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Poetry\\\"]\\n   - Details: Published September 20, 2017, 83 pages, English\\n   - Review Count: 3\\n\\n5. **Kennebago Moments** by Betsy Wolff Frey\\n   - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Poetry\\\"]\\n   - Details: Published November 24, 2010, 52 pages, paperback, English\\n   - Review Count: 1\\n\\n6. **The Sludge** by David Bernstein\\n   - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\\n   - Details: Published July 5, 2016, 198 pages, English\\n   - Review Count: 1\\n\\n7. **Liza of Lambeth** by Unknown\\n   - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Classics\\\"]\\n   - Details: Published June 1, 2020, 125 pages, paperback, English\\n   - Review Count: 1\\n\\n8. **Something That Feels Like Truth (Switchgrass Books)** by DONALD LYSTRA\\n   - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Short Stories & Anthologies\\\"]\\n   - Details: Published September 1, 2013, 290 pages, paperback, English\\n   - Review Count: 2\\n\\n9. **The Prophet: With Original 1923 Illustrations by the Author** by Kahlil Gibran\\n   - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Poetry\\\"]\\n   - Details: Published February 14, 2019, 48 pages, English\\n   - Review Count: 4\\n\\n10. **The Melancholy Strumpet Master** by Zeb Beck\\n    - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Humor & Satire\\\"]\\n    - Details: Published February 19, 2023, 257 pages, paperback, English\\n    - Review Count: 2\\n\\n11. **Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message** by K. G. Ingram\\n    - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\"]\\n    - Details: Published December 1, 2022, 192 pages, English\\n    - Review Count: 8\\n\\n12. **Fire Cracker** by Shirley Kennett\\n    - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"United States\\\"]\\n    - Details: Published July 1, 1997, 312 pages, paperback, English\\n    - Review Count: 2\\n\\n13. **Local Honey** by Jo Stewart Wray\\n    - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\"]\\n    - Details: Published June 26, 2015, 166 pages, paperback, English\\n    - Review Count: 2\\n\\n14. **Reunion: The Children of Lauderdale Park** by Unknown\\n    - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\\n    - Details: Published September 25, 2019, 367 pages, paperback, English\\n    - Review Count: 3\\n\\n15. **Hollywood Confessions: Hollywood Headlines Book #3** by Gemma Halliday\\n    - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\\n    - Details: Published May 31, 2011, 209 pages, paperback, English\\n    - Review Count: 1\\n\\nTotal: 15 books found with a perfect 5.0 average rating in the Literature & Fiction category.\"}",
+            "name": "return_answer"
+          },
+          "type": "function",
+          "index": 18
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "functions.return_answer:36",
       "name": "return_answer",
-      "content": "\nThe tool return_answer was executed successfully.\n\nThe result is stored under key:\nvar_functions.return_answer:18\n\nThe result is:\n\"Based on the analysis, the following English-language books in the 'Literature & Fiction' category have a perfect average rating of 5.0:\\n\\n1. Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message (8 reviews)\\n2. Forged in Blood (Freehold) (6 reviews)\\n3. The Prophet: With Original 1923 Illustrations by the Author (4 reviews)\\n4. Exits, Desires, & Slow Fires (3 reviews)\\n5. Reunion: The Children of Lauderdale Park (3 reviews)\\n6. Something That Feels Like Truth (Switchgrass Books) (2 reviews)\\n7. Knowing When To Die: Uncollected Stories (2 reviews)\\n8. The Melancholy Strumpet Master (2 reviews)\\n9. Fire Cracker (2 reviews)\\n10. Local Honey (2 reviews)\\n11. Childe Harold of Dysna (1 review)\\n12. Liza of Lambeth (1 review)\\n13. The Sludge (1 review)\\n14. Kennebago Moments (1 review)\\n15. Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries) (1 review)\\n\\nAll 15 books have an average rating of exactly 5.0 and are categorized under Literature & Fiction with English language details.\"\n"
+      "content": "\nThe tool return_answer was executed successfully.\n\nThe result is stored under key:\nvar_functions.return_answer:36\n\nThe result is:\n\"Based on the analysis of the book database and review data, here are the English-language books in the 'Literature & Fiction' category that have a perfect average rating of 5.0:\\n\\n1. **Knowing When To Die: Uncollected Stories** by Mort Castle\\n   - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\\n   - Details: Published June 19, 2018, 216 pages, paperback, English\\n   - Review Count: 2\\n\\n2. **Childe Harold of Dysna** by Unknown\\n   - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"History & Criticism\\\"]\\n   - Details: Published July 27, 2021, 80 pages, paperback, English\\n   - Review Count: 1\\n\\n3. **Forged in Blood (Freehold)** by Michael Z. Williamson\\n   - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Short Stories & Anthologies\\\"]\\n   - Details: Published September 25, 2018, 528 pages, mass market paperback, English\\n   - Review Count: 6\\n\\n4. **Exits, Desires, & Slow Fires** by J.R. Rogue\\n   - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Poetry\\\"]\\n   - Details: Published September 20, 2017, 83 pages, English\\n   - Review Count: 3\\n\\n5. **Kennebago Moments** by Betsy Wolff Frey\\n   - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Poetry\\\"]\\n   - Details: Published November 24, 2010, 52 pages, paperback, English\\n   - Review Count: 1\\n\\n6. **The Sludge** by David Bernstein\\n   - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\\n   - Details: Published July 5, 2016, 198 pages, English\\n   - Review Count: 1\\n\\n7. **Liza of Lambeth** by Unknown\\n   - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Classics\\\"]\\n   - Details: Published June 1, 2020, 125 pages, paperback, English\\n   - Review Count: 1\\n\\n8. **Something That Feels Like Truth (Switchgrass Books)** by DONALD LYSTRA\\n   - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Short Stories & Anthologies\\\"]\\n   - Details: Published September 1, 2013, 290 pages, paperback, English\\n   - Review Count: 2\\n\\n9. **The Prophet: With Original 1923 Illustrations by the Author** by Kahlil Gibran\\n   - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Poetry\\\"]\\n   - Details: Published February 14, 2019, 48 pages, English\\n   - Review Count: 4\\n\\n10. **The Melancholy Strumpet Master** by Zeb Beck\\n    - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Humor & Satire\\\"]\\n    - Details: Published February 19, 2023, 257 pages, paperback, English\\n    - Review Count: 2\\n\\n11. **Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message** by K. G. Ingram\\n    - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\"]\\n    - Details: Published December 1, 2022, 192 pages, English\\n    - Review Count: 8\\n\\n12. **Fire Cracker** by Shirley Kennett\\n    - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"United States\\\"]\\n    - Details: Published July 1, 1997, 312 pages, paperback, English\\n    - Review Count: 2\\n\\n13. **Local Honey** by Jo Stewart Wray\\n    - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\"]\\n    - Details: Published June 26, 2015, 166 pages, paperback, English\\n    - Review Count: 2\\n\\n14. **Reunion: The Children of Lauderdale Park** by Unknown\\n    - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\\n    - Details: Published September 25, 2019, 367 pages, paperback, English\\n    - Review Count: 3\\n\\n15. **Hollywood Confessions: Hollywood Headlines Book #3** by Gemma Halliday\\n    - Categories: [\\\"Books\\\", \\\"Literature & Fiction\\\", \\\"Genre Fiction\\\"]\\n    - Details: Published May 31, 2011, 209 pages, paperback, English\\n    - Review Count: 1\\n\\nTotal: 15 books found with a perfect 5.0 average rating in the Literature & Fiction category.\"\n"
     }
   ],
   "result_storage": {
@@ -221,550 +405,336 @@
     ],
     "var_functions.query_db:2": [
       {
-        "book_id": "bookid_1",
         "title": "Chaucer",
+        "author": "{\"avatar\": \"https://m.media-amazon.com/images/I/21Je2zja9pL._SY600_.jpg\", \"name\": \"Peter Ackroyd\", \"about\": [\"Peter Ackroyd, (born 5 October 1949) is an English biographer, novelist and critic with a particular interest in the history and culture of London. For his novels about English history and culture and his biographies of, among others, William Blake, Charles Dickens, T. S. Eliot and Sir Thomas More, he won the Somerset Maugham Award and two Whitbread Awards. He is noted for the volume of work he has produced, the range of styles therein, his skill at assuming different voices and the depth of his research.\", \"He was elected a fellow of the Royal Society of Literature in 1984 and appointed a Commander of the Order of the British Empire in 2003.\", \"Bio from Wikipedia, the free encyclopedia.\"]}",
         "categories": "[\"Books\", \"Literature & Fiction\", \"History & Criticism\"]",
-        "details": "Published by Chatto & Windus, the first edition of this book was released on January 1, 2004. It is written in English and comes in a hardcover format, comprising 196 pages. The book has an ISBN-10 of 0701169850 and an ISBN-13 of 978-0701169855. Weighing 10.1 ounces, its dimensions are 5.39 x 0.71 x 7.48 inches."
+        "details": "Published by Chatto & Windus, the first edition of this book was released on January 1, 2004. It is written in English and comes in a hardcover format, comprising 196 pages. The book has an ISBN-10 of 0701169850 and an ISBN-13 of 978-0701169855. Weighing 10.1 ounces, its dimensions are 5.39 x 0.71 x 7.48 inches.",
+        "book_id": "bookid_1"
       },
       {
-        "book_id": "bookid_2",
         "title": "Notes from a Kidwatcher",
+        "author": "{\"avatar\": \"https://m.media-amazon.com/images/I/01Kv-W2ysOL._SY600_.png\", \"name\": \"Yetta M. Goodman\", \"about\": [\"Discover more of the author\u2019s books, see similar authors, read author blogs and more\"]}",
         "categories": "[\"Books\", \"Reference\", \"Words, Language & Grammar\"]",
-        "details": "This book, published by Heinemann in its first edition on May 20, 1996, is written in English and is available in paperback format, consisting of 316 pages. It has an ISBN-10 of 0435088688 and an ISBN-13 of 978-0435088682. The item weighs 1.05 pounds and its dimensions are 6.03 x 0.67 x 8.95 inches."
+        "details": "This book, published by Heinemann in its first edition on May 20, 1996, is written in English and is available in paperback format, consisting of 316 pages. It has an ISBN-10 of 0435088688 and an ISBN-13 of 978-0435088682. The item weighs 1.05 pounds and its dimensions are 6.03 x 0.67 x 8.95 inches.",
+        "book_id": "bookid_2"
       },
       {
-        "book_id": "bookid_3",
         "title": "Service: A Navy SEAL at War",
+        "author": "{\"avatar\": \"https://m.media-amazon.com/images/I/31rBoNEHiFL._SY600_.jpg\", \"name\": \"Marcus Luttrell\", \"about\": [\"Petty Officer First Class Marcus Luttrell was born in Huntsville, Texas in 1975.\"]}",
         "categories": "[\"Books\", \"Biographies & Memoirs\", \"Leaders & Notable People\"]",
-        "details": "This book, published by Little, Brown and Company in its first edition on May 8, 2012, is available in English and is bound as a hardcover with a total of 384 pages. It has an ISBN-10 of 9780316185363 and an ISBN-13 of 978-0316185363. The item weighs 1.4 pounds and its dimensions are 6.25 inches in width, 1.55 inches in depth, and 9.55 inches in height."
+        "details": "This book, published by Little, Brown and Company in its first edition on May 8, 2012, is available in English and is bound as a hardcover with a total of 384 pages. It has an ISBN-10 of 9780316185363 and an ISBN-13 of 978-0316185363. The item weighs 1.4 pounds and its dimensions are 6.25 inches in width, 1.55 inches in depth, and 9.55 inches in height.",
+        "book_id": "bookid_3"
       },
       {
-        "book_id": "bookid_4",
         "title": "Monstrous Stories #4: The Day the Mice Stood Still",
+        "author": "None",
         "categories": "[\"Books\", \"Children's Books\", \"Science Fiction & Fantasy\"]",
-        "details": "This book, published by Scholastic Paperbacks in a reprint edition on October 29, 2013, is written in English and consists of 64 pages. It has an ISBN-10 of 0545425573 and an ISBN-13 of 978-0545425575. The reading age is suitable for children between 7 and 10 years old, and it corresponds to a Lexile measure of 590L. The book is appropriate for students in grades 2 through 5. Weighing 1.92 ounces, its dimensions are 5.25 x 0.2 x 7.5 inches."
+        "details": "This book, published by Scholastic Paperbacks in a reprint edition on October 29, 2013, is written in English and consists of 64 pages. It has an ISBN-10 of 0545425573 and an ISBN-13 of 978-0545425575. The reading age is suitable for children between 7 and 10 years old, and it corresponds to a Lexile measure of 590L. The book is appropriate for students in grades 2 through 5. Weighing 1.92 ounces, its dimensions are 5.25 x 0.2 x 7.5 inches.",
+        "book_id": "bookid_4"
       },
       {
-        "book_id": "bookid_5",
         "title": "Parker & Knight",
+        "author": "{\"avatar\": \"https://m.media-amazon.com/images/S/amzn-author-media-prod/p5em8p7bskq0m3fr3tncs8ghcf._SY600_.jpg\", \"name\": \"Donald Wells\", \"about\": [\"Discover more of the author\u2019s books, see similar authors, read author blogs and more\"]}",
         "categories": "[\"Books\", \"Mystery, Thriller & Suspense\", \"Thrillers & Suspense\"]",
-        "details": "The book was published on May 18, 2014, and is available in English. It has a file size of 1542 KB and allows for unlimited simultaneous device usage. Text-to-speech functionality is enabled, and it supports screen readers, enhancing accessibility for readers. Enhanced typesetting is also enabled, while the X-Ray feature is not available. Word Wise is enabled to assist with comprehension, and sticky notes can be used on Kindle Scribe. The print length of the book is 233 pages."
-      },
-      {
-        "book_id": "bookid_6",
-        "title": "Writings from a Black Woman Living in the Land of the \"Free\": Strength, Power, Resilience",
-        "categories": "[\"Books\", \"Arts & Photography\", \"History & Criticism\"]",
-        "details": "This book, published independently on December 30, 2021, is written in English and consists of 24 pages. It has an ISBN 13 of 979-8528537702 and weighs 3.2 ounces. The dimensions of the book are 7 x 0.06 x 9 inches."
-      },
-      {
-        "book_id": "bookid_7",
-        "title": "Child Development: A Practitioner's Guide:2nd (Second) edition",
-        "categories": "[\"Books\", \"Parenting & Relationships\", \"Parenting\"]",
-        "details": "The book, published by Guilford in its second edition in January 2004, is also noted as the 8082nd edition from January 1, 1994. It has a remarkably light item weight of just 0.01 ounces."
-      },
-      {
-        "book_id": "bookid_8",
-        "title": "Make: Electronics: Learning Through Discovery",
-        "categories": "[\"Books\", \"Engineering & Transportation\", \"Engineering\"]",
-        "details": "This book, published by Make Community, LLC, in its second edition on September 22, 2015, is available in English and spans 352 pages in paperback format. It has an ISBN of 9781680450262 for the 10-digit version and 978-1680450262 for the 13-digit version. The content is suitable for readers aged 11 to 17 years. The book weighs 2.91 pounds and its dimensions are 8 inches in width, 0.5 inches in thickness, and 10 inches in height."
-      },
-      {
-        "book_id": "bookid_9",
-        "title": "Reunion: The Children of Lauderdale Park",
-        "categories": "[\"Books\", \"Literature & Fiction\", \"Genre Fiction\"]",
-        "details": "This book, published independently on September 25, 2019, is written in English and spans 367 pages. It is available in paperback format and has an ISBN-10 of 1694621731 and an ISBN-13 of 978-1694621733. The item weighs 1.38 pounds and measures 6 x 0.92 x 9 inches."
-      },
-      {
-        "book_id": "bookid_10",
-        "title": "Four Centuries of American Education",
-        "categories": "[\"Books\", \"Education & Teaching\", \"Schools & Teaching\"]",
-        "details": "This book, published by WallBuilder Press in its first edition on November 8, 2004, is available in English and comprises 51 pages in paperback format. It has an ISBN-10 of 1932225323 and an ISBN-13 of 978-1932225327, with a total item weight of 3.52 ounces."
+        "details": "The book was published on May 18, 2014, and is available in English. It has a file size of 1542 KB and allows for unlimited simultaneous device usage. Text-to-speech functionality is enabled, and it supports screen readers, enhancing accessibility for readers. Enhanced typesetting is also enabled, while the X-Ray feature is not available. Word Wise is enabled to assist with comprehension, and sticky notes can be used on Kindle Scribe. The print length of the book is 233 pages.",
+        "book_id": "bookid_5"
       }
     ],
-    "var_functions.list_db:4": [
+    "var_functions.query_db:5": "file_storage/functions.query_db:5.json",
+    "var_functions.list_db:6": [
       "review"
-    ],
-    "var_functions.query_db:6": [
-      {
-        "book_id": "bookid_1",
-        "title": "Chaucer"
-      },
-      {
-        "book_id": "bookid_9",
-        "title": "Reunion: The Children of Lauderdale Park"
-      },
-      {
-        "book_id": "bookid_13",
-        "title": "Girl Made of Glass"
-      },
-      {
-        "book_id": "bookid_30",
-        "title": "Sugary Sweets (A Taste of Love Series)"
-      },
-      {
-        "book_id": "bookid_36",
-        "title": "Therapy Mammals"
-      },
-      {
-        "book_id": "bookid_37",
-        "title": "A Most Dangerous Book: Tacitus's Germania from the Roman Empire to the Third Reich"
-      },
-      {
-        "book_id": "bookid_38",
-        "title": "The Prophet: With Original 1923 Illustrations by the Author"
-      },
-      {
-        "book_id": "bookid_39",
-        "title": "The Melancholy Strumpet Master"
-      },
-      {
-        "book_id": "bookid_44",
-        "title": "Reptilian"
-      },
-      {
-        "book_id": "bookid_49",
-        "title": "Primeval: A Journal of the Uncanny - Issue #1"
-      },
-      {
-        "book_id": "bookid_55",
-        "title": "Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)"
-      },
-      {
-        "book_id": "bookid_69",
-        "title": "Out of Sheer Rage: Wrestling with D. H. Lawrence"
-      },
-      {
-        "book_id": "bookid_70",
-        "title": "Polly and the Shadow Goblin: Book 2, Mother of Witches"
-      },
-      {
-        "book_id": "bookid_74",
-        "title": "Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message"
-      },
-      {
-        "book_id": "bookid_77",
-        "title": "One September Morning"
-      },
-      {
-        "book_id": "bookid_82",
-        "title": "Fire Cracker"
-      },
-      {
-        "book_id": "bookid_84",
-        "title": "Local Honey"
-      },
-      {
-        "book_id": "bookid_89",
-        "title": "I'll Ride For My Hood: A Salty Love Story"
-      },
-      {
-        "book_id": "bookid_92",
-        "title": "Outage"
-      },
-      {
-        "book_id": "bookid_93",
-        "title": "Simantov"
-      },
-      {
-        "book_id": "bookid_98",
-        "title": "Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)"
-      },
-      {
-        "book_id": "bookid_99",
-        "title": "Buddy the Soldier Bear"
-      },
-      {
-        "book_id": "bookid_101",
-        "title": "Knowing When To Die: Uncollected Stories"
-      },
-      {
-        "book_id": "bookid_106",
-        "title": "Looking for Peyton Place: A Novel"
-      },
-      {
-        "book_id": "bookid_109",
-        "title": "All the Way to the Gallows"
-      },
-      {
-        "book_id": "bookid_111",
-        "title": "Can You Buy Me The Wind?"
-      },
-      {
-        "book_id": "bookid_122",
-        "title": "Childe Harold of Dysna"
-      },
-      {
-        "book_id": "bookid_137",
-        "title": "Oligarchy"
-      },
-      {
-        "book_id": "bookid_142",
-        "title": "The Jordan Tracks"
-      },
-      {
-        "book_id": "bookid_144",
-        "title": "Forged in Blood (Freehold)"
-      },
-      {
-        "book_id": "bookid_161",
-        "title": "Time's Demon: BOOK II OF THE ISLEVALE CYCLE"
-      },
-      {
-        "book_id": "bookid_167",
-        "title": "Dead Silence"
-      },
-      {
-        "book_id": "bookid_171",
-        "title": "Exits, Desires, & Slow Fires"
-      },
-      {
-        "book_id": "bookid_177",
-        "title": "Kennebago Moments"
-      },
-      {
-        "book_id": "bookid_179",
-        "title": "A Cherry Cola Christmas (A Cherry Cola Book Club Novel)"
-      },
-      {
-        "book_id": "bookid_180",
-        "title": "The Sludge"
-      },
-      {
-        "book_id": "bookid_182",
-        "title": "Liza of Lambeth"
-      },
-      {
-        "book_id": "bookid_187",
-        "title": "Consort (A Dark(ish) Faerie Tale Book 3)"
-      },
-      {
-        "book_id": "bookid_188",
-        "title": "The Vampyre and Other Tales of the Macabre (Oxford World's Classics)"
-      },
-      {
-        "book_id": "bookid_195",
-        "title": "Something That Feels Like Truth (Switchgrass Books)"
-      }
     ],
     "var_functions.query_db:8": [
       {
         "rating": "4",
-        "title": "Ha! On me!  I thought this was a cookbook!",
-        "text": "Lucky for me it's more than a cookbook.<br /><br />The story of a modern Daniel Boone, growing up in Michigan, one of three sons of a hunter.  Beginning at age eight when he shot a squirrel, to age 13 his first deer, then hunting his way through college, a career as a fur trapper, hunting sheep in Alaska, canoeing the Missouri River for deer and ending in Brooklyn age 37. Brooklyn?<br /><br />I especially liked that I share his disgust at catch & release fishing - if you fish it, you have to eat it - anything else is sadism (my words).<br /><br />My brother in law is the cook in the family and I wanted to see if this would be a good gift for him and I struck pay dirt following each chapter are \"Tasting Notes\" where the author speaks of cooking wild game.<br /><br />I also enjoyed it for the history of the land he has hunted as well as the history of the hunt (I too was a big Daniel Boone fan growing up!).<br /><br />I think more pictures (everything but dead things) would have made this a keeper.",
-        "review_time": "2012-11-24 18:52:00",
-        "helpful_vote": "0",
-        "verified_purchase": "0",
         "purchase_id": "purchaseid_186"
       },
       {
         "rating": "4",
-        "title": "Four Stars",
-        "text": "Not as developed as Stephanie but I like the characters so far.",
-        "review_time": "2015-12-31 13:35:00",
-        "helpful_vote": "0",
-        "verified_purchase": "1",
         "purchase_id": "purchaseid_191"
       },
       {
         "rating": "4",
-        "title": "A wonderful adventure in France",
-        "text": "I loved this book all the way until the end. I have recently discovered that the author is intending to release another book, and from what I understand it will continue where this one left off. I am thankful for this, as the way this book ended was definitely a negative for me. I wanted to know more! What happened to the author, did she learn what she came to learn? Did she get the job she was hoping for? So many questions.<br /><br />From the beginning of Linda's book, it is easy to love her. She is open, honest and definitely has the type of personality you want your heroine to have, whether the book is fiction or reality. I couldn't help but root for Linda throughout her trials with her host family, even when I thought she acted as a bit of a brat herself. Listening to her internal thoughts about what she went through and her desire to achieve her goals made this book feel close to my heart.<br /><br />I applaud the adventurous spirit of the author and her decision to keep journal entries from that chapter of her life. What great material to have later to inspire a book! While I enjoyed the entire memoir, my favourite part of this book would have to be the author's descriptions of the many places she visited and the people she met along the way. While I think she could definitely have made a better impression on the family she worked for if she had been honest about her lack of French language skills from the beginning, she is a pioneer. Her drive and desire to learn the language from those in the actual country was inspiring. Not many people would have been gutsy enough to do what Linda did.<br /><br />I also particularly enjoyed the relationship between Linda and Antoine. The Kind heart of the author was apparent in her actions toward the children, even when she struggled with them.<br /><br />There is some romance, and I appreciated the way the author handled it. While sex scenes are not necessarily automatically offensive, there is something about memoirs that makes me uncomfortable if they are filled with them. This author manages to hint at her experiences without going into too much detail, leaving the reader to decide exactly what happened. Great writing.<br /><br />When you step into reading this book, you learn a lot about French customs, French cuisine and wine. You also get the opportunity to brush up on your French skills a bit and get to step outside yourself and live an adventure through the eyes of the author. I read this book in one sitting with very few breaks in between and found myself enthralled in the sights, sounds and atmosphere of this memoir.<br /><br />In the end, I was disappointed that the book ended. I could have kept reading about Linda's experiences without stopping anytime in the foreseeable future. The end of the book leaves many unanswered questions, that I am assuming the author will be answering in her next book. Were this a standalone, I would be very disappointed with the way the book ended, but with the knowledge that she is writing another book to continue with her story, I can't fault this one. One thing is for sure, if you read this book, you will be anxiously awaiting the next.<br /><br />I would recommend this to anyone who likes books about travel, memoirs or just a good story that came from the recollections and heart of the author. Read it, you will be glad you did. Overall, this was a VERY enjoyable read that gave me many reasons to wish I could drop everything and head off to France!",
-        "review_time": "2013-05-05 10:47:00",
-        "helpful_vote": "1",
-        "verified_purchase": "0",
         "purchase_id": "purchaseid_190"
       },
       {
         "rating": "5",
-        "title": "Best beginner book.  Been looking for something like this for a long time.",
-        "text": "Looked online for years for something like this.  It's the best I've seen.",
-        "review_time": "2020-08-12 11:06:00",
-        "helpful_vote": "0",
-        "verified_purchase": "1",
         "purchase_id": "purchaseid_8"
       },
       {
         "rating": "4",
-        "title": "Referance Guide",
-        "text": "Good reference guide for the basics",
-        "review_time": "2014-11-13 18:55:00",
-        "helpful_vote": "0",
-        "verified_purchase": "1",
         "purchase_id": "purchaseid_178"
       }
     ],
-    "var_functions.query_db:10": [
+    "var_functions.query_db:10": "file_storage/functions.query_db:10.json",
+    "var_functions.query_db:12": [
       {
-        "book_id": "bookid_1",
-        "title": "Chaucer"
+        "book_id": "bookid_1"
       },
       {
-        "book_id": "bookid_9",
-        "title": "Reunion: The Children of Lauderdale Park"
+        "book_id": "bookid_9"
       },
       {
-        "book_id": "bookid_13",
-        "title": "Girl Made of Glass"
+        "book_id": "bookid_13"
       },
       {
-        "book_id": "bookid_30",
-        "title": "Sugary Sweets (A Taste of Love Series)"
+        "book_id": "bookid_30"
       },
       {
-        "book_id": "bookid_36",
-        "title": "Therapy Mammals"
+        "book_id": "bookid_36"
       },
       {
-        "book_id": "bookid_37",
-        "title": "A Most Dangerous Book: Tacitus's Germania from the Roman Empire to the Third Reich"
+        "book_id": "bookid_37"
       },
       {
-        "book_id": "bookid_38",
-        "title": "The Prophet: With Original 1923 Illustrations by the Author"
+        "book_id": "bookid_38"
       },
       {
-        "book_id": "bookid_39",
-        "title": "The Melancholy Strumpet Master"
+        "book_id": "bookid_39"
       },
       {
-        "book_id": "bookid_44",
-        "title": "Reptilian"
+        "book_id": "bookid_44"
       },
       {
-        "book_id": "bookid_49",
-        "title": "Primeval: A Journal of the Uncanny - Issue #1"
+        "book_id": "bookid_49"
       },
       {
-        "book_id": "bookid_55",
-        "title": "Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)"
+        "book_id": "bookid_55"
       },
       {
-        "book_id": "bookid_69",
-        "title": "Out of Sheer Rage: Wrestling with D. H. Lawrence"
+        "book_id": "bookid_69"
       },
       {
-        "book_id": "bookid_70",
-        "title": "Polly and the Shadow Goblin: Book 2, Mother of Witches"
+        "book_id": "bookid_70"
       },
       {
-        "book_id": "bookid_74",
-        "title": "Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message"
+        "book_id": "bookid_74"
       },
       {
-        "book_id": "bookid_77",
-        "title": "One September Morning"
+        "book_id": "bookid_77"
       },
       {
-        "book_id": "bookid_82",
-        "title": "Fire Cracker"
+        "book_id": "bookid_82"
       },
       {
-        "book_id": "bookid_84",
-        "title": "Local Honey"
+        "book_id": "bookid_84"
       },
       {
-        "book_id": "bookid_89",
-        "title": "I'll Ride For My Hood: A Salty Love Story"
+        "book_id": "bookid_89"
       },
       {
-        "book_id": "bookid_92",
-        "title": "Outage"
+        "book_id": "bookid_92"
       },
       {
-        "book_id": "bookid_93",
-        "title": "Simantov"
+        "book_id": "bookid_93"
       },
       {
-        "book_id": "bookid_98",
-        "title": "Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)"
+        "book_id": "bookid_98"
       },
       {
-        "book_id": "bookid_99",
-        "title": "Buddy the Soldier Bear"
+        "book_id": "bookid_99"
       },
       {
-        "book_id": "bookid_101",
-        "title": "Knowing When To Die: Uncollected Stories"
+        "book_id": "bookid_101"
       },
       {
-        "book_id": "bookid_106",
-        "title": "Looking for Peyton Place: A Novel"
+        "book_id": "bookid_106"
       },
       {
-        "book_id": "bookid_109",
-        "title": "All the Way to the Gallows"
+        "book_id": "bookid_109"
       },
       {
-        "book_id": "bookid_111",
-        "title": "Can You Buy Me The Wind?"
+        "book_id": "bookid_111"
       },
       {
-        "book_id": "bookid_122",
-        "title": "Childe Harold of Dysna"
+        "book_id": "bookid_122"
       },
       {
-        "book_id": "bookid_137",
-        "title": "Oligarchy"
+        "book_id": "bookid_137"
       },
       {
-        "book_id": "bookid_142",
-        "title": "The Jordan Tracks"
+        "book_id": "bookid_142"
       },
       {
-        "book_id": "bookid_144",
-        "title": "Forged in Blood (Freehold)"
+        "book_id": "bookid_144"
       },
       {
-        "book_id": "bookid_161",
-        "title": "Time's Demon: BOOK II OF THE ISLEVALE CYCLE"
+        "book_id": "bookid_161"
       },
       {
-        "book_id": "bookid_167",
-        "title": "Dead Silence"
+        "book_id": "bookid_167"
       },
       {
-        "book_id": "bookid_171",
-        "title": "Exits, Desires, & Slow Fires"
+        "book_id": "bookid_171"
       },
       {
-        "book_id": "bookid_177",
-        "title": "Kennebago Moments"
+        "book_id": "bookid_177"
       },
       {
-        "book_id": "bookid_179",
-        "title": "A Cherry Cola Christmas (A Cherry Cola Book Club Novel)"
+        "book_id": "bookid_179"
       },
       {
-        "book_id": "bookid_180",
-        "title": "The Sludge"
+        "book_id": "bookid_180"
       },
       {
-        "book_id": "bookid_182",
-        "title": "Liza of Lambeth"
+        "book_id": "bookid_182"
       },
       {
-        "book_id": "bookid_187",
-        "title": "Consort (A Dark(ish) Faerie Tale Book 3)"
+        "book_id": "bookid_187"
       },
       {
-        "book_id": "bookid_188",
-        "title": "The Vampyre and Other Tales of the Macabre (Oxford World's Classics)"
+        "book_id": "bookid_188"
       },
       {
-        "book_id": "bookid_195",
-        "title": "Something That Feels Like Truth (Switchgrass Books)"
+        "book_id": "bookid_195"
       }
     ],
-    "var_functions.query_db:12": "file_storage/functions.query_db:12.json",
-    "var_functions.execute_python:16": [
+    "var_functions.query_db:14": "file_storage/functions.query_db:14.json",
+    "var_functions.query_db:16": "file_storage/functions.query_db:16.json",
+    "var_functions.execute_python:28": {
+      "books_loaded": 40,
+      "reviews_loaded": 1833
+    },
+    "var_functions.execute_python:32": "file_storage/functions.execute_python:32.json",
+    "var_functions.execute_python:34": [
       {
-        "book_id": "bookid_74",
-        "title": "Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message",
+        "title": "Knowing When To Die: Uncollected Stories",
+        "author": "Mort Castle",
+        "categories": "[\"Books\", \"Literature & Fiction\", \"Genre Fiction\"]",
+        "details": "This book, published by Independent Legions Publishing in its first edition on June 19, 2018, is written in English and spans 216 pages. It is available in paperback and has an ISBN-10 of 8831959018 and an ISBN-13 of 978-8831959018. The item weighs 9.9 ounces and has dimensions of 5.5 x 0.54 x 8.5 inches.",
         "avg_rating": 5.0,
-        "review_count": 8
+        "review_count": 2
       },
       {
-        "book_id": "bookid_144",
+        "title": "Childe Harold of Dysna",
+        "author": "Unknown",
+        "categories": "[\"Books\", \"Literature & Fiction\", \"History & Criticism\"]",
+        "details": "The book, published by Naydus Press on July 27, 2021, is written in English and features a paperback format consisting of 80 pages. It has an ISBN 10 of 1734193603 and an ISBN 13 of 978-1734193602. Weighing 4 ounces, the book measures 4.9 by 0.3 by 7.8 inches.",
+        "avg_rating": 5.0,
+        "review_count": 1
+      },
+      {
         "title": "Forged in Blood (Freehold)",
+        "author": "Michael Z. Williamson",
+        "categories": "[\"Books\", \"Literature & Fiction\", \"Short Stories & Anthologies\"]",
+        "details": "The book is published by Baen in a reissue edition dated September 25, 2018. It is written in English and is available as a mass market paperback, consisting of 528 pages. The ISBN-10 for this edition is 1481483536, while the ISBN-13 is 978-1481483537. The item weighs 8.8 ounces and has dimensions of 4.13 x 1.3 x 6.75 inches.",
         "avg_rating": 5.0,
         "review_count": 6
       },
       {
-        "book_id": "bookid_38",
+        "title": "Exits, Desires, & Slow Fires",
+        "author": "J.R. Rogue",
+        "categories": "[\"Books\", \"Literature & Fiction\", \"Poetry\"]",
+        "details": "The book, published by CreateSpace Independent Publishing Platform in its first edition on September 20, 2017, is written in English and consists of 83 pages. It has an ISBN 10 of 154710435X and an ISBN 13 of 978-1547104352. The item weighs 3.2 ounces and has dimensions of 5 x 0.21 x 8 inches.",
+        "avg_rating": 5.0,
+        "review_count": 3
+      },
+      {
+        "title": "Kennebago Moments",
+        "author": "Betsy Wolff Frey",
+        "categories": "[\"Books\", \"Literature & Fiction\", \"Poetry\"]",
+        "details": "This book, published by CreateSpace Independent Publishing Platform on November 24, 2010, is written in English and has a total of 52 pages. It is available in paperback format and weighs 3.2 ounces. The book's dimensions are 5.98 x 0.12 x 9.02 inches. It can be identified by its ISBN 10 number, 1453850171, and its ISBN 13 number, 978-1453850176.",
+        "avg_rating": 5.0,
+        "review_count": 1
+      },
+      {
+        "title": "The Sludge",
+        "author": "David Bernstein",
+        "categories": "[\"Books\", \"Literature & Fiction\", \"Genre Fiction\"]",
+        "details": "The book, published by Great Old Ones Publishing in its first edition on July 5, 2016, is written in English and consists of 198 pages. It has an ISBN-10 of 0692726446 and an ISBN-13 of 978-0692726440. Weighing 10.4 ounces, the book measures 6 inches in width, 0.5 inches in thickness, and 9 inches in height.",
+        "avg_rating": 5.0,
+        "review_count": 1
+      },
+      {
+        "title": "Liza of Lambeth",
+        "author": "Unknown",
+        "categories": "[\"Books\", \"Literature & Fiction\", \"Classics\"]",
+        "details": "This book, published independently on June 1, 2020, is available in English and comprises 125 pages in paperback format. It has an ISBN 13 of 979-8650407126 and weighs 6.9 ounces. The dimensions of the book are 6 x 0.32 x 9 inches.",
+        "avg_rating": 5.0,
+        "review_count": 1
+      },
+      {
+        "title": "Something That Feels Like Truth (Switchgrass Books)",
+        "author": "DONALD LYSTRA",
+        "categories": "[\"Books\", \"Literature & Fiction\", \"Short Stories & Anthologies\"]",
+        "details": "This book, published by Northern Illinois University Press in its first edition on September 1, 2013, is available in English and is presented in paperback format with a total of 290 pages. It has an ISBN-10 of 9780875806938 and an ISBN-13 of 978-0875806938. Suitable for readers aged 18 years and older, the book weighs 11.7 ounces and its dimensions are 5 x 0.9 x 8 inches.",
+        "avg_rating": 5.0,
+        "review_count": 2
+      },
+      {
         "title": "The Prophet: With Original 1923 Illustrations by the Author",
+        "author": "Kahlil Gibran",
+        "categories": "[\"Books\", \"Literature & Fiction\", \"Poetry\"]",
+        "details": "The book, published by Suzeteo Enterprises on February 14, 2019, is available in English and consists of 48 pages. It has an ISBN-10 of 1947844938 and an ISBN-13 of 978-1947844933. The Lexile measure for this book is 990L. Weighing 2.08 ounces, its dimensions are 5 inches in width, 0.1 inches in thickness, and 8 inches in height.",
         "avg_rating": 5.0,
         "review_count": 4
       },
       {
-        "book_id": "bookid_171",
-        "title": "Exits, Desires, & Slow Fires",
-        "avg_rating": 5.0,
-        "review_count": 3
-      },
-      {
-        "book_id": "bookid_9",
-        "title": "Reunion: The Children of Lauderdale Park",
-        "avg_rating": 5.0,
-        "review_count": 3
-      },
-      {
-        "book_id": "bookid_195",
-        "title": "Something That Feels Like Truth (Switchgrass Books)",
-        "avg_rating": 5.0,
-        "review_count": 2
-      },
-      {
-        "book_id": "bookid_101",
-        "title": "Knowing When To Die: Uncollected Stories",
-        "avg_rating": 5.0,
-        "review_count": 2
-      },
-      {
-        "book_id": "bookid_39",
         "title": "The Melancholy Strumpet Master",
+        "author": "Zeb Beck",
+        "categories": "[\"Books\", \"Literature & Fiction\", \"Humor & Satire\"]",
+        "details": "This book, published independently on February 19, 2023, is written in English and spans 257 pages in paperback format. It has an ISBN 13 of 979-8378201969 and weighs 14.1 ounces. The dimensions of the book are 5.5 x 0.65 x 8.5 inches.",
         "avg_rating": 5.0,
         "review_count": 2
       },
       {
-        "book_id": "bookid_82",
+        "title": "Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message",
+        "author": "K. G. Ingram",
+        "categories": "[\"Books\", \"Literature & Fiction\"]",
+        "details": "This book, published by Self Publishing on December 1, 2022, is written in English and comprises 192 pages. It has an ISBN 13 of 979-8887592497 and weighs 8.8 ounces. The dimensions of the book are 5.5 by 0.48 by 8.5 inches.",
+        "avg_rating": 5.0,
+        "review_count": 8
+      },
+      {
         "title": "Fire Cracker",
+        "author": "Shirley Kennett",
+        "categories": "[\"Books\", \"Literature & Fiction\", \"United States\"]",
+        "details": "This book, published by Kensington on July 1, 1997, is available in English and features a paperback format with a total of 312 pages. It has an ISBN-10 of 1575661810 and an ISBN-13 of 978-1575661810. The item weighs 1.3 pounds and its dimensions are 6.25 inches in width, 1.25 inches in thickness, and 9.5 inches in height.",
         "avg_rating": 5.0,
         "review_count": 2
       },
       {
-        "book_id": "bookid_84",
         "title": "Local Honey",
+        "author": "Jo Stewart Wray",
+        "categories": "[\"Books\", \"Literature & Fiction\"]",
+        "details": "This book, published by Xlibris on June 26, 2015, is written in English and spans 166 pages in paperback format. It has an ISBN 10 of 1503581098 and an ISBN 13 of 978-1503581098. The item weighs 8.8 ounces and has dimensions of 6 x 0.42 x 9 inches.",
         "avg_rating": 5.0,
         "review_count": 2
       },
       {
-        "book_id": "bookid_122",
-        "title": "Childe Harold of Dysna",
+        "title": "Reunion: The Children of Lauderdale Park",
+        "author": "Unknown",
+        "categories": "[\"Books\", \"Literature & Fiction\", \"Genre Fiction\"]",
+        "details": "This book, published independently on September 25, 2019, is written in English and spans 367 pages. It is available in paperback format and has an ISBN-10 of 1694621731 and an ISBN-13 of 978-1694621733. The item weighs 1.38 pounds and measures 6 x 0.92 x 9 inches.",
         "avg_rating": 5.0,
-        "review_count": 1
+        "review_count": 3
       },
       {
-        "book_id": "bookid_182",
-        "title": "Liza of Lambeth",
-        "avg_rating": 5.0,
-        "review_count": 1
-      },
-      {
-        "book_id": "bookid_180",
-        "title": "The Sludge",
-        "avg_rating": 5.0,
-        "review_count": 1
-      },
-      {
-        "book_id": "bookid_177",
-        "title": "Kennebago Moments",
-        "avg_rating": 5.0,
-        "review_count": 1
-      },
-      {
-        "book_id": "bookid_98",
         "title": "Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)",
+        "author": "Gemma Halliday",
+        "categories": "[\"Books\", \"Literature & Fiction\", \"Genre Fiction\"]",
+        "details": "This book, published by CreateSpace Independent Publishing Platform on May 31, 2011, is written in English and features a paperback format consisting of 209 pages. It has an ISBN 10 number of 1463534795 and an ISBN 13 number of 978-1463534790. The item weighs 7.8 ounces and has dimensions of 5.25 x 0.48 x 8 inches.",
         "avg_rating": 5.0,
         "review_count": 1
       }
     ],
-    "var_functions.return_answer:18": "Based on the analysis, the following English-language books in the 'Literature & Fiction' category have a perfect average rating of 5.0:\n\n1. Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message (8 reviews)\n2. Forged in Blood (Freehold) (6 reviews)\n3. The Prophet: With Original 1923 Illustrations by the Author (4 reviews)\n4. Exits, Desires, & Slow Fires (3 reviews)\n5. Reunion: The Children of Lauderdale Park (3 reviews)\n6. Something That Feels Like Truth (Switchgrass Books) (2 reviews)\n7. Knowing When To Die: Uncollected Stories (2 reviews)\n8. The Melancholy Strumpet Master (2 reviews)\n9. Fire Cracker (2 reviews)\n10. Local Honey (2 reviews)\n11. Childe Harold of Dysna (1 review)\n12. Liza of Lambeth (1 review)\n13. The Sludge (1 review)\n14. Kennebago Moments (1 review)\n15. Hollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries) (1 review)\n\nAll 15 books have an average rating of exactly 5.0 and are categorized under Literature & Fiction with English language details."
+    "var_functions.return_answer:36": "Based on the analysis of the book database and review data, here are the English-language books in the 'Literature & Fiction' category that have a perfect average rating of 5.0:\n\n1. **Knowing When To Die: Uncollected Stories** by Mort Castle\n   - Categories: [\"Books\", \"Literature & Fiction\", \"Genre Fiction\"]\n   - Details: Published June 19, 2018, 216 pages, paperback, English\n   - Review Count: 2\n\n2. **Childe Harold of Dysna** by Unknown\n   - Categories: [\"Books\", \"Literature & Fiction\", \"History & Criticism\"]\n   - Details: Published July 27, 2021, 80 pages, paperback, English\n   - Review Count: 1\n\n3. **Forged in Blood (Freehold)** by Michael Z. Williamson\n   - Categories: [\"Books\", \"Literature & Fiction\", \"Short Stories & Anthologies\"]\n   - Details: Published September 25, 2018, 528 pages, mass market paperback, English\n   - Review Count: 6\n\n4. **Exits, Desires, & Slow Fires** by J.R. Rogue\n   - Categories: [\"Books\", \"Literature & Fiction\", \"Poetry\"]\n   - Details: Published September 20, 2017, 83 pages, English\n   - Review Count: 3\n\n5. **Kennebago Moments** by Betsy Wolff Frey\n   - Categories: [\"Books\", \"Literature & Fiction\", \"Poetry\"]\n   - Details: Published November 24, 2010, 52 pages, paperback, English\n   - Review Count: 1\n\n6. **The Sludge** by David Bernstein\n   - Categories: [\"Books\", \"Literature & Fiction\", \"Genre Fiction\"]\n   - Details: Published July 5, 2016, 198 pages, English\n   - Review Count: 1\n\n7. **Liza of Lambeth** by Unknown\n   - Categories: [\"Books\", \"Literature & Fiction\", \"Classics\"]\n   - Details: Published June 1, 2020, 125 pages, paperback, English\n   - Review Count: 1\n\n8. **Something That Feels Like Truth (Switchgrass Books)** by DONALD LYSTRA\n   - Categories: [\"Books\", \"Literature & Fiction\", \"Short Stories & Anthologies\"]\n   - Details: Published September 1, 2013, 290 pages, paperback, English\n   - Review Count: 2\n\n9. **The Prophet: With Original 1923 Illustrations by the Author** by Kahlil Gibran\n   - Categories: [\"Books\", \"Literature & Fiction\", \"Poetry\"]\n   - Details: Published February 14, 2019, 48 pages, English\n   - Review Count: 4\n\n10. **The Melancholy Strumpet Master** by Zeb Beck\n    - Categories: [\"Books\", \"Literature & Fiction\", \"Humor & Satire\"]\n    - Details: Published February 19, 2023, 257 pages, paperback, English\n    - Review Count: 2\n\n11. **Child Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message** by K. G. Ingram\n    - Categories: [\"Books\", \"Literature & Fiction\"]\n    - Details: Published December 1, 2022, 192 pages, English\n    - Review Count: 8\n\n12. **Fire Cracker** by Shirley Kennett\n    - Categories: [\"Books\", \"Literature & Fiction\", \"United States\"]\n    - Details: Published July 1, 1997, 312 pages, paperback, English\n    - Review Count: 2\n\n13. **Local Honey** by Jo Stewart Wray\n    - Categories: [\"Books\", \"Literature & Fiction\"]\n    - Details: Published June 26, 2015, 166 pages, paperback, English\n    - Review Count: 2\n\n14. **Reunion: The Children of Lauderdale Park** by Unknown\n    - Categories: [\"Books\", \"Literature & Fiction\", \"Genre Fiction\"]\n    - Details: Published September 25, 2019, 367 pages, paperback, English\n    - Review Count: 3\n\n15. **Hollywood Confessions: Hollywood Headlines Book #3** by Gemma Halliday\n    - Categories: [\"Books\", \"Literature & Fiction\", \"Genre Fiction\"]\n    - Details: Published May 31, 2011, 209 pages, paperback, English\n    - Review Count: 1\n\nTotal: 15 books found with a perfect 5.0 average rating in the Literature & Fiction category."
   },
-  "llm_call_count": 10,
+  "llm_call_count": 20,
   "tools": {
     "query_db": null,
     "list_db": null,
     "execute_python": null,
     "return_answer": {
       "name": "return_answer",
-      "log_path": "/home/ruiying/DataAgentBench/query_bookreview/query2/logs/data_agent/run_26/tool_calls.jsonl"
+      "log_path": "/home/ruiying/DataAgentBench-local/query_bookreview/query2/logs/data_agent/run_26/tool_calls.jsonl"
     }
   },
-  "query_dir": "/home/ruiying/DataAgentBench/query_bookreview/query2",
+  "query_dir": "/home/ruiying/DataAgentBench-local/query_bookreview/query2",
   "max_iterations": 100,
   "deployment_name": "moonshotai/Kimi-K2-Thinking",
-  "file_storage_dir": "/home/ruiying/DataAgentBench/query_bookreview/query2/logs/data_agent/run_26/exec_tool_work_dir/file_storage",
-  "llm_log_path": "/home/ruiying/DataAgentBench/query_bookreview/query2/logs/data_agent/run_26/llm_calls.jsonl",
-  "validation_log_path": "/home/ruiying/DataAgentBench/query_bookreview/query2/logs/data_agent/run_26/validation.jsonl",
-  "tool_log_path": "/home/ruiying/DataAgentBench/query_bookreview/query2/logs/data_agent/run_26/tool_calls.jsonl"
+  "file_storage_dir": "/home/ruiying/DataAgentBench-local/query_bookreview/query2/logs/data_agent/run_26/exec_tool_work_dir/file_storage",
+  "llm_log_path": "/home/ruiying/DataAgentBench-local/query_bookreview/query2/logs/data_agent/run_26/llm_calls.jsonl",
+  "validation_log_path": "/home/ruiying/DataAgentBench-local/query_bookreview/query2/logs/data_agent/run_26/validation.jsonl",
+  "tool_log_path": "/home/ruiying/DataAgentBench-local/query_bookreview/query2/logs/data_agent/run_26/tool_calls.jsonl"
 }
