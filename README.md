@@ -1,301 +1,370 @@
-# 📄 UCB Query Benchmark Study
+# DAB: UCB Data Agent Benchmark
 
-This project is a **benchmark study of data agents (LLM-based agents) in querying distributed databases**, evaluating the capabilities of LLM-driven agents in accessing and reasoning over diverse data sources.
-The agent automatically reads database connection parameters from the `.env` file, detects and loads database files, and establishes connections as needed.
+> 🔥 **DAB is the first benchmark for evaluating data agents on realistic, complex, data-oriented tasks.**
 
-## 📋 Table of Contents
+> 🤝 **We welcome high-quality, realistic datasets. Submit a Pull Request to our GitHub repository to contribute your dataset!**
 
-- [📄 UCB Query Benchmark Study](#-ucb-query-benchmark-study)
-- [🚀 Installation](#installation)
-  - [Clone the repository](#clone-the-repository)
-  - [Create a virtual environment](#create-a-virtual-environment)
-  - [Install dependencies](#install-dependencies)
-- [🗄️ Database Setup](#database-setup)
-- [🔧 Configure .env](#-configure-env)
-- [🚀 Run the Benchmark](#-run-the-benchmark)
-  - [📂 Run our provided agent on our datasets](#-run-our-provided-agent-on-our-datasets)
-  - [📂 Run your own agent on our datasets](#-run-your-own-agent-on-our-datasets)
-    - [How to load the databases in your own agent with our tools](#how-to-load-the-databases-in-your-own-agent)
-    - [🔴 If you prefer not to use our agent_tools and db_utils](#-if-you-prefer-not-to-use-our-agent_tools-and-db_utils)
-  - [📂 Run on your own datasets](#-run-on-your-own-datasets)
+DAB captures **four core properties** of real-world enterprise data workloads across industries:
 
----
-## Installation
-### Clone the repository
+*  **Multi-database integration**
+*  **Ill-formatted key joins**
+*  **Unstructured text transformation**
+*  **Domain knowledge**
+
+Unlike prior SQL-only or single-database benchmarks, DAB stresses agents under **realistic enterprise data complexity**.
+
+# 📚 Table of Contents
+
+* [📊 Benchmark Overview](#-benchmark-overview)
+* [🏆 Leaderboard](#-leaderboard)
+* [⚙️ Prerequisites](#️-prerequisites)
+  * [Clone the Repository](#clone-the-repository)
+  * [Install Dependencies](#install-dependencies)
+  * [Setup Docker](#setup-docker)
+  * [Setup Databases](#setup-databases)
+  * [Set Database Configurations](#set-database-configurations)
+  * [Add API Credentials](#add-api-credentials)
+* [▶️ Run the Benchmark](#️run-the-benchmark)
+  * [Run the Built-in Agent](#run-the-built-in-agent-on-a-single-query)
+  * [Execution Logs](#execution-logs)
+  * [Validate Agent Answer](#validate-agent-answer)
+* [📝 Create Your Own Datasets and Queries](#-create-your-own-datasets-and-queries)
+  * [Dataset](#dataset)
+  * [Query](#query)
+* [🤖 Create Your Customized Agents](#-create-your-customized-agents)
+  * [How the Built-in Agent Works](#how-the-built-in-agent-works)
+
+
+## 📊 Benchmark Overview
+
+
+This benchmarks contain **12** datasets and **54** queries across **9** domains and **4** DBMSes:
+
+| Dataset          | #DBs | DBMSes                     | #Tbl | #Queries |
+| ---------------- | ---- | -------------------------- | ---- | -------- |
+| agnews           | 2    | MongoDB, SQLite            | 3    | 4        |
+| bookreview       | 2    | PostgreSQL, SQLite         | 2    | 3        |
+| crmarenapro      | 6    | DuckDB, PostgreSQL, SQLite | 27   | 13       |
+| deps_dev_v1      | 2    | DuckDB, SQLite             | 3    | 2        |
+| github_repos     | 2    | DuckDB, SQLite             | 6    | 4        |
+| googlelocal      | 2    | PostgreSQL, SQLite         | 2    | 4        |
+| music_brainz_20k | 2    | DuckDB, SQLite             | 2    | 3        |
+| pancancer_atlas  | 2    | DuckDB, PostgreSQL         | 3    | 3        |
+| patents          | 2    | PostgreSQL, SQLite         | 2    | 3        |
+| stockindex       | 2    | DuckDB, SQLite             | 2    | 3        |
+| stockmarket      | 2    | DuckDB, SQLite             | 2754 | 5        |
+| yelp             | 2    | DuckDB, MongoDB            | 5    | 7        |
+
+
+## 🏆 Leaderboard
+
+| Rank | Model          | Pass@1 | Date    |
+| ---- | -------------- | ------------------- | ------- |
+| 1    | PromptQL (Claude-Opus-4.6) | 0.48                | 2026-03-02 |
+| 2    | Gemini-3-Pro | 0.37           | 2026-03-02 |
+| 3    | GPT-5-mini     |     0.29           | 2026-03-02 |
+| 4    | GPT-5.2     |     0.25           | 2026-03-02 |
+| 5    | Kimi-K2     |     0.23           | 2026-03-02 |
+| 6    | Gemini-2.5-Flash     |     0.09          | 2026-03-02 |
+
+
+## ⚙️ Prerequisites
+
+Before running DAB, please complete the following setup steps.
+
+### Clone the Repository
+
 ```bash
 git clone https://github.com/ucbepic/DataAgentBench.git
 cd DataAgentBench
-
 ```
-### Create a virtual environment
-It is recommended to use a dedicated virtual environment named `ucb_query`:
-Using conda:
+
+### Install Dependencies
+
+We recommend using a dedicated virtual environment to ensure reproducibility.
+
+**Using Conda (recommended):**
+
 ```bash
-conda create -n ucb_query python=3.12
-conda activate ucb_query
+conda env create -f environment.yaml
+conda activate dabench
 ```
 
-### Install dependencies
-Install Python dependencies from `requirements.txt`:
-```bash
-pip install -r requirements.txt
+This will install all required dependencies specified in [enviroment.yaml](./environment.yaml).
+
+
+<!-- ## 🐳  -->
+### Setup Docker
+
+- **Install Docker**
+   Follow the [official guide](https://www.docker.com/get-started/).
+
+    Version used in our experiments: **28.4.0**
+
+- **Build the Docker image**:
+  The image includes **Python 3.12**, **Pandas**, and **PyArrow** pre-installed:
+
+    ```bash
+    docker build -t python-data:3.12 .
+    ```
+
+### Setup Databases
+
+DAB evaluates agents across multiple database systems, so you must install and configure the following databases locally.
+- **PostgreSQL**: 
+  Install PostgreSQL from the [official website](https://www.postgresql.org/) and start the server.
+  - **Minimum required version**: 17.5
+  - Version used in our experiments: 17.7 (Ubuntu 17.7-3.pgdg24.04+1)
+- **MongDB**:
+  Install MongoDB Community Edition from the [official website](https://www.mongodb.com/) and start the server.
+  - Version used in our experiments: v8.2.1
+- **SQLite & DuckDB**: 
+  They operate directly on database files and do not require running a server.
+
+### Set Database Configurations
+
+After installing all databases, you need to configure connection parameters to match your local setup.
+
+Default configuration values (defined in [db_config.py](./common_scaffold/tools/db_utils/)):
+
+|**Parameter**|**Default value**|
+|:-:|:-:|
+|PG_CLIENT | "psql" |
+| PG_HOST | "127.0.0.1" |
+| PG_PORT | 5432 |
+| PG_USER | "postgres" |
+| PG_PASSWORD | "" |
+| PG_DB | "test" |
+| MONGO_URI | "mongodb://localhost:27017/" |
+| SQLITE_PATH | "data/mydb.sqlite" |
+| DUCKDB_PATH | "data/mydb.duckdb" |
+
+**Option 1**:
+Create a `.env`file in the project root. E.g., 
+
 ```
----
-## Database Setup
-This project interacts with distributed databases, combining both server-based and file-based databases.
-You need to ensure the required services are running and files are available.
-
-#### ✅ PostgreSQL
-- Requires a **local PostgreSQL server** (version >= 17.5) to be installed and running.  
-- Install [PostgreSQL](https://www.postgresql.org/) on your machine according to your operating system.
-- After installation, start the PostgreSQL server. Verify that you can connect using:
-  ```bash
-  psql -U postgres
-  ```
-- The agent reads PostgreSQL connection parameters from the `.env` file.
-
-#### ✅ MongoDB
-- Requires a **local MongoDB server** to be installed and running.  
-- Install [MongoDB Community Edition](https://www.mongodb.com/) on your machine according to your operating system.
-- After installation, start the MongoDB server. Verify that you can connect.
-- The agent reads the MongoDB connection string (`MONGO_URI`) from the `.env` file.
-
-#### 📄 SQLite & DuckDB 
-- Does **not** require a separate service.
-- The agent automatically detects and loads the `.db` files directly from the filesystem.
-
-Only **PostgreSQL** and **MongoDB** require you to have their respective servers running locally (or accessible on a specified host). Please make sure both database services are properly installed and configured **before running the project**. 
-**SQLite** and **DuckDB** work as standalone files — no separate server installation is needed for them.
-Although MySQL is no longer the default choice, it is still supported and can be used if desired.
-
----
-## 🔧 Configure .env 
-Create a `.env` file in the project root directory with your actual credentials.
-Here is an example:
-
-```env
-# PostgreSQL configuration
-PG_CLIENT=your_local_psql.exe_path
-PG_USER=postgres
+# PostgreSQL
 PG_PASSWORD=your_password
-PG_HOST=localhost
-PG_PORT=5432
 PG_DB=mydb
-
-# MongoDB configuration
-MONGO_URI=mongodb://localhost:27017/
-# If your MongoDB requires authentication, use a URI like:
+# MongoDB (if authentication is required)
 MONGO_URI=mongodb://username:password@localhost:27017/?authSource=admin
+```
 
-# OpenAI
-OPENAI_API_KEY=your_openai_api_key_here
+**Option 2**: 
+Modifying the defaults in [db_config.py](./common_scaffold/tools/db_utils/).
 
-# Azure
-AZURE_API_BASE=https://your-resource-name.openai.azure.com/
-AZURE_API_KEY=your_azure_api_key_here
-AZURE_API_VERSION=2023-05-15
+
+
+
+### Add API credentials
+Create a `.env` file in the project root and add your API keys:
 
 ```
-You only need to provide the API key for either OpenAI, Azure OpenAI, or another provider, depending on the service you’re using.
+AZURE_API_BASE=
+AZURE_API_KEY=
+AZURE_API_VERSION=
+GEMINI_API_KEY=
+TOGETHER_API_KEY=
+```
 
----
-## 🚀 Run the Benchmark
-This benchmark can be run in two ways:  
-✅ Run on the provided datasets 
-- Using our provided agent
-- Using your own agent
-  
-✅ Run on your own custom dataset
+Currently, we support 
+- Microsoft Azure API (for GPT models)
+- Goolge Gemini API (for Gemini models)
+- Together.AI API (for Kimi and Qwen models)
 
-### 📂 Run our provided agent on our datasets
-We have prepared **five datasets** for this benchmark study: `GoogleLocal`, `BookReview`, `Yelp`, `StockIndex`, `StockMarket`.
+If you want to use a model not yet supported by default, you may register it in [DataAgent.py](./common_scaffold/DataAgent.py):
+```python
+# DataAgent.py (from line 76)
+if "gpt" in deployment_name.lower():
+      self.client = AzureOpenAI(
+          api_key=os.getenv("AZURE_API_KEY"),
+          api_version=os.getenv("AZURE_API_VERSION"),
+          azure_endpoint=os.getenv("AZURE_API_BASE")
+      )
+  # add a new model here as an `elif` branch
+  else:
+      raise ValueError(f"Unsupported deployment name: {deployment_name}")
+```
 
-Each dataset corresponds to a folder in the project directory.  
-To run the benchmark on a specific dataset, simply execute the `run_experiments.py` script located in that folder.  
+## ▶️ Run the Benchmark
 
-Example:
+### Run the Built-in Agent on a Single Query
+
+DAB comes with a built-in agent. You can run the agent on a specific query as follow:
+
+**Example:** Run a single trial of GPT-5-mini on `query1` of the `bookreview` dataset, with up to 100 agent iterations and dataset hints enabled:
+
 ```bash
-cd query_yelp
-python run_experiments.py
+python run_agent.py \
+    --task bookreview \
+    --query_id 1 \
+    --llm gpt-5-mini \
+    --iterations 100 \
+    --use_hints \
+    --root_name run_0
 ```
 
-### 📂 Run your own agent on our datasets
 
-If you want to implement and run **your own agent** (instead of using the provided baseline agent), you can still leverage the built-in database loading and management logic from this project.  
-We have already encapsulated all the database initialization and checking into a few utility functions under `common_scaffold/`, so you don’t need to manually connect or verify the databases.
+### Execution Logs
 
+Logs for this run will be saved under:
 
-####  How to load the databases in your own agent
-
-You can simply include the following lines in your agent code:
-
-```python
-from common_scaffold.agent_tools import auto_ensure_databases
-import yaml
-
-with open("db_config.yaml", "r") as f:
-    db_config = yaml.safe_load(f)
-
-db_clients = db_config["db_clients"]
-auto_ensure_databases(db_clients)
-
-print(f"\n✅ DB connections ready: {db_clients.keys()}")
 ```
-Just make sure to pass the path to the appropriate `db_config.yaml` file in your dataset folder.
-
-After these three lines execute, all databases defined in `db_config.yaml` will be automatically initialized and connected.
-
-Once done, you can also use `agent_tools.list_dbs()` and `agent_tools.query_db()` to interact with the databases seamlessly — they will use the correct connections under the hood.
-
-You only need to make sure to **correctly fill in the MongoDB and PostgreSQL connection parameters in the `.env` file** — the rest is handled automatically.
-
-
-#### What happens under the hood?
-
-✅ **Load database configuration from `db_config.yaml`**  
-Reads the file to get the database paths and formats.
-
-✅ **Run `auto_ensure_databases`**  
-This calls:
-- `common_scaffold/agent_tools/auto_db_check.py` — detects the database format and checks if the database is ready.
-- `common_scaffold/db_utils/loader.py: ensure_db()` — makes sure the database exists and a connection is established.
-- `common_scaffold/db_utils/<db>_utils.py` — format-specific utilities that verify and establish the connection if it doesn’t already exist.
-
-If the database is being used for the first time:
-- It checks if the database files or connections exist.
-- If not, it sets up the connections (for PostgreSQL/MongoDB) and imports the database if needed.
-
-
-#### Notes
-
-- You **do not need to manually connect to PostgreSQL, MySQL, MongoDB, SQLite, or DuckDB** — all handled automatically.
-- If the required local services (PostgreSQL/MongoDB) are not running, the utilities will alert you.
-- You can always refer to `common_scaffold/agent_tools/agent_baseline.py` as a full example.
-
-#### 🔴 If you prefer not to use our `agent_tools` and `db_utils`
-If you prefer to **only load the databases and run queries yourself** — without relying on the provided `agent_tools` and `db_utils` — you can still use the project’s database configurations and follow the standard connection methods.
-
-
-**Steps to connect manually**
-
-You still need to initialize the databases by reading the `db_config.yaml` and calling `auto_ensure_databases` (to ensure databases are ready and imported if needed).  
-After that, you can use standard Python libraries to connect and query each database directly.
-
-
-Step 1: Initialize the databases
-
-```python
-from common_scaffold.agent_tools import auto_ensure_databases
-import yaml
-
-with open("db_config.yaml", "r") as f:
-    db_config = yaml.safe_load(f)
-
-db_clients = db_config["db_clients"]
-auto_ensure_databases(db_clients)
-
-print(f"\n✅ DB connections ready: {db_clients.keys()}")
-```
-This ensures all the databases defined in `db_config.yaml` are ready.
-
-Step 2: Query the databases manually
-
-For SQLite: 
-Load the config and use the path from `db_config["db_clients"]["review_dataset"]["db_path"]` to connect:
-```python
-import sqlite3
-import pandas as pd
-
-db_path = SQLITE_DB_PATH_FROM_CONFIG
-
-conn = sqlite3.connect(db_path)
-df = pd.read_sql_query(sql, conn)
-conn.close()
+query_bookreview/query1/logs/data_agent/run_0
 ```
 
-For DuckDB: 
-Similarly, load the DuckDB file path from the config and connect:
+The log directory has the following structure:
+
+```
+run_0/
+├─ exec_tool_work_dir/     <- Working directory for the `execute_python` tool (Docker)
+├─ final_agent.json        <- Full agent trajectory and execution statistics
+├─ llm_calls.jsonl         <- All LLM API calls made by the agent
+└─ tool_calls.jsonl        <- All tool calls made by the agent
+```
+
+### Validate Agent Answer
+
+
+DAB provides utilities to compute both **aggregated Pass@1 accuracy of a dataset** and  **single-run correctness**.
+
+####  Compute Pass@1 (50 Runs)
+
+We provide a script [`avg_accuracy.py`](./python_script/) to compute **Pass@1 accuracy** across **50 runs per query** of a dataset.
+
+Before running the script, make sure your run logs are organized under the following directory structure (you may need to first move them from the dataset folder to the `results-<model_name>/` directory):
+
+```
+results-gpt-5-mini/
+└─ query_bookreview/
+   └─ query1/
+      └─ data_agent/
+         ├─ run_0/
+         ├─ run_1/
+         ├─ ...
+         └─ run_49/
+```
+
+Then compute Pass@1 as follows:
+
 ```python
-import duckdb
+from python_script.avg_accuracy import avg_acc
+
+print(avg_acc("bookreview", "gpt-5-mini"))
+```
+
+This will aggregate validation results across runs and queries and report the final Pass@1 accuracy for the dataset.
+
+
+### Validate a Single Run
+
+After an agent run completes, you can validate its final answer against the ground truth:
+
+```python
 from pathlib import Path
+import json
 
-db_path = DUCKDB_PATH_FROM_CONFIG
-db_file = Path(db_path)
-if not db_file.exists():
-    raise FileNotFoundError(f"DuckDB file not found: {db_path}")
+run_dir = Path("query_bookreview/query1/logs/data_agent/run_0")
 
-conn = duckdb.connect(database=str(db_file))
-df = conn.execute(sql).fetchdf()
-conn.close()
+with open(run_dir / "final_agent.json", encoding="utf-8") as f:
+    llm_json = json.load(f)
+
+llm_answer = llm_json["final_result"]
+term_reason = llm_json["terminate_reason"]
+
+if term_reason == "no_tool_call":
+    validation_result = {"is_valid": False}
+else:
+    validation_result = validate(query_dir, llm_answer, term_reason)
 ```
 
-For MongoDB: 
-Use the `MONGO_URI` from your `.env` (or config) to connect:
+The validation result follows this structure:
+
 ```python
-from pymongo import MongoClient
-
-client = MongoClient(MONGO_URI)
-db = client[db_name]
-
-cursor = db[collection].find(query, projection).limit(limit)
-data = list(cursor)
-
-client.close()
+{
+  "timestamp": "YYYYMMDD_HHMMSS",
+  "query_name": "query1",
+  "is_valid": True/False,   # Whether the agent’s answer matches the ground truth
+  "reason": "...",          # Explanation for success or failure
+  "ground_truth": "...",    # The ground-truth answer
+  "llm_answer": "...",      # The agent's final answer
+}
 ```
 
-For PostgreSQL:
-Use the PostgreSQL config to construct the URI and connect:
+
+## 📝 Create Your Own Datasets and Queries
+
+⚠️ To add a new dataset to DAB, you **must strictly follow the prescribed dataset and query folder structures** described above. This ensures that the benchmark can automatically locate databases, queries, and validation scripts.
+
+After creating your dataset:
+
+1. Verify that it runs correctly with the built-in agent.
+2. Ensure all queries include `query.json`, `ground_truth.csv`, and `validate.py`.
+3. Confirm database configurations are properly defined in `db_config.yaml`.
+
+Once ready, please submit a **pull request** to our GitHub repository for review.
+
+We welcome high-quality, realistic datasets that reflect complex enterprise data scenarios.
+
+
+### Dataset
+
+A dataset in DAB is organized as a folder under the project root. For example, for dataset `bookreview`:
+
+```
+query_bookreview/
+├─ query_dataset/                  <- All database files
+│  ├─ books_info.sql
+│  └─ review_query.db
+├─ query1/                         <- Each query stored in a separate folder
+├─ db_config.yaml                   <- Database connection configuration
+├─ db_description.txt               <- Description of the database schemas
+└─ db_description_with_hint.txt     <- Optional hints for queries
+```
+
+Make sure you use the supported database formats: **PostgreSQL**， **MongoDB**, **SQLite**, or **DuckDB**. 
+
+### Query
+
+Each query is stored within its corresponding dataset folder:
+
+```
+query_1/
+├─ query.json           <- The query as a double-quoted string
+├─ ground_truth.csv     <- The ground-truth answer in plain text
+└─ validate.py          <- Python script to validate an agent's output
+```
+
+`validate.py`  **must** define a `validate` function with the following signature:
+
 ```python
-from sqlalchemy import create_engine, text
-import pandas as pd
+def validate(llm_output: str):
+    """
+    Validate if the ground truth is present in the agent's answer.
 
-# fallback to config if db_name is not provided
-db_name = PG_DB_FROM_CONFIG
-
-uri = (
-    f"postgresql+psycopg2://{PG_USER}:{PG_PASSWORD}"
-    f"@{PG_HOST}:{PG_PORT}/{db_name}"
-)
-
-engine = create_engine(uri)
-
-with engine.connect() as conn:
-    df = pd.read_sql(text(sql), conn, params=None)
+    Returns:
+        (True, "OK")   – if the answer matches the ground-truth
+        (False, reason) – if it does not match
+    """
 ```
-**Notes**
-
-- These examples assume you have already run `auto_ensure_databases()` to ensure databases and connections are properly set up.
-- The `agent_tools` and `db_utils` already encapsulate these steps for you — if you use them, you don’t need to write these manually.
-- You may refer to the respective `<db>_utils.py` under `common_scaffold/db_utils/` for implementation details.
 
 
-### 📂 Run on your own datasets
 
-You can also run our benchmark on your own dataset by following these steps:
+## 🤖 Create Your Customized Agents
 
-1️⃣ Prepare your dataset folder
+DAB allows you to **implement and run your own agents** while leveraging the built-in tools for database loading, management, and validation.
 
-Create a new folder under the project root, e.g., `MyDataset`, with the following structure:
-```
-MyDataset/
-    ├── query_dataset/               <- Your data, stored in a supported format (PostgreSQL, MySQL, MongoDB, SQLite, or DuckDB)
-    ├── db_description.txt           <- A plain text description of the database
-    ├── db_config.yaml               <- Basic database configuration (used for agent initialization and connection)
-    ├── query_folder/
-    │       ├── query.json           <- Benchmark queries
-    │       ├── ground_truth.csv     <- Ground truth answers
-    │       └── validation.py        <- Script to validate agent results against ground truth
-    └──run_experiments.py            <- Copy an existing run_experiments.py here and adjust if needed
-```
-2️⃣ Notes
+All database initialization and checks are encapsulated in utility functions under [`tools/`](./common_scaffold/tools/), which you can freely use.
 
-- Make sure your datasets in `query_dataset/` is in the supported database formats: **PostgreSQL**， **MySQL**, **MongoDB**, **SQLite**, or **DuckDB**. 
-- You can use the existing datasets (`GoogleLocal`, `StockMarket`, etc.) as templates for all these files.
-- The `run_experiments.py` script and related modules in `common_scaffold/agent_tools` and `common_scaffold/db_utils` already implement the core logic — you just need to prepare your data and config.
 
-3️⃣ Run the benchmark
-Once everything is ready, run:
-```bash
-cd MyDataset
-python run_experiments.py
-```
+### How the Built-in Agent Works
+
+* **Automatic Database Handling**
+  - Loads database configurations from `db_config.yaml` for each dataset.
+  - No need to manually connect to PostgreSQL, MySQL, MongoDB, SQLite, or DuckDB — all connections are handled automatically via [`db_utils`](./common_scaffold/tools/db_utils/).
+
+* **Service Monitoring**
+  - If required local services (PostgreSQL/MongoDB) are not running, the utilities will alert you.
+
+* **Reference Implementation**
+  - [`DataAgent.py`](./common_scaffold/DataAgent.py) demonstrates a fully functional agent. You can use it as a template to implement your own agent.
