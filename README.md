@@ -1,6 +1,6 @@
-# DAB: UCB Data Agent Benchmark
+# DAB: Data Agent Benchmark
 
-> 🔥 **DAB is the first benchmark for evaluating data agents on realistic, complex, data-oriented tasks.**
+> 🔥 **DAB is the first benchmark for evaluating data agents on realistic, complex, data-oriented tasks. It is a collaborative effort between UC Berkeley and Hasura PromptQL.**
 
 > 🤝 **We welcome high-quality, realistic datasets. Submit a Pull Request to our GitHub repository to contribute your dataset!**
 
@@ -24,7 +24,7 @@ Unlike prior SQL-only or single-database benchmarks, DAB stresses agents under *
   * [Setup Databases](#setup-databases)
   * [Set Database Configurations](#set-database-configurations)
   * [Add API Credentials](#add-api-credentials)
-* [▶️ Run the Benchmark](#️run-the-benchmark)
+* [▶️ Run the Benchmark](#️-run-the-benchmark)
   * [Run the Built-in Agent](#run-the-built-in-agent-on-a-single-query)
   * [Execution Logs](#execution-logs)
   * [Validate Agent Answer](#validate-agent-answer)
