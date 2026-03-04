@@ -5,6 +5,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from pathlib import Path
 import json
 
+ROOT = Path(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 def count_no_tool_calls(result_dir: Path, runs: list):
     no_tool_calls = 0
@@ -36,7 +37,7 @@ if __name__ == "__main__":
         "kimi-k2-thinking",
     ]
 
-    task_list = [
+    dataset_list = [
         "bookreview",
         "crmarenapro",
         "DEPS_DEV_V1",
@@ -53,8 +54,8 @@ if __name__ == "__main__":
 
     for model in model_list:
         no_tool_calls_cnt = 0
-        for task in task_list:
-            query_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), f"query_{task}")
+        for dataset in dataset_list:
+            query_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), f"query_{dataset}")
             assert os.path.exists(query_dir), f"⚠️ {query_dir} not found"
             query_id_list = []
             for d in Path(query_dir).iterdir():
@@ -64,7 +65,7 @@ if __name__ == "__main__":
                 except:
                     continue
             for query_id in sorted(query_id_list):
-                result_dir = f"/home/ruiying/DataAgentBench-local/results-{model}/query_{task}/query{query_id}"
+                result_dir = ROOT / f"results-{model}" / f"query_{dataset}" / f"query{query_id}"
                 if model != "gpt5.1":
                     result_dir = os.path.join(result_dir, "data_agent")
                 

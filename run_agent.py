@@ -7,7 +7,7 @@ from common_scaffold.DataAgent import DataAgent
 import logging_config
 from datetime import datetime
 
-TASK_LIST = [
+DATASET_LIST = [
     "bookreview",
     "crmarenapro",
     "DEPS_DEV_V1",
@@ -20,14 +20,12 @@ TASK_LIST = [
     "yelp",
     "agnews",
     "music_brainz_20k",
-    "civic_unstructured",
-    "paper_unstructured",
 ]
 
 if __name__ == "__main__":
     parser = ArgumentParser(description="Run a basic agent with specified parameters.")
 
-    parser.add_argument("--task", type=str, required=True, choices=TASK_LIST)
+    parser.add_argument("--dataset", type=str, required=True, choices=DATASET_LIST)
     parser.add_argument("--query_id", type=int, required=True)
     parser.add_argument("--llm", type=str, default="gpt-4o-mini", help="deployment")
     parser.add_argument("--iterations", type=int, default=100, help="Maximum number of iterations for the agent.")
@@ -36,7 +34,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    db_dir = Path(os.path.join(os.path.dirname(__file__), f"query_{args.task}"))
+    db_dir = Path(os.path.join(os.path.dirname(__file__), f"query_{args.dataset}"))
     query_dir = db_dir / f"query{args.query_id}"
     if not query_dir.exists():
         raise ValueError(f"Query directory {query_dir} does not exist.")

@@ -196,7 +196,7 @@ DAB comes with a built-in agent. You can run the agent on a specific query as fo
 
 ```bash
 python run_agent.py \
-    --task bookreview \
+    --dataset bookreview \
     --query_id 1 \
     --llm gpt-5-mini \
     --iterations 100 \
