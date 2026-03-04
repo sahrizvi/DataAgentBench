@@ -40,4 +40,5 @@ common_scaffold/*_backup/
 # datasets
 query_civic_unstructured/
 query_paper_unstructured/
+query_notice_unstructured/
 potentialdb_for_query_snowflake
