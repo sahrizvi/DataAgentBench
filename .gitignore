@@ -1,16 +1,43 @@
+# general
 .env
-*.csv
-*.json
-!**/ground_truth.csv
-!**/query.json
-/dataclean_code/
-/spider/
-/semantic_findings_trace/
+.DS_Store
+# general py
+__pycache__/
 
 
-
+# large files
 query_PATENTS/query_dataset/patent_publication.db
 
-*pycache*
+# results
+results/
 
-.DS_Store
+# codebase
+requirements.txt
+# scripts
+python_script/
+bash_script/
+repo_cleaning_scripts/
+test/
+
+# failure_analysis/
+failure_analysis/*
+!failure_analysis/example_prompt.txt
+!failure_analysis/example_trace.txt
+!failure_analysis/failure_modes.txt
+!failure_analysis/instruction.txt
+!failure_analysis/prompt.txt
+!failure_analysis/get_prompt.py
+!failure_analysis/get_trace.py
+!failure_analysis/llm_judge.py
+!failure_analysis/no_tool_calls.py
+!failure_analysis/parse_llm_judge.py
+
+# common_scaffold/
+common_scaffold/prompts/*.txt
+common_scaffold/tools/backup/
+common_scaffold/*_backup/
+
+# datasets
+query_civic_unstructured/
+query_paper_unstructured/
+potentialdb_for_query_snowflake
