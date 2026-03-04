@@ -3,11 +3,10 @@ import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import json
 from pathlib import Path
-from datetime import datetime
 import time
 import logging
 import logging_config
-from openai import AzureOpenAI, OpenAI
+from openai import AzureOpenAI
 from dotenv import load_dotenv
 from failure_analysis.get_prompt import get_prompt
 from failure_analysis.get_trace import get_trace
@@ -24,7 +23,7 @@ client = AzureOpenAI(
 
 
 model_list = [
-    # "gemini-2.5-flash",
+    "gemini-2.5-flash",
     "gemini-3-pro",
     "gpt-5-mini",
     "gpt-5.2",
@@ -32,26 +31,24 @@ model_list = [
     "kimi-k2-thinking",
 ]
 
-task_list = [
-    # "bookreview",
-    # "crmarenapro",
-    # "DEPS_DEV_V1",
-    # "GITHUB_REPOS",
-    # "googlelocal",
-    # "PANCANCER_ATLAS",
-    # "PATENTS",
-    # "stockindex",
-    # "stockmarket",
-    # "yelp",
-    # "agnews",
-    # "music_brainz_20k",
-    # "civic_unstructured",
-    "paper_unstructured"
+dataset_list = [
+    "bookreview",
+    "crmarenapro",
+    "DEPS_DEV_V1",
+    "GITHUB_REPOS",
+    "googlelocal",
+    "PANCANCER_ATLAS",
+    "PATENTS",
+    "stockindex",
+    "stockmarket",
+    "yelp",
+    "agnews",
+    "music_brainz_20k",
 ]
 
 for model in model_list:
-    for task in task_list:
-        query_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), f"query_{task}")
+    for dataset in dataset_list:
+        query_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), f"query_{dataset}")
         assert os.path.exists(query_dir), f"⚠️ {query_dir} not found"
         query_id_list = []
         for d in Path(query_dir).iterdir():
@@ -61,23 +58,15 @@ for model in model_list:
             except:
                 continue
         for query_id in sorted(query_id_list):
-            if task in ["civic_unstructured"]:
-                answer_file = os.path.join(query_dir, f"query{query_id}", "ground_truth.json")
-                with open(answer_file, 'r', encoding="utf-8") as f:
-                    gt_answer = json.load(f)
-                query_file = os.path.join(query_dir, f"query{query_id}", "query.json")
-                with open(query_file, 'r', encoding="utf-8") as f:
-                    query_json = json.load(f)
-            else:
-                answer_file = os.path.join(query_dir, f"query{query_id}", "ground_truth.csv")
-                with open(answer_file, "r", encoding="utf-8") as f:
-                    gt_answer = f.read().strip()
-                query_file = os.path.join(query_dir, f"query{query_id}", "query.json")
-                with open(query_file, "r", encoding="utf-8") as f:
-                    query_json = json.load(f)
+            answer_file = os.path.join(query_dir, f"query{query_id}", "ground_truth.csv")
+            with open(answer_file, "r", encoding="utf-8") as f:
+                gt_answer = f.read().strip()
+            query_file = os.path.join(query_dir, f"query{query_id}", "query.json")
+            with open(query_file, "r", encoding="utf-8") as f:
+                query_json = json.load(f)
 
             llm_judge_cnt = 0
-            judge_result_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "failure_analysis", f"results-{model}", f"query_{task}", f"query{query_id}.jsonl")
+            judge_result_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "failure_analysis", f"results-{model}", f"query_{dataset}", f"query{query_id}.jsonl")
             os.makedirs(os.path.dirname(judge_result_path), exist_ok=True)
             existing_judge_results = set()
             if os.path.exists(judge_result_path):
@@ -92,9 +81,9 @@ for model in model_list:
                 if llm_judge_cnt >= CNT_PER_QUERY:
                     break
                 if run_id in existing_judge_results:
-                    logging.getLogger(__name__).info(f"ℹ LLM judge already exists for query_{task} query{query_id} run_{run_id} using {model}, skipping...")
+                    logging.getLogger(__name__).info(f"ℹ LLM judge already exists for query_{dataset} query{query_id} run_{run_id} using {model}, skipping...")
                     continue
-                is_failed, failed_reason, failed_trace = get_trace(model, task, query_id, run_id)
+                is_failed, failed_reason, failed_trace = get_trace(model, dataset, query_id, run_id)
                 judge_result = None
                 if failed_trace != None:
                     assert is_failed == True
@@ -118,10 +107,10 @@ for model in model_list:
                                 "input_tokens": response.usage.prompt_tokens,
                                 "output_tokens": response.usage.completion_tokens
                             }
-                            logging.getLogger(__name__).info(f"✅ LLM judge succeeded for query_{task} query{query_id} run_{run_id} using {model}")
+                            logging.getLogger(__name__).info(f"✅ LLM judge succeeded for query_{dataset} query{query_id} run_{run_id} using {model}")
                             logging.getLogger(__name__).info(f"\tInput tokens: {response.usage.prompt_tokens}, Output tokens: {response.usage.completion_tokens}")
                     except Exception as e:
-                        logging.getLogger(__name__).error(f"⚠️ LLM judge failed for query_{task} query{query_id} run_{run_id} using {model}: {str(e)}")
+                        logging.getLogger(__name__).error(f"⚠️ LLM judge failed for query_{dataset} query{query_id} run_{run_id} using {model}: {str(e)}")
                         time.sleep(5)
                         judge_result = "Failed to get LLM judge result."
                     

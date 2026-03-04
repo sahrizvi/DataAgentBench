@@ -4,11 +4,10 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from common_scaffold.validate.validate  import validate
 from pathlib import Path
-import logging
 import json
 
-def get_trace(model, task, query_id, run_id):
-    query_folder = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), f"results-{model}", f"query_{task}", f"query{query_id}")
+def get_trace(model, dataset, query_id, run_id):
+    query_folder = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), f"results-{model}", f"query_{dataset}", f"query{query_id}")
     if model != "gpt5.1":
         final_agent_file = os.path.join(query_folder, "data_agent", f"run_{run_id}", "final_agent.json")
     else:
@@ -29,7 +28,7 @@ def get_trace(model, task, query_id, run_id):
     llm_answer = final_agent_json['final_result']
     terminate_reason = final_agent_json['terminate_reason']
 
-    validation_result = validate(Path(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), f"query_{task}", f"query{query_id}")), llm_answer, terminate_reason)
+    validation_result = validate(Path(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), f"query_{dataset}", f"query{query_id}")), llm_answer, terminate_reason)
     
     if validation_result["is_valid"]:
         return is_failed, failed_reason, failed_trace
@@ -105,8 +104,8 @@ def format_trace(messages):
 
 if __name__ == "__main__":
     is_failed, failed_reason, failed_trace = get_trace(
-        model="gpt5.1",
-        task="civic_unstructured",
+        model="gpt-5-mini",
+        dataset="bookreview",
         query_id=1,
         run_id=1
     )
