@@ -3,7 +3,7 @@ def validate(llm_output: str):
     Validate that:
     - All name+country pairs from ground truth appear in LLM output
     - In the same order (not necessarily contiguous)
-    - For each name, its *own* country (or alias) appears within 50 chars
+    - For each name, its *own* country (or alias) appears within 20 chars
     - Case-insensitive
 
     Returns:
