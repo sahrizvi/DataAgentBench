@@ -13,7 +13,7 @@ def validate(llm_output: str):
     """
     Validate:
     - Each name in ground truth appears in LLM output (case-insensitive)
-    - The corresponding version appears in the 50 characters *after* the name (excluding the name itself)
+    - The corresponding version appears in the 10 characters *after* the name (excluding the name itself)
 
     Returns:
         (True, "OK") if all match
@@ -30,7 +30,7 @@ def validate(llm_output: str):
             
             return False, reason
 
-        # Only check in the 50 characters *after* the name
+        # Only check in the 10 characters *after* the name
         start = idx + len(name_lower)
         window = llm_lower[start: start + 10]
 

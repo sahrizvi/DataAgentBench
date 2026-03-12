@@ -7,7 +7,7 @@ def validate(llm_output: str):
     Validation strategy:
     - For each ground truth histology code:
         - Check if it's present in LLM output.
-        - Search the next 50 characters after it for any decimal values.
+        - Search the next 10 characters after it for any decimal values.
         - Accept if any value matches the ground truth (rounded to 4 decimals).
 
     Returns:
@@ -29,7 +29,7 @@ def validate(llm_output: str):
             reason = f"Missing histology type: {hist_code}"
             return False, reason
 
-        # Look 50 characters after the histology code (not including the code itself)
+        # Look 10 characters after the histology code (not including the code itself)
         start = idx + len(hist_code)
         window = llm_output[start:start+10]
 
