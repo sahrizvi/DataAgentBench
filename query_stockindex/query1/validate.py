@@ -1,10 +1,8 @@
-import re
-
 def validate(llm_output: str):
     """
     Validate that:
     - '399001.SZ' is present in LLM output
-    - None of the other candidates are the primary/first answer
+    - None of the other candidates are present
 
     Returns:
         (True, "OK") if all good
@@ -18,20 +16,19 @@ def validate(llm_output: str):
 
     llm_lower = llm_output.lower()
     gt_lower = gt.lower()
+    forbidden_lower = [f.lower() for f in forbidden]
 
     # check gt
     if gt_lower not in llm_lower:
         reason = f"Missing target: {gt}"
-
+        
         return False, reason
 
-    # check forbidden — only fail if a forbidden value appears before the correct answer
-    gt_idx = llm_lower.find(gt_lower)
-    for f_orig, f in zip(forbidden, [f.lower() for f in forbidden]):
-        idx = llm_lower.find(f)
-        if idx != -1 and idx < gt_idx:
-            reason = f"Found forbidden value '{f_orig}' before target '{gt}'"
-
+    # check forbidden
+    for f in forbidden_lower:
+        if f in llm_lower:
+            reason = f"Found forbidden value: {f}"
+            
             return False, reason
 
-    return True, f"Target '{gt}' present as primary answer."
+    return True, f"Only target '{gt}' present, no forbidden values."
