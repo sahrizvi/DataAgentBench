@@ -12,6 +12,8 @@ When calling tools, output the tool name exactly as defined. Do not prepend 'def
 
 KIMI_TOOL_CALL_INSTRUCTINOS = """2. Inside execute_python code you may read storage entries using the provided key names, e.g., if the tool call id is 'functions.tool:id', you can access its result via `locals()['var_functions.tool:id']` in your code."""
 
+CLAUDE_TOOL_CALL_INSTRUCTIONS = """2. Inside execute_python code you may read storage entries directly as variables using the provided key names. You should directly use the key names as variable names in your code, e.g., if the tool call id is "toolu_1", you can access its result via the variable `toolu_1` in your code, without quotes or other modifications."""
+
 SYSTEM_PROMPT = """
 You are a data analysis agent. Use only the tools listed below to answer the user's query, based on the provided DATABASE DESCRIPTION for logical database names and their types (SQL or MongoDB), and the results of previous tool calls.
 
@@ -83,6 +85,8 @@ def init_messages(user_query: str, db_description: str, deployment_name: str, sy
         tool_call_instructions = GPT_TOOL_CALL_INSTRUCTIONS
     elif "kimi" in deployment_name.lower():
         tool_call_instructions = KIMI_TOOL_CALL_INSTRUCTINOS
+    elif "claude" in deployment_name.lower():
+        tool_call_instructions = CLAUDE_TOOL_CALL_INSTRUCTIONS
     else:
         raise ValueError(f"Unknown deployment_name: {deployment_name}")
     

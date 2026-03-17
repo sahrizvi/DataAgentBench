@@ -89,6 +89,11 @@ class DataAgent:
                 api_key=os.getenv("TOGETHER_API_KEY"),
                 base_url="https://api.together.xyz/v1",
             )
+        elif "claude" in deployment_name.lower():
+            self.client = OpenAI(
+                api_key=os.getenv("ANTHROPIC_API_KEY"),
+                base_url="https://api.anthropic.com/v1",
+            )
         else:
             raise ValueError(f"Unsupported deployment name: {deployment_name}")
         self.deployment_name = deployment_name
