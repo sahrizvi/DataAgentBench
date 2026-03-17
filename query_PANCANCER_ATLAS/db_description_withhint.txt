@@ -4,4 +4,4 @@ HINTS:
 "ParticipantBarcode".  
 - You can use clinical_info's "Patient_description" column to obtain more information about patients, such as uuid, barcode, gender, and vital status.  
 - Compute chi-square statistic as:  χ² = Σ (Oij - Eij)² / Eij, where Eij = (row_total * col_total) / grand_total. 
-- LGG means Brain lower grade glioma, BRCA means Bladder urothelial carcinoma.
+- LGG means Brain lower grade glioma, BRCA means Breast Invasive Carcinoma.
