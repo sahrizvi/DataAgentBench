@@ -19,12 +19,13 @@ Unlike prior SQL-only or single-database benchmarks, DAB stresses agents under *
 
 | Rank | Model          | Pass@1 | Date    |
 | ---- | -------------- | ------------------- | ------- |
-| 1    | PromptQL (Claude-Opus-4.6) | 0.48                | 2026-03-02 |
-| 2    | Gemini-3-Pro | 0.37           | 2026-03-02 |
-| 3    | GPT-5-mini     |     0.29           | 2026-03-02 |
-| 4    | GPT-5.2     |     0.25           | 2026-03-02 |
-| 5    | Kimi-K2     |     0.23           | 2026-03-02 |
-| 6    | Gemini-2.5-Flash     |     0.09          | 2026-03-02 |
+| 1    | Hasura PromptQL (Claude-Opus-4.6) | 0.508                | 2026-03-02 |
+| 2    | Claude-Opus-4.6 (5 trials/query) | 0.4376                | 2026-03-18 |
+| 3    | Gemini-3-Pro | 0.38           | 2026-03-02 |
+| 4    | GPT-5-mini     |     0.30           | 2026-03-02 |
+| 5    | GPT-5.2     |     0.25           | 2026-03-02 |
+| 6    | Kimi-K2     |     0.23           | 2026-03-02 |
+| 7    | Gemini-2.5-Flash     |     0.09          | 2026-03-02 |
 
 
 ### How to Submit to the Leaderboard
@@ -240,6 +241,7 @@ if "gpt" in deployment_name.lower():
   else:
       raise ValueError(f"Unsupported deployment name: {deployment_name}")
 ```
+and a customized prompt to adapt to the format of your model's tool call ID in [prompt_builder.py](./common_scaffold/prompts/prompt_builder.py).
 
 ## ▶️ Run the Benchmark
 
