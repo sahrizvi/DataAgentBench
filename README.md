@@ -20,13 +20,13 @@ Unlike prior SQL-only or single-database benchmarks, DAB stresses agents under *
 | Rank | Model          | Pass@1 | Date    |
 | ---- | -------------- | ------------------- | ------- |
 | 1    | Hasura PromptQL (Gemini-3.1-Pro) (5 trials/query) | 0.543                | 2026-03-018 |
-| 1    | Hasura PromptQL (Claude-Opus-4.6) (5 trials/query) | 0.508                | 2026-03-02 |
-| 2    | Claude-Opus-4.6 (5 trials/query) | 0.4376                | 2026-03-18 |
-| 3    | Gemini-3-Pro | 0.38           | 2026-03-02 |
-| 4    | GPT-5-mini     |     0.30           | 2026-03-02 |
-| 5    | GPT-5.2     |     0.25           | 2026-03-02 |
-| 6    | Kimi-K2     |     0.23           | 2026-03-02 |
-| 7    | Gemini-2.5-Flash     |     0.09          | 2026-03-02 |
+| 2    | Hasura PromptQL (Claude-Opus-4.6) (5 trials/query) | 0.508                | 2026-03-02 |
+| 3    | Claude-Opus-4.6 (5 trials/query) | 0.4376                | 2026-03-18 |
+| 4    | Gemini-3-Pro | 0.38           | 2026-03-02 |
+| 5    | GPT-5-mini     |     0.30           | 2026-03-02 |
+| 6    | GPT-5.2     |     0.25           | 2026-03-02 |
+| 7    | Kimi-K2     |     0.23           | 2026-03-02 |
+| 8    | Gemini-2.5-Flash     |     0.09          | 2026-03-02 |
 
 
 ### How to Submit to the Leaderboard
