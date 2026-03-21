@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DAB | EPIC Data Lab, UC Berkeley</title>
+    <meta
+      name="description"
+      content="DAB (Data Agent Benchmark): leaderboard, benchmark overview, submission guide, and query explorer."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css?v=4" />
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="container hero-grid">
+        <div>
+          <h1>DAB: Data Agent Benchmark</h1>
+          <p class="subtitle">
+            A benchmark for evaluating data agents on complex, real-world data tasks.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="https://github.com/ucbepic/DataAgentBench"
+            target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="btn btn-outline" href="https://www.sh-reya.com/dab_preprint.pdf"
+            target="_blank" rel="noopener noreferrer">Paper</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+
+      <div class="two-col" style="display:flex;gap:1rem;align-items:flex-start">
+        <section class="card" style="flex:1 1 0;min-width:0">
+          <h2>What is the Data Agent Benchmark?</h2>
+          <p>
+            Users across enterprises increasingly rely on AI agents to query their data
+            through natural language. However, building reliable data agents remains
+            difficult because real-world data is often fragmented across multiple
+            heterogeneous database systems, with inconsistent references and information
+            buried in unstructured text.
+          </p>
+          <p>
+            DAB is the first benchmark that tests agents on these challenges. It covers
+            12 real-world datasets across 9 domains and 4 database systems (PostgreSQL,
+            MongoDB, SQLite, DuckDB).
+          </p>
+          <div class="stats-row" style="grid-template-columns:repeat(2,1fr)">
+            <div class="stat-box">
+              <p class="stat-label">Datasets</p>
+              <p class="stat-value">12</p>
+            </div>
+            <div class="stat-box">
+              <p class="stat-label">Queries</p>
+              <p class="stat-value">54</p>
+            </div>
+            <div class="stat-box">
+              <p class="stat-label">Domains</p>
+              <p class="stat-value">9</p>
+            </div>
+            <div class="stat-box">
+              <p class="stat-label">DBMSes</p>
+              <p class="stat-value">4</p>
+            </div>
+          </div>
+          <p class="muted" style="font-size:0.82rem">
+            From <a href="https://epic.berkeley.edu/" target="_blank" rel="noopener noreferrer">EPIC Data Lab, UC Berkeley</a>
+            and <a href="https://promptql.io/" target="_blank" rel="noopener noreferrer">Hasura PromptQL</a>.
+          </p>
+
+          <hr style="border:none;border-top:1px solid #c2d3e5;margin:0.8rem 0">
+
+          <h2>Submit to the Leaderboard</h2>
+          <p>
+            Run your agent on all 54 queries with at least <strong>n = 5 trials/query</strong>
+            and open a pull request with your results JSON.
+          </p>
+          <ol class="steps">
+            <li>Collect one result per <code>dataset × query × trial</code>.</li>
+            <li>Package into one JSON file.</li>
+            <li>Open a PR with your JSON and agent details.</li>
+          </ol>
+          <pre class="code-block"><code>[
+  {
+    "dataset": "bookreview",
+    "query": "1",
+    "run": 0,
+    "answer": "2020s"
+  },
+  ...
+]</code></pre>
+          <p class="muted" style="font-size:0.82rem">
+            Full instructions in the
+            <a href="https://github.com/ucbepic/DataAgentBench#-leaderboard"
+              target="_blank" rel="noopener noreferrer">README</a>.
+          </p>
+        </section>
+
+        <div style="flex:3 1 0;min-width:0;display:flex;flex-direction:column;gap:1rem">
+        <section class="card">
+          <h2>Leaderboard</h2>
+          <p class="muted">
+            <strong>Pass@1</strong> = fraction of queries answered correctly on the first
+            attempt, averaged across <em>n</em> trials per query. The overall score is
+            computed per-dataset first, then averaged across datasets (stratified).
+          </p>
+          <div class="table-wrap">
+            <table id="overall-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Agent</th>
+                  <th>Team</th>
+                  <th><em>n</em></th>
+                  <th>Pass@1</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Per-Dataset Pass@1</h2>
+          <p class="muted">Sort by agent to compare dataset difficulty.</p>
+          <div class="table-controls">
+            <label for="agent-selector">Sort by agent</label>
+            <div class="sel" style="position:relative;display:inline-flex;align-items:center">
+              <select id="agent-selector" style="appearance:none;-webkit-appearance:none;border:1px solid #8dacc6;background:#fff;border-radius:4px;padding:0.42rem 2.2rem 0.42rem 0.65rem;font:inherit;font-size:0.88rem;color:#0f2033;cursor:pointer;min-width:200px"></select>
+              <span style="position:absolute;right:0.7rem;top:50%;translate:0 -50%;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #3a5f82;pointer-events:none"></span>
+            </div>
+            <label for="agent-order">Order</label>
+            <div class="sel" style="position:relative;display:inline-flex;align-items:center">
+              <select id="agent-order" style="appearance:none;-webkit-appearance:none;border:1px solid #8dacc6;background:#fff;border-radius:4px;padding:0.42rem 2.2rem 0.42rem 0.65rem;font:inherit;font-size:0.88rem;color:#0f2033;cursor:pointer;min-width:130px">
+                <option value="desc">High to low</option>
+                <option value="asc">Low to high</option>
+              </select>
+              <span style="position:absolute;right:0.7rem;top:50%;translate:0 -50%;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #3a5f82;pointer-events:none"></span>
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table id="agent-table">
+              <thead></thead>
+              <tbody></tbody>
+              <tfoot></tfoot>
+            </table>
+          </div>
+        </section>
+        </div>
+      </div>
+
+      <section class="card explorer-card">
+        <div class="explorer-bar">
+          <h2>Benchmark Queries</h2>
+          <div class="search-wrap">
+            <input id="query-search" type="search" placeholder="Search queries…" />
+          </div>
+        </div>
+        <div class="explorer-body" style="display:flex;flex-direction:row;height:540px;overflow:hidden">
+          <nav class="explorer-nav" style="width:210px;min-width:210px;flex-shrink:0;border-right:1px solid #c2d3e5;overflow-y:auto;background:#f2f7fc">
+            <div id="dataset-list" class="ds-list"></div>
+          </nav>
+          <div class="explorer-main" style="flex:1;min-width:0;overflow-y:auto;padding:0.85rem 1rem">
+            <div id="dataset-meta"></div>
+            <p class="q-count" id="query-count"></p>
+            <div id="query-list" class="q-list"></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="container footer">
+      <p id="updated-at"></p>
+    </footer>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>

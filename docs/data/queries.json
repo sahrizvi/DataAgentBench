@@ -1,0 +1,272 @@
+[
+  {
+    "dataset": "agnews",
+    "queryId": "query1",
+    "text": "What is the title of the sports article whose description has the greatest number of characters?"
+  },
+  {
+    "dataset": "agnews",
+    "queryId": "query2",
+    "text": "What fraction of all articles authored by Amy Jones belong to the Science/Technology category?"
+  },
+  {
+    "dataset": "agnews",
+    "queryId": "query3",
+    "text": "What is the average number of business articles published per year in Europe from 2010 to 2020, inclusive?"
+  },
+  {
+    "dataset": "agnews",
+    "queryId": "query4",
+    "text": "In 2015, which region published the largest number of articles in the World category?"
+  },
+  {
+    "dataset": "bookreview",
+    "queryId": "query1",
+    "text": "Which decade of publication (e.g., 1980s) has the highest average rating among decades with at least 10 distinct books that have been rated? Return the decade with the highest average rating."
+  },
+  {
+    "dataset": "bookreview",
+    "queryId": "query2",
+    "text": "Which English-language books in the 'Literature & Fiction' category have a perfect average rating of 5.0? Return all matching books."
+  },
+  {
+    "dataset": "bookreview",
+    "queryId": "query3",
+    "text": "Which books categorized as 'Children's Books' have received an average rating of at least 4.5 based on reviews from 2020 onwards?"
+  },
+  {
+    "dataset": "crmarenapro",
+    "queryId": "query1",
+    "text": "Can this lead be qualified based on the latest discussions? If the answer is no, which factors—'Budget', 'Authority', 'Need', or 'Timeline'—are responsible? Return only one or several of the four BANT factors that the lead qualification fails to meet (i.e. 'Budget', 'Authority', 'Need', 'Timeline').\n\n## Lead qualification guide.\nLook for the voice call transcripts with the lead and relevant knowledge articles to justify the lead qualification.\n\n- Lead Id to be considered is: 00QWt0000089AekMAE"
+  },
+  {
+    "dataset": "crmarenapro",
+    "queryId": "query2",
+    "text": "Does the cost and setup of this quote comply with our company policy? If it doesn't, which knowledge article is it in conflict with? Return only the Id of the knowledge article that the quote violates. If no violation is found, return None.\n\n## Quote approval guide.\nLook for relevant knowledge articles to justify the quote approval.\n\n- Quote Id to be considered is: 0Q0Wt000001WSDVKA4"
+  },
+  {
+    "dataset": "crmarenapro",
+    "queryId": "query3",
+    "text": "Is the stage name accurately representing the tasks for this opportunity? If it is not, what should the appropriate stage name be? Return only the correct stage label among ('Qualification', 'Discovery', 'Quote', 'Negotiation', 'Closed').\n\n- Opportunity Id to be considered is: 006Wt000007BGGjIAO"
+  },
+  {
+    "dataset": "crmarenapro",
+    "queryId": "query4",
+    "text": "Is there a particular month in the past 10 months where the number of SecureAnalytics Pro cases significantly exceeds those of other months? The associated product Id is 01tWt000006hVJdIAM. Return only the month name.\n\n- Today's date: 2021-04-10"
+  },
+  {
+    "dataset": "crmarenapro",
+    "queryId": "query5",
+    "text": "What has been the most frequent problem AI Cirku-Tech encountered over the past five months? The associated product Id is 01tWt000006hV8LIAU. Return only the issue Id of the most reported issue for this product.\n\n- Today's date: 2023-01-16"
+  },
+  {
+    "dataset": "crmarenapro",
+    "queryId": "query6",
+    "text": "Is the product setup in this quotation, including elements like quantity and price, against company regulations? Return only the Id of the knowledge article that the invalid config violates.\n\n## Invalid config guide.\nLook for the relevant knowledge articles to justify the invalid config.\n\n- Quote Id to be considered is: 0Q0Wt000001WRAzKAO"
+  },
+  {
+    "dataset": "crmarenapro",
+    "queryId": "query7",
+    "text": "Did the agent breach the policy, and if so, which knowledge article was breached? Return only the Id of the knowledge article or None if no violation is found.\n\n- Case Id to be considered is: 500Wt00000DDyznIAD"
+  },
+  {
+    "dataset": "crmarenapro",
+    "queryId": "query8",
+    "text": "Identify the agent with the fewest transfer counts in the last 4 quarters among those who handled more than 0 cases. Return only the Id of the agent.\n\n## Transfer Count Policy\n- Definition: The number of instances a case was reassigned or transferred from one agent to another. Each transfer from agent A to agent B adds to the transfer count for agent A.\n- In the queries that specify 'agents managed/queries x cases' -- this filter applies to both the first agent that the case was first assigned to and the agent that the case was transferred to. This means that if an agent has 2 cases that was initially assigned to itself by admin and 1 case transferred from another agent, a filter like 'handled/managed at least 3 cases' would not filter this agent out.\n- For cases that have NOT been transferred to an other agent, there will be only ONE 'Owner Assignment', and for those that have been transferred, there will be MORE THAN ONE 'Owner Assignment'.\n\n## Today's date: 2023-04-10"
+  },
+  {
+    "dataset": "crmarenapro",
+    "queryId": "query9",
+    "text": "Which states have the quickest case closure time in the past 6 quarters? Return only the two-letter abbreviation of the most matching state (eg. CA).\n\n- Today's date: 2022-10-26"
+  },
+  {
+    "dataset": "crmarenapro",
+    "queryId": "query10",
+    "text": "In the past four months, which agent had the lowest average handle time for those processing more than one case? Return only the Id of the agent.\n\n## Handle Time Policy\n- Definition: The duration taken to close a case. Specifically, it is the time from when a case is opened to when it is closed.\n- In the queries that specify 'agents managed/queries x cases' -- this filter applies to both the first agent that the case was first assigned to and the agent that the case was transferred to. This means that if an agent has 2 cases that was initially assigned to itself by admin and 1 case transferred from another agent, a filter like 'handled/managed at least 3 cases' would not filter this agent out.\n- When computing handle time, we do not compute handle time for cases that have been transferred to other agents.\n- For cases that have NOT been transferred to an other agent, there will be only ONE 'Owner Assignment', and for those that have been transferred, there will be MORE THAN ONE 'Owner Assignment'.\n\n## Today's date: 2023-09-02"
+  },
+  {
+    "dataset": "crmarenapro",
+    "queryId": "query11",
+    "text": "Can you show me the AI processing unit I purchased last month? Return only the Id of the product from the contact's relevant past transaction.\n\n- Contact Id interacting: 003Wt00000Jqy8SIAR\n- Today's date: 2021-07-15"
+  },
+  {
+    "dataset": "crmarenapro",
+    "queryId": "query12",
+    "text": "Who had the quickest average turnaround from opening to closing opportunities among agents in April 2023? Return only the Id of the agent.\n\n## Sales Cycle Policy\n- Definition: The sales cycle is measured as the number of days between an opportunity's creation date and the company signed date on the corresponding contract.\n\n## Today's date: 2024-09-12"
+  },
+  {
+    "dataset": "crmarenapro",
+    "queryId": "query13",
+    "text": "Identify the agent who achieved the top sales figures for orders made in the past five months. Return only the Id of the agent.\n\n## Sales Amount Policy\n- Definition: The sales amount for an order is calculated as the product of the quantity and the unit price from the Order object (Quantity * UnitPrice). An opportunity is eligible if its associated contract has a company signed date that falls within the time interval of interest.\n\n- Today's date: 2022-11-25"
+  },
+  {
+    "dataset": "deps_dev_v1",
+    "queryId": "query1",
+    "text": "Considering only the latest release versions for each distinct NPM package, which packages are the top 5 most popular based on the Github star number, as well as their versions?"
+  },
+  {
+    "dataset": "deps_dev_v1",
+    "queryId": "query2",
+    "text": "Among all NPM packages with project license 'MIT' and marked as release, which 5 projects have the highest GitHub fork count?"
+  },
+  {
+    "dataset": "github_repos",
+    "queryId": "query1",
+    "text": "Among repositories that do not use Python, what proportion of their README.md files include copyright information?"
+  },
+  {
+    "dataset": "github_repos",
+    "queryId": "query2",
+    "text": "Identify the repository in Swift language that contains the most frequently copied non-binary Swift file in the dataset, ensuring that each file is uniquely determined by its ID."
+  },
+  {
+    "dataset": "github_repos",
+    "queryId": "query3",
+    "text": "How many commit messages are found in repositories that use the Shell programming language and are licensed under Apache-2.0, where each message exists, is shorter than 1,000 characters, and does not begin with 'merge', 'update', or 'test'?"
+  },
+  {
+    "dataset": "github_repos",
+    "queryId": "query4",
+    "text": "List the repository names for the top five GitHub repositories whose main language is not Python, ordered by the highest number of commits."
+  },
+  {
+    "dataset": "googlelocal",
+    "queryId": "query1",
+    "text": "What are the top 5 businesses located in Los Angeles, California, ranked by highest average rating in descending order?"
+  },
+  {
+    "dataset": "googlelocal",
+    "queryId": "query2",
+    "text": "Which massage therapy businesses have an average rating of at least 4.0, and what are their respective average ratings?"
+  },
+  {
+    "dataset": "googlelocal",
+    "queryId": "query3",
+    "text": "What are the top 5 businesses that remain open after 6:00 PM on at least one weekday, ranked by highest average rating? Include their names, operating hours, and average ratings."
+  },
+  {
+    "dataset": "googlelocal",
+    "queryId": "query4",
+    "text": "Which 3 businesses received the highest number of reviews with ratings of 4.5 or higher during 2019? Include their names and the count of high-rating reviews."
+  },
+  {
+    "dataset": "music_brainz_20k",
+    "queryId": "query1",
+    "text": "How much revenue in USD did Apple Music make from Beyoncé's song 'Get Me Bodied' in Canada?"
+  },
+  {
+    "dataset": "music_brainz_20k",
+    "queryId": "query2",
+    "text": "Which store earned the most revenue in USD from Brucqe Maginnis' song 'Street Hype' across all countries?"
+  },
+  {
+    "dataset": "music_brainz_20k",
+    "queryId": "query3",
+    "text": "Which song generated the highest total revenue in USD across all stores and countries?"
+  },
+  {
+    "dataset": "pancancer_atlas",
+    "queryId": "query1",
+    "text": "For LGG patients, compute the average log10-transformed expression of the IGF2 gene across different histology types. Only include patients with valid IGF2 expression values and histology annotations that are not enclosed in square brackets. Report the final average values with at least four decimal places of precision."
+  },
+  {
+    "dataset": "pancancer_atlas",
+    "queryId": "query2",
+    "text": "Among BRCA patients in the PanCancer Atlas who are alive, which top three histological types show the highest percentage of CDH1 gene mutations?"
+  },
+  {
+    "dataset": "pancancer_atlas",
+    "queryId": "query3",
+    "text": "Calculate the chi-square statistic to assess the association between histological types and the presence of CDH1 gene mutations in female BRCA patients from the PanCancer Atlas, excluding categories with marginal totals less than or equal to 10, and only focusing on patients with known histological types and consider only reliable mutation entries."
+  },
+  {
+    "dataset": "patents",
+    "queryId": "query1",
+    "text": "Identify the CPC technology areas with the highest exponential moving average of patent filings each year (smoothing factor 0.2), and return only the CPC group codes at level 5 whose best year is 2022."
+  },
+  {
+    "dataset": "patents",
+    "queryId": "query2",
+    "text": "Find the CPC technology areas in Germany with the highest exponential moving average of patent filings each year (smoothing factor 0.1) for patents granted in the second half of 2019. Include the full title, CPC group code, and the best year for each CPC group at level 4."
+  },
+  {
+    "dataset": "patents",
+    "queryId": "query3",
+    "text": "Which assignees, excluding UNIV CALIFORNIA itself, have cited patents assigned to UNIV CALIFORNIA, and what are the titles of the primary CPC subclasses associated with these citations? Please provide the name of each citing assignee together with the full title of the CPC subclass."
+  },
+  {
+    "dataset": "stockindex",
+    "queryId": "query1",
+    "text": "Which stock index in the Asia region has exhibited the highest average intraday volatility since 2020?"
+  },
+  {
+    "dataset": "stockindex",
+    "queryId": "query2",
+    "text": "Among North American stock indices, which indices had more up days than down days in 2018?"
+  },
+  {
+    "dataset": "stockindex",
+    "queryId": "query3",
+    "text": "If an investor had made regular monthly investments in all indices since 2000, which 5 indices would have produced the highest overall returns, and what countries do they belong to?"
+  },
+  {
+    "dataset": "stockmarket",
+    "queryId": "query1",
+    "text": "What was the maximum adjusted closing price in 2020 for The RealReal, Inc.?"
+  },
+  {
+    "dataset": "stockmarket",
+    "queryId": "query2",
+    "text": "List all ETF securities listed on NYSE Arca that reached an adjusted closing price above $200 at any point during 2015, and also report the total number of such ETFs."
+  },
+  {
+    "dataset": "stockmarket",
+    "queryId": "query3",
+    "text": "List all company names on the NASDAQ-listed Market that were financially troubled (delinquent, deficient, or both) and have trading volume in 2008, for each, report its exisiting non-null average daily trading volume in 2008."
+  },
+  {
+    "dataset": "stockmarket",
+    "queryId": "query4",
+    "text": "What are the names (not symbol) of the top 5 non-ETF stocks listed on the New York Stock Exchange (NYSE) that had more up days than down days in 2017? (Up days: closing price > opening price; Down days: closing price < opening price)"
+  },
+  {
+    "dataset": "stockmarket",
+    "queryId": "query5",
+    "text": "Which 5 companies listed on the NASDAQ Capital Market had the highest number of days in 2019 where the intraday price range exceeded 20% of the low price, list the company names please?"
+  },
+  {
+    "dataset": "yelp",
+    "queryId": "query1",
+    "text": "What is the average rating of all businesses located in Indianapolis, Indiana?"
+  },
+  {
+    "dataset": "yelp",
+    "queryId": "query2",
+    "text": "Which U.S. state has the highest number of reviews, and what is the average rating of businesses in that state?"
+  },
+  {
+    "dataset": "yelp",
+    "queryId": "query3",
+    "text": "During 2018, how many businesses that received reviews offered either business parking or bike parking?"
+  },
+  {
+    "dataset": "yelp",
+    "queryId": "query4",
+    "text": "Which business category has the largest number of businesses that accept credit card payments, and what is its average rating?"
+  },
+  {
+    "dataset": "yelp",
+    "queryId": "query5",
+    "text": "Which U.S. state has the highest number of businesses that offer WiFi, and what is the average rating for those businesses?"
+  },
+  {
+    "dataset": "yelp",
+    "queryId": "query6",
+    "text": "Which business received the highest average rating between January 1, 2016 and June 30, 2016, and what category does it belong to? Consider only businesses with at least 5 reviews."
+  },
+  {
+    "dataset": "yelp",
+    "queryId": "query7",
+    "text": "Among users who registered on Yelp in 2016, which 5 business categories have received the most total reviews from those users since 2016?"
+  }
+]
