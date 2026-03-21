@@ -1,0 +1,308 @@
+{
+  "updatedAt": "2026-03-21",
+  "sources": [
+    "README leaderboard table",
+    "PromptQL stratified table shared by maintainers",
+    "Baseline stratified table from benchmark report screenshot"
+  ],
+  "overallLeaderboard": [
+    {
+      "rank": 1,
+      "agent": "PromptQL + Gemini 3.1 Pro",
+      "trials": 5,
+      "passAt1": 0.543,
+      "team": "Hasura PromptQL",
+      "teamUrl": "https://promptql.io/",
+      "date": "2026-03-18"
+    },
+    {
+      "rank": 2,
+      "agent": "PromptQL + Claude Opus 4.6",
+      "trials": 5,
+      "passAt1": 0.508,
+      "team": "Hasura PromptQL",
+      "teamUrl": "https://promptql.io/",
+      "date": "2026-03-02"
+    },
+    {
+      "rank": 3,
+      "agent": "Claude Opus 4.6 ReAct",
+      "trials": 5,
+      "passAt1": 0.4376,
+      "team": "EPIC Data Lab",
+      "teamUrl": "https://epic.berkeley.edu/",
+      "date": "2026-03-18"
+    },
+    {
+      "rank": 4,
+      "agent": "Gemini-3-Pro ReAct",
+      "trials": 50,
+      "passAt1": 0.38,
+      "team": "EPIC Data Lab",
+      "teamUrl": "https://epic.berkeley.edu/",
+      "date": "2026-03-02"
+    },
+    {
+      "rank": 5,
+      "agent": "GPT-5-mini ReAct",
+      "trials": 50,
+      "passAt1": 0.3,
+      "team": "EPIC Data Lab",
+      "teamUrl": "https://epic.berkeley.edu/",
+      "date": "2026-03-02"
+    },
+    {
+      "rank": 6,
+      "agent": "GPT-5.2 ReAct",
+      "trials": 50,
+      "passAt1": 0.25,
+      "team": "EPIC Data Lab",
+      "teamUrl": "https://epic.berkeley.edu/",
+      "date": "2026-03-02"
+    },
+    {
+      "rank": 7,
+      "agent": "Kimi-K2 ReAct",
+      "trials": 50,
+      "passAt1": 0.23,
+      "team": "EPIC Data Lab",
+      "teamUrl": "https://epic.berkeley.edu/",
+      "date": "2026-03-02"
+    },
+    {
+      "rank": 8,
+      "agent": "Gemini-2.5-Flash ReAct",
+      "trials": 50,
+      "passAt1": 0.09,
+      "team": "EPIC Data Lab",
+      "teamUrl": "https://epic.berkeley.edu/",
+      "date": "2026-03-02"
+    }
+  ],
+  "promptqlStratified": {
+    "columns": [
+      {
+        "key": "opus46",
+        "label": "Opus 4.6"
+      },
+      {
+        "key": "gemini31pro",
+        "label": "Gemini 3.1 Pro"
+      },
+      {
+        "key": "gpt52",
+        "label": "GPT 5.2"
+      }
+    ],
+    "rows": [
+      {
+        "dataset": "agnews",
+        "opus46": 65,
+        "gemini31pro": 40,
+        "gpt52": 25
+      },
+      {
+        "dataset": "bookreview",
+        "opus46": 100,
+        "gemini31pro": 100,
+        "gpt52": 80
+      },
+      {
+        "dataset": "crmarenapro",
+        "opus46": 80,
+        "gemini31pro": 56.9,
+        "gpt52": 72.3
+      },
+      {
+        "dataset": "deps_dev",
+        "opus46": 0,
+        "gemini31pro": 20,
+        "gpt52": 0
+      },
+      {
+        "dataset": "github_repos",
+        "opus46": 25,
+        "gemini31pro": 35,
+        "gpt52": 40
+      },
+      {
+        "dataset": "googlelocal",
+        "opus46": 60,
+        "gemini31pro": 55,
+        "gpt52": 50
+      },
+      {
+        "dataset": "music_brainz",
+        "opus46": 13.3,
+        "gemini31pro": 73.3,
+        "gpt52": 33.3
+      },
+      {
+        "dataset": "pancancer",
+        "opus46": 60,
+        "gemini31pro": 40,
+        "gpt52": 33.3
+      },
+      {
+        "dataset": "patents",
+        "opus46": 0,
+        "gemini31pro": 0,
+        "gpt52": 0
+      },
+      {
+        "dataset": "stockindex",
+        "opus46": 66.7,
+        "gemini31pro": 66.7,
+        "gpt52": 66.7
+      },
+      {
+        "dataset": "stockmarket",
+        "opus46": 60,
+        "gemini31pro": 76,
+        "gpt52": 52
+      },
+      {
+        "dataset": "yelp",
+        "opus46": 80,
+        "gemini31pro": 88.6,
+        "gpt52": 77.1
+      }
+    ],
+    "overall": {
+      "dataset": "Overall",
+      "opus46": 50.8,
+      "gemini31pro": 54.3,
+      "gpt52": 44.1
+    }
+  },
+  "baselineStratified": {
+    "columns": [
+      {
+        "key": "gpt52",
+        "label": "GPT-5.2"
+      },
+      {
+        "key": "gpt5mini",
+        "label": "GPT-5-mini"
+      },
+      {
+        "key": "gemini3pro",
+        "label": "Gemini-3-Pro"
+      },
+      {
+        "key": "gemini25flash",
+        "label": "Gemini-2.5-Flash"
+      },
+      {
+        "key": "kimik2",
+        "label": "Kimi-K2"
+      }
+    ],
+    "rows": [
+      {
+        "dataset": "agnews",
+        "gpt52": 0,
+        "gpt5mini": 0.05,
+        "gemini3pro": 0.2,
+        "gemini25flash": 0,
+        "kimik2": 0.13
+      },
+      {
+        "dataset": "bookreview",
+        "gpt52": 0.52,
+        "gpt5mini": 0.49,
+        "gemini3pro": 0.89,
+        "gemini25flash": 0.01,
+        "kimik2": 0.43
+      },
+      {
+        "dataset": "crmarenapro",
+        "gpt52": 0.53,
+        "gpt5mini": 0.64,
+        "gemini3pro": 0.63,
+        "gemini25flash": 0.2,
+        "kimik2": 0.54
+      },
+      {
+        "dataset": "deps_dev_v1",
+        "gpt52": 0,
+        "gpt5mini": 0.06,
+        "gemini3pro": 0.02,
+        "gemini25flash": 0,
+        "kimik2": 0
+      },
+      {
+        "dataset": "github_repos",
+        "gpt52": 0.22,
+        "gpt5mini": 0.23,
+        "gemini3pro": 0.36,
+        "gemini25flash": 0.04,
+        "kimik2": 0.19
+      },
+      {
+        "dataset": "googlelocal",
+        "gpt52": 0.28,
+        "gpt5mini": 0.32,
+        "gemini3pro": 0.55,
+        "gemini25flash": 0.19,
+        "kimik2": 0.39
+      },
+      {
+        "dataset": "music_brainz_20k",
+        "gpt52": 0.14,
+        "gpt5mini": 0.24,
+        "gemini3pro": 0.32,
+        "gemini25flash": 0.31,
+        "kimik2": 0.24
+      },
+      {
+        "dataset": "pancancer_atlas",
+        "gpt52": 0.44,
+        "gpt5mini": 0.53,
+        "gemini3pro": 0.56,
+        "gemini25flash": 0.04,
+        "kimik2": 0.19
+      },
+      {
+        "dataset": "patents",
+        "gpt52": 0,
+        "gpt5mini": 0,
+        "gemini3pro": 0,
+        "gemini25flash": 0,
+        "kimik2": 0
+      },
+      {
+        "dataset": "stockindex",
+        "gpt52": 0.35,
+        "gpt5mini": 0.33,
+        "gemini3pro": 0.38,
+        "gemini25flash": 0.05,
+        "kimik2": 0.29
+      },
+      {
+        "dataset": "stockmarket",
+        "gpt52": 0.32,
+        "gpt5mini": 0.45,
+        "gemini3pro": 0.4,
+        "gemini25flash": 0.19,
+        "kimik2": 0.24
+      },
+      {
+        "dataset": "yelp",
+        "gpt52": 0.23,
+        "gpt5mini": 0.22,
+        "gemini3pro": 0.19,
+        "gemini25flash": 0.04,
+        "kimik2": 0.15
+      }
+    ],
+    "overall": {
+      "dataset": "Average",
+      "gpt52": 0.25,
+      "gpt5mini": 0.3,
+      "gemini3pro": 0.38,
+      "gemini25flash": 0.09,
+      "kimik2": 0.23
+    }
+  }
+}
