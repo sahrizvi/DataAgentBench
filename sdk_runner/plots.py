@@ -130,33 +130,36 @@ def trace_stats(trace_path: Path) -> dict:
 
 # ---------- plots -------------------------------------------------------
 
+_PLOT_H = 280
+_COMMON_LAYOUT = dict(
+    height=_PLOT_H,
+    margin=dict(l=45, r=15, t=40, b=40),
+    title_font_size=13,
+    font_size=10,
+    legend=dict(font_size=10, orientation="h", yanchor="bottom", y=1.02, x=0),
+)
+
+
 def hist_pair(pass_vals, fail_vals, title, xlabel) -> go.Figure:
     fig = go.Figure()
     fig.add_histogram(x=pass_vals, name=f"PASS (n={len(pass_vals)})",
                       marker_color=PASS_COLOR, opacity=0.75)
     fig.add_histogram(x=fail_vals, name=f"FAIL (n={len(fail_vals)})",
                       marker_color=FAIL_COLOR, opacity=0.75)
-    fig.update_layout(
-        title=title, barmode="overlay",
-        xaxis_title=xlabel, yaxis_title="queries",
-        height=360, margin=dict(l=60, r=20, t=50, b=50),
-    )
+    fig.update_layout(title=title, barmode="overlay",
+                      xaxis_title=xlabel, yaxis_title="queries",
+                      **_COMMON_LAYOUT)
     return fig
 
 
-def bar_pair(keys, pass_counts, fail_counts, title, ylabel, hover=None) -> go.Figure:
+def bar_pair(keys, pass_counts, fail_counts, title, ylabel) -> go.Figure:
     fig = go.Figure()
     fig.add_bar(x=keys, y=pass_counts, name="PASS", marker_color=PASS_COLOR,
-                customdata=hover, hovertemplate=(
-                    "%{x}<br>PASS: %{y}<extra></extra>"
-                ))
+                hovertemplate="%{x}<br>PASS: %{y}<extra></extra>")
     fig.add_bar(x=keys, y=fail_counts, name="FAIL", marker_color=FAIL_COLOR,
                 hovertemplate="%{x}<br>FAIL: %{y}<extra></extra>")
-    fig.update_layout(
-        title=title, barmode="group",
-        yaxis_title=ylabel,
-        height=400, margin=dict(l=60, r=20, t=50, b=70),
-    )
+    fig.update_layout(title=title, barmode="group",
+                      yaxis_title=ylabel, **_COMMON_LAYOUT)
     return fig
 
 
@@ -166,16 +169,14 @@ def scatter_dots(pass_stats, fail_stats, xkey, ykey, title) -> go.Figure:
         ys = [s.get(ykey) for s in rows if s.get(xkey) is not None and s.get(ykey) is not None]
         texts = [f"{s['dataset']}/query{s['query']}" for s in rows if s.get(xkey) is not None and s.get(ykey) is not None]
         return go.Scatter(x=xs, y=ys, text=texts, mode="markers", name=label,
-                          marker=dict(color=color, size=9, opacity=0.8,
+                          marker=dict(color=color, size=8, opacity=0.8,
                                       line=dict(width=0.5, color="white")),
                           hovertemplate="%{text}<br>" + f"{xkey}=%{{x}}<br>{ykey}=%{{y}}<extra></extra>")
     fig = go.Figure()
     fig.add_trace(points(pass_stats, "PASS", PASS_COLOR))
     fig.add_trace(points(fail_stats, "FAIL", FAIL_COLOR))
-    fig.update_layout(
-        title=title, xaxis_title=xkey, yaxis_title=ykey,
-        height=420, margin=dict(l=60, r=20, t=50, b=50),
-    )
+    fig.update_layout(title=title, xaxis_title=xkey, yaxis_title=ykey,
+                      **_COMMON_LAYOUT)
     return fig
 
 
@@ -283,14 +284,18 @@ def main() -> None:
     style = """
     <style>
       body { font-family: -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
-             max-width: 1000px; margin: 2em auto; color: #222; padding: 0 1em; }
+             max-width: 1200px; margin: 2em auto; color: #222; padding: 0 1em; }
       h1 { margin-bottom: 0.2em; }
-      .sub { color: #666; margin-bottom: 1.5em; }
-      table { border-collapse: collapse; margin-bottom: 1.5em; }
+      .sub { color: #666; margin-bottom: 1.5em; font-size: 0.9em; }
+      table { border-collapse: collapse; margin-bottom: 1.5em; font-size: 0.9em; }
       th, td { border: 1px solid #ddd; padding: 4px 10px; text-align: left; }
       th { background: #f5f5f5; }
-      .plot { margin: 2em 0; }
-      .plot h2 { font-size: 1.05em; margin: 0 0 0.3em 0; color: #333; }
+      .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+              gap: 0.75em 1em; }
+      .plot { margin: 0; min-width: 0; }
+      .plot > div { width: 100% !important; }
+      .js-plotly-plot, .plot-container { width: 100% !important; }
+      code { font-size: 0.85em; }
     </style>
     """
     n_pass = len(pass_stats)
@@ -324,19 +329,23 @@ def main() -> None:
         + sus_html
     )
 
-    # Assemble plots. include_plotlyjs='cdn' => small file, needs internet.
+    # Assemble plots into a 2-column grid.
+    # include_plotlyjs='cdn' => small file, needs internet.
     # include_plotlyjs=True => ~3 MB but fully offline.
     body_parts = []
     first = True
-    for title, fig in figs:
+    for _title, fig in figs:
         html_div = fig.to_html(
             full_html=False,
             include_plotlyjs=("cdn" if first else False),
             div_id=None,
+            config={"responsive": True, "displaylogo": False},
+            default_width="100%",
+            default_height=f"{_PLOT_H}px",
         )
         first = False
-        body_parts.append(f"<div class='plot'><h2>{title}</h2>{html_div}</div>")
-    body = "".join(body_parts)
+        body_parts.append(f"<div class='plot'>{html_div}</div>")
+    body = "<div class='grid'>" + "".join(body_parts) + "</div>"
     OUT_HTML.write_text(
         "<!doctype html><html><head><meta charset='utf-8'>"
         f"<title>DAB SDK trace report</title>{style}</head><body>{header}{body}</body></html>"
