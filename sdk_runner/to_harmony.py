@@ -4,8 +4,7 @@ Splits output into correct/ and incorrect/ folders based on each query's
 validate.py. One .jsonl per query (a single Harmony `Conversation` per file).
 
 Usage:
-    PYTHONPATH=/Users/shreyashankar/Documents/projects/DataAgentBench \
-    python sdk_runner/to_harmony.py
+    PYTHONPATH=$(pwd) python sdk_runner/to_harmony.py
 """
 from __future__ import annotations
 import importlib.util

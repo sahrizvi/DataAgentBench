@@ -14,7 +14,7 @@ from pymongo import MongoClient
 REPO = Path(__file__).resolve().parent.parent
 PG_HOST = "127.0.0.1"
 PG_PORT = 5432
-PG_USER = "shreyashankar"  # superuser on homebrew macOS install
+PG_USER = os.environ.get("PGUSER") or os.environ.get("USER") or "postgres"
 MONGO_URI = "mongodb://localhost:27017/"
 
 

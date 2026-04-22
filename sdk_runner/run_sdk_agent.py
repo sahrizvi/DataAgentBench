@@ -45,7 +45,7 @@ def _save_trace(session_id: str, cwd: Path, dst: Path) -> bool:
 
 PG_HOST = "127.0.0.1"
 PG_PORT = 5432
-PG_USER = "shreyashankar"
+PG_USER = os.environ.get("PGUSER") or os.environ.get("USER") or "postgres"
 MONGO_URI = "mongodb://localhost:27017/"
 
 
