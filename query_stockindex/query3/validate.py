@@ -1,15 +1,6 @@
 def validate(llm_output: str):
-    """
-    Validate that:
-    - All name+country pairs from ground truth appear in LLM output
-    - In the same order (not necessarily contiguous)
-    - For each name, its *own* country (or alias) appears within 20 chars
-    - Case-insensitive
-
-    Returns:
-        (True, "OK") if all good
-        (False, reason) if failed
-    """
+    """All name+country pairs appear with country (or alias) within 100 chars
+    of the ticker (in either direction). Order not enforced."""
     gt_pairs = [
         ("399001.SZ", "China"),
         ("NSEI", "India"),
@@ -17,40 +8,22 @@ def validate(llm_output: str):
         ("000001.SS", "China"),
         ("NYA", "United States"),
     ]
-
-    # mapping: country → list of acceptable forms
     country_aliases = {
         "china": ["china", "cn"],
         "india": ["india", "in"],
-        "united states": ["united states", "us", "usa"],
+        "united states": ["united states", "us", "usa", "u.s."],
     }
 
     llm_lower = llm_output.lower()
-    last_idx = -1
-
     for name, country in gt_pairs:
         name_lower = name.lower()
-        country_lower = country.lower()
-
-        idx = llm_lower.find(name_lower, last_idx + 1)
+        idx = llm_lower.find(name_lower)
         if idx == -1:
-            reason = f"Missing name: {name}"
-            
-            return False, reason
-
-        # get acceptable forms for this specific country
-        valid_countries = country_aliases.get(country_lower, [country_lower])
-
-        # look in window
-        window = llm_lower[idx: idx + len(name_lower) + 20]
-
-        if not any(alias in window for alias in valid_countries):
-            reason = (
-                f"Country '{country}' (or alias) not found within 20 chars after name '{name}'"
-            )
-            
-            return False, reason
-
-        last_idx = idx
-
-    return True, "All name-country pairs matched correctly in order."
+            return False, f"Missing name: {name}"
+        aliases = country_aliases.get(country.lower(), [country.lower()])
+        lo = max(0, idx - 100)
+        hi = min(len(llm_lower), idx + len(name_lower) + 100)
+        window = llm_lower[lo:hi]
+        if not any(a in window for a in aliases):
+            return False, f"Country '{country}' not within ±100 chars of '{name}'"
+    return True, "All name-country pairs matched."

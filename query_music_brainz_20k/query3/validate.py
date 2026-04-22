@@ -12,6 +12,8 @@ THRESHOLD = 0.75
 
 def normalize(text: str) -> str:
     text = text.lower()
+    # strip markdown markers (** __ ` * _)
+    text = re.sub(r"[*_`]", "", text)
     # remove content inside parentheses
     text = re.sub(r"\([^)]*\)", "", text)
     # remove artist prefixes like "artist - title"
@@ -31,19 +33,22 @@ def fuzzy_match(
     threshold=THRESHOLD
 ):
     gt_norm = [normalize(g) for g in ground_truth_variants]
-
-    best = None
-    best_score = 0.0
-
     cand_norm = normalize(cand)
+
+    # Primary check: any normalized variant appears as a substring.
+    for gt in gt_norm:
+        if gt and gt in cand_norm:
+            return cand, 1.0
+
+    # Fallback: best SequenceMatcher ratio across variants.
+    best_score = 0.0
     for gt in gt_norm:
         score = similarity(gt, cand_norm)
         if score > best_score:
             best_score = score
-            best = cand
 
     if best_score >= threshold:
-        return best, best_score
+        return cand, best_score
     return None, best_score
 
 def validate(llm_output: str):

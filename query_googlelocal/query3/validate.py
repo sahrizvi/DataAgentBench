@@ -92,12 +92,19 @@ def validate(llm_output: str):
         # Get a window after name to check hours and score
         window = llm_output[idx:idx+500].lower()
 
-        # Check that all (day, hours) pairs appear
+        # Normalize 24-hour variants to one canonical token so "24 hrs",
+        # "Open 24 hours", "24/7" all match.
+        def _norm(s):
+            s = re.sub(r"\b(?:open\s+)?24\s*(?:/\s*7|hours?|hrs?|h)\b", "24h", s, flags=re.I)
+            return s
+        norm_window = _norm(window)
         for day, hours in hours_list:
-            day_l, hours_l = day.lower(), hours.lower()
-            if day_l not in window or hours_l not in window:
+            day_l = day.lower()
+            abbr = day_l[:3]
+            hours_l = _norm(hours.lower())
+            day_present = (day_l in norm_window) or (abbr in norm_window)
+            if not (day_present and hours_l in norm_window):
                 reason = f"Missing hours [{day}, {hours}] for business: {name}"
-                
                 return False, reason
 
         # After hours block, look for score

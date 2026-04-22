@@ -11,7 +11,8 @@ def validate(llm_output: str):
         (True, "OK") if 1077 is found
         (False, reason) otherwise
     """
-    matches = re.findall(r"\b1077\b", llm_output)
+    cleaned = re.sub(r"(?<=\d),(?=\d{3}\b)", "", llm_output)
+    matches = re.findall(r"\b1077\b", cleaned)
     if matches:
         return True, "Found 1077 in LLM output."
     else:
