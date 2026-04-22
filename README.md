@@ -21,16 +21,19 @@ Unlike prior SQL-only or single-database benchmarks, DAB stresses agents under *
 
 ## 🏆 Leaderboard
 
-| Rank | Model          | Pass@1 | Date    |
-| ---- | -------------- | ------------------- | ------- |
-| 1    | PromptQL (Gemini-3.1-Pro) (5 trials/query) | 0.543                | 2026-03-018 |
-| 2    | PromptQL (Claude-Opus-4.6) (5 trials/query) | 0.508                | 2026-03-02 |
-| 3    | Claude-Opus-4.6 (5 trials/query) | 0.4376                | 2026-03-18 |
-| 4    | Gemini-3-Pro | 0.38           | 2026-03-02 |
-| 5    | GPT-5-mini     |     0.30           | 2026-03-02 |
-| 6    | GPT-5.2     |     0.25           | 2026-03-02 |
-| 7    | Kimi-K2     |     0.23           | 2026-03-02 |
-| 8    | Gemini-2.5-Flash     |     0.09          | 2026-03-02 |
+| Rank | Model          | Pass@1 | Date    | Submission |
+| ---- | -------------- | ------------------- | ------- | ---------- |
+| 1    | Pi Coding Agent (Claude-Opus-4.6) (5 trials/query) | 0.5603 | 2026-04-21 | [#31](https://github.com/ucbepic/DataAgentBench/pull/31) |
+| 2    | PromptQL (Gemini-3.1-Pro) (5 trials/query) | 0.543                | 2026-03-18 | [#24](https://github.com/ucbepic/DataAgentBench/pull/24) |
+| 3    | PromptQL (Claude-Opus-4.6) (5 trials/query) | 0.508                | 2026-03-02 | [#23](https://github.com/ucbepic/DataAgentBench/pull/23) |
+| 4    | Oracle Forge — Tenacious Intelligence (Claude-Sonnet-4.6) (5–7 trials/query) | 0.4554 | 2026-04-21 | [#32](https://github.com/ucbepic/DataAgentBench/pull/32) |
+| 5    | Claude-Opus-4.6 (5 trials/query) | 0.4376                | 2026-03-18 | [#22](https://github.com/ucbepic/DataAgentBench/pull/22) |
+| 6    | Gemini-3-Pro | 0.38           | 2026-03-02 | — |
+| 7    | GPT-5-mini     |     0.30           | 2026-03-02 | — |
+| 8    | GPT-5.2     |     0.25           | 2026-03-02 | — |
+| 9    | Kimi-K2     |     0.23           | 2026-03-02 | — |
+| 10   | Oracle Forge — Team Cohere (Gemini-2.0-Flash) (5 trials/query) | 0.128 | 2026-04-21 | [#38](https://github.com/ucbepic/DataAgentBench/pull/38) |
+| 11   | Gemini-2.5-Flash     |     0.09          | 2026-03-02 | — |
 
 
 ### How to Submit to the Leaderboard

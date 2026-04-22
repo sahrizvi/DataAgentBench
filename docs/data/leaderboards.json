@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-21",
+  "updatedAt": "2026-04-21",
   "sources": [
     "README leaderboard table",
     "PromptQL stratified table shared by maintainers",
@@ -8,33 +8,56 @@
   "overallLeaderboard": [
     {
       "rank": 1,
+      "agent": "Pi Coding Agent + Claude Opus 4.6",
+      "trials": 5,
+      "passAt1": 0.5603,
+      "team": "Pi Coding Agent",
+      "teamUrl": "https://github.com/mariozechner/pi-coding-agent",
+      "prUrl": "https://github.com/ucbepic/DataAgentBench/pull/31",
+      "date": "2026-04-21"
+    },
+    {
+      "rank": 2,
       "agent": "PromptQL + Gemini 3.1 Pro",
       "trials": 5,
       "passAt1": 0.543,
       "team": "Hasura PromptQL",
       "teamUrl": "https://promptql.io/",
+      "prUrl": "https://github.com/ucbepic/DataAgentBench/pull/24",
       "date": "2026-03-18"
     },
     {
-      "rank": 2,
+      "rank": 3,
       "agent": "PromptQL + Claude Opus 4.6",
       "trials": 5,
       "passAt1": 0.508,
       "team": "Hasura PromptQL",
       "teamUrl": "https://promptql.io/",
+      "prUrl": "https://github.com/ucbepic/DataAgentBench/pull/23",
       "date": "2026-03-02"
     },
     {
-      "rank": 3,
+      "rank": 4,
+      "agent": "Oracle Forge (Tenacious Intelligence) + Claude Sonnet 4.6",
+      "trials": 5,
+      "passAt1": 0.4554,
+      "team": "Tenacious Intelligence Corp",
+      "teamUrl": "https://github.com/ucbepic/DataAgentBench/pull/32",
+      "prUrl": "https://github.com/ucbepic/DataAgentBench/pull/32",
+      "date": "2026-04-21"
+    },
+    {
+      "rank": 5,
       "agent": "Claude Opus 4.6 ReAct",
       "trials": 5,
       "passAt1": 0.4376,
       "team": "EPIC Data Lab",
       "teamUrl": "https://epic.berkeley.edu/",
+      "prUrl": "https://github.com/ucbepic/DataAgentBench/pull/22",
       "date": "2026-03-18"
     },
     {
-      "rank": 4,
+      "rank": 6,
       "agent": "Gemini-3-Pro ReAct",
       "trials": 50,
       "passAt1": 0.38,
@@ -43,7 +66,7 @@
       "date": "2026-03-02"
     },
     {
-      "rank": 5,
+      "rank": 7,
       "agent": "GPT-5-mini ReAct",
       "trials": 50,
       "passAt1": 0.3,
@@ -52,7 +75,7 @@
       "date": "2026-03-02"
     },
     {
-      "rank": 6,
+      "rank": 8,
       "agent": "GPT-5.2 ReAct",
       "trials": 50,
       "passAt1": 0.25,
@@ -61,7 +84,7 @@
       "date": "2026-03-02"
     },
     {
-      "rank": 7,
+      "rank": 9,
       "agent": "Kimi-K2 ReAct",
       "trials": 50,
       "passAt1": 0.23,
@@ -70,7 +93,17 @@
       "date": "2026-03-02"
     },
     {
-      "rank": 8,
+      "rank": 10,
+      "agent": "Oracle Forge (Team Cohere) + Gemini 2.0 Flash",
+      "trials": 5,
+      "passAt1": 0.128,
+      "team": "Team Cohere",
+      "teamUrl": "https://github.com/trp1-cohere-team/data-analytics-agent",
+      "prUrl": "https://github.com/ucbepic/DataAgentBench/pull/38",
+      "date": "2026-04-21"
+    },
+    {
+      "rank": 11,
       "agent": "Gemini-2.5-Flash ReAct",
       "trials": 50,
       "passAt1": 0.09,
