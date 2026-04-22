@@ -4,8 +4,13 @@
 # general py
 __pycache__/
 
+# local claude / sdk state
+.venv/
+.claude/
+
 # results
 results/
+!sdk_runner/results/
 
 # dependencies
 requirements.txt
