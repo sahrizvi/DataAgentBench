@@ -62,13 +62,30 @@ DB_PATTERNS = [
 ]
 
 # Patterns that signal the agent bypassed the task by reading the benchmark's
-# ground-truth files or pulling external labeled datasets.
+# ground-truth files or pulling external labeled datasets from the internet.
 SUSPICIOUS_PATTERNS = [
-    ("ground_truth.csv", re.compile(r"ground_truth\.csv\b", re.I)),
-    ("validate.py",      re.compile(r"validate\.py\b", re.I)),
-    ("load_dataset(",    re.compile(r"\bload_dataset\s*\(", re.I)),
-    ("huggingface pull", re.compile(r"hf_hub_download|huggingface_hub|snapshot_download", re.I)),
-    ("HF domain",        re.compile(r"huggingface\.co|hf\.co\b", re.I)),
+    # Reading the benchmark's own answer files
+    ("ground_truth.csv",  re.compile(r"ground_truth\.csv\b", re.I)),
+    ("validate.py",       re.compile(r"validate\.py\b", re.I)),
+    # HuggingFace datasets (labels for many public benchmarks)
+    ("HuggingFace",       re.compile(r"\bload_dataset\s*\(|huggingface\.co|\bhf\.co\b|hf_hub_download|huggingface_hub|snapshot_download", re.I)),
+    # Kaggle
+    ("Kaggle",            re.compile(r"\bkaggle\.com\b|\bkaggle\s+(datasets|competitions)\b|\bkagglehub\b|kaggle-api", re.I)),
+    # Other public ML dataset registries / loaders
+    ("OpenML",            re.compile(r"\bopenml\.org\b|fetch_openml", re.I)),
+    ("TFDS",              re.compile(r"\btensorflow_datasets\b|\btfds\.", re.I)),
+    ("torchvision.datasets", re.compile(r"\btorchvision\.datasets\b", re.I)),
+    ("sklearn built-ins", re.compile(r"\bsklearn\.datasets\.(fetch|load)_\w+", re.I)),
+    ("UCI ML Repo",       re.compile(r"archive(-beta)?\.ics\.uci\.edu", re.I)),
+    ("Zenodo",            re.compile(r"\bzenodo\.org\b", re.I)),
+    ("data.gov",          re.compile(r"\bdata\.gov\b", re.I)),
+    ("Papers with Code",  re.compile(r"\bpaperswithcode\.com\b", re.I)),
+    # Known upstream sources for the specific DAB datasets
+    ("Amazon reviews dump", re.compile(r"amazon[-_]reviews|jmcauley\.ucsd\.edu|nijianmo\.github\.io", re.I)),
+    ("Yelp Open Dataset", re.compile(r"yelp\.com/dataset", re.I)),
+    ("MusicBrainz API",   re.compile(r"\bmusicbrainz\.org\b", re.I)),
+    ("BigQuery public",   re.compile(r"bigquery-public-data", re.I)),
+    ("GitHub Archive",    re.compile(r"\bgharchive\.org\b|\bgithubarchive\.org\b", re.I)),
 ]
 
 
