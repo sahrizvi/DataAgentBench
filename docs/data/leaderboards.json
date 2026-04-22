@@ -12,7 +12,7 @@
       "trials": 5,
       "passAt1": 0.5603,
       "team": "Pi Coding Agent",
-      "teamUrl": "https://github.com/mariozechner/pi-coding-agent",
+      "teamUrl": "https://github.com/ucbepic/DataAgentBench/pull/31",
       "prUrl": "https://github.com/ucbepic/DataAgentBench/pull/31",
       "date": "2026-04-21"
     },
@@ -98,7 +98,7 @@
       "trials": 5,
       "passAt1": 0.128,
       "team": "Team Cohere",
-      "teamUrl": "https://github.com/trp1-cohere-team/data-analytics-agent",
+      "teamUrl": "https://github.com/ucbepic/DataAgentBench/pull/38",
       "prUrl": "https://github.com/ucbepic/DataAgentBench/pull/38",
       "date": "2026-04-21"
     },
