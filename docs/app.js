@@ -172,6 +172,18 @@ function renderOverallLeaderboard(rows) {
     const trialsTd = createElement("td", "num", String(row.trials));
     const passTd = createElement("td", "num", formatPercentFromScore(row.passAt1));
     const dateTd = createElement("td", "", row.date);
+    const prTd = document.createElement("td");
+    if (row.prUrl) {
+      const prMatch = row.prUrl.match(/\/pull\/(\d+)/);
+      const prLabel = prMatch ? `PR #${prMatch[1]}` : "PR";
+      const prLink = createElement("a", "", prLabel);
+      prLink.href = row.prUrl;
+      prLink.target = "_blank";
+      prLink.rel = "noopener noreferrer";
+      prTd.appendChild(prLink);
+    } else {
+      prTd.textContent = "—";
+    }
 
     tr.appendChild(rankTd);
     tr.appendChild(agentTd);
@@ -179,6 +191,7 @@ function renderOverallLeaderboard(rows) {
     tr.appendChild(trialsTd);
     tr.appendChild(passTd);
     tr.appendChild(dateTd);
+    tr.appendChild(prTd);
     tbody.appendChild(tr);
   });
 }
