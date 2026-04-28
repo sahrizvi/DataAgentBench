@@ -33,9 +33,9 @@ def validate(llm_output: str):
         
         return False, reason
 
-    # 检查是否有匹配的数值
+    # 检查是否有匹配的数值 (tolerate ±0.015 to absorb rounding disagreement)
     for m in matches:
-        if f"{float(m):.2f}" == gt_value_str:
+        if abs(float(m) - gt_value) <= 0.015:
             return True, f"Found: {gt_category}, {gt_value_str}"
 
     reason = f"Value '{gt_value_str}' not found in LLM output."

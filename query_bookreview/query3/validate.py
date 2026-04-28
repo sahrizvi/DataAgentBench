@@ -1,11 +1,25 @@
+import re
+
+
+def _normalize(s: str) -> str:
+    s = s.lower()
+    s = re.sub(r"\([^)]*\)", "", s)
+    s = re.sub(r"[^a-z0-9\s]", " ", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
+
+
+def _gt_short(s: str) -> str:
+    # for the GT side only: also drop subtitle (after first ':') so abbreviated
+    # agent answers still match.
+    s = s.lower().split(":", 1)[0]
+    s = re.sub(r"\([^)]*\)", "", s)
+    s = re.sub(r"[^a-z0-9\s]", " ", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
+
+
 def validate(llm_output: str):
-    """
-    Validate if all ground truth book titles are present in LLM output.
-    Only checks book titles (ignores categories).
-    Returns:
-        (True, "OK") if all found
-        (False, reason) if any missing
-    """
     ground_truth_books = [
         "Around the World Mazes",
         "Behind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)",
@@ -20,14 +34,10 @@ def validate(llm_output: str):
         "The Old Man and the Pirate Princess",
         "Trouble in the CTC!: The Terra Prime Adventures Book 2",
         "Clark the Shark: Tooth Trouble, No. 1",
-        "Cleo Porter and the Body Electric"
+        "Cleo Porter and the Body Electric",
     ]
-
-    llm_lower = llm_output.lower()
-
+    llm_norm = _normalize(llm_output)
     for book in ground_truth_books:
-        if book.lower() not in llm_lower:
-            reason = f"Missing book title in LLM output: {book}"
-            return False, reason
-
+        if _gt_short(book) not in llm_norm:
+            return False, f"Missing book title in LLM output: {book}"
     return True, "All book titles found in LLM output."

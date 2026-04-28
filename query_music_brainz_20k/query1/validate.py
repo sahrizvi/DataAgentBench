@@ -15,6 +15,8 @@ def extract_numeric_values(text):
     """
     values = []
 
+    # strip thousands separators so "1,059.46" is read as a single number
+    text = re.sub(r"(?<=\d),(?=\d{3}\b)", "", text)
     # Match numbers like 1059.46, 601.44, 0, etc.
     for match in re.findall(r'\$?\b\d+(?:\.\d+)?\b', text):
         try:

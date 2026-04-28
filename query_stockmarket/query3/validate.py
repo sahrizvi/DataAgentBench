@@ -30,6 +30,8 @@ def validate(llm_output: str):
         ("Sypris Solutions, Inc", 36836.36),
     ]
 
+    # strip thousand-separators so "23,781.42" reads as 23781.42
+    llm_output = re.sub(r"(?<=\d),(?=\d{3}\b)", "", llm_output)
     llm_output_clean = re.sub(r'\s+', ' ', llm_output).strip().lower()
 
     for name, value in gt_pairs:

@@ -1,11 +1,22 @@
 import re
 from common_scaffold.validate.levenshtein import levenshtein
 
+# Ticker symbols for the 31 qualifying ETFs, derived from stockinfo.
+# Accepting ticker output avoids penalizing a correct list that uses the
+# short-form column ("Symbol") rather than "Company Description".
+_GT_TICKERS = [
+    "BOIL", "BZQ", "COM", "DUST", "EDZ", "ERX", "FAZ", "FXP",
+    "GFIN", "GUSH", "HYUP", "JDST", "JNUG", "JPN", "LABD", "LABU",
+    "LBJ", "MDY", "PTIN", "RTL", "SDOW", "SOXS", "SSG", "TECS",
+    "TZA", "UVXY", "VIXY", "VPC", "XES", "XOP", "YANG",
+]
+
+
 def validate(llm_output: str):
-    """
-    Validate:
-    - number 31 is present somewhere in LLM output
-    - all gt names are present (exact or <=5 edits, case-insensitive, dynamic window)
+    """Validate that:
+    - the number 31 appears in the output, AND
+    - either all 31 ground-truth security names are present (≤5 edits,
+      case-insensitive) OR all 31 ticker symbols are present.
     """
     ground_truth_names = [
         "ProShares Ultra Bloomberg Natural Gas",
@@ -46,9 +57,15 @@ def validate(llm_output: str):
     # check 31
     matches = re.findall(r"\b\d+\b", llm_output)
     if not any(int(m) == 31 for m in matches):
-        reason = "Missing number: 31"
-        
-        return False, reason
+        return False, "Missing number: 31"
+
+    # ticker-equivalent acceptance: if all 31 tickers are present, accept.
+    tickers_hit = sum(
+        1 for t in _GT_TICKERS
+        if re.search(rf"(?<![A-Z0-9]){re.escape(t)}(?![A-Z0-9])", llm_output)
+    )
+    if tickers_hit >= len(_GT_TICKERS):
+        return True, f"All {tickers_hit} ticker symbols matched (equivalent to names)."
 
     # check names
     for gt_name in ground_truth_names:
@@ -86,10 +103,8 @@ def validate(llm_output: str):
             if min_distance == 0:
                 break
 
-        if min_distance <= 5:
-            pass
-        else:
-            reason = f"Name not found within 5 edits: '{gt_name}', closest: '{best_match}' (distance={min_distance})"
-            return False, reason
+        if min_distance > 5:
+            return False, (f"Name not found within 5 edits: '{gt_name}', "
+                           f"closest: '{best_match}' (distance={min_distance})")
 
     return True, "Number 31 and all names (exact or ≤5 edits) found."

@@ -21,12 +21,29 @@ def validate(llm_output: str):
 
     llm_output_clean = re.sub(r'\s+', ' ', llm_output).strip().lower()
 
+    _SUFFIX_RE = re.compile(
+        r"\b(common\s+stock|preferred\s+stock|corporation|corp|company|co|"
+        r"incorporated|inc|ltd|limited|plc|holdings|group|trust|the)\b\.?",
+        re.I,
+    )
+    def _strip(s):
+        s = _SUFFIX_RE.sub(" ", s)
+        s = re.sub(r"[,\.]", " ", s)
+        return re.sub(r"\s+", " ", s).strip()
+
+    llm_stripped = _strip(llm_output_clean)
+
     for gt_name in gt_names:
         gt_name_clean = gt_name.lower()
         gt_len = len(gt_name_clean)
 
         # First: exact match
         if gt_name_clean in llm_output_clean:
+            continue
+        # Suffix-stripped exact match (e.g. "HDFC Bank Limited" matches
+        # "HDFC Bank Limited Common Stock")
+        gt_stripped = _strip(gt_name_clean)
+        if gt_stripped and gt_stripped in llm_stripped:
             continue
 
         # Else: fuzzy match within a window

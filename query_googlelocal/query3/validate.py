@@ -69,15 +69,27 @@ ground_truth = [
 ]
 
 
-def validate(llm_output: str):
+def _norm(s):
+    """Normalize time tokens so surface-form variants match:
+      - 24-hour variants ("Open 24 hours" / "24/7" / "24 hrs") → "24h"
+      - en-dash / em-dash / hyphen all collapse to "-"
+      - spaces inside a "5 - 11 PM" style range collapse
+      - "11 PM" → "11PM"
     """
-    Validate LLM output for query3:
+    s = re.sub(r"\b(?:open\s+)?24\s*(?:/\s*7|hours?|hrs?|h)\b", "24h", s, flags=re.I)
+    s = s.replace("–", "-").replace("—", "-")
+    s = re.sub(r"\s*-\s*", "-", s)
+    s = re.sub(r"\s+(am|pm|AM|PM)\b", r"\1", s)
+    s = re.sub(r"\s+", " ", s)
+    return s
+
+
+def validate(llm_output: str):
+    """Validate LLM output for query3:
     - Business names must appear
-    - All hours (day + hours) must appear near the name (case-insensitive, full match)
-    - Score must appear after hours block, rounded to 2 decimals
-    Returns:
-        (True, "OK") if pass
-        (False, reason) if fail
+    - All hours (day + hours) must appear in a 500-char window after the name
+      (after surface-form normalization — en-dash/space variants accepted)
+    - The business's score must appear somewhere in that window
     """
     llm_lower = llm_output.lower()
 
@@ -85,43 +97,33 @@ def validate(llm_output: str):
         name_lower = name.lower()
         idx = llm_lower.find(name_lower)
         if idx == -1:
-            reason = f"Missing business name: {name}"
-            
-            return False, reason
+            return False, f"Missing business name: {name}"
 
-        # Get a window after name to check hours and score
         window = llm_output[idx:idx+500].lower()
+        norm_window = _norm(window)
 
-        # Check that all (day, hours) pairs appear
         for day, hours in hours_list:
-            day_l, hours_l = day.lower(), hours.lower()
-            if day_l not in window or hours_l not in window:
-                reason = f"Missing hours [{day}, {hours}] for business: {name}"
-                
-                return False, reason
+            day_l = day.lower()
+            abbr = day_l[:3]
+            hours_l = _norm(hours.lower())
+            day_present = (day_l in norm_window) or (abbr in norm_window)
+            if not (day_present and hours_l in norm_window):
+                return False, f"Missing hours [{day}, {hours}] for business: {name}"
 
-        # After hours block, look for score
         matches = re.findall(r"(\d+(?:\.\d+)?)", window)
         if not matches:
-            reason = f"No score found after hours info for business: {name}"
-            
-            return False, reason
+            return False, f"No score found after hours info for business: {name}"
 
-        # Compare each number found in window
         gt_score_rounded = round(score, 2)
         found = False
         for m in matches:
             try:
-                val = float(m)
-                if round(val, 2) == gt_score_rounded:
+                if round(float(m), 2) == gt_score_rounded:
                     found = True
                     break
-            except:
+            except Exception:
                 continue
-
         if not found:
-            reason = f"Score mismatch for business: {name}, expected ~{gt_score_rounded:.2f}"
-            
-            return False, reason
+            return False, f"Score mismatch for business: {name}, expected ~{gt_score_rounded:.2f}"
 
     return True, "All businesses validated successfully."
