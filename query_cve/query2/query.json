@@ -1,0 +1,1 @@
+"Among CVEs in CISA's Known Exploited Vulnerabilities (KEV) catalog flagged as having known ransomware-campaign use, identify the canonical vendor (lowercase) whose CVEs have the highest AVERAGE CVSS v3 base score (consider only vendors with at least 3 such CVEs). Return the vendor name as a single lowercase word."

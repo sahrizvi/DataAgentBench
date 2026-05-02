@@ -1,0 +1,8 @@
+HINTS:
+- award_id, recipient_uei, and naics_code appear under multiple surface-form variants across rows; cross-table joins on these fields require canonicalization.
+- contracts_db.contracts.awarding_agency, awarding_sub_agency, and funding_agency may appear under multiple surface forms for the same canonical agency; agencies_db.agency_aliases resolves surface forms to a canonical agency name.
+- recipients_db.recipients.name has multiple surface-form variants for the same canonical entity (corporate-suffix, case, and whitespace differences); some canonical entities are also represented by multiple distinct UEIs.
+- recipients_db.recipients.state may appear under multiple surface forms.
+- contract_amounts.amount_text and recipients.total_amount_text mix templated and narrative encodings; the numeric value must be inferred from prose for narrative rows.
+- A small subset of awards appear in more than one row of contract_amounts with conflicting amount values.
+- A subset of contracts are missing the English description and only carry a non-English description.

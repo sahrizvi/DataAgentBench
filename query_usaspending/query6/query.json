@@ -1,0 +1,1 @@
+"How many distinct CANONICAL recipients appear in recipients_db under MORE THAN ONE UEI? Treat two recipient_name values as referring to the same canonical entity if they match after lowercasing, trimming whitespace, and stripping any trailing corporate-suffix tokens (Inc / Incorporated / Corp / Corporation / LLC / L.L.C. / Co / Company / Ltd / Limited and punctuation)."

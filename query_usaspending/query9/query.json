@@ -1,0 +1,1 @@
+"How many distinct contracts satisfy ALL of: (1) they have NO English-language description in descriptions_db (only a non-English description is present), AND (2) their award amount is greater than $1,000,000?"
