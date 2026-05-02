@@ -79,9 +79,10 @@ query_stockmarket/metadata_mean.txt
 query_yelp/ground_truth_dataset/
 query_yelp/manual_querycode/
 query_yelp/query*/ground_truth.py
-# query_cve / query_usaspending: keep canonical snapshot + manifest +
-# construction code local-only (matches query_googlelocal/query_yelp/etc.)
+# query_cve / query_usaspending: canonical pre-corruption snapshot + corruption
+# manifest are the answer key — keep local-only. Construction code in
+# manual_querycode/ IS shipped (see PROVENANCE.md) for full reproducibility.
 query_cve/clean/
-query_cve/manual_querycode/
+query_cve/manual_querycode/__pycache__/
 query_usaspending/clean/
-query_usaspending/manual_querycode/
+query_usaspending/manual_querycode/__pycache__/
