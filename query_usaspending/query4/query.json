@@ -1,0 +1,1 @@
+"Among canonical awarding agencies (after clustering surface-form variants like 'DOD' / 'Department of Defense' / 'DoD' to a single canonical name) that have awarded at least 10 contracts, which canonical agency has the HIGHEST share of contracts with an amount greater than $1,000,000? Return the canonical agency name. Break ties alphabetically."

@@ -1,0 +1,1 @@
+"How many distinct contracts satisfy ALL of: (1) they appear in the contract_amounts table with MORE THAN ONE distinct amount_text value (i.e., conflicting amount entries for the same award_id), AND (2) their recipient (after canonicalizing recipient_name case-insensitively) is among the top 10 recipients ranked by total contract count?"

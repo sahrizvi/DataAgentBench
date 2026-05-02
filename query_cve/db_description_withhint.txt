@@ -1,0 +1,12 @@
+HINTS:
+- CVE identifiers appear under multiple surface-form variants across the four databases. Cross-DB joins on CVE id require canonicalization.
+- cpe_db.cpe_matches.criteria contains a vendor alias rather than the canonical vendor name; cpe_db.vendor_aliases resolves aliases to canonical vendor names.
+- cpe_db.cpe_matches.vulnerable_flag is free-text — multiple truthy and falsy tokens appear; normalization is needed.
+- cpe_db.cpe_version_details.version_text is stored in a mixed encoding; equivalent versions may not match by string equality.
+- kev_db.kev_entries.vendor_project may appear under multiple surface forms for the same canonical vendor; clustering is needed for grouping or counting.
+- kev_db.kev_entries.products_csv may contain comma-separated lists; split to recover individual products.
+- Some KEV entries reference CVEs that are not present in vulns_db.
+- vulns_db.cves contains a small subset of CVEs that appear in more than one row with conflicting attribute values.
+- vulns_db.cvss_metadata.score_text mixes templated and narrative encodings; the numeric score must be inferred from prose for narrative rows.
+- descriptions_db.cve_documents.descriptions[].value: severity classification words do not appear literally in any English description; severity is encoded either as an opaque tagline or implied by narrative content.
+- A subset of CVEs are missing the English description and only carry a non-English description.
