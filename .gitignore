@@ -83,6 +83,4 @@ query_yelp/query*/ground_truth.py
 # manifest are the answer key — keep local-only. Construction code in
 # manual_querycode/ IS shipped (see PROVENANCE.md) for full reproducibility.
 query_cve/clean/
-query_cve/manual_querycode/__pycache__/
 query_usaspending/clean/
-query_usaspending/manual_querycode/__pycache__/
