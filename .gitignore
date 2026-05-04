@@ -3,6 +3,7 @@
 .DS_Store
 # general py
 __pycache__/
+.history/
 
 # results
 results/
@@ -35,6 +36,12 @@ common_scaffold/tools/backup/
 common_scaffold/*_backup/
 
 # datasets
+query_imdb/query_dataset/imdb*
+query_imdb/data_raw/
+query_imdb/job_queries/
+query_imdb/job_results/
+query_imdb/query*/query.sql
+query_imdb/scripts/
 query_civic_unstructured/
 query_paper_unstructured/
 query_notice_unstructured/
