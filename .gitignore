@@ -42,6 +42,9 @@ query_imdb/job_queries/
 query_imdb/job_results/
 query_imdb/query*/query.sql
 query_imdb/scripts/
+query_krama/query_dataset/topic_files/topic_files_db/files.bson.bak
+query_krama/query*/ground_truth.py
+query_krama/scripts/
 query_civic_unstructured/
 query_paper_unstructured/
 query_notice_unstructured/
