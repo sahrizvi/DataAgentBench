@@ -1,0 +1,57 @@
+You are working with three data sources to solve this query.
+
+Here are the descriptions of these three data sources:
+
+1. topic_files_database
+   - This database is stored in a MongoDB database and contains files from multiple domains including wildfire, environment, legal, biomedical, astronomy, and archeology.
+   - This database consists of one collection:
+     - files
+       - Each document represents a single file. Every document has three fields:
+         - id (str): Unique file path identifier used as the document key
+         - type (str): File type descriptor
+         - content (str): Full file content as a plain string; parse as CSV or plain text depending on the document
+
+
+2. geo_database
+   - This database is stored in a SQLite database and contains geospatial and environmental data. Geometry columns store data in GeoPackage binary format.
+   - This database consists of three tables:
+     - National_GACC_Final_20250113
+       - This table contains the geographic boundaries and metadata of NIFC Geographic Area Coordination Centers (GACCs).
+       - Fields:
+         - OBJECTID (int): Row identifier
+         - SHAPE (blob): Polygon geometry of the GACC boundary (GeoPackage binary format)
+         - GACCName (text): Full name of the GACC
+         - GACCAbbreviation (text): Short code (e.g., "AICC", "NRCC")
+         - GACCUnitID (text): Unit identifier
+         - GACCLocation (text): Geographic location description
+         - ContactPhone (text): Contact phone number
+         - Comments (text): Additional notes
+         - DateCurrent (real): Date last updated
+         - MapMethod (text): Mapping methodology used
+
+     - usa_adm2
+       - This table contains the geographic boundaries and metadata of US counties.
+       - Fields:
+         - fid (int): Row identifier
+         - geom (blob): Polygon geometry of the county (GeoPackage binary format)
+         - adm2_name (text): County name
+         - adm1_name (text): State name
+         - adm0_name (text): Country name
+         - adm2_id (text): County identifier
+         - adm1_id (text): State identifier
+         - (plus additional source metadata columns)
+
+     - beach_water_temperature
+       - This table contains water and air temperature readings for Massachusetts beaches, with one row per measurement.
+       - Fields:
+         - community_code (text): Prefixed community code (e.g., "COM-001")
+         - county_code (text): Prefixed county code (e.g., "CTY-01")
+         - beach_name (text): Beach name
+         - beach_type_description (text): Beach type (e.g., "Freshwater Beach", "Ocean Beach")
+         - sample_date (text): Sampling date in YYYY-MM-DD format (2002–2023, bathing season May–October)
+         - water_temp_c (real): Water temperature in degrees Celsius
+         - air_temp_c (real): Air temperature in degrees Celsius
+
+
+3. misc_files
+   - This data source is a flat folder of files from multiple domains.

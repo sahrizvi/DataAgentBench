@@ -1,0 +1,13 @@
+db_clients:
+  topic_files_database:
+    db_type: mongo                            # Database type: MongoDB
+    db_name: topic_files_db                   # Name of the MongoDB database
+    dump_folder: query_dataset/topic_files    # Folder with the MongoDB dump to initialize
+
+  geo_database:
+    db_type: sqlite                           # Database type: SQLite
+    db_path: query_dataset/geo.db            # Path to the SQLite file
+
+  misc_files:
+    db_type: file_folder                      # Database type: flat file folder
+    folder_path: query_dataset/misc_files     # Folder containing the files
