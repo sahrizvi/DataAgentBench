@@ -2,7 +2,7 @@ You are working with three data sources to solve this query.
 
 Here are the descriptions of these three data sources:
 
-1. topic_files_database
+1. domain_docs
    - This database is stored in a MongoDB database and contains files from multiple domains including wildfire, environment, legal, biomedical, astronomy, and archeology.
    - This database consists of one collection:
      - files
@@ -15,43 +15,58 @@ Here are the descriptions of these three data sources:
 2. geo_database
    - This database is stored in a SQLite database and contains geospatial and environmental data. Geometry columns store data in GeoPackage binary format.
    - This database consists of three tables:
-     - National_GACC_Final_20250113
+     - gacc_2025
        - This table contains the geographic boundaries and metadata of NIFC Geographic Area Coordination Centers (GACCs).
        - Fields:
          - OBJECTID (int): Row identifier
          - SHAPE (blob): Polygon geometry of the GACC boundary (GeoPackage binary format)
-         - GACCName (text): Full name of the GACC
-         - GACCAbbreviation (text): Short code (e.g., "AICC", "NRCC")
+         - GeometryID (text): Geometry identifier
          - GACCUnitID (text): Unit identifier
-         - GACCLocation (text): Geographic location description
          - ContactPhone (text): Contact phone number
          - Comments (text): Additional notes
-         - DateCurrent (real): Date last updated
+         - DateCurrent (text): Date last updated
          - MapMethod (text): Mapping methodology used
+         - GlobalID (text): Global unique identifier
+         - GACCDescription (text): Natural-language description of the GACC name, abbreviation, and location
 
      - usa_adm2
        - This table contains the geographic boundaries and metadata of US counties.
        - Fields:
          - fid (int): Row identifier
          - geom (blob): Polygon geometry of the county (GeoPackage binary format)
-         - adm2_name (text): County name
-         - adm1_name (text): State name
-         - adm0_name (text): Country name
          - adm2_id (text): County identifier
+         - adm2_src (text): County source identifier
+         - adm2_name1, adm2_name2 (text): Alternate county names
          - adm1_id (text): State identifier
-         - (plus additional source metadata columns)
+         - adm1_src (text): State source identifier
+         - adm1_name1, adm1_name2 (text): Alternate state names
+         - adm0_id (text): Country identifier
+         - adm0_src (text): Country source identifier
+         - adm0_name1, adm0_name2 (text): Alternate country names
+         - src_lvl (int): Source level
+         - src_lang (text): Source language
+         - src_lang1, src_lang2 (text): Alternate source languages
+         - src_date, src_update (text): Source date and last update date
+         - src_name, src_lic, src_url, src_grp (text): Source metadata
+         - adm_description (text): Natural-language description combining county, state, and country names
 
      - beach_water_temperature
        - This table contains water and air temperature readings for Massachusetts beaches, with one row per measurement.
        - Fields:
-         - community_code (text): Prefixed community code (e.g., "COM-001")
-         - county_code (text): Prefixed county code (e.g., "CTY-01")
+         - community_code (text): Community code
+         - county_code (text): County code
          - beach_name (text): Beach name
-         - beach_type_description (text): Beach type (e.g., "Freshwater Beach", "Ocean Beach")
-         - sample_date (text): Sampling date in YYYY-MM-DD format (2002–2023, bathing season May–October)
-         - water_temp_c (real): Water temperature in degrees Celsius
-         - air_temp_c (real): Air temperature in degrees Celsius
+         - beach_type_description (text): Beach type
+         - sample_date (text): Sampling date
+         - water_temp (text): Water temperature
+         - air_temp (text): Air temperature
 
-
-3. misc_files
-   - This data source is a flat folder of files from multiple domains.
+3. domain_assets
+   - This database is stored in a SQLite database and contains binary files from multiple domains stored as blobs.
+   - This database consists of one table:
+     - files
+       - Each row represents a single file. Every row has four fields:
+         - file_name (text): File name
+         - file_type (text): File type descriptor
+         - file_domain (text): Domain the file belongs to
+         - content (blob): Full file content as a binary blob
