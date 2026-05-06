@@ -6,10 +6,8 @@ Here are the descriptions of these three data sources:
    - This database is stored in a MongoDB database and contains files from multiple domains including wildfire, environment, legal, biomedical, astronomy, and archeology.
    - This database consists of one collection:
      - files
-       - Each document represents a single file. Every document has three fields:
-         - id (str): Unique file path identifier used as the document key
-         - type (str): File type descriptor
-         - content (str): Full file content as a plain string; parse as CSV or plain text depending on the document
+       - Every document has one field:
+         - content (str): Full content as a plain string; may contain multiple files concatenated together
 
 
 2. geo_database
@@ -65,8 +63,6 @@ Here are the descriptions of these three data sources:
    - This database is stored in a SQLite database and contains binary files from multiple domains stored as blobs.
    - This database consists of one table:
      - files
-       - Each row represents a single file. Every row has four fields:
-         - file_name (text): File name
-         - file_type (text): File type descriptor
-         - file_domain (text): Domain the file belongs to
+       - Every row has two fields:
+         - file_description (text): Natural-language description of the file name, file type, and domain
          - content (blob): Full file content as a binary blob
