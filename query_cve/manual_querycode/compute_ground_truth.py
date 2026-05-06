@@ -31,17 +31,31 @@ def q1(c, m):
 
 def q2(c, m):
     """Multi-DB (kev+vulns) + ill-formatted (vendor clustering + cve-id canon)
-    + unstructured (CVSS from text): among KEV ransomware-flagged CVEs, which
-    canonical vendor (lowercase) has the highest AVERAGE CVSS base score?"""
+    + unstructured (severity from narrative text): among KEV ransomware-flagged
+    CVEs, which canonical vendor (lowercase) has the most CRITICAL-severity
+    CVEs (consider only vendors with at least 3 ransomware-flagged CVEs)?
+
+    Note: this is band-aligned. The narrative corruption preserves CVSS severity
+    band (CRITICAL/HIGH/MEDIUM/LOW per the CVSS v3 spec), so a count of CRITICAL
+    rows is fully recoverable from the narrative.
+    """
     row = c.execute("""
-        SELECT lower(k.vendor_project) AS v, AVG(c.cvss3_base_score) AS avg_score
-        FROM kev k
-        JOIN cves c ON c.cve_id = k.cve_id
-        WHERE lower(k.known_ransomware_use) = 'known'
-          AND c.cvss3_base_score IS NOT NULL
-        GROUP BY v
-        HAVING COUNT(*) >= 3
-        ORDER BY avg_score DESC, v ASC
+        WITH ransom_kev AS (
+            SELECT lower(k.vendor_project) AS v, c.cve_id, c.cvss3_severity
+            FROM kev k
+            JOIN cves c ON c.cve_id = k.cve_id
+            WHERE lower(k.known_ransomware_use) = 'known'
+        ),
+        per_vendor AS (
+            SELECT v,
+                   COUNT(*) AS n,
+                   SUM(CASE WHEN cvss3_severity = 'CRITICAL' THEN 1 ELSE 0 END) AS n_crit
+            FROM ransom_kev
+            GROUP BY v
+            HAVING n >= 3
+        )
+        SELECT v FROM per_vendor
+        ORDER BY n_crit DESC, v ASC
         LIMIT 1
     """).fetchone()
     return row[0]
@@ -138,19 +152,25 @@ def q7(c, m):
 
 def q8(c, m):
     """Multi-DB (vulns+kev+cpe) + ill-formatted (alias + cve-id canon +
-    vulnerable_flag) + unstructured (CVSS from text): avg CVSS base score for
-    KEV CVEs with vulnerable Microsoft CPE."""
+    vulnerable_flag) + unstructured (severity from narrative text): how many
+    CVEs are in KEV AND have at least one vulnerable Microsoft CPE configuration
+    AND have CVSS v3 severity HIGH or CRITICAL (i.e. base score >= 7.0)?
+
+    Note: this is band-aligned. The threshold 7.0 is the boundary between MEDIUM
+    and HIGH per the CVSS v3 spec, so 'HIGH or CRITICAL' is a band-level question
+    fully recoverable from the narrative-corrupted score_text.
+    """
     row = c.execute("""
-        SELECT AVG(v.cvss3_base_score)
+        SELECT COUNT(*)
         FROM cves v
         JOIN kev k ON k.cve_id = v.cve_id
         JOIN (
             SELECT DISTINCT cve_id FROM cpe_matches
             WHERE lower(vendor) = 'microsoft' AND vulnerable = 1
         ) ms ON ms.cve_id = v.cve_id
-        WHERE v.cvss3_base_score IS NOT NULL
+        WHERE v.cvss3_severity IN ('HIGH', 'CRITICAL')
     """).fetchone()
-    return f"{row[0]:.2f}" if row[0] is not None else "0.00"
+    return str(row[0])
 
 
 def q9(c, m):

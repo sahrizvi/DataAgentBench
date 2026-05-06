@@ -51,6 +51,21 @@ The narrative anchors on per-row context so each phrasing is substantively uniqu
 - `"This Department of Defense contract with LEIDOS, INC. represents a modest five-figure investment in computer systems design services."` (band: tens-of-thousands-or-less)
 - `"For a defense giant like Lockheed Martin, this aircraft manufacturing contract reflects a substantial yet routine allocation within the eight-figure realm."` (band: tens-of-millions)
 
+## What the corruption preserves vs. discards
+
+Because the LLM rewrite is band-level (the verifier checks band, not exact
+amount), an agent reading a narrative-corrupted row can recover the row's
+magnitude band but cannot recover the precise dollar amount. So a question
+like "total dollars awarded to California recipients" would not be answerable
+to the cent from narrative-only rows.
+
+All ten queries are intentionally designed to be answerable from band-level
+information. Dollar thresholds in queries align with band boundaries:
+$1,000,000 (boundary between "hundreds of thousands" and "millions") in
+Q1/Q2/Q4/Q8/Q9 and $10,000,000 (boundary between "millions" and "tens of
+millions") in Q5/Q7. The agent classifies each row's narrative into a band,
+then filters or counts. Q3, Q6, Q10 don't depend on amount at all.
+
 ## Shipped artifact hashes (SHA-256)
 
 ```

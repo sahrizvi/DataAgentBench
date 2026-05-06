@@ -22,15 +22,21 @@ def q1(c, m):
 
 
 def q2(c, m):
-    """Total contract amount for recipients in California (any surface form).
-    Multi-DB + ill-formatted (state) + unstructured (amount-as-text). Round to nearest dollar."""
-    total = c.execute("""
-        SELECT COALESCE(SUM(c.amount), 0)
+    """Multi-DB + ill-formatted (state) + unstructured (amount band): count
+    of contract awards whose recipient is in California (any surface form)
+    AND whose amount is greater than $1,000,000.
+
+    Note: $1M aligns with the boundary between the 'hundreds of thousands'
+    and 'millions' magnitude bands, so this threshold is fully recoverable
+    from the narrative-corrupted amount_text.
+    """
+    n = c.execute("""
+        SELECT COUNT(*)
         FROM contracts c
         JOIN recipients r ON r.uei = c.recipient_uei
-        WHERE r.state = 'CA' AND c.amount IS NOT NULL
+        WHERE r.state = 'CA' AND c.amount IS NOT NULL AND c.amount > 1000000
     """).fetchone()[0]
-    return f"{total:.0f}"
+    return str(n)
 
 
 def q3(c, m):
@@ -63,12 +69,17 @@ def q4(c, m):
 
 
 def q5(c, m):
-    """Distinct NAICS sectors (2-digit) for contracts >= $5M.
-    Multi-DB + ill-formatted (NAICS) + unstructured (amount)."""
+    """Multi-DB + ill-formatted (NAICS) + unstructured (amount band): distinct
+    NAICS 2-digit sectors represented across contracts of at least $10,000,000.
+
+    Note: $10M aligns with the boundary between the 'millions' and 'tens of
+    millions' magnitude bands, so this threshold is fully recoverable from the
+    narrative-corrupted amount_text.
+    """
     n = c.execute("""
         SELECT COUNT(DISTINCT substr(naics_code, 1, 2))
         FROM contracts
-        WHERE amount >= 5000000 AND naics_code IS NOT NULL
+        WHERE amount >= 10000000 AND naics_code IS NOT NULL
     """).fetchone()[0]
     return str(n)
 
@@ -101,31 +112,45 @@ def q6(c, m):
 
 
 def q7(c, m):
-    """Top NAICS sector by total contract amount.
-    Multi-DB + ill-formatted (NAICS) + unstructured (amount). Return as 2-digit code."""
+    """Multi-DB + ill-formatted (NAICS) + unstructured (amount band): NAICS
+    2-digit sector with the most contracts of at least $10,000,000.
+
+    Note: $10M aligns with the boundary between the 'millions' and 'tens of
+    millions' magnitude bands. Counting rows with amount in the upper bands
+    is fully recoverable from the narrative-corrupted amount_text.
+    """
     row = c.execute("""
-        SELECT substr(c.naics_code, 1, 2) AS sec, SUM(c.amount) AS tot
+        SELECT substr(c.naics_code, 1, 2) AS sec, COUNT(*) AS n
         FROM contracts c
-        WHERE c.naics_code IS NOT NULL AND c.amount IS NOT NULL
+        WHERE c.naics_code IS NOT NULL
+          AND c.amount IS NOT NULL
+          AND c.amount >= 10000000
         GROUP BY sec
-        ORDER BY tot DESC
+        ORDER BY n DESC, sec ASC
         LIMIT 1
     """).fetchone()
     return row[0]
 
 
 def q8(c, m):
-    """Total spend for Lockheed Martin (across all surface forms / UEIs) in DOD.
-    Multi-DB + ill-formatted (recipient fuzz, agency cluster) + unstructured (amount).
-    Match by recipient_name LIKE '%LOCKHEED MARTIN%' (case-insensitive). Round to nearest dollar."""
-    total = c.execute("""
-        SELECT COALESCE(SUM(amount), 0)
+    """Multi-DB + ill-formatted (recipient fuzz + agency cluster) + unstructured
+    (amount band): count of contracts awarded to Lockheed Martin (across all
+    UEIs and recipient_name surface-form variants) by the Department of Defense
+    (across all agency surface-form variants) with amount greater than $1,000,000.
+
+    Note: $1M aligns with the boundary between the 'hundreds of thousands' and
+    'millions' magnitude bands, so this threshold is fully recoverable from
+    the narrative-corrupted amount_text.
+    """
+    n = c.execute("""
+        SELECT COUNT(*)
         FROM contracts
         WHERE upper(recipient_name) LIKE '%LOCKHEED MARTIN%'
           AND awarding_agency = 'Department of Defense'
           AND amount IS NOT NULL
+          AND amount > 1000000
     """).fetchone()[0]
-    return f"{total:.0f}"
+    return str(n)
 
 
 def q9(c, m):

@@ -1,1 +1,1 @@
-"What is the total dollar amount (in USD, rounded to the nearest dollar) of all contract awards whose recipient is located in California (across all state-name surface-form variants)?"
+"How many contract awards have a recipient located in California (across all state-name surface-form variants) AND an amount greater than $1,000,000?"

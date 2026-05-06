@@ -49,6 +49,22 @@ LLM-driven per-row narrative corruption with **roundtrip-classifier verification
 
 A narrative is included in the shipped artifacts only if (a) it contains no banned tokens, (b) its content overlaps lexically with the original CVE prose, (c) its length is within 50–600 chars, and (d) an independent LLM classifier recovers the canonical band. Rows that fail all retry attempts fall back to the deterministic templated form.
 
+## What the corruption preserves vs. discards
+
+Because the LLM rewrite is band-level (the verifier checks band, not score), an
+agent reading a narrative-corrupted row can recover the row's CVSS severity
+**class** (CRITICAL / HIGH / MEDIUM / LOW per the CVSS v3 spec) but cannot
+recover the precise CVSS score within the class. So a question like
+"average CVSS to 2 decimal places" would not be answerable from
+narrative-only rows.
+
+All ten queries are intentionally designed to be answerable from band-level
+information. Numeric thresholds in queries (CVSS ≥ 7.0 in Q8, ≥ 9.0 in Q10)
+align with [official CVSS v3 band
+boundaries](https://www.first.org/cvss/v3.1/specification-document) — public,
+standard knowledge. Queries that return a vendor name (Q2, Q4) compare counts
+of CVEs in a given band, not numeric averages.
+
 ## Shipped artifact hashes (SHA-256)
 
 ```

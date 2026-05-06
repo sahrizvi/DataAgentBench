@@ -1,1 +1,1 @@
-"What is the average CVSS v3 base score (rounded to 2 decimal places) of CVEs that are listed in CISA's KEV catalog AND have at least one vulnerable Microsoft product configuration?"
+"How many distinct CVEs are listed in CISA's KEV catalog AND have at least one vulnerable Microsoft product configuration AND have CVSS v3 severity HIGH or CRITICAL (i.e. CVSS v3 base score of 7.0 or higher per the standard CVSS v3 spec)?"
