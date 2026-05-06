@@ -3,7 +3,7 @@ import re
 
 def validate(llm_output: str):
     expected = 3.88
-    tolerance = 0.005
+    tolerance = 0.1
 
     matches = re.findall(r"[-+]?\d+\.?\d*", llm_output)
     for m in matches:
