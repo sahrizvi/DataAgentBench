@@ -3,11 +3,11 @@ You are working with three data sources to solve this query.
 Here are the descriptions of these three data sources:
 
 1. domain_docs
-   - This database is stored in a MongoDB database and contains files from multiple domains including wildfire, environment, legal, biomedical, astronomy, and archeology.
+   - This database is stored in a MongoDB database and contains files from multiple domains.
    - This database consists of one collection:
      - files
        - Every document has one field:
-         - content (str): Full content as a plain string; may contain multiple files concatenated together
+         - content (str): Full content as a plain string
 
 
 2. geo_database
@@ -46,7 +46,7 @@ Here are the descriptions of these three data sources:
          - src_lang1, src_lang2 (text): Alternate source languages
          - src_date, src_update (text): Source date and last update date
          - src_name, src_lic, src_url, src_grp (text): Source metadata
-         - adm_description (text): Natural-language description combining county, state, and country names
+         - adm_description (text): Natural-language description of county, state, and country names
 
      - beach_water_temperature
        - This table contains water and air temperature readings for Massachusetts beaches, with one row per measurement.
@@ -64,5 +64,5 @@ Here are the descriptions of these three data sources:
    - This database consists of one table:
      - files
        - Every row has two fields:
-         - file_description (text): Natural-language description of the file name, file type, and domain
+         - file_description (text): Natural-language description of file name, file type, and domain
          - content (blob): Full file content as a binary blob

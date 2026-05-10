@@ -1,16 +1,9 @@
 HINTS:
-- Domain contents:
-  - wildfire (NIFC stats, fire weather, AQI, suppression costs, demographics, Census population estimates); 
-  - environment (MA beach water quality records 2002–2023, datasheets, EJ populations, precipitation); 
-  - legal (FTC CSN 2024 CSVs on identity theft/fraud by MSA, age, type; HTML MSA population table); 
-  - biomedical (hyperactivated proteins per UCEC patient CSV; CPTAC3 mmc1–mmc7 tables); 
-  - astronomy (sunspot numbers, Starlink OMM, NOAA geomagnetic forecasts, Swarm-B density, OMNI2 solar wind/Kp 2023–2024, TLE for NORAD 43180/48445, SP3 orbit files, CDF); 
-  - archeology (Brecke conflict dataset, Roman/world cities, climate records, radiocarbon database).
 - Bacterial exceedance rate: (violations / total samples) × 100.
-- Beach join key: (community_code, county_code, beach_name); CSV files use plain integers, beach_water_temperature table (in geo_database) uses prefixed strings (e.g., "COM-001").
-- MSA name matching: use city-and-state portion only; treat em dashes, double hyphens, and hyphens as equivalent.
-- UCEC patient ID join: spreadsheet uses zero-padded uppercase (e.g., S001); hyperactivated CSV uses lowercase with underscore (e.g., s_1).
-- TLE BSTAR: compact notation ±NNNNN±E = ±0.NNNNN × 10^E (e.g., 20621-3 = 2.0621 × 10⁻⁴).
-- beach_water_temperature.sample_date is stored in varied formats (e.g., "2002-10-20", "10/20/2002", "October 20, 2002", "20/10/2002")
+- Beach join key: community_code, county_code, and beach_name appear in varying formats across sources and may need to be canonicalized before joining.
+- MSA name matching: use the city-and-state portion only; treat em dashes, double hyphens, and hyphens as equivalent.
+- Date and time formats vary across sources and may need to be canonicalized before comparison.
+- Patient ID formats differ across sources and may need to be canonicalized before joining.
+- BSTAR compact notation: ±NNNNN±E = ±0.NNNNN × 10^E (e.g., 20621-3 = 2.0621 × 10⁻⁴).
 - Temperature unit conversion: °F = °C × 9/5 + 32; K = °C + 273.15.
-- In domain_assets, different file_type or file_domain values may refer to the same type or domain (e.g., "python script", "Python", and "PYTHON CODE" all mean the same file type; "astrophysics", "Space Science", and "ASTRONOMY" all mean the same domain).
+- Key values — including locations, timestamps, identifiers, statistics, and flags — may be embedded in natural-language prose and may need to be extracted before use.
