@@ -90,11 +90,6 @@ def init_messages(user_query: str, db_description: str, deployment_name: str, sy
     else:
         raise ValueError(f"Unknown deployment_name: {deployment_name}")
     
-    if db_description.strip() != "":
-        content_str = f"QUERY:\n{user_query.strip()}\n\nDATABASE DESCRIPTION:\n{db_description.strip()}"
-    else:
-        content_str = f"QUERY:\n{user_query.strip()}"
-    
     return [
         {
             "role": "system",
@@ -102,6 +97,6 @@ def init_messages(user_query: str, db_description: str, deployment_name: str, sy
         },
         {
             "role": "user",
-            "content": content_str
+            "content": f"QUERY:\n{user_query.strip()}\n\nDATABASE DESCRIPTION:\n{db_description.strip()}"
         }
     ]
