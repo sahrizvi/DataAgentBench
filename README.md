@@ -23,17 +23,18 @@ Unlike prior SQL-only or single-database benchmarks, DAB stresses agents under *
 
 | Rank | Model          | Pass@1 | Date    | Submission |
 | ---- | -------------- | ------------------- | ------- | ---------- |
-| 1    | Pi Coding Agent (Claude-Opus-4.6) (5 trials/query) | 0.5603 | 2026-04-21 | [#31](https://github.com/ucbepic/DataAgentBench/pull/31) |
-| 2    | PromptQL (Gemini-3.1-Pro) (5 trials/query) | 0.543                | 2026-03-18 | [#24](https://github.com/ucbepic/DataAgentBench/pull/24) |
-| 3    | PromptQL (Claude-Opus-4.6) (5 trials/query) | 0.508                | 2026-03-02 | [#23](https://github.com/ucbepic/DataAgentBench/pull/23) |
-| 4    | Oracle Forge — Tenacious Intelligence (Claude-Sonnet-4.6) (5–7 trials/query) | 0.4554 | 2026-04-21 | [#32](https://github.com/ucbepic/DataAgentBench/pull/32) |
-| 5    | Claude-Opus-4.6 (5 trials/query) | 0.4376                | 2026-03-18 | [#22](https://github.com/ucbepic/DataAgentBench/pull/22) |
-| 6    | Gemini-3-Pro | 0.38           | 2026-03-02 | — |
-| 7    | GPT-5-mini     |     0.30           | 2026-03-02 | — |
-| 8    | GPT-5.2     |     0.25           | 2026-03-02 | — |
-| 9    | Kimi-K2     |     0.23           | 2026-03-02 | — |
-| 10   | Oracle Forge — Team Cohere (Gemini-2.0-Flash) (5 trials/query) | 0.128 | 2026-04-21 | [#38](https://github.com/ucbepic/DataAgentBench/pull/38) |
-| 11   | Gemini-2.5-Flash     |     0.09          | 2026-03-02 | — |
+| 1    | Altimate Code (Claude-Sonnet-4.6) (5 trials/query) | 0.6040 | 2026-05-10 | [#44](https://github.com/ucbepic/DataAgentBench/pull/44) |
+| 2    | Pi Coding Agent (Claude-Opus-4.6) (5 trials/query) | 0.5603 | 2026-04-21 | [#31](https://github.com/ucbepic/DataAgentBench/pull/31) |
+| 3    | PromptQL (Gemini-3.1-Pro) (5 trials/query) | 0.543                | 2026-03-18 | [#24](https://github.com/ucbepic/DataAgentBench/pull/24) |
+| 4    | PromptQL (Claude-Opus-4.6) (5 trials/query) | 0.508                | 2026-03-02 | [#23](https://github.com/ucbepic/DataAgentBench/pull/23) |
+| 5    | Oracle Forge — Tenacious Intelligence (Claude-Sonnet-4.6) (5–7 trials/query) | 0.4554 | 2026-04-21 | [#32](https://github.com/ucbepic/DataAgentBench/pull/32) |
+| 6    | Claude-Opus-4.6 (5 trials/query) | 0.4376                | 2026-03-18 | [#22](https://github.com/ucbepic/DataAgentBench/pull/22) |
+| 7    | Gemini-3-Pro | 0.38           | 2026-03-02 | — |
+| 8    | GPT-5-mini     |     0.30           | 2026-03-02 | — |
+| 9    | GPT-5.2     |     0.25           | 2026-03-02 | — |
+| 10   | Kimi-K2     |     0.23           | 2026-03-02 | — |
+| 11   | Oracle Forge — Team Cohere (Gemini-2.0-Flash) (5 trials/query) | 0.128 | 2026-04-21 | [#38](https://github.com/ucbepic/DataAgentBench/pull/38) |
+| 12   | Gemini-2.5-Flash     |     0.09          | 2026-03-02 | — |
 
 
 ### How to Submit to the Leaderboard
