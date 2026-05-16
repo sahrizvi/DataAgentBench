@@ -24,7 +24,7 @@
       "team": "Spacedock (Recce)",
       "teamUrl": "https://github.com/ucbepic/DataAgentBench/pull/47",
       "prUrl": "https://github.com/ucbepic/DataAgentBench/pull/47",
-      "date": "2026-05-06"
+      "date": "2026-05-08"
     },
     {
       "rank": 3,
@@ -58,6 +58,16 @@
     },
     {
       "rank": 6,
+      "agent": "Oracle Forge (Team PaLM) + Gemini 3.1 Pro Preview",
+      "trials": 5,
+      "passAt1": 0.4601,
+      "team": "Team PaLM",
+      "teamUrl": "https://github.com/ucbepic/DataAgentBench/pull/37",
+      "prUrl": "https://github.com/ucbepic/DataAgentBench/pull/37",
+      "date": "2026-04-19"
+    },
+    {
+      "rank": 7,
       "agent": "Oracle Forge (Tenacious Intelligence) + Claude Sonnet 4.6",
       "trials": 5,
       "passAt1": 0.4554,
@@ -67,7 +77,7 @@
       "date": "2026-04-21"
     },
     {
-      "rank": 7,
+      "rank": 8,
       "agent": "Claude Opus 4.6 ReAct",
       "trials": 5,
       "passAt1": 0.4376,
@@ -77,7 +87,7 @@
       "date": "2026-03-18"
     },
     {
-      "rank": 8,
+      "rank": 9,
       "agent": "Gemini-3-Pro ReAct",
       "trials": 50,
       "passAt1": 0.38,
@@ -86,7 +96,7 @@
       "date": "2026-03-02"
     },
     {
-      "rank": 9,
+      "rank": 10,
       "agent": "GPT-5-mini ReAct",
       "trials": 50,
       "passAt1": 0.3,
@@ -95,7 +105,7 @@
       "date": "2026-03-02"
     },
     {
-      "rank": 10,
+      "rank": 11,
       "agent": "GPT-5.2 ReAct",
       "trials": 50,
       "passAt1": 0.25,
@@ -104,7 +114,7 @@
       "date": "2026-03-02"
     },
     {
-      "rank": 11,
+      "rank": 12,
       "agent": "Kimi-K2 ReAct",
       "trials": 50,
       "passAt1": 0.23,
@@ -113,7 +123,7 @@
       "date": "2026-03-02"
     },
     {
-      "rank": 12,
+      "rank": 13,
       "agent": "Oracle Forge (Team Cohere) + Gemini 2.0 Flash",
       "trials": 5,
       "passAt1": 0.128,
@@ -123,7 +133,7 @@
       "date": "2026-04-21"
     },
     {
-      "rank": 13,
+      "rank": 14,
       "agent": "Gemini-2.5-Flash ReAct",
       "trials": 50,
       "passAt1": 0.09,
