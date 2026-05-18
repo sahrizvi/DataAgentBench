@@ -7,3 +7,4 @@ HINTS:
 - BSTAR compact notation: ±NNNNN±E = ±0.NNNNN × 10^E (e.g., 20621-3 = 2.0621 × 10⁻⁴).
 - Temperature unit conversion: °F = °C × 9/5 + 32; K = °C + 273.15.
 - Key values — including locations, timestamps, identifiers, statistics, and flags — may be embedded in natural-language prose and may need to be extracted before use.
+- To answer a query, you may need multiple documents from domain_docs; a document's domain can be inferred from its name and content.

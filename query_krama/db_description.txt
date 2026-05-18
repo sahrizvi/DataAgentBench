@@ -64,5 +64,5 @@ Here are the descriptions of these three data sources:
    - This database consists of one table:
      - files
        - Every row has two fields:
-         - file_description (text): Natural-language description of file name, file type, and domain
+         - file_description (text): Natural-language description of file name and file type
          - content (blob): Full file content as a binary blob
