@@ -9,7 +9,7 @@ Guardrails (each output must pass all checks; up to 3 retries; otherwise the
 row is skipped and the original text is kept unchanged so we never lose data):
 
   * MUST contain no banned literal words (severity terms, denylisted near-synonyms,
-    and the literal score number)
+    and close variants)
   * MUST be within [0.5x, 3.0x] the length of the original description
   * MUST be in English (heuristic: ascii ratio > 0.9)
   * MUST mention at least one noun from the original description (lexical overlap
@@ -186,11 +186,9 @@ def classify_severity(client, narrative: str) -> str | None:
             max_tokens=10,
             temperature=0.0,
         )
-        out = (r.choices[0].message.content or "").strip().upper().rstrip(".")
-        for lbl in ("CRITICAL", "HIGH", "MEDIUM", "LOW"):
-            if lbl in out:
-                return lbl
-        return None
+        out = (r.choices[0].message.content or "").strip().upper()
+        normalized = re.sub(r"[^A-Z]", "", out)
+        return normalized if normalized in {"CRITICAL", "HIGH", "MEDIUM", "LOW"} else None
     except Exception:
         return None
 
@@ -261,11 +259,13 @@ def main():
     ap.add_argument("--workers", type=int, default=8)
     ap.add_argument("--limit", type=int, default=None,
                     help="Hard cap on rows processed (debug)")
-    ap.add_argument("--skip-severity", action="store_true")
+    ap.add_argument("--force", action="store_true",
+                    help="Regenerate selected rows even if already present in the manifest")
+    ap.add_argument("--only-ids-file", type=Path, default=None,
+                    help="Optional file containing one canonical CVE id per line to regenerate")
     args = ap.parse_args()
 
     _ensure_manifest_tables()
-    client = _client()
 
     clean = sqlite3.connect(CLEAN_DB)
     if args.scope == "kev":
@@ -294,6 +294,14 @@ def main():
         """).fetchall()
     clean.close()
 
+    if args.only_ids_file:
+        target_ids = {
+            line.strip().upper()
+            for line in args.only_ids_file.read_text(encoding="utf-8").splitlines()
+            if line.strip() and not line.lstrip().startswith("#")
+        }
+        rows = [r for r in rows if r[0].upper() in target_ids]
+
     if args.limit:
         rows = rows[: args.limit]
 
@@ -302,21 +310,24 @@ def main():
 
     # already-done lookup so reruns are incremental
     mconn = sqlite3.connect(MANIFEST_DB)
-    done_sev = {r[0] for r in mconn.execute("SELECT cve_id FROM planted_narrative_desc")}
+    done_sev = set() if args.force or args.only_ids_file else {
+        r[0] for r in mconn.execute("SELECT cve_id FROM planted_narrative_desc")
+    }
     mconn.close()
 
     todo = [r for r in rows if r[0] not in done_sev]
     print(f"  {len(rows) - len(todo)} already done; {len(todo)} new", flush=True)
+    if not todo:
+        return
 
     n_sev_ok = 0
+    client = _client()
     lock_conn = sqlite3.connect(MANIFEST_DB, isolation_level=None)
     lock_conn.execute("PRAGMA journal_mode=WAL")
 
     def work(row):
         cve_id, sev, desc = row
-        out_sev = None
-        if not args.skip_severity and cve_id not in done_sev:
-            out_sev = rewrite_severity(client, cve_id, sev, desc or "")
+        out_sev = rewrite_severity(client, cve_id, sev, desc or "")
         return cve_id, sev, out_sev
 
     with ThreadPoolExecutor(max_workers=args.workers) as ex:

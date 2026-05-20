@@ -93,7 +93,7 @@ Pipeline order to regenerate from scratch:
 1. `python manual_querycode/fetch_clean.py` — downloads NVD + KEV + EPSS into `clean/clean.sqlite`
 2. `python manual_querycode/corrupt.py` — emits the 4 agent-visible DBs into `query_dataset/`; deterministic transforms only
 3. `python manual_querycode/llm_corrupt.py --scope kev` — populates `clean/manifest.sqlite` with verifier-validated severity narratives (Azure OpenAI; reads `.env`)
-4. `python manual_querycode/audit_corruption.py` — roundtrip-classifies every existing narrative; writes lists of mismatched cve_ids; rerun llm_corrupt on those until mismatch rate is <2%
+4. `python manual_querycode/audit_corruption.py` — roundtrip-classifies every existing narrative; writes mismatched IDs to `clean/audit_severity_bad.txt`; rerun `python manual_querycode/llm_corrupt.py --only-ids-file clean/audit_severity_bad.txt` until mismatch rate is <2%
 5. `python manual_querycode/corrupt.py` again — picks up the validated severity narratives from manifest and bakes them into the agent-visible DBs
 6. `python manual_querycode/compute_ground_truth.py` — emits `queryN/ground_truth.csv` for all 10 queries from the canonical clean data
 

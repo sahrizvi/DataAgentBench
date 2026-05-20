@@ -2,7 +2,8 @@
 
 Calls the LLM classifier on each stored severity narrative and compares to the
 canonical label. Reports the disagreement rate and lists offending rows. Does
-NOT modify the manifest — use llm_corrupt.py to regenerate flagged rows.
+NOT modify the manifest — use llm_corrupt.py --only-ids-file to regenerate
+flagged rows.
 """
 from __future__ import annotations
 import argparse
