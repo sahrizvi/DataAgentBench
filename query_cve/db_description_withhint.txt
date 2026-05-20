@@ -1,5 +1,5 @@
 HINTS:
-- CVE identifiers appear under 500 noisy source prefixes and multiple CVE/year-number surface forms across the four databases. Cross-DB joins require extracting the embedded year and numeric suffix and rebuilding a canonical CVE-YYYY-NNNN key.
+- CVE identifiers appear inside thousands of noisy source prefixes, suffixes, and wrapper fragments across the four databases.
 - cpe_db.cpe_matches.criteria contains a vendor alias rather than the canonical vendor name; cpe_db.vendor_aliases resolves aliases to canonical vendor names.
 - cpe_db.cpe_matches.vulnerable_flag is free-text — multiple truthy and falsy tokens appear; normalization is needed.
 - cpe_db.cpe_version_details.version_text is stored in a mixed encoding; equivalent versions may not match by string equality.

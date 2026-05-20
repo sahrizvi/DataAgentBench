@@ -20,10 +20,11 @@ Corruption properties applied:
       "5.4-medium-base", and "base_score=6.5 severity=Medium".
     - ~5% of CVEs have a duplicate row in `cves` with a conflicting
       cvss3_attack_vector value.
-    - cve_id format varies per row across all CVE-bearing tables, with one of
-      500 noisy source prefixes prepended. Joins require extracting and
-      canonicalizing the embedded CVE year/number rather than enumerating
-      observed prefixes.
+    - cve_id format varies per row across all CVE-bearing tables, with
+      thousands of noisy source prefixes, suffixes, and wrapper fragments
+      surrounding the embedded CVE year/number. Joins require extracting and
+      canonicalizing the embedded CVE token rather than enumerating observed
+      noise strings.
 
   descriptions_db (mongo):
     - One document per CVE: { cve, descriptions: [{lang, value}, ...],
@@ -33,8 +34,8 @@ Corruption properties applied:
       never appear.
     - English description dropped for a deterministic subset (~20%); only the
       non-English description survives there (no fallback if no other lang exists).
-    - cve field uses the canonical CVE-ID format (uppercase "CVE-YYYY-NNNN") —
-      cross-DB joins from descriptions to vulns/cpe still require canonicalization.
+    - cve field uses the same noisy-but-recoverable CVE join-key corruption as
+      the SQL and DuckDB surfaces.
 
   cpe_db (duckdb):
     - cpe_matches.criteria uses vendor ALIASES, never the canonical vendor name.
@@ -58,8 +59,8 @@ Corruption properties applied:
       single-product rows still get a single value; synthetic multi-product
       rows are injected for queries that test list-splitting.
     - ~5% of KEV rows reference CVEs absent from vulns_db (referential gap).
-    - cve_ref format varies per row, including the same 500-prefix join-key
-      corruption used on other CVE references.
+    - cve_ref format varies per row, including the same high-cardinality
+      join-key corruption used on other CVE references.
 
 
 Manifest tables (clean/manifest.sqlite — never agent-visible):
@@ -234,17 +235,17 @@ VENDOR_VARIANTS = {
 }
 
 
-def vendor_variant(canonical: str, salt: str) -> str:
+def vendor_variant(canonical: str, context: str) -> str:
     pool = VENDOR_VARIANTS.get(canonical.lower())
     if not pool:
-        choice = h(canonical, salt) % 3
+        choice = h(canonical, context) % 3
         return [canonical, canonical.lower(), canonical + " Inc."][choice]
-    return pool[h(canonical, salt) % len(pool)]
+    return pool[h(canonical, context) % len(pool)]
 
 
 # ---- CVE-ID format mixing --------------------------------------------------
 
-def _letters_from_int(n: int, width: int = 8) -> str:
+def _letters_from_int(n: int, width: int = 10) -> str:
     alphabet = "abcdefghijklmnop"
     chars = []
     for _ in range(width):
@@ -255,25 +256,48 @@ def _letters_from_int(n: int, width: int = 8) -> str:
 
 CVE_KEY_PREFIXES = tuple(
     f"{stem}-{_letters_from_int(h('cve-prefix', i))}{sep}"
-    for i in range(500)
+    for i in range(4096)
     for stem, sep in [(
-        ["nvd", "kev", "cpe", "mongo", "xref", "mirror", "feed", "catalog", "row", "doc"][i % 10],
-        ["::", "|", "/", "#", "@", "~", "__", "--", "=>", "::key="][(i // 10) % 10],
+        ["nvd", "kev", "cpe", "mongo", "xref", "mirror", "feed", "catalog", "row", "doc", "scan", "idx", "ref", "blob", "join", "link"][i % 16],
+        ["::", "|", "/", "#", "@", "~", "__", "--", "=>", "::key=", "~~", "++", "::id=", "::ref=", "$", "%"][((i // 16) + i) % 16],
+    )]
+)
+
+CVE_KEY_SUFFIXES = tuple(
+    f"{sep}{stem}-{_letters_from_int(h('cve-suffix', i), 9)}"
+    for i in range(4096)
+    for stem, sep in [(
+        ["tail", "src", "seen", "frag", "node", "sink", "cache", "slot", "mark", "trace", "batch", "edge", "note", "leaf", "tag", "trail"][i % 16],
+        ["::", "|", "/", "#", "@", "~", "__", "--", "=>", "::end=", "~~", "++", "::aux=", "::via=", "$", "%"][((i // 16) + 3 * i) % 16],
+    )]
+)
+
+CVE_KEY_WRAPPERS = tuple(
+    (
+        f"{left}{_letters_from_int(h('cve-wrap-left', i), 6)}{mid}",
+        f"{right}{_letters_from_int(h('cve-wrap-right', i), 6)}"
+    )
+    for i in range(1024)
+    for left, mid, right in [(
+        ["", "[", "(", "{", "<", "ctx:", "raw:", "join:", "id:", "key:", "slot:", "doc:"][i % 12],
+        ["", ":", "::", "|", "~", "/", "#", "@"][((i // 12) + i) % 8],
+        ["", "]", ")", "}", ">", ":ctx", ":raw", ":join", ":id", ":key", ":slot", ":doc"][((i // 96) + i) % 12],
     )]
 )
 
 
-def reformat_cve_id(cve_id: str, salt: str) -> str:
+def reformat_cve_id(cve_id: str, context: str) -> str:
     """Return a noisy, recoverable CVE join key.
 
-    The prefix pool is intentionally too large to enumerate conveniently. The
-    intended normalization is to extract the embedded year and numeric suffix
-    and rebuild CVE-YYYY-NNNN.
+    The noise space is intentionally high-cardinality. The normalized key is
+    still recoverable from the embedded CVE year and numeric suffix.
     """
     body = cve_id.upper().removeprefix("CVE-")
     year, num = body.split("-", 1)
-    prefix = CVE_KEY_PREFIXES[h("cve-prefix-choice", salt) % len(CVE_KEY_PREFIXES)]
-    fid = h("cveid", salt) % 5
+    prefix = CVE_KEY_PREFIXES[h("cve-prefix-choice", context) % len(CVE_KEY_PREFIXES)]
+    suffix = CVE_KEY_SUFFIXES[h("cve-suffix-choice", context) % len(CVE_KEY_SUFFIXES)]
+    wrap_l, wrap_r = CVE_KEY_WRAPPERS[h("cve-wrap-choice", context) % len(CVE_KEY_WRAPPERS)]
+    fid = h("cveid", context) % 8
     if fid == 0:
         key = f"CVE-{year}-{num}"
     elif fid == 1:
@@ -282,9 +306,15 @@ def reformat_cve_id(cve_id: str, salt: str) -> str:
         key = f"{year}-{num}"
     elif fid == 3:
         key = f"{year}_{num}"
-    else:
+    elif fid == 4:
         key = f"{year}:{num}"
-    return prefix + key
+    elif fid == 5:
+        key = f"CVE_{year}_{num}"
+    elif fid == 6:
+        key = f"cve:{year}:{num}"
+    else:
+        key = f"{year}::{num}"
+    return prefix + wrap_l + key + wrap_r + suffix
 
 
 # ---- pipeline --------------------------------------------------------------
