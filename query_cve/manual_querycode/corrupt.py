@@ -14,12 +14,16 @@ Corruption properties applied:
   vulns_db (sqlite):
     - Only the structured registry: cves + cvss_metadata.
     - cvss3_severity column DROPPED.
-    - cvss3_base_score column DROPPED. Score moved into a sibling
-      cvss_metadata.score_text column, formatted variably as
-      "9.8 (CRITICAL)", "score=7.1/10 hi", "5.4-medium-base", etc.
+    - cvss3_base_score column DROPPED. Exact numeric CVSS v3 base score is
+      preserved in a sibling cvss_metadata.score_text column with varied
+      parseable formats such as "9.8 (CRITICAL)", "score=7.10/10 hi",
+      "5.4-medium-base", and "base_score=6.5 severity=Medium".
     - ~5% of CVEs have a duplicate row in `cves` with a conflicting
       cvss3_attack_vector value.
-    - cve_id format varies per row across both tables in vulns.
+    - cve_id format varies per row across all CVE-bearing tables, with one of
+      500 noisy source prefixes prepended. Joins require extracting and
+      canonicalizing the embedded CVE year/number rather than enumerating
+      observed prefixes.
 
   descriptions_db (mongo):
     - One document per CVE: { cve, descriptions: [{lang, value}, ...],
@@ -45,14 +49,17 @@ Corruption properties applied:
 
   kev_db (postgres):
     - vendor_project rewritten via vendor-variant pool (microsoft / "Microsoft Corp"
-      / "MSFT" all map to apache canonical "microsoft"). Variants chosen
+      / "MSFT" all map to canonical "microsoft"). Variants chosen
       deterministically so the same canonical vendor appears under multiple
-      surface forms requiring clustering.
+      surface forms. An agent-visible kev_vendor_aliases table maps each
+      surface form to its canonical vendor, so grouping is explicit rather than
+      inferred from an underspecified clustering algorithm.
     - product column REPLACED with products_csv: a comma-separated list. Real
       single-product rows still get a single value; synthetic multi-product
       rows are injected for queries that test list-splitting.
     - ~5% of KEV rows reference CVEs absent from vulns_db (referential gap).
-    - cve_ref format varies per row.
+    - cve_ref format varies per row, including the same 500-prefix join-key
+      corruption used on other CVE references.
 
 
 Manifest tables (clean/manifest.sqlite — never agent-visible):
@@ -136,7 +143,7 @@ SCORE_TEXT_FORMATS = [
     lambda score, sev: f"{score:.1f} ({sev.upper()})",
     lambda score, sev: f"score={score:.2f}/10 {sev.lower()[:2]}",
     lambda score, sev: f"{score:.1f}-{sev.lower()}-base",
-    lambda score, sev: f"CVSSv3 base = {score:.1f} severity={sev.title()}",
+    lambda score, sev: f"base_score={score:.1f} severity={sev.title()}",
 ]
 
 
@@ -236,13 +243,48 @@ def vendor_variant(canonical: str, salt: str) -> str:
 
 
 # ---- CVE-ID format mixing --------------------------------------------------
+
+def _letters_from_int(n: int, width: int = 8) -> str:
+    alphabet = "abcdefghijklmnop"
+    chars = []
+    for _ in range(width):
+        chars.append(alphabet[n & 0xF])
+        n >>= 4
+    return "".join(chars)
+
+
+CVE_KEY_PREFIXES = tuple(
+    f"{stem}-{_letters_from_int(h('cve-prefix', i))}{sep}"
+    for i in range(500)
+    for stem, sep in [(
+        ["nvd", "kev", "cpe", "mongo", "xref", "mirror", "feed", "catalog", "row", "doc"][i % 10],
+        ["::", "|", "/", "#", "@", "~", "__", "--", "=>", "::key="][(i // 10) % 10],
+    )]
+)
+
+
 def reformat_cve_id(cve_id: str, salt: str) -> str:
-    fid = h("cveid", salt) % 3
+    """Return a noisy, recoverable CVE join key.
+
+    The prefix pool is intentionally too large to enumerate conveniently. The
+    intended normalization is to extract the embedded year and numeric suffix
+    and rebuild CVE-YYYY-NNNN.
+    """
+    body = cve_id.upper().removeprefix("CVE-")
+    year, num = body.split("-", 1)
+    prefix = CVE_KEY_PREFIXES[h("cve-prefix-choice", salt) % len(CVE_KEY_PREFIXES)]
+    fid = h("cveid", salt) % 5
     if fid == 0:
-        return cve_id
-    if fid == 1:
-        return cve_id.lower()
-    return cve_id.removeprefix("CVE-").removeprefix("cve-")
+        key = f"CVE-{year}-{num}"
+    elif fid == 1:
+        key = f"cve-{year}-{num}"
+    elif fid == 2:
+        key = f"{year}-{num}"
+    elif fid == 3:
+        key = f"{year}_{num}"
+    else:
+        key = f"{year}:{num}"
+    return prefix + key
 
 
 # ---- pipeline --------------------------------------------------------------
@@ -320,12 +362,7 @@ def _load_planted_narratives(manifest: sqlite3.Connection):
     )} if manifest.execute(
         "SELECT name FROM sqlite_master WHERE type='table' AND name='planted_narrative_desc'"
     ).fetchone() else {}
-    score = {r[0]: r[1] for r in manifest.execute(
-        "SELECT cve_id, narrative FROM planted_narrative_score"
-    )} if manifest.execute(
-        "SELECT name FROM sqlite_master WHERE type='table' AND name='planted_narrative_score'"
-    ).fetchone() else {}
-    return desc, score
+    return desc
 
 
 def build_vulns(clean: sqlite3.Connection, manifest: sqlite3.Connection) -> None:
@@ -356,8 +393,6 @@ def build_vulns(clean: sqlite3.Connection, manifest: sqlite3.Connection) -> None
     score_by_cve: dict[str, float] = dict(cur.execute(
         "SELECT cve_id, cvss3_base_score FROM cves WHERE cvss3_base_score IS NOT NULL"
     ).fetchall())
-    narr_desc_by_cve, narr_score_by_cve = _load_planted_narratives(manifest)
-
     n_dup = 0
     for cve_id, published, last_modified, vuln_status, av in cur.execute(
         "SELECT cve_id, published, last_modified, vuln_status, "
@@ -382,18 +417,12 @@ def build_vulns(clean: sqlite3.Connection, manifest: sqlite3.Connection) -> None
             n_dup += 1
 
     n_score = 0
-    n_narr_score = 0
     for cve_id, score in score_by_cve.items():
         sev = sev_by_cve.get(cve_id)
-        # Prefer per-row LLM-generated narrative if available; fall back to
-        # template otherwise.
-        narr = narr_score_by_cve.get(cve_id)
-        if narr:
-            st = narr
-            fid = -1  # signals narrative origin
-            n_narr_score += 1
-        else:
-            st, fid = score_text(score, sev, cve_id)
+        # Always preserve the exact numeric score. We still vary the row format
+        # so agents must parse score_text row by row, but thresholds such as
+        # >= 7.0 and >= 9.0 no longer depend on hidden severity-band inference.
+        st, fid = score_text(score, sev, cve_id)
         if not st:
             continue
         cve_corrupted = reformat_cve_id(cve_id, "vulns-" + cve_id)
@@ -408,8 +437,7 @@ def build_vulns(clean: sqlite3.Connection, manifest: sqlite3.Connection) -> None
     out.close()
     manifest.commit()
     print(
-        f"vulns.db: built ({n_score} cvss texts, of which {n_narr_score} are "
-        f"LLM narratives, {n_dup} duplicate rows)"
+        f"vulns.db: built ({n_score} parseable cvss texts, {n_dup} duplicate rows)"
     )
 
 
@@ -426,7 +454,7 @@ def build_descriptions(clean: sqlite3.Connection, manifest: sqlite3.Connection) 
     sev_by_cve: dict[str, str] = dict(cur.execute(
         "SELECT cve_id, cvss3_severity FROM cves WHERE cvss3_severity IS NOT NULL"
     ).fetchall())
-    narr_desc_by_cve, _ = _load_planted_narratives(manifest)
+    narr_desc_by_cve = _load_planted_narratives(manifest)
 
     descs_by_cve: dict[str, list[dict]] = {}
     n_planted_sev = 0
@@ -467,7 +495,7 @@ def build_descriptions(clean: sqlite3.Connection, manifest: sqlite3.Connection) 
     cve_universe = set(descs_by_cve) | set(refs_by_cve)
     docs = [
         {
-            "cve": cve_id,
+            "cve": reformat_cve_id(cve_id, "desc-" + cve_id),
             "descriptions": descs_by_cve.get(cve_id, []),
             "references": refs_by_cve.get(cve_id, []),
         }
@@ -610,10 +638,17 @@ def build_kev(clean: sqlite3.Connection, manifest: sqlite3.Connection) -> None:
         "  known_ransomware_use TEXT,",
         "  notes TEXT",
         ");",
+        "CREATE TABLE kev_vendor_aliases (",
+        "  vendor_project TEXT PRIMARY KEY,",
+        "  canonical_vendor TEXT",
+        ");",
     ]
+    alias_map: dict[str, str] = {}
     for (cve_id, vendor, product, vname, dadded, sdesc, raction, ddue, krw, notes) in rows:
         cv = vendor or ""
         corrupted_vendor = vendor_variant(cv, cve_id) if cv else cv
+        if corrupted_vendor:
+            alias_map[corrupted_vendor] = cv.lower()
         cve_ref = reformat_cve_id(cve_id, "kev-" + cve_id)
 
         # synthesize a packed list when product contains a "/" (real KEV uses
@@ -640,6 +675,14 @@ def build_kev(clean: sqlite3.Connection, manifest: sqlite3.Connection) -> None:
         mcur.execute(
             "INSERT OR REPLACE INTO canonical_kev_vendor VALUES (?,?,?)",
             (cve_id, vendor, corrupted_vendor),
+        )
+
+    for surface, canonical in sorted(alias_map.items(), key=lambda r: (r[1], r[0].lower())):
+        lines.append(
+            "INSERT INTO kev_vendor_aliases VALUES (" + ", ".join([
+                pgesc(surface),
+                pgesc(canonical),
+            ]) + ");"
         )
 
     KEV_SQL.write_text("\n".join(lines) + "\n", encoding="utf-8")

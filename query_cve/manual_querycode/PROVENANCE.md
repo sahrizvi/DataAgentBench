@@ -23,55 +23,57 @@ Hash-deterministic transforms (each row's choice is keyed by a stable SHA-1 hash
 
 | Layer | Surface |
 |---|---|
-| Cross-DB CVE-id format mixing | vulns / cpe / kev / descriptions |
+| Cross-DB CVE-id format mixing | vulns / cpe / kev / descriptions. Every CVE-bearing join key is prefixed by one of 500 deterministic noisy source prefixes and then stores the CVE as `CVE-YYYY-NNNN`, `cve-YYYY-NNNN`, `YYYY-NNNN`, `YYYY_NNNN`, or `YYYY:NNNN`. |
 | CPE vendor aliasing (canonical name → opaque alias) | `cpe_db.cpe_matches.criteria` (with `cpe_db.vendor_aliases` lookup) |
 | `vulnerable_flag` varied truthy/falsy tokens | `cpe_db.cpe_matches.vulnerable_flag` |
 | CPE version-encoding mix (semver, comma-sep, build-number, etc.) | `cpe_db.cpe_version_details.version_text` |
-| KEV vendor surface-form variants | `kev_db.kev_entries.vendor_project` |
+| KEV vendor surface-form variants | `kev_db.kev_entries.vendor_project` (resolved by visible `kev_db.kev_vendor_aliases`) |
 | Packed comma-separated product lists | `kev_db.kev_entries.products_csv` |
 | Referential-integrity gap | `kev_db` ↔ `vulns_db` (some KEV CVEs predate the bounded NVD window) |
 | Duplicate rows with conflicting `cvss3_attack_vector` | `vulns_db.cves` (~5% of CVEs) |
 | English-description dropping | `descriptions_db.cve_documents` (deterministic ~5% subset) |
+| Exact CVSS base-score text formatting | `vulns_db.cvss_metadata.score_text` (numeric score preserved, format varies per row) |
 
-LLM-driven per-row narrative corruption with **roundtrip-classifier verification** (each generated narrative is classified back to its canonical band by a separate LLM call before being accepted; mismatches retry up to 3 times):
+LLM-driven per-row narrative corruption with **roundtrip-classifier verification** (each generated severity narrative is classified back to its canonical severity by a separate LLM call before being accepted; mismatches retry up to 3 times):
 
 | Layer | Surface | Anchor context | Generation model |
 |---|---|---|---|
-| CVSS-score-as-narrative-prose | `vulns_db.cvss_metadata.score_text` | per-row vendor + product + 240-char vulnerability summary | `gpt-4o`, temp 0.95 |
 | Severity-as-narrative-prose | `descriptions_db.cve_documents.descriptions[].value` (English) | the unique CVE description itself | `gpt-4o`, temp 0.7 |
 
 ## Verifier audit (post-generation)
 
 | Layer | Total rows | Distinct narratives | Diversity ratio | Verifier mismatch rate |
 |---|---|---|---|---|
-| CVSS-score-as-narrative | 225 | 225 | 100.0% | <2% |
-| Severity-as-narrative (KEV CVEs) | 309 | 309 | 100.0% | 1.9% |
+| Severity-as-narrative (KEV CVEs) | 294 | 294 | 100.0% | 1.9% |
 
-A narrative is included in the shipped artifacts only if (a) it contains no banned tokens, (b) its content overlaps lexically with the original CVE prose, (c) its length is within 50–600 chars, and (d) an independent LLM classifier recovers the canonical band. Rows that fail all retry attempts fall back to the deterministic templated form.
+A narrative is included in the shipped artifacts only if (a) it contains no banned tokens, (b) its content overlaps lexically with the original CVE prose, (c) its length is within 50–600 chars, and (d) an independent LLM classifier recovers the canonical severity. Rows that fail all retry attempts fall back to the deterministic templated form.
 
 ## What the corruption preserves vs. discards
 
-Because the LLM rewrite is band-level (the verifier checks band, not score), an
-agent reading a narrative-corrupted row can recover the row's CVSS severity
-**class** (CRITICAL / HIGH / MEDIUM / LOW per the CVSS v3 spec) but cannot
-recover the precise CVSS score within the class. So a question like
-"average CVSS to 2 decimal places" would not be answerable from
-narrative-only rows.
+The agent-visible CVSS score surface now preserves exact numeric base scores.
+`vulns_db.cvss_metadata.score_text` uses varied text wrappers, so agents must
+parse each row. The CVSS score is always the first numeric token in the field,
+and no CVSS threshold query depends on recovering a hidden severity band from
+prose.
 
-All ten queries are intentionally designed to be answerable from band-level
-information. Numeric thresholds in queries (CVSS ≥ 7.0 in Q8, ≥ 9.0 in Q10)
-align with [official CVSS v3 band
-boundaries](https://www.first.org/cvss/v3.1/specification-document) — public,
-standard knowledge. Queries that return a vendor name (Q2, Q4) compare counts
-of CVEs in a given band, not numeric averages.
+KEV vendor surface-form variants are also explicit rather than underspecified:
+`kev_db.kev_vendor_aliases` maps every `kev_entries.vendor_project` surface
+form in the shipped SQL dump to the canonical lowercase vendor used by the
+queries. Agents still need to join row by row through that lookup, but they do
+not need to invent a clustering algorithm.
+
+CVE joins are intentionally not solvable by enumerating a short list of known
+prefixes. The shipped artifacts contain all 500 noisy CVE-key prefixes. The
+recoverable operation is to extract the embedded CVE year and numeric suffix
+and normalize to `CVE-YYYY-NNNN` before joining.
 
 ## Shipped artifact hashes (SHA-256)
 
 ```
-ba16013d0e57fc909f4c880efb6b2992860482765cecc6ef18d1386f3199f525  query_dataset/cpe.duckdb
-5b8b57e41dce71cbea100502c879fc837743caaccbb9df5bc69de0081fb78743  query_dataset/descriptions/cve_descriptions/cve_documents.bson
-96bcf4abe38bd5a3a2f83cbaed267833d8bc1996b39dedf6c041a68aa16b20f5  query_dataset/kev.sql
-8b88f651fa43541c914ac585b21c8d093922117671c953a84b753c710f53ff72  query_dataset/vulns.db
+305cedf0ba0169f025e21b1e76cf33242470fe4628d853997b462db594b08fe1  query_dataset/cpe.duckdb
+fe393f0e761040c843619b3b4f77e2862c25ec5a13dbb2af816f3c5443b9f3f6  query_dataset/descriptions/cve_descriptions/cve_documents.bson
+618c30ff559c3de4d1c12bac6ac501f74e94dfed047194343f3e81524afd2d9a  query_dataset/kev.sql
+712a32f3336237c2a532d381390d6b630584fe9dd52b942e70511cae19a434c7  query_dataset/vulns.db
 ```
 
 These pin the exact bytes of the agent-visible corrupted databases in this commit. Reviewers can `shasum -a 256 query_cve/query_dataset/{cpe.duckdb,descriptions/cve_descriptions/cve_documents.bson,kev.sql,vulns.db}` to verify they have the same dataset.
@@ -90,9 +92,9 @@ Full source: `manual_querycode/fetch_clean.py`, `manual_querycode/corrupt.py`, `
 Pipeline order to regenerate from scratch:
 1. `python manual_querycode/fetch_clean.py` — downloads NVD + KEV + EPSS into `clean/clean.sqlite`
 2. `python manual_querycode/corrupt.py` — emits the 4 agent-visible DBs into `query_dataset/`; deterministic transforms only
-3. `python manual_querycode/llm_corrupt.py --scope kev` — populates `clean/manifest.sqlite` with verifier-validated severity narratives + score narratives (Azure OpenAI; reads `.env`)
+3. `python manual_querycode/llm_corrupt.py --scope kev` — populates `clean/manifest.sqlite` with verifier-validated severity narratives (Azure OpenAI; reads `.env`)
 4. `python manual_querycode/audit_corruption.py` — roundtrip-classifies every existing narrative; writes lists of mismatched cve_ids; rerun llm_corrupt on those until mismatch rate is <2%
-5. `python manual_querycode/corrupt.py` again — picks up the validated narratives from manifest and bakes them into the agent-visible DBs
+5. `python manual_querycode/corrupt.py` again — picks up the validated severity narratives from manifest and bakes them into the agent-visible DBs
 6. `python manual_querycode/compute_ground_truth.py` — emits `queryN/ground_truth.csv` for all 10 queries from the canonical clean data
 
 ### LLM prompts (severity-as-narrative)
@@ -158,66 +160,6 @@ SEVERITY_MOTIFS = {
 }
 ```
 
-### LLM prompts (CVSS-score-as-narrative)
-
-```
-You are obfuscating a CVE's CVSS v3 base score (scale 0.0-10.0) for a benchmark.
-
-Write ONE sentence (40 - 280 characters) that *implies* the magnitude band of
-the score through narrative phrasing. The sentence MUST NOT contain digits,
-the words "score" / "rating", or any of: critical, crit, high, medium,
-moderate, low, minor, severity, sev.
-
-Constraint — anchor in CVE-specific context. Reference at least one of the
-context details below NATURALLY in the sentence (vendor, product, or a
-short paraphrase of the vulnerability mechanism). This makes each narrative
-substantively unique per row.
-
-Constraint — VARY phrasing aggressively. Do NOT default to stock templates
-like "in the elevated tier" or "near the top of the scale". Each row should
-use distinct vocabulary, syntactic structure, and register. Treat each row
-as a unique editorial paraphrase. Some registers to draw from (rotate):
-- terse advisory: "Among the upper-tier issues this vendor has shipped."
-- analyst-paragraph: "By the standards of similar {{product}} flaws, this
-  one sits in the elevated band — not the rarefied air of pre-auth-RCE
-  catastrophes, but well above routine."
-- comparative: "Comparable in severity to {{vendor}}'s prior
-  authentication-bypass disclosures."
-- hedged: "Roughly two notches below the maximum on the standard 10-point
-  vulnerability scale."
-- domain-flavored: "Practitioners would treat this as a top-of-the-list
-  patch-now item but not a fire-drill."
-- counterfactual: "Were the attack vector network rather than local, this
-  would push toward the very top; as written, it lands in the
-  upper-middle band."
-
-CRITICAL — band-specific constraints. The narrative must clearly imply the
-target band and NOT imply a higher band. Use phrasing aligned with the
-canonical band. Where useful you may use approximate ten-point-scale anchors:
-- 9.0-10.0: "near the very top of the scale" / "essentially at the maximum"
-  / "rarefied top tier" / "approaches the pinnacle"
-- 7.0-8.9: "comfortably above the midpoint but clearly not at the maximum"
-  / "in the upper-middle band, well above average but short of the top"
-  / "two-notches-below-maximum" — DO NOT use phrases like "near the top"
-  / "just shy of the pinnacle" / "top tier" / "approaches the maximum"
-  for this band, those imply 9.0-10.0.
-- 4.0-6.9: "in the middle band" / "around the midpoint" /
-  "roughly mid-scale" — DO NOT use words like "elevated" / "upper" / "high"
-  / "near the top".
-- 0.1-3.9: "well below the midpoint" / "in the lower portion of the scale"
-  / "minor in scale" — DO NOT use anything that implies above-midpoint.
-
-Score to imply: {score} (so canonical band = {band})
-
-CVE context (incorporate naturally — but do NOT include the CVE id, do NOT
-copy the original description verbatim):
-- vendor: {vendor}
-- product: {product}
-- vulnerability summary: {summary}
-
-Output ONLY the sentence. No preamble. No digits.
-```
-
 ### Roundtrip verifier prompts
 
 Severity classifier (output is one of CRITICAL / HIGH / MEDIUM / LOW; rejection if it disagrees with the canonical):
@@ -235,25 +177,10 @@ Output ONLY the label, nothing else.
 Description: {desc}
 ```
 
-Score-band classifier (output is one of `9.0-10.0` / `7.0-8.9` / `4.0-6.9` / `0.1-3.9`; rejection if it disagrees with the canonical band):
-
-```
-Read the sentence below and decide which CVSS v3 base score band it implies
-(the score scale is 0.0 to 10.0). Choose EXACTLY one:
-- 9.0-10.0
-- 7.0-8.9
-- 4.0-6.9
-- 0.1-3.9
-
-Output ONLY the band label.
-
-Sentence: {sentence}
-```
-
 ### Ground-truth-computation SQL highlights
 
-Q4 (vendor with highest CRITICAL share among canonical KEV vendors with ≥10
-qualifying CVEs):
+Q4 (vendor with highest share of CVSS ≥ 9.0 among canonical KEV vendors with
+≥10 qualifying CVEs):
 
 ```sql
 WITH kev_with_vuln_cpe AS (
@@ -263,11 +190,11 @@ WITH kev_with_vuln_cpe AS (
     WHERE cp.vulnerable = 1
 ),
 sev AS (
-    SELECT cve_id, cvss3_severity FROM cves WHERE cvss3_severity IS NOT NULL
+    SELECT cve_id, cvss3_base_score FROM cves WHERE cvss3_base_score IS NOT NULL
 )
 SELECT k.vendor,
        COUNT(*) AS n,
-       SUM(CASE WHEN sev.cvss3_severity = 'CRITICAL' THEN 1 ELSE 0 END) AS n_crit
+       SUM(CASE WHEN sev.cvss3_base_score >= 9.0 THEN 1 ELSE 0 END) AS n_crit
 FROM kev_with_vuln_cpe k
 LEFT JOIN sev ON sev.cve_id = k.cve_id
 GROUP BY k.vendor
@@ -278,4 +205,3 @@ LIMIT 1
 
 Other queries' GT SQL is in `manual_querycode/compute_ground_truth.py` (one
 function per query, each returning a string that becomes the queryN/ground_truth.csv).
-

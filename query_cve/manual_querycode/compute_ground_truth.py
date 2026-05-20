@@ -30,14 +30,10 @@ def q1(c, m):
 
 
 def q2(c, m):
-    """Multi-DB (kev+vulns) + ill-formatted (vendor clustering + cve-id canon)
+    """Multi-DB (kev+vulns) + ill-formatted (KEV vendor alias lookup + cve-id canon)
     + unstructured (severity from narrative text): among KEV ransomware-flagged
     CVEs, which canonical vendor (lowercase) has the most CRITICAL-severity
     CVEs (consider only vendors with at least 3 ransomware-flagged CVEs)?
-
-    Note: this is band-aligned. The narrative corruption preserves CVSS severity
-    band (CRITICAL/HIGH/MEDIUM/LOW per the CVSS v3 spec), so a count of CRITICAL
-    rows is fully recoverable from the narrative.
     """
     row = c.execute("""
         WITH ransom_kev AS (
@@ -74,10 +70,11 @@ def q3(c, m):
 def q4(c, m):
     """4-hop chained aggregation: among canonical KEV vendors with >=10 KEV
     CVEs that have at least one vulnerable CPE configuration, return the vendor
-    with the HIGHEST SHARE of CVEs whose CVSS severity is CRITICAL.
+    with the HIGHEST SHARE of CVEs whose CVSS base score is >= 9.0.
 
     Properties exercised: multi-DB (kev+cpe+vulns) + ill-formatted (KEV vendor
-    cluster + CVE-id canon + alias/vuln_flag) + unstructured (severity).
+    alias lookup + CVE-id canon + CPE alias/vuln_flag) + row-by-row numeric
+    score parsing in the agent-visible DB.
     """
     rows = c.execute("""
         WITH kev_with_vuln_cpe AS (
@@ -87,11 +84,11 @@ def q4(c, m):
             WHERE cp.vulnerable = 1
         ),
         sev AS (
-            SELECT cve_id, cvss3_severity FROM cves WHERE cvss3_severity IS NOT NULL
+            SELECT cve_id, cvss3_base_score FROM cves WHERE cvss3_base_score IS NOT NULL
         )
         SELECT k.vendor,
                COUNT(*) AS n,
-               SUM(CASE WHEN sev.cvss3_severity = 'CRITICAL' THEN 1 ELSE 0 END) AS n_crit
+               SUM(CASE WHEN sev.cvss3_base_score >= 9.0 THEN 1 ELSE 0 END) AS n_crit
         FROM kev_with_vuln_cpe k
         LEFT JOIN sev ON sev.cve_id = k.cve_id
         GROUP BY k.vendor
@@ -152,13 +149,9 @@ def q7(c, m):
 
 def q8(c, m):
     """Multi-DB (vulns+kev+cpe) + ill-formatted (alias + cve-id canon +
-    vulnerable_flag) + unstructured (severity from narrative text): how many
+    vulnerable_flag) + row-by-row score parsing in the agent-visible DB: how many
     CVEs are in KEV AND have at least one vulnerable Microsoft CPE configuration
-    AND have CVSS v3 severity HIGH or CRITICAL (i.e. base score >= 7.0)?
-
-    Note: this is band-aligned. The threshold 7.0 is the boundary between MEDIUM
-    and HIGH per the CVSS v3 spec, so 'HIGH or CRITICAL' is a band-level question
-    fully recoverable from the narrative-corrupted score_text.
+    AND have CVSS v3 base score >= 7.0?
     """
     row = c.execute("""
         SELECT COUNT(*)
@@ -168,7 +161,7 @@ def q8(c, m):
             SELECT DISTINCT cve_id FROM cpe_matches
             WHERE lower(vendor) = 'microsoft' AND vulnerable = 1
         ) ms ON ms.cve_id = v.cve_id
-        WHERE v.cvss3_severity IN ('HIGH', 'CRITICAL')
+        WHERE v.cvss3_base_score >= 7.0
     """).fetchone()
     return str(row[0])
 
@@ -183,8 +176,8 @@ def q9(c, m):
 
 
 def q10(c, m):
-    """Multi-DB (kev+vulns) + ill-formatted (KEV vendor clustering + cve-id
-    canon + products_csv split) + unstructured (CSV parsing): how many distinct
+    """Multi-DB (kev+vulns) + ill-formatted (KEV vendor alias lookup + cve-id
+    canon + products_csv split) + row-by-row score parsing: how many distinct
     Microsoft products (per canonical KEV vendor 'microsoft', after splitting
     on '/' or ',') have at least one CVE in KEV with CVSS base score >= 9.0?"""
     products = set()
