@@ -164,27 +164,27 @@ def q9(c, m):
 
 
 def q10(c, m):
-    """Contracts with conflicting amount values AND from a top-10 recipient
-    (by contract count, after canonicalizing names case-insensitively).
-    Multi-DB + ill-formatted (recipient fuzz, duplicates)."""
-    # Top-10 recipients by canonical name (case-insensitive)
-    top10 = [
-        r[0] for r in c.execute("""
-            SELECT upper(recipient_name) AS uname, COUNT(*) AS n
-            FROM contracts WHERE recipient_name IS NOT NULL
-            GROUP BY uname
-            ORDER BY n DESC, uname ASC
-            LIMIT 10
-        """)
-    ]
+    """Among top-10 recipients by contract count, how many contracts have a
+    superseded (_OLD) amount entry in contract_amounts?
+    Multi-DB + ill-formatted (award_id normalization + UEI normalization)."""
+    # Top-10 by contract count from canonical contracts (tie-break by uei asc)
+    top10_ueis = {r[0] for r in c.execute("""
+        SELECT recipient_uei, COUNT(*) AS n
+        FROM contracts
+        WHERE recipient_uei IS NOT NULL
+        GROUP BY recipient_uei
+        ORDER BY n DESC, recipient_uei ASC
+        LIMIT 10
+    """)}
+    # Contracts with superseded amounts come from the planted_duplicate manifest
     duped = {r[0] for r in m.execute("SELECT canonical_award_id FROM planted_duplicate")}
-    n = 0
-    for award_id, rname in c.execute("""
-        SELECT award_id, recipient_name FROM contracts
-        WHERE recipient_name IS NOT NULL
-    """):
-        if rname.upper() in top10 and award_id in duped:
-            n += 1
+    n = sum(
+        1 for (award_id, uei) in c.execute(
+            "SELECT award_id, recipient_uei FROM contracts "
+            "WHERE recipient_uei IS NOT NULL AND award_id IS NOT NULL"
+        )
+        if award_id in duped and uei in top10_ueis
+    )
     return str(n)
 
 

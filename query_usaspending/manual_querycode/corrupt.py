@@ -15,8 +15,10 @@ Corruption layers:
       contract_amounts. 105 possible formats: plain integers, comma-separated,
       dollar-prefixed, USD-suffixed, K/M/B-scaled abbreviations, full English
       word form, and sum-of-two-parts expressions. Each row picks one
-      deterministically. ~1/30 rows also get a second conflicting row whose
-      amount_text encodes a different (scaled) value.
+      deterministically. ~1/30 rows also get a second superseded-amount row
+      whose award_id has "_OLD" appended and whose amount_text encodes a
+      different (scaled) value. A join from contracts to contract_amounts via
+      normalized award_id naturally skips these _OLD rows.
     - award_id format varies per row AND per table: the same canonical award_id
       appears in a different format in contracts vs contract_amounts vs
       descriptions_db. Three formats: original uppercase, lowercase, or
@@ -46,7 +48,7 @@ Manifest (clean/manifest.sqlite — never agent-visible):
     canonical_naics     (canonical_code, corrupted_code)
     canonical_amount    (canonical_award_id, canonical_amount, amount_text)
     planted_eng_dropped (award_id)
-    planted_duplicate   (canonical_award_id, original_amount, duplicate_amount)
+    planted_duplicate   (canonical_award_id, original_amount, superseded_amount)
 """
 from __future__ import annotations
 import hashlib
@@ -763,8 +765,14 @@ def build_contracts(clean: sqlite3.Connection, manifest: sqlite3.Connection) -> 
             if should_duplicate(award_id or ""):
                 dup_amt   = conflicting_amount(amt, award_id or "")
                 dup_atext = amount_text(dup_amt, (award_id or "") + "-dup")
+                # Superseded-amount rows stay in contract_amounts but the award_id
+                # gets "_OLD" appended (in the same surface-form style), so a
+                # proper join from contracts → contract_amounts via normalized
+                # award_id naturally skips these rows (Q1-Q9 are unambiguous).
+                # Q10 specifically queries for entries whose award_id ends with _OLD.
+                old_aid = a_corr_a + "_OLD" if a_corr_a else None
                 lines.append(
-                    f"INSERT INTO contract_amounts VALUES ({pgesc(a_corr_a)}, {pgesc(dup_atext)});"
+                    f"INSERT INTO contract_amounts VALUES ({pgesc(old_aid)}, {pgesc(dup_atext)});"
                 )
                 mcur.execute(
                     "INSERT OR REPLACE INTO planted_duplicate VALUES (?,?,?)",

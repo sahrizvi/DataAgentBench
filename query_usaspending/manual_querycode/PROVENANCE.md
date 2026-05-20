@@ -31,7 +31,7 @@ choice is keyed by a stable SHA-1 hash of a salted identifier.
 | Recipient name fuzzification (corporate-suffix variants, case, whitespace) | `recipients_db.recipients.name` |
 | State surface-form variants | `recipients_db.recipients.state` |
 | Amount-as-text (105 formats, one chosen per row) | `contracts_db.contract_amounts.amount_text`, `recipients_db.recipients.total_amount_text` — see format table below |
-| Duplicate `contract_amounts` rows with conflicting amount values | ~3.5% of awards get a second row whose `amount_text` encodes a different (scaled) amount |
+| Superseded-amount rows in `contract_amounts` | ~3.5% of awards get a second row whose `award_id` has `_OLD` appended and whose `amount_text` encodes a different (scaled) amount. A join from `contracts` via normalized award_id naturally skips `_OLD` rows; Q10 specifically queries for them. |
 | English-description dropping | `descriptions_db.contract_documents` (~10% of contracts, deterministic) |
 
 ## Amount format table (105 formats)
