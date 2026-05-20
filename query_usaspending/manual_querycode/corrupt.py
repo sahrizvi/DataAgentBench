@@ -19,12 +19,14 @@ Corruption layers:
       whose award_id has "_OLD" appended and whose amount_text encodes a
       different (scaled) value. A join from contracts to contract_amounts via
       normalized award_id naturally skips these _OLD rows.
-    - award_id format varies per row AND per table: the same canonical award_id
-      appears in a different format in contracts vs contract_amounts vs
-      descriptions_db. Three formats: original uppercase, lowercase, or
-      hyphen-separated runs. Joins across tables require normalization.
+    - award_id, UEI, and NAICS codes have OCR-like character substitutions
+      applied (0↔O, 1↔I, 5↔S, 2↔Z, 6↔G, 8↔B) at a ~1/6 rate per eligible
+      character, independently per table. On top of that, 207 prefix variants,
+      3 case variants, and 5 separator variants are applied. Joining across
+      tables requires entity resolution (loading all rows and fuzzy-matching),
+      not a simple regex.
     - awarding_agency replaced with surface-form variants (DoD / DOD / etc.).
-    - naics_code reformatted: "336411" / "naics-336411" / "33-6411".
+    - naics_code reformatted: "336411" / "naics-336411" / "33-6411", plus OCR.
 
   recipients_db (sqlite):
     - recipient UEI format varies between contracts_db and recipients_db for
@@ -336,12 +338,13 @@ def amount_text(value: float, salt: str) -> str:
 def naics_format(code: str, salt: str) -> str:
     if not code:
         return code
+    c = apply_ocr(code, "naics-" + salt)  # OCR on raw digits before prefix
     fid = h("naics", salt) % 3
     if fid == 0:
-        return code
+        return c
     if fid == 1:
-        return f"naics-{code}"
-    return f"{code[:2]}-{code[2:]}" if len(code) >= 4 else code
+        return f"naics-{c}"
+    return f"{c[:2]}-{c[2:]}" if len(c) >= 4 else c
 
 
 # ---------------------------------------------------------------------------
@@ -450,18 +453,56 @@ def fuzz_recipient_name(name: str, salt: str) -> str:
 
 
 # ---------------------------------------------------------------------------
+# OCR-like character confusion
+#
+# Before prefix/case/separator transforms, a subset of characters in the
+# canonical ID are swapped for visually-similar look-alikes, independently
+# per (character index, canonical_id, table).  This makes cross-table joins
+# NOT solvable by a single regex or formula: after stripping prefix and
+# separators, matched IDs from different tables can still differ at 2-3
+# positions.  Entity resolution (loading all rows from both tables and
+# fuzzy-matching) is the only reliable approach.
+#
+# Substitution pairs (bidirectional):
+#   0 ↔ O    1 ↔ I    5 ↔ S    2 ↔ Z    6 ↔ G    8 ↔ B
+# ---------------------------------------------------------------------------
+
+_OCR_PAIRS: list[tuple[str, str]] = [
+    ("0", "O"), ("1", "I"), ("5", "S"), ("2", "Z"), ("6", "G"), ("8", "B"),
+]
+# Build lookup: each char → its visual substitute
+_OCR_SUB: dict[str, str] = {}
+for _a, _b in _OCR_PAIRS:
+    _OCR_SUB[_a] = _b
+    _OCR_SUB[_b] = _a
+
+_OCR_RATE = 6  # ~1/6 chance per eligible character per table
+
+
+def apply_ocr(s: str, table: str) -> str:
+    """Swap visually-similar characters in s, deterministically per (position, table)."""
+    out = []
+    for i, c in enumerate(s):
+        sub = _OCR_SUB.get(c)
+        if sub is not None and h("ocr", s, table, i) % _OCR_RATE == 0:
+            out.append(sub)
+        else:
+            out.append(c)
+    return "".join(out)
+
+
+# ---------------------------------------------------------------------------
 # Award ID and UEI formats
 #
-# Each ID is rendered as:  PREFIX + case_transform(sep_insert(canonical_id))
+# Pipeline per ID:
+#   1. apply_ocr(canonical_id, table)   — visual look-alike substitutions
+#   2. case_transform                   — upper / lower / original
+#   3. _insert_sep at letter↔digit      — "", "-", " ", "_", "."
+#   4. prepend prefix                   — 207 options
 #
-# Dimensions picked independently per (id, table) via three hash calls:
-#   h("aid-pre",  id, table) % len(_ID_PREFIXES)  → prefix
-#   h("aid-case", id, table) % 3                   → upper / lower / original
-#   h("aid-sep",  id, table) % len(_ID_SEPS)       → separator at α↔digit boundaries
-#
-# ~110 prefixes × 3 cases × 5 separators = ~1,650 effective surface forms.
-# With ~9,500 rows × 3 tables, every combination appears ~17 times — far too
-# many to enumerate by hand; agents must write a pattern-based parser.
+# Steps 1-4 are all independently chosen per (id, table), so the same
+# canonical id surfaces completely differently in each table.  Joining
+# requires entity resolution across all rows, not a single regex.
 # ---------------------------------------------------------------------------
 
 _ID_PREFIXES: list[str] = [
@@ -567,21 +608,23 @@ def _insert_sep(s: str, sep: str) -> str:
 def award_id_format(aid: str, table: str) -> str:
     if not aid:
         return aid
-    prefix = _ID_PREFIXES[h("aid-pre",  aid, table) % len(_ID_PREFIXES)]
-    case   = h("aid-case", aid, table) % 3
-    sep    = _ID_SEPS[h("aid-sep",  aid, table) % len(_ID_SEPS)]
-    body = aid.upper() if case == 0 else aid.lower() if case == 1 else aid
-    return prefix + _insert_sep(body, sep)
+    body = apply_ocr(aid, table)
+    case = h("aid-case", aid, table) % 3
+    body = body.upper() if case == 0 else body.lower() if case == 1 else body
+    sep  = _ID_SEPS[h("aid-sep", aid, table) % len(_ID_SEPS)]
+    body = _insert_sep(body, sep)
+    return _ID_PREFIXES[h("aid-pre", aid, table) % len(_ID_PREFIXES)] + body
 
 
 def uei_format(uei: str, table: str) -> str:
     if not uei:
         return uei
-    prefix = _ID_PREFIXES[h("uei-pre",  uei, table) % len(_ID_PREFIXES)]
-    case   = h("uei-case", uei, table) % 3
-    sep    = _ID_SEPS[h("uei-sep",  uei, table) % len(_ID_SEPS)]
-    body = uei.upper() if case == 0 else uei.lower() if case == 1 else uei
-    return prefix + _insert_sep(body, sep)
+    body = apply_ocr(uei, table)
+    case = h("uei-case", uei, table) % 3
+    body = body.upper() if case == 0 else body.lower() if case == 1 else body
+    sep  = _ID_SEPS[h("uei-sep", uei, table) % len(_ID_SEPS)]
+    body = _insert_sep(body, sep)
+    return _ID_PREFIXES[h("uei-pre", uei, table) % len(_ID_PREFIXES)] + body
 
 
 # ---------------------------------------------------------------------------

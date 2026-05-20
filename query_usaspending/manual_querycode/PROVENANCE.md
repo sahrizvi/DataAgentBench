@@ -24,8 +24,8 @@ choice is keyed by a stable SHA-1 hash of a salted identifier.
 
 | Layer | Surface |
 |---|---|
-| Award ID format mixing **across tables** | `contracts_db.contracts.award_id`, `contracts_db.contract_amounts.award_id`, `descriptions_db` — each table uses a different salt, so the same canonical award ID can appear as original uppercase in one table, lowercase in another, and hyphen-separated in a third. Cross-table joins require normalization. |
-| Recipient UEI format mixing **across tables** | `contracts_db.contracts.recipient_uei` vs `recipients_db.recipients.uei` — independent salts, so the same canonical UEI surfaces differently in each DB. |
+| Award ID corruption **across tables** | Each table independently applies: OCR-like char substitutions (0↔O, 1↔I, 5↔S, 2↔Z, 6↔G, 8↔B at ~1/6 rate per eligible char), one of 207 prefix variants, upper/lower/original case, and a separator at letter↔digit boundaries. After stripping prefix and separator, matched IDs from different tables can still differ at 2-3 OCR-substituted positions. Joining requires entity resolution across all rows. |
+| Recipient UEI corruption **across tables** | Same OCR + prefix + case + separator pipeline applied independently per table. |
 | Awarding-agency surface-form variants | `contracts_db.contracts.awarding_agency` (with `agencies_db.agency_aliases` lookup for canonicalization) |
 | NAICS code reformatting (6-digit / `naics-XXXXXX` / `XX-XXXX`) | `contracts_db.contracts.naics_code` |
 | Recipient name fuzzification (corporate-suffix variants, case, whitespace) | `recipients_db.recipients.name` |
