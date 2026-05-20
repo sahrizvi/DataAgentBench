@@ -21,10 +21,9 @@ Corruption properties applied:
     - ~5% of CVEs have a duplicate row in `cves` with a conflicting
       cvss3_attack_vector value.
     - cve_id format varies per row across all CVE-bearing tables, with
-      thousands of noisy source prefixes, suffixes, and wrapper fragments
-      surrounding the embedded CVE year/number. Joins require extracting and
-      canonicalizing the embedded CVE token rather than enumerating observed
-      noise strings.
+      thousands of noisy source prefixes, suffixes, wrapper fragments, and
+      infix fragments mixed into heterogeneous encodings of the embedded CVE
+      year/number.
 
   descriptions_db (mongo):
     - One document per CVE: { cve, descriptions: [{lang, value}, ...],
@@ -245,13 +244,52 @@ def vendor_variant(canonical: str, context: str) -> str:
 
 # ---- CVE-ID format mixing --------------------------------------------------
 
-def _letters_from_int(n: int, width: int = 10) -> str:
+def _letters_from_int(n: int, width: int = 5) -> str:
     alphabet = "abcdefghijklmnop"
     chars = []
     for _ in range(width):
         chars.append(alphabet[n & 0xF])
         n >>= 4
     return "".join(chars)
+
+
+def _base36(n: int) -> str:
+    alphabet = "0123456789abcdefghijklmnopqrstuvwxyz"
+    if n == 0:
+        return "0"
+    out = []
+    while n:
+        n, rem = divmod(n, 36)
+        out.append(alphabet[rem])
+    return "".join(reversed(out))
+
+
+def _chunked(s: str, context: str) -> str:
+    parts = []
+    i = 0
+    while i < len(s):
+        step = 1 + h("chunk", context, i) % 3
+        parts.append(s[i:i + step])
+        i += step
+    return ".".join(parts)
+
+
+def _ocr_digits(s: str, context: str) -> str:
+    swaps = {"0": "O", "1": "I", "2": "Z", "5": "S", "6": "G", "8": "B"}
+    out = []
+    for i, ch in enumerate(s):
+        out.append(swaps.get(ch, ch) if h("ocr", context, i) % 3 else ch)
+    return "".join(out)
+
+
+def _interleave(a: str, b: str) -> str:
+    out = []
+    for i in range(max(len(a), len(b))):
+        if i < len(a):
+            out.append(a[i])
+        if i < len(b):
+            out.append(b[i])
+    return "".join(out)
 
 
 CVE_KEY_PREFIXES = tuple(
@@ -264,7 +302,7 @@ CVE_KEY_PREFIXES = tuple(
 )
 
 CVE_KEY_SUFFIXES = tuple(
-    f"{sep}{stem}-{_letters_from_int(h('cve-suffix', i), 9)}"
+    f"{sep}{stem}-{_letters_from_int(h('cve-suffix', i), 4)}"
     for i in range(4096)
     for stem, sep in [(
         ["tail", "src", "seen", "frag", "node", "sink", "cache", "slot", "mark", "trace", "batch", "edge", "note", "leaf", "tag", "trail"][i % 16],
@@ -274,8 +312,8 @@ CVE_KEY_SUFFIXES = tuple(
 
 CVE_KEY_WRAPPERS = tuple(
     (
-        f"{left}{_letters_from_int(h('cve-wrap-left', i), 6)}{mid}",
-        f"{right}{_letters_from_int(h('cve-wrap-right', i), 6)}"
+        f"{left}{_letters_from_int(h('cve-wrap-left', i), 3)}{mid}",
+        f"{right}{_letters_from_int(h('cve-wrap-right', i), 3)}"
     )
     for i in range(1024)
     for left, mid, right in [(
@@ -286,18 +324,60 @@ CVE_KEY_WRAPPERS = tuple(
 )
 
 
+def _noise_fragment(i: int) -> str:
+    a = _letters_from_int(h("cve-infix-a", i), 2).upper()
+    b = _letters_from_int(h("cve-infix-b", i), 3).upper()
+    c = _base36(h("cve-infix-c", i) % 46656).zfill(3)
+    n = h("cve-infix-n", i) % 997
+    mark = ["@", "#", "$", "%", "~", "&", "!", "?"][i % 8]
+    templates = (
+        lambda: f"{mark}{a}{c}",
+        lambda: f"{c}{mark}{b}",
+        lambda: f"{a}{mark}{n:03d}",
+        lambda: f"{n:03d}{mark}{b}",
+        lambda: f"{a}{mark}{b}",
+        lambda: f"{c}{mark}{a}",
+        lambda: f"{b}{mark}{n % 37:02d}",
+        lambda: f"{a}{n % 89:02d}{mark}{b[:1]}",
+        lambda: f"{c}{mark}{a[:1]}{b[:1]}",
+        lambda: f"{b[:2]}{mark}{n:03d}",
+        lambda: f"{a[:1]}{mark}{c}{b[:1]}",
+        lambda: f"{n % 31:02d}{mark}{a}{c[:1]}",
+    )
+    return templates[i % len(templates)]()
+
+
+CVE_KEY_INFIXES = tuple(_noise_fragment(i) for i in range(8192))
+
+
+def _inject_infix_noise(s: str, context: str) -> str:
+    out = s
+    # Keep the byte growth bounded: the difficulty comes from the high-cardinality
+    # token set and insertion positions, not from making every key very long.
+    for j in range(1):
+        token = CVE_KEY_INFIXES[h("cve-infix-token", context, j) % len(CVE_KEY_INFIXES)]
+        pos = h("cve-infix-pos", context, j) % (len(out) + 1)
+        out = out[:pos] + token + out[pos:]
+    return out
+
+
 def reformat_cve_id(cve_id: str, context: str) -> str:
     """Return a noisy, recoverable CVE join key.
 
-    The noise space is intentionally high-cardinality. The normalized key is
-    still recoverable from the embedded CVE year and numeric suffix.
+    The noise space and key families are intentionally high-cardinality and
+    heterogeneous. There is no single CVE-shaped pattern that recovers every
+    key family.
     """
     body = cve_id.upper().removeprefix("CVE-")
     year, num = body.split("-", 1)
+    year_i = int(year)
+    num_i = int(num)
+    year2 = year[2:]
+    num_pad = num.zfill(7)
     prefix = CVE_KEY_PREFIXES[h("cve-prefix-choice", context) % len(CVE_KEY_PREFIXES)]
     suffix = CVE_KEY_SUFFIXES[h("cve-suffix-choice", context) % len(CVE_KEY_SUFFIXES)]
     wrap_l, wrap_r = CVE_KEY_WRAPPERS[h("cve-wrap-choice", context) % len(CVE_KEY_WRAPPERS)]
-    fid = h("cveid", context) % 8
+    fid = h("cveid", context) % 32
     if fid == 0:
         key = f"CVE-{year}-{num}"
     elif fid == 1:
@@ -312,8 +392,57 @@ def reformat_cve_id(cve_id: str, context: str) -> str:
         key = f"CVE_{year}_{num}"
     elif fid == 6:
         key = f"cve:{year}:{num}"
-    else:
+    elif fid == 7:
         key = f"{year}::{num}"
+    elif fid == 8:
+        key = f"yr{year_i - 1999}_n{num_i + 17}"
+    elif fid == 9:
+        key = f"n{num_i + 100000}_y{year_i - 1900}"
+    elif fid == 10:
+        key = f"rv{year[::-1]}-{num[::-1]}"
+    elif fid == 11:
+        key = f"b36y{_base36(year_i)}n{_base36(num_i)}"
+    elif fid == 12:
+        key = f"h{year_i:x}x{num_i:x}"
+    elif fid == 13:
+        key = f"ord{year_i - 2000:02d}.{num_i:07d}"
+    elif fid == 14:
+        key = f"mx{year[:2]}-{num[:2]}-{year[2:]}-{num[2:]}"
+    elif fid == 15:
+        key = f"sp{num[:2]}_{year2}_{num[2:]}_{year[:2]}"
+    elif fid == 16:
+        key = f"k{year}{num_pad}"
+    elif fid == 17:
+        key = f"off{year_i + 37}.{num_i + 7919}"
+    elif fid == 18:
+        key = f"p{year_i % 100:02d}{num_i % 97:02d}.{year_i // 100}.{num_i}"
+    elif fid == 19:
+        key = f"dot{_chunked(year + num_pad, context)}"
+    elif fid == 20:
+        key = f"ocr{_ocr_digits('CVE' + year + num_pad, context)}"
+    elif fid == 21:
+        key = f"ob{_ocr_digits(year + '-' + num, context)}"
+    elif fid == 22:
+        key = f"i{_interleave(year, num_pad)}"
+    elif fid == 23:
+        key = f"ri{_interleave(year[::-1], num_pad[::-1])}"
+    elif fid == 24:
+        key = f"b36mix{_base36(year_i - 1990)}_{num_pad[::-1]}"
+    elif fid == 25:
+        key = f"hexmix{num_i:x}_{year_i - 1970}"
+    elif fid == 26:
+        key = f"win{year_i - 2010:+d}/{num_i * 3 + 1}"
+    elif fid == 27:
+        key = f"tri{year_i * 3 + 2}-{num_i * 5 + 4}"
+    elif fid == 28:
+        key = f"swap{num_pad[0:3]}-{year}-{num_pad[3:]}"
+    elif fid == 29:
+        key = f"fold{year[:2]}{num_pad[-2:]}-{year[2:]}{num_pad[:-2]}"
+    elif fid == 30:
+        key = f"ocrx{_ocr_digits(str(year_i + 101) + '_' + str(num_i + 202), context)}"
+    else:
+        key = f"z{_base36(num_i + year_i)}.{year[::-1]}"
+    key = _inject_infix_noise(key, context)
     return prefix + wrap_l + key + wrap_r + suffix
 
 

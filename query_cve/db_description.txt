@@ -8,7 +8,7 @@ Here are the descriptions of these four databases:
      - cves
        - Core CVE registry.
        - Fields:
-         - cve_id (str): Noisy CVE join key with source prefixes/suffixes/wrapper text plus an embedded CVE identifier or year-number token (e.g. "feed-abcde::CVE-2023-12345::tail-fghij" or "xref-abcde|raw:2023_12345:end")
+         - cve_id (str): Noisy CVE join key with source prefixes/suffixes/wrapper text, infix noise, and heterogeneous encodings of the original CVE identifier
          - published (str): ISO timestamp when the CVE was published
          - last_modified (str): ISO timestamp of last NVD modification
          - vuln_status (str): NVD workflow status (e.g. "Analyzed", "Modified")
@@ -25,7 +25,7 @@ Here are the descriptions of these four databases:
      - cpe_matches
        - One row per (CVE, affected product configuration) pair.
        - Fields:
-         - cve_id (str): Noisy CVE join key with source prefixes/suffixes/wrapper text plus an embedded CVE identifier or year-number token
+         - cve_id (str): Noisy CVE join key with source prefixes/suffixes/wrapper text, infix noise, and heterogeneous encodings of the original CVE identifier
          - criteria (str): Product identifier string
          - vulnerable_flag (str): Indicates whether the configuration is vulnerable
      - vendor_aliases
@@ -36,7 +36,7 @@ Here are the descriptions of these four databases:
      - cpe_version_details
        - Per-(CVE, criteria) version information.
        - Fields:
-         - cve_id (str): Noisy CVE join key with source prefixes/suffixes/wrapper text plus an embedded CVE identifier or year-number token
+         - cve_id (str): Noisy CVE join key with source prefixes/suffixes/wrapper text, infix noise, and heterogeneous encodings of the original CVE identifier
          - criteria (str): The CPE criteria string this version detail belongs to
          - version_text (str or null): Affected version
          - version_start_inc (str or null): Inclusive lower bound of affected versions
@@ -50,7 +50,7 @@ Here are the descriptions of these four databases:
      - kev_entries
        - One row per KEV-listed vulnerability.
        - Fields:
-         - cve_ref (str): Noisy CVE join key with source prefixes/suffixes/wrapper text plus an embedded CVE identifier or year-number token
+         - cve_ref (str): Noisy CVE join key with source prefixes/suffixes/wrapper text, infix noise, and heterogeneous encodings of the original CVE identifier
          - vendor_project (str): Vendor or project responsible for the affected product
          - products_csv (str): Affected product name(s)
          - vulnerability_name (str): Short human-readable name
@@ -72,7 +72,7 @@ Here are the descriptions of these four databases:
      - cve_documents
        - One document per CVE with embedded descriptions[] and references[].
        - Fields:
-         - cve (str): Noisy CVE join key with source prefixes/suffixes/wrapper text plus an embedded CVE identifier or year-number token
+         - cve (str): Noisy CVE join key with source prefixes/suffixes/wrapper text, infix noise, and heterogeneous encodings of the original CVE identifier
          - descriptions (list of dict): Free-text descriptions in one or more languages, each with:
            - language (str): ISO language code (e.g. "en", "es")
            - value (str): Description prose
