@@ -47,8 +47,10 @@ Manifest (clean/manifest.sqlite — never agent-visible):
     canonical_agency    (award_id, canonical_agency, corrupted_surface)
     canonical_naics     (canonical_code, corrupted_code)
     canonical_amount    (canonical_award_id, canonical_amount, amount_text)
-    planted_eng_dropped (award_id)
-    planted_duplicate   (canonical_award_id, original_amount, superseded_amount)
+
+    NOTE: planted_eng_dropped and planted_duplicate are NOT stored in the
+    manifest because both are fully deterministic (should_drop_english /
+    should_duplicate). compute_ground_truth.py calls those functions directly.
 """
 from __future__ import annotations
 import hashlib
@@ -675,12 +677,6 @@ def init_manifest(conn: sqlite3.Connection) -> None:
       canonical_amount   REAL,
       amount_text        TEXT
     );
-    CREATE TABLE planted_eng_dropped (award_id TEXT PRIMARY KEY);
-    CREATE TABLE planted_duplicate (
-      canonical_award_id TEXT PRIMARY KEY,
-      original_amount    REAL,
-      duplicate_amount   REAL
-    );
     """)
     conn.commit()
 
@@ -773,10 +769,6 @@ def build_contracts(clean: sqlite3.Connection, manifest: sqlite3.Connection) -> 
                 old_aid = a_corr_a + "_OLD" if a_corr_a else None
                 lines.append(
                     f"INSERT INTO contract_amounts VALUES ({pgesc(old_aid)}, {pgesc(dup_atext)});"
-                )
-                mcur.execute(
-                    "INSERT OR REPLACE INTO planted_duplicate VALUES (?,?,?)",
-                    (award_id, amt, dup_amt),
                 )
                 n_dup += 1
 
@@ -887,7 +879,6 @@ def build_descriptions(clean: sqlite3.Connection, manifest: sqlite3.Connection) 
     DESC_DUMP.mkdir(parents=True, exist_ok=True)
 
     cur = clean.cursor()
-    mcur = manifest.cursor()
     docs = []
     n_eng_dropped = 0
     for award_id, desc in cur.execute(
@@ -899,10 +890,6 @@ def build_descriptions(clean: sqlite3.Connection, manifest: sqlite3.Connection) 
             if should_drop_english(award_id or ""):
                 descs.append({"language": "es",
                               "value": "[contrato federal] " + desc[:200]})
-                mcur.execute(
-                    "INSERT OR REPLACE INTO planted_eng_dropped VALUES (?)",
-                    (award_id,),
-                )
                 n_eng_dropped += 1
             else:
                 descs.append({"language": "en", "value": desc})
