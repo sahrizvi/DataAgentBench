@@ -1,57 +1,57 @@
 """Corrupt clean/clean.sqlite into 4 agent-visible DBs in query_dataset/.
 
-Engines (chosen so each engine matches the data's natural shape):
-  contracts_db    postgres  query_dataset/contracts.sql       (transactional fact dump)
-  recipients_db   sqlite    query_dataset/recipients.db       (small entity registry)
-  agencies_db     duckdb    query_dataset/agencies.duckdb     (analytical reference)
-  descriptions_db mongo     query_dataset/descriptions/       (nested per-contract docs)
+Engines:
+  contracts_db    postgres  query_dataset/contracts.sql
+  recipients_db   sqlite    query_dataset/recipients.db
+  agencies_db     duckdb    query_dataset/agencies.duckdb
+  descriptions_db mongo     query_dataset/descriptions/
 
-NO date-format corruption. Each non-date corruption is hash-deterministic.
+NO date-format corruption. All non-date corruptions are hash-deterministic.
 
-Layers applied:
+Corruption layers:
 
   contracts_db (postgres):
-    - amount column DROPPED (numeric). Replaced with amount_text TEXT in a
-      sibling contract_amounts table — formats vary: "$1,500,000.00", "1.5M",
-      "1500000", "1,500,000 USD".
-    - award_id format varies per row: "HT940216C0001", "ht940216c0001",
-      "HT940216-C-0001".
-    - awarding_agency replaced with vendor-style surface variants
-      (e.g. Department of Defense -> "DoD", "DOD", "Dept of Defense",
-       "Department of Defense (DOD)").
+    - amount column DROPPED. Replaced by amount_text TEXT in sibling table
+      contract_amounts. 105 possible formats: plain integers, comma-separated,
+      dollar-prefixed, USD-suffixed, K/M/B-scaled abbreviations, full English
+      word form, and sum-of-two-parts expressions. Each row picks one
+      deterministically. ~1/30 rows also get a second conflicting row whose
+      amount_text encodes a different (scaled) value.
+    - award_id format varies per row AND per table: the same canonical award_id
+      appears in a different format in contracts vs contract_amounts vs
+      descriptions_db. Three formats: original uppercase, lowercase, or
+      hyphen-separated runs. Joins across tables require normalization.
+    - awarding_agency replaced with surface-form variants (DoD / DOD / etc.).
     - naics_code reformatted: "336411" / "naics-336411" / "33-6411".
 
   recipients_db (sqlite):
-    - name column has multiple surface forms for the SAME canonical entity
-      (suffix variants: "Inc", "Inc.", "Incorporated", "Corp"/"Corporation",
-       trailing/leading whitespace, hyphenation). Real data already has some
-       of this; we layer on more.
-    - uei format varies: "ZE6ZM6NKSV43" / "uei:ze6zm6nksv43" / "ze6zm6nksv43-uei".
-    - state stored as varied surface form ("California" / "CA" / "Calif.").
+    - recipient UEI format varies between contracts_db and recipients_db for
+      the same canonical UEI. Joins require normalization.
+    - name has corporate-suffix variants (Inc / Incorporated / Corp / etc.).
+    - state has surface-form variants ("CA" / "California" / "Calif.").
 
   agencies_db (duckdb):
-    - agency name has surface-form variants (same as in contracts).
-    - canonical_to_alias lookup table that the agent can use to resolve
-      surface variants to canonical names.
-    - naics table preserves the 2-digit sector hierarchy.
+    - agency_aliases lookup table maps all surface-form variants to canonical.
+    - naics_sectors table stores canonical NAICS codes (agent must normalize
+      the corrupted codes in contracts to match).
 
   descriptions_db (mongo):
-    - One document per award_id with embedded {description, language}.
-    - English description dropped for ~10% of contracts; only Spanish or
-      French paraphrase remains for those.
+    - One document per award_id (in descriptions-specific format).
+    - ~10% of contracts have English description replaced by Spanish stub.
 
-Manifest tables (clean/manifest.sqlite — never agent-visible):
-    canonical_award_id    (canonical_award_id, corrupted_award_id)
-    canonical_recipient   (canonical_uei, canonical_name)
-    canonical_agency      (canonical_agency, corrupted_surface)
-    canonical_naics       (canonical_code, corrupted_code)
-    canonical_amount      (canonical_award_id, canonical_amount, amount_text, format_id)
-    planted_eng_dropped   (award_id)
-    planted_duplicate     (canonical_award_id, original_amount, duplicate_amount)
+Manifest (clean/manifest.sqlite — never agent-visible):
+    canonical_award_id  (canonical, contracts_form, amounts_form, descriptions_form)
+    canonical_recipient (canonical_uei, canonical_name, contracts_uei, recipients_uei)
+    canonical_agency    (award_id, canonical_agency, corrupted_surface)
+    canonical_naics     (canonical_code, corrupted_code)
+    canonical_amount    (canonical_award_id, canonical_amount, amount_text)
+    planted_eng_dropped (award_id)
+    planted_duplicate   (canonical_award_id, original_amount, duplicate_amount)
 """
 from __future__ import annotations
 import hashlib
 import json
+import re
 import shutil
 import sqlite3
 from pathlib import Path
@@ -74,30 +74,261 @@ def h(*parts) -> int:
     return int(hashlib.sha1(s.encode()).hexdigest(), 16)
 
 
-# ---- amount-as-text formats -----------------------------------------------
-def _scaled(n: float, suffix: str, decimals: int = 1) -> str:
-    return f"{n:,.{decimals}f}{suffix}"
+# ---------------------------------------------------------------------------
+# Amount word-form helper
+# ---------------------------------------------------------------------------
 
-AMOUNT_FORMATS = [
-    lambda x: f"${x:,.2f}",
-    lambda x: f"{x:,.2f} USD",
-    lambda x: f"{x:.0f}",
-    lambda x: (
-        _scaled(x / 1_000_000_000, "B")
-        if x >= 1_000_000_000 else _scaled(x / 1_000_000, "M")
-        if x >= 1_000_000 else _scaled(x / 1_000, "K")
-    ),
+def _int_to_words(n: int) -> str:
+    """Convert a non-negative integer to English words."""
+    if n == 0:
+        return "zero"
+    ones = [
+        "", "one", "two", "three", "four", "five", "six", "seven", "eight",
+        "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen",
+        "sixteen", "seventeen", "eighteen", "nineteen",
+    ]
+    tens_w = ["", "", "twenty", "thirty", "forty", "fifty",
+              "sixty", "seventy", "eighty", "ninety"]
+
+    def below_thousand(v: int) -> str:
+        if v < 20:
+            return ones[v]
+        if v < 100:
+            t = tens_w[v // 10]
+            o = ones[v % 10]
+            return t + ("-" + o if o else "")
+        rest = below_thousand(v % 100)
+        return ones[v // 100] + " hundred" + (" " + rest if rest else "")
+
+    parts: list[str] = []
+    for scale, label in [(1_000_000_000, "billion"), (1_000_000, "million"),
+                         (1_000, "thousand")]:
+        if n >= scale:
+            parts.append(below_thousand(n // scale) + " " + label)
+            n %= scale
+    if n > 0:
+        parts.append(below_thousand(n))
+    return " ".join(parts)
+
+
+# ---------------------------------------------------------------------------
+# Amount split for sum-of-parts formats
+# ---------------------------------------------------------------------------
+
+def _sum_split(x: float, salt: str) -> tuple[float, float]:
+    ratios = [0.25, 0.30, 1 / 3, 0.40, 0.50, 0.60, 2 / 3, 0.70, 0.75]
+    ratio = ratios[h("split-ratio", salt) % len(ratios)]
+    part1 = round(x * ratio, 2)
+    part2 = round(x - part1, 2)
+    if part1 <= 0 or part2 <= 0:
+        part1 = round(x * 0.5, 2)
+        part2 = round(x - part1, 2)
+    return part1, part2
+
+
+# ---------------------------------------------------------------------------
+# Amount format factories
+# ---------------------------------------------------------------------------
+
+def _make_plain(prefix: str, suffix: str, comma: bool, decimals: int):
+    def f(x: float) -> str:
+        if decimals > 0:
+            s = f"{x:,.{decimals}f}" if comma else f"{x:.{decimals}f}"
+        else:
+            s = f"{int(x):,}" if comma else str(int(x))
+        return prefix + s + suffix
+    return f
+
+
+def _make_k(prefix: str, suffix: str, comma: bool, decimals: int):
+    def f(x: float) -> str:
+        v = x / 1_000
+        if decimals > 0:
+            s = f"{v:,.{decimals}f}" if comma else f"{v:.{decimals}f}"
+        else:
+            s = f"{v:,.0f}" if comma else f"{v:.0f}"
+        return prefix + s + suffix
+    return f
+
+
+def _make_m(prefix: str, suffix: str, decimals: int):
+    def f(x: float) -> str:
+        return prefix + f"{x / 1_000_000:.{decimals}f}" + suffix
+    return f
+
+
+def _make_b(prefix: str, suffix: str, decimals: int):
+    def f(x: float) -> str:
+        return prefix + f"{x / 1_000_000_000:.{decimals}f}" + suffix
+    return f
+
+
+def _make_sum(fmt_a, fmt_b, sep: str = " + "):
+    def f(a: float, b: float) -> str:
+        return fmt_a(a) + sep + fmt_b(b)
+    return f
+
+
+# ---------------------------------------------------------------------------
+# 75 single-value formats + 30 sum-of-two-parts formats = 105 total
+# ---------------------------------------------------------------------------
+
+AMOUNT_FORMATS: list = [
+    # --- unscaled plain / dollar / USD (20) ---
+    _make_plain("",     "",           False, 0),   # 1500000
+    _make_plain("",     "",           True,  0),   # 1,500,000
+    _make_plain("",     "",           False, 2),   # 1500000.00
+    _make_plain("",     "",           True,  2),   # 1,500,000.00
+    _make_plain("$",    "",           False, 0),   # $1500000
+    _make_plain("$",    "",           True,  0),   # $1,500,000
+    _make_plain("$",    "",           False, 2),   # $1500000.00
+    _make_plain("$",    "",           True,  2),   # $1,500,000.00
+    _make_plain("",     " USD",       False, 0),   # 1500000 USD
+    _make_plain("",     " USD",       True,  0),   # 1,500,000 USD
+    _make_plain("",     " USD",       False, 2),   # 1500000.00 USD
+    _make_plain("",     " USD",       True,  2),   # 1,500,000.00 USD
+    _make_plain("USD ", "",           False, 0),   # USD 1500000
+    _make_plain("USD ", "",           True,  0),   # USD 1,500,000
+    _make_plain("USD ", "",           True,  2),   # USD 1,500,000.00
+    _make_plain("US$",  "",           True,  0),   # US$1,500,000
+    _make_plain("US$",  "",           True,  2),   # US$1,500,000.00
+    _make_plain("$",    " USD",       True,  2),   # $1,500,000.00 USD
+    _make_plain("",     " dollars",   True,  0),   # 1,500,000 dollars
+    _make_plain("$",    " dollars",   True,  0),   # $1,500,000 dollars
+    # --- K-scaled / thousands (16) ---
+    _make_k("",  "K",                 False, 0),   # 1500K
+    _make_k("",  "K",                 True,  0),   # 1,500K
+    _make_k("",  "K",                 True,  1),   # 1,500.0K
+    _make_k("",  "K",                 True,  2),   # 1,500.00K
+    _make_k("$", "K",                 False, 0),   # $1500K
+    _make_k("$", "K",                 True,  0),   # $1,500K
+    _make_k("$", "K",                 True,  1),   # $1,500.0K
+    _make_k("",  "k",                 False, 0),   # 1500k
+    _make_k("",  "k",                 True,  0),   # 1,500k
+    _make_k("$", "k",                 True,  0),   # $1,500k
+    _make_k("",  " K",                True,  0),   # 1,500 K
+    _make_k("$", " K",                True,  0),   # $1,500 K
+    _make_k("",  " thousand",         True,  0),   # 1,500 thousand
+    _make_k("$", " thousand",         True,  0),   # $1,500 thousand
+    _make_k("",  " thousand dollars", True,  0),   # 1,500 thousand dollars
+    _make_k("$", " thousand dollars", True,  0),   # $1,500 thousand dollars
+    # --- M-scaled / millions (25) ---
+    _make_m("",  "M",               1),   # 1.5M
+    _make_m("",  "M",               2),   # 1.50M
+    _make_m("",  "M",               3),   # 1.500M
+    _make_m("$", "M",               1),   # $1.5M
+    _make_m("$", "M",               2),   # $1.50M
+    _make_m("$", "M",               3),   # $1.500M
+    _make_m("",  "m",               1),   # 1.5m
+    _make_m("$", "m",               1),   # $1.5m
+    _make_m("",  "MM",              1),   # 1.5MM  (finance double-M)
+    _make_m("$", "MM",              1),   # $1.5MM
+    _make_m("",  " M",              1),   # 1.5 M
+    _make_m("$", " M",              1),   # $1.5 M
+    _make_m("",  " M",              2),   # 1.50 M
+    _make_m("",  " million",        1),   # 1.5 million
+    _make_m("",  " million",        2),   # 1.50 million
+    _make_m("",  " million",        3),   # 1.500 million
+    _make_m("$", " million",        1),   # $1.5 million
+    _make_m("$", " million",        2),   # $1.50 million
+    _make_m("",  " Million",        1),   # 1.5 Million
+    _make_m("$", " Million",        1),   # $1.5 Million
+    _make_m("",  " million dollars", 1),  # 1.5 million dollars
+    _make_m("$", " million dollars", 1),  # $1.5 million dollars
+    _make_m("",  " Million Dollars", 1),  # 1.5 Million Dollars
+    _make_m("",  " million USD",     2),  # 1.50 million USD
+    _make_m("",  " mil",             2),  # 1.50 mil  (informal)
+    # --- B-scaled / billions (10) ---
+    _make_b("",  "B",               4),   # 0.0015B
+    _make_b("",  "B",               5),   # 0.00150B
+    _make_b("$", "B",               4),   # $0.0015B
+    _make_b("$", "B",               5),   # $0.00150B
+    _make_b("",  " B",              4),   # 0.0015 B
+    _make_b("",  " billion",        4),   # 0.0015 billion
+    _make_b("$", " billion",        4),   # $0.0015 billion
+    _make_b("",  " Billion",        4),   # 0.0015 Billion
+    _make_b("",  " billion dollars", 4),  # 0.0015 billion dollars
+    _make_b("$", " billion dollars", 4),  # $0.0015 billion dollars
+    # --- full English word form (4) ---
+    lambda x: _int_to_words(round(x)) + " dollars",
+    lambda x: _int_to_words(round(x)),
+    lambda x: _int_to_words(round(x)).title() + " Dollars",
+    lambda x: _int_to_words(round(x)).title(),
 ]
 
+# 30 sum-of-two-parts formats  (part1 + part2 = original amount)
+_p_int      = _make_plain("",    "",         False, 0)
+_p_comma    = _make_plain("",    "",         True,  0)
+_p_dec2     = _make_plain("",    "",         True,  2)
+_p_d        = _make_plain("$",   "",         False, 0)
+_p_d_comma  = _make_plain("$",   "",         True,  0)
+_p_d_dec2   = _make_plain("$",   "",         True,  2)
+_p_usd      = _make_plain("",    " USD",     True,  0)
+_p_K0       = _make_k("",  "K", True,  0)
+_p_K1       = _make_k("",  "K", True,  1)
+_p_dK0      = _make_k("$", "K", True,  0)
+_p_dK1      = _make_k("$", "K", True,  1)
+_p_M1       = _make_m("",  "M", 1)
+_p_M2       = _make_m("",  "M", 2)
+_p_dM1      = _make_m("$", "M", 1)
+_p_dM2      = _make_m("$", "M", 2)
 
-def amount_text(value: float, salt: str) -> tuple[str, int]:
+SUM_FORMATS: list = [
+    _make_sum(_p_d_comma,  _p_d_comma),                     # $1,000,000 + $500,000
+    _make_sum(_p_int,      _p_int),                         # 1000000 + 500000
+    _make_sum(_p_comma,    _p_comma),                       # 1,000,000 + 500,000
+    _make_sum(_p_d_dec2,   _p_d_dec2),                      # $1,000,000.00 + $500,000.00
+    _make_sum(_p_K1,       _p_K1),                          # 1,000.0K + 500.0K
+    _make_sum(_p_dK0,      _p_dK0),                         # $1,000K + $500K
+    _make_sum(_p_dK1,      _p_dK1),                         # $1,000.0K + $500.0K
+    _make_sum(_p_M2,       _p_M2),                          # 1.00M + 0.50M
+    _make_sum(_p_dM2,      _p_dM2),                         # $1.00M + $0.50M
+    _make_sum(_p_M1,       _p_M1),                          # 1.0M + 0.5M
+    _make_sum(_p_dM1,      _p_dM1),                         # $1.0M + $0.5M
+    _make_sum(_p_d_comma,  _p_d_comma,  " and "),           # $1,000,000 and $500,000
+    _make_sum(_p_comma,    _p_comma,    " and "),            # 1,000,000 and 500,000
+    _make_sum(_p_d_dec2,   _p_d_dec2,  " and "),            # $1,000,000.00 and $500,000.00
+    _make_sum(_p_d_comma,  _p_d_comma,  " plus "),          # $1,000,000 plus $500,000
+    _make_sum(_p_comma,    _p_comma,    " plus "),           # 1,000,000 plus 500,000
+    _make_sum(_p_M2,       _p_M2,      " and "),             # 1.00M and 0.50M
+    _make_sum(_p_dM1,      _p_dM1,     " and "),             # $1.0M and $0.5M
+    _make_sum(_p_dK0,      _p_dK0,     " and "),             # $1,000K and $500K
+    _make_sum(_p_usd,      _p_usd),                          # 1,000,000 USD + 500,000 USD
+    _make_sum(_make_plain("USD ", "", True, 0),
+              _make_plain("USD ", "", True, 0)),             # USD 1,000,000 + USD 500,000
+    _make_sum(_p_d_comma,  _p_dec2),                        # $1,000,000 + 500,000.00  (mixed)
+    _make_sum(_p_dM2,      _p_dK0),                         # $1.00M + $500K  (mixed scale)
+    _make_sum(_p_M2,       _p_K0),                          # 1.00M + 500K  (mixed scale)
+    _make_sum(_make_m("",  "M", 3), _make_m("",  "M", 3)), # 1.000M + 0.500M
+    _make_sum(_make_k("",  " thousand", True, 0),
+              _make_k("",  " thousand", True, 0)),           # 1,000 thousand + 500 thousand
+    _make_sum(_make_k("$", "K", False, 0),
+              _make_k("$", "K", False, 0)),                  # $1000K + $500K (no comma)
+    _make_sum(_make_k("",  "K", True, 2),
+              _make_k("",  "K", True, 2)),                   # 1,000.00K + 500.00K
+    _make_sum(_p_d,        _p_d),                            # $1000000 + $500000 (no comma)
+    _make_sum(_p_d_comma,  _p_comma,   " + "),               # $1,000,000 + 500,000
+]
+
+assert len(AMOUNT_FORMATS) == 75, len(AMOUNT_FORMATS)
+assert len(SUM_FORMATS) == 30, len(SUM_FORMATS)
+_N_FORMATS = len(AMOUNT_FORMATS) + len(SUM_FORMATS)   # 105
+
+
+def amount_text(value: float, salt: str) -> str:
     if value is None:
-        return "", 0
-    fid = h("amt", salt) % len(AMOUNT_FORMATS)
-    return AMOUNT_FORMATS[fid](value), fid
+        return ""
+    idx = h("amt", salt) % _N_FORMATS
+    if idx < len(AMOUNT_FORMATS):
+        return AMOUNT_FORMATS[idx](value)
+    part1, part2 = _sum_split(value, salt)
+    return SUM_FORMATS[idx - len(AMOUNT_FORMATS)](part1, part2)
 
 
-# ---- NAICS code formatting -------------------------------------------------
+# ---------------------------------------------------------------------------
+# NAICS code formatting
+# ---------------------------------------------------------------------------
+
 def naics_format(code: str, salt: str) -> str:
     if not code:
         return code
@@ -109,27 +340,71 @@ def naics_format(code: str, salt: str) -> str:
     return f"{code[:2]}-{code[2:]}" if len(code) >= 4 else code
 
 
-# ---- Agency name surface forms --------------------------------------------
+# ---------------------------------------------------------------------------
+# Agency surface-form variants
+# ---------------------------------------------------------------------------
+
 AGENCY_VARIANTS = {
-    "Department of Defense": ["Department of Defense", "DoD", "DOD", "Dept of Defense", "Department of Defense (DOD)", "Defense Department"],
-    "Department of Energy": ["Department of Energy", "DOE", "Dept of Energy", "DoE"],
-    "Department of Health and Human Services": ["Department of Health and Human Services", "HHS", "Dept HHS", "Health and Human Services"],
-    "Department of Veterans Affairs": ["Department of Veterans Affairs", "VA", "Dept of Veterans Affairs"],
-    "Department of Homeland Security": ["Department of Homeland Security", "DHS", "Dept Homeland Security"],
-    "Department of State": ["Department of State", "State Dept", "Dept of State", "DOS"],
-    "National Aeronautics and Space Administration": ["NASA", "National Aeronautics and Space Administration", "Nat'l Aeronautics & Space Administration"],
-    "General Services Administration": ["General Services Administration", "GSA", "Gen Services Admin"],
-    "Department of Justice": ["Department of Justice", "DOJ", "DoJ", "Justice Dept"],
-    "Department of Transportation": ["Department of Transportation", "DOT", "DoT", "Transportation Dept"],
-    "Department of the Interior": ["Department of the Interior", "DOI", "Interior Dept"],
-    "Department of Agriculture": ["Department of Agriculture", "USDA", "Agriculture Dept"],
-    "Department of Commerce": ["Department of Commerce", "DOC", "Commerce Dept"],
-    "Department of the Treasury": ["Department of the Treasury", "Treasury", "Treasury Dept"],
-    "Environmental Protection Agency": ["Environmental Protection Agency", "EPA"],
-    "Department of Education": ["Department of Education", "ED", "Education Dept"],
-    "Department of Labor": ["Department of Labor", "DOL", "Labor Dept"],
-    "Department of Housing and Urban Development": ["Department of Housing and Urban Development", "HUD"],
-    "Social Security Administration": ["Social Security Administration", "SSA"],
+    "Department of Defense": [
+        "Department of Defense", "DoD", "DOD", "Dept of Defense",
+        "Department of Defense (DOD)", "Defense Department",
+    ],
+    "Department of Energy": [
+        "Department of Energy", "DOE", "Dept of Energy", "DoE",
+    ],
+    "Department of Health and Human Services": [
+        "Department of Health and Human Services", "HHS",
+        "Dept HHS", "Health and Human Services",
+    ],
+    "Department of Veterans Affairs": [
+        "Department of Veterans Affairs", "VA", "Dept of Veterans Affairs",
+    ],
+    "Department of Homeland Security": [
+        "Department of Homeland Security", "DHS", "Dept Homeland Security",
+    ],
+    "Department of State": [
+        "Department of State", "State Dept", "Dept of State", "DOS",
+    ],
+    "National Aeronautics and Space Administration": [
+        "NASA", "National Aeronautics and Space Administration",
+        "Nat'l Aeronautics & Space Administration",
+    ],
+    "General Services Administration": [
+        "General Services Administration", "GSA", "Gen Services Admin",
+    ],
+    "Department of Justice": [
+        "Department of Justice", "DOJ", "DoJ", "Justice Dept",
+    ],
+    "Department of Transportation": [
+        "Department of Transportation", "DOT", "DoT", "Transportation Dept",
+    ],
+    "Department of the Interior": [
+        "Department of the Interior", "DOI", "Interior Dept",
+    ],
+    "Department of Agriculture": [
+        "Department of Agriculture", "USDA", "Agriculture Dept",
+    ],
+    "Department of Commerce": [
+        "Department of Commerce", "DOC", "Commerce Dept",
+    ],
+    "Department of the Treasury": [
+        "Department of the Treasury", "Treasury", "Treasury Dept",
+    ],
+    "Environmental Protection Agency": [
+        "Environmental Protection Agency", "EPA",
+    ],
+    "Department of Education": [
+        "Department of Education", "ED", "Education Dept",
+    ],
+    "Department of Labor": [
+        "Department of Labor", "DOL", "Labor Dept",
+    ],
+    "Department of Housing and Urban Development": [
+        "Department of Housing and Urban Development", "HUD",
+    ],
+    "Social Security Administration": [
+        "Social Security Administration", "SSA",
+    ],
 }
 
 
@@ -140,13 +415,16 @@ def agency_variant(canonical: str, salt: str) -> str:
     return pool[h("ag", salt) % len(pool)]
 
 
-# ---- recipient name fuzzification -----------------------------------------
+# ---------------------------------------------------------------------------
+# Recipient name fuzzification
+# ---------------------------------------------------------------------------
+
 SUFFIX_VARIANTS = [
-    ("INC", ["INC", "INC.", "INCORPORATED", "Inc", "Inc.", "Incorporated"]),
+    ("INC",  ["INC", "INC.", "INCORPORATED", "Inc", "Inc.", "Incorporated"]),
     ("CORP", ["CORP", "CORP.", "CORPORATION", "Corp", "Corp.", "Corporation"]),
-    ("LLC", ["LLC", "LLC.", "L.L.C.", "L.L.C", "Llc"]),
-    ("CO", ["CO", "CO.", "COMPANY", "Co.", "Company"]),
-    ("LTD", ["LTD", "LTD.", "Limited", "Ltd."]),
+    ("LLC",  ["LLC", "LLC.", "L.L.C.", "L.L.C", "Llc"]),
+    ("CO",   ["CO", "CO.", "COMPANY", "Co.", "Company"]),
+    ("LTD",  ["LTD", "LTD.", "Limited", "Ltd."]),
 ]
 
 
@@ -154,52 +432,158 @@ def fuzz_recipient_name(name: str, salt: str) -> str:
     if not name:
         return name
     n = name.strip()
-    # Try matching one of the corporate suffixes and swap to a variant
     upper = n.upper()
-    for canonical_suffix, variants in SUFFIX_VARIANTS:
+    for _, variants in SUFFIX_VARIANTS:
         for v in variants:
             sfx = " " + v
             if upper.endswith(sfx.upper()):
-                # strip and append a chosen variant
                 stem = n[: len(n) - len(sfx)]
                 pick = variants[h("rname", salt) % len(variants)]
                 return stem + " " + pick
-    # No suffix; apply small noise: title-case half the time, keep as-is otherwise
     if h("rname-case", salt) % 2 == 0:
         return n
     return n.title()
 
 
-# ---- UEI format mixing ----------------------------------------------------
-def uei_format(uei: str, salt: str) -> str:
-    if not uei:
-        return uei
-    fid = h("uei", salt) % 3
-    if fid == 0:
-        return uei
-    if fid == 1:
-        return f"uei:{uei.lower()}"
-    return f"{uei.lower()}-uei"
+# ---------------------------------------------------------------------------
+# Award ID and UEI formats
+#
+# Each ID is rendered as:  PREFIX + case_transform(sep_insert(canonical_id))
+#
+# Dimensions picked independently per (id, table) via three hash calls:
+#   h("aid-pre",  id, table) % len(_ID_PREFIXES)  → prefix
+#   h("aid-case", id, table) % 3                   → upper / lower / original
+#   h("aid-sep",  id, table) % len(_ID_SEPS)       → separator at α↔digit boundaries
+#
+# ~110 prefixes × 3 cases × 5 separators = ~1,650 effective surface forms.
+# With ~9,500 rows × 3 tables, every combination appears ~17 times — far too
+# many to enumerate by hand; agents must write a pattern-based parser.
+# ---------------------------------------------------------------------------
+
+_ID_PREFIXES: list[str] = [
+    # ----- empty (just case + separator variation) -----
+    "",
+    # ----- abbreviation + colon -----
+    "PIID:", "piid:", "Piid:",
+    "PIIN:", "piin:",
+    "ACQ:", "acq:", "Acq:",
+    "AWARD:", "award:", "Award:",
+    "CONTRACT:", "contract:", "Contract:",
+    "REF:", "ref:", "Ref:",
+    "ID:", "id:", "Id:",
+    "NO:", "no:", "No:",
+    "DOC:", "doc:", "Doc:",
+    "FILE:", "file:", "File:",
+    "REC:", "rec:", "Rec:",
+    "TXN:", "txn:",
+    "OBL:", "obl:", "Obl:",
+    "OBLIG:", "oblig:",
+    "PO:", "po:", "Po:",
+    "TO:", "to:", "To:",
+    "DO:", "do:", "Do:",
+    "MOD:", "mod:", "Mod:",
+    "SOL:", "sol:", "Sol:",
+    "PROC:", "proc:",
+    "PURCH:", "purch:",
+    "INST:", "inst:",
+    "AGR:", "agr:",
+    "GRT:", "grt:",
+    "ACRN:", "acrn:",
+    "CLIN:", "clin:",
+    "SLIN:", "slin:",
+    "PR:", "pr:",
+    "WBS:", "wbs:",
+    "CAGE:", "cage:",
+    "UEI:", "uei:",
+    # ----- word + colon -----
+    "Award:", "Contract:", "Order:", "Document:", "Reference:",
+    "Identifier:", "Record:", "Transaction:", "Obligation:",
+    "Solicitation:", "Procurement:", "Purchase:", "Agreement:",
+    "Instrument:", "Requisition:", "Authorization:", "Modification:",
+    "Delivery:", "Task:", "Grant:", "Cooperative:", "Instrument:",
+    # ----- abbreviation + slash -----
+    "PIID/", "piid/",
+    "AWARD/", "award/",
+    "CONTRACT/", "contract/",
+    "REF/", "ref/",
+    "ID/", "id/",
+    "NO/", "no/",
+    "DOC/", "doc/",
+    "ACQ/", "acq/",
+    "PO/", "po/",
+    "TO/", "to/",
+    "DO/", "do/",
+    "MOD/", "mod/",
+    "SOL/", "sol/",
+    "awards/", "contracts/", "orders/", "documents/", "records/",
+    # ----- word + slash -----
+    "Award/", "Contract/", "Order/", "Reference/", "Document/",
+    # ----- abbreviation + dot -----
+    "PIID.", "piid.", "REF.", "ref.", "ID.", "id.",
+    "NO.", "no.", "DOC.", "doc.", "PO.", "po.", "TO.", "to.", "ACQ.", "acq.",
+    "Award.", "Contract.", "Ref.", "Doc.",
+    # ----- word + "No." or "#" -----
+    "Award No. ", "award no. ", "Contract No. ", "contract no. ",
+    "Award # ", "award # ", "Contract # ", "contract # ",
+    "Ref No. ", "ref no. ", "Doc No. ", "doc no. ",
+    "Order No. ", "order no. ", "PO No. ", "po no. ",
+    "TO No. ", "to no. ", "DO No. ", "do no. ",
+    "Mod No. ", "mod no. ", "Sol No. ", "sol no. ",
+    "PIID No. ", "piid no. ",
+    # ----- field-name + equals -----
+    "award_id=", "contract_id=", "piid=", "PIID=",
+    "ref=", "REF=", "id=", "ID=", "award=", "AWARD=",
+    "order_id=", "doc_id=",
+    # ----- field-name + colon (snake_case style) -----
+    "award_id:", "contract_id:", "award_no:", "contract_no:",
+    "ref_no:", "doc_no:", "order_no:", "po_no:", "to_no:",
+    # ----- hash / symbol prefix -----
+    "#", "##", "# ",
+]
+
+# Separators inserted at every letter↔digit boundary in the ID.
+# Empty string means no separator added (original runs stay together).
+_ID_SEPS: list[str] = ["", "-", " ", "_", "."]
 
 
-# ---- Award ID format ------------------------------------------------------
-def award_id_format(aid: str, salt: str) -> str:
+def _insert_sep(s: str, sep: str) -> str:
+    """Insert sep at every letter↔digit or digit↔letter boundary."""
+    if not sep:
+        return s
+    out: list[str] = []
+    for i, c in enumerate(s):
+        if i > 0 and sep:
+            p = s[i - 1]
+            if (p.isalpha() and c.isdigit()) or (p.isdigit() and c.isalpha()):
+                out.append(sep)
+        out.append(c)
+    return "".join(out)
+
+
+def award_id_format(aid: str, table: str) -> str:
     if not aid:
         return aid
-    fid = h("aid", salt) % 3
-    if fid == 0:
-        return aid
-    if fid == 1:
-        return aid.lower()
-    # add a hyphen between letter run and numbers if pattern matches
-    import re
-    m = re.match(r"^([A-Z0-9]+?)([A-Z])(\d+)$", aid.upper())
-    if m:
-        return f"{m.group(1)}-{m.group(2)}-{m.group(3)}"
-    return aid
+    prefix = _ID_PREFIXES[h("aid-pre",  aid, table) % len(_ID_PREFIXES)]
+    case   = h("aid-case", aid, table) % 3
+    sep    = _ID_SEPS[h("aid-sep",  aid, table) % len(_ID_SEPS)]
+    body = aid.upper() if case == 0 else aid.lower() if case == 1 else aid
+    return prefix + _insert_sep(body, sep)
 
 
-# ---- State name variants --------------------------------------------------
+def uei_format(uei: str, table: str) -> str:
+    if not uei:
+        return uei
+    prefix = _ID_PREFIXES[h("uei-pre",  uei, table) % len(_ID_PREFIXES)]
+    case   = h("uei-case", uei, table) % 3
+    sep    = _ID_SEPS[h("uei-sep",  uei, table) % len(_ID_SEPS)]
+    body = uei.upper() if case == 0 else uei.lower() if case == 1 else uei
+    return prefix + _insert_sep(body, sep)
+
+
+# ---------------------------------------------------------------------------
+# State surface-form variants
+# ---------------------------------------------------------------------------
+
 STATE_VARIANTS = {
     "CA": ["CA", "California", "Calif.", "Calif"],
     "NY": ["NY", "New York", "N.Y."],
@@ -231,7 +615,10 @@ def state_variant(s: str, salt: str) -> str:
     return pool[h("st", salt) % len(pool)]
 
 
-# ---- duplicate / language drop selectors ----------------------------------
+# ---------------------------------------------------------------------------
+# Duplicate / language-drop selectors
+# ---------------------------------------------------------------------------
+
 DROP_ENGLISH_RATE = 10
 DUPLICATE_RATE    = 30
 
@@ -245,12 +632,13 @@ def should_duplicate(award_id: str) -> bool:
 
 
 def conflicting_amount(orig: float, salt: str) -> float:
-    """Multiply or divide the amount by a deterministic scaling factor."""
     factor = [0.5, 1.5, 2.0, 0.75][h("dup-amt", salt) % 4]
     return round(orig * factor, 2)
 
 
-# ---- pipeline -------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# Pipeline
+# ---------------------------------------------------------------------------
 
 def init_manifest(conn: sqlite3.Connection) -> None:
     conn.executescript("""
@@ -263,10 +651,16 @@ def init_manifest(conn: sqlite3.Connection) -> None:
     DROP TABLE IF EXISTS planted_duplicate;
 
     CREATE TABLE canonical_award_id (
-      canonical_award_id TEXT PRIMARY KEY, corrupted_award_id TEXT
+      canonical_award_id   TEXT PRIMARY KEY,
+      contracts_award_id   TEXT,
+      amounts_award_id     TEXT,
+      descriptions_award_id TEXT
     );
     CREATE TABLE canonical_recipient (
-      canonical_uei TEXT PRIMARY KEY, canonical_name TEXT
+      canonical_uei   TEXT PRIMARY KEY,
+      canonical_name  TEXT,
+      contracts_uei   TEXT,
+      recipients_uei  TEXT
     );
     CREATE TABLE canonical_agency (
       award_id TEXT, canonical_agency TEXT, corrupted_surface TEXT
@@ -276,15 +670,14 @@ def init_manifest(conn: sqlite3.Connection) -> None:
     );
     CREATE TABLE canonical_amount (
       canonical_award_id TEXT PRIMARY KEY,
-      canonical_amount REAL,
-      amount_text TEXT,
-      format_id INTEGER
+      canonical_amount   REAL,
+      amount_text        TEXT
     );
     CREATE TABLE planted_eng_dropped (award_id TEXT PRIMARY KEY);
     CREATE TABLE planted_duplicate (
       canonical_award_id TEXT PRIMARY KEY,
-      original_amount REAL,
-      duplicate_amount REAL
+      original_amount    REAL,
+      duplicate_amount   REAL
     );
     """)
     conn.commit()
@@ -295,22 +688,6 @@ def pgesc(s):
         return "NULL"
     s = str(s).replace("'", "''")
     return "'" + s + "'"
-
-
-def pgnum(x):
-    if x is None:
-        return "NULL"
-    return f"{x:.2f}"
-
-
-def _load_planted_amounts(manifest: sqlite3.Connection) -> dict[str, str]:
-    if manifest.execute(
-        "SELECT name FROM sqlite_master WHERE type='table' AND name='planted_narrative_amount'"
-    ).fetchone():
-        return {r[0]: r[1] for r in manifest.execute(
-            "SELECT canonical_award_id, narrative FROM planted_narrative_amount"
-        )}
-    return {}
 
 
 def build_contracts(clean: sqlite3.Connection, manifest: sqlite3.Connection) -> None:
@@ -347,59 +724,61 @@ def build_contracts(clean: sqlite3.Connection, manifest: sqlite3.Connection) -> 
         ");",
     ]
 
-    narr_amount = _load_planted_amounts(manifest)
     n_dup = 0
-    n_narr = 0
     for r in rows:
         (award_id, gen_id, rname, ruei, rstate, agency, sub_agency, fund_agency,
          amt, outlays, sd, ed, naics, naics_desc, psc, psc_desc, atype) = r
-        # Corrupt ids/values
-        a_corr = award_id_format(award_id, award_id) if award_id else None
-        uei_corr = uei_format(ruei, ruei or "")
-        agency_corr = agency_variant(agency, award_id or "")
-        sub_corr = agency_variant(sub_agency or "", award_id or "")
-        fund_corr = agency_variant(fund_agency or "", award_id or "")
-        naics_corr = naics_format(naics, award_id or "")
+
+        # Same canonical ID, independently chosen surface form per table.
+        a_corr_c = award_id_format(award_id, "contracts")    if award_id else None
+        a_corr_a = award_id_format(award_id, "amounts")      if award_id else None
+        a_corr_d = award_id_format(award_id, "descriptions") if award_id else None
+
+        uei_corr_c = uei_format(ruei, "contracts")  if ruei else None
+        uei_corr_r = uei_format(ruei, "recipients") if ruei else None
+
+        agency_corr   = agency_variant(agency or "", award_id or "")
+        sub_corr      = agency_variant(sub_agency or "", award_id or "")
+        fund_corr     = agency_variant(fund_agency or "", award_id or "")
+        naics_corr    = naics_format(naics or "", award_id or "")
 
         lines.append(
             "INSERT INTO contracts VALUES (" + ", ".join([
-                pgesc(a_corr), pgesc(gen_id), pgesc(uei_corr),
+                pgesc(a_corr_c), pgesc(gen_id), pgesc(uei_corr_c),
                 pgesc(agency_corr), pgesc(sub_corr), pgesc(fund_corr),
                 pgesc(sd), pgesc(ed),
                 pgesc(naics_corr), pgesc(psc), pgesc(atype),
             ]) + ");"
         )
-        # amount in sibling table as text — prefer LLM narrative if available
+
         if amt is not None:
-            if award_id in narr_amount:
-                atext = narr_amount[award_id]
-                fid = -1  # signals narrative origin
-                n_narr += 1
-            else:
-                atext, fid = amount_text(amt, award_id or "")
+            atext = amount_text(amt, award_id or "")
             lines.append(
-                f"INSERT INTO contract_amounts VALUES ({pgesc(a_corr)}, {pgesc(atext)});"
+                f"INSERT INTO contract_amounts VALUES ({pgesc(a_corr_a)}, {pgesc(atext)});"
             )
             mcur.execute(
-                "INSERT OR REPLACE INTO canonical_amount VALUES (?,?,?,?)",
-                (award_id, amt, atext, fid),
+                "INSERT OR REPLACE INTO canonical_amount VALUES (?,?,?)",
+                (award_id, amt, atext),
             )
-        # duplicate row with conflicting amount
-        if should_duplicate(award_id or "") and amt is not None:
-            dup_amt = conflicting_amount(amt, award_id or "")
-            dup_atext, _ = amount_text(dup_amt, (award_id or "") + "-dup")
-            lines.append(
-                f"INSERT INTO contract_amounts VALUES ({pgesc(a_corr)}, {pgesc(dup_atext)});"
-            )
-            mcur.execute(
-                "INSERT OR REPLACE INTO planted_duplicate VALUES (?,?,?)",
-                (award_id, amt, dup_amt),
-            )
-            n_dup += 1
+            if should_duplicate(award_id or ""):
+                dup_amt   = conflicting_amount(amt, award_id or "")
+                dup_atext = amount_text(dup_amt, (award_id or "") + "-dup")
+                lines.append(
+                    f"INSERT INTO contract_amounts VALUES ({pgesc(a_corr_a)}, {pgesc(dup_atext)});"
+                )
+                mcur.execute(
+                    "INSERT OR REPLACE INTO planted_duplicate VALUES (?,?,?)",
+                    (award_id, amt, dup_amt),
+                )
+                n_dup += 1
 
         mcur.execute(
-            "INSERT OR REPLACE INTO canonical_award_id VALUES (?,?)",
-            (award_id, a_corr),
+            "INSERT OR REPLACE INTO canonical_award_id VALUES (?,?,?,?)",
+            (award_id, a_corr_c, a_corr_a, a_corr_d),
+        )
+        mcur.execute(
+            "INSERT OR REPLACE INTO canonical_recipient VALUES (?,?,?,?)",
+            (ruei, rname, uei_corr_c, uei_corr_r),
         )
         if agency:
             mcur.execute(
@@ -409,10 +788,7 @@ def build_contracts(clean: sqlite3.Connection, manifest: sqlite3.Connection) -> 
 
     CONTRACTS_SQL.write_text("\n".join(lines) + "\n", encoding="utf-8")
     manifest.commit()
-    print(
-        f"contracts.sql: built ({len(rows)} rows, {n_narr} LLM amount narratives, "
-        f"{n_dup} duplicate-amount injections)"
-    )
+    print(f"contracts.sql: built ({len(rows)} rows, {n_dup} duplicate-amount injections)")
 
 
 def build_recipients(clean: sqlite3.Connection, manifest: sqlite3.Connection) -> None:
@@ -429,22 +805,17 @@ def build_recipients(clean: sqlite3.Connection, manifest: sqlite3.Connection) ->
         );
     """)
     cur = clean.cursor()
-    mcur = manifest.cursor()
     rows = cur.execute(
         "SELECT uei, name, state, n_contracts, total_amount FROM recipients"
     ).fetchall()
     for uei, name, state, ncon, total in rows:
-        uei_corr = uei_format(uei, uei or "")
-        name_corr = fuzz_recipient_name(name or "", uei or "")
-        state_corr = state_variant(state, uei or "")
-        total_text, _ = amount_text(total or 0, uei or "")
+        uei_corr_r = uei_format(uei, "recipients") if uei else None
+        name_corr  = fuzz_recipient_name(name or "", uei or "")
+        state_corr = state_variant(state or "", uei or "")
+        total_text = amount_text(total or 0, uei or "")
         out.execute(
             "INSERT INTO recipients VALUES (?,?,?,?,?)",
-            (uei_corr, name_corr, state_corr, ncon, total_text),
-        )
-        mcur.execute(
-            "INSERT OR REPLACE INTO canonical_recipient VALUES (?,?)",
-            (uei, name),
+            (uei_corr_r, name_corr, state_corr, ncon, total_text),
         )
     out.commit()
     out.close()
@@ -478,11 +849,9 @@ def build_agencies(clean: sqlite3.Connection, manifest: sqlite3.Connection) -> N
         "SELECT name, n_contracts, total_amount FROM agencies"
     ).fetchall()
     agency_rows = []
-    alias_pairs = set()
+    alias_pairs: set[tuple[str, str]] = set()
     for name, ncon, total in rows:
-        # Use canonical for the row name (so it appears in agencies table as canonical),
-        # but populate agency_aliases with all variants known to map to canonical.
-        agency_rows.append((name, ncon, amount_text(total or 0, name)[0]))
+        agency_rows.append((name, ncon, amount_text(total or 0, name)))
         for v in AGENCY_VARIANTS.get(name, [name]):
             alias_pairs.add((v, name))
     con.executemany("INSERT INTO agencies VALUES (?,?,?)", agency_rows)
@@ -490,11 +859,6 @@ def build_agencies(clean: sqlite3.Connection, manifest: sqlite3.Connection) -> N
 
     naics_rows = []
     for r in cur.execute("SELECT code, description, sector FROM naics"):
-        # corrupt the code in the same way as in contracts so a JOIN on
-        # contracts.naics_code = naics_sectors.code matches.
-        # Actually, let's leave canonical here so the lookup is the
-        # canonical-code source-of-truth; the agent must canonicalize the
-        # corrupted contracts.naics_code to match.
         naics_rows.append((r[0], r[1], r[2]))
         mcur.execute(
             "INSERT OR REPLACE INTO canonical_naics VALUES (?,?)",
@@ -521,12 +885,12 @@ def build_descriptions(clean: sqlite3.Connection, manifest: sqlite3.Connection) 
     for award_id, desc in cur.execute(
         "SELECT award_id, description FROM contracts"
     ):
-        a_corr = award_id_format(award_id or "", award_id or "")
+        a_corr_d = award_id_format(award_id or "", "descriptions")
         descs = []
         if desc:
             if should_drop_english(award_id or ""):
-                # planted: drop English; replace with Spanish placeholder paraphrase
-                descs.append({"language": "es", "value": "[contrato federal] " + (desc[:200] if desc else "")})
+                descs.append({"language": "es",
+                              "value": "[contrato federal] " + desc[:200]})
                 mcur.execute(
                     "INSERT OR REPLACE INTO planted_eng_dropped VALUES (?)",
                     (award_id,),
@@ -534,7 +898,7 @@ def build_descriptions(clean: sqlite3.Connection, manifest: sqlite3.Connection) 
                 n_eng_dropped += 1
             else:
                 descs.append({"language": "en", "value": desc})
-        docs.append({"award_id": a_corr, "descriptions": descs})
+        docs.append({"award_id": a_corr_d, "descriptions": descs})
 
     from bson import encode as bson_encode
     coll_dir = DESC_DUMP / "usaspending_descriptions"

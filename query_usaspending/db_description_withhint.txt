@@ -1,8 +1,10 @@
 HINTS:
-- award_id, recipient_uei, and naics_code appear under multiple surface-form variants across rows; cross-table joins on these fields require canonicalization.
+- The same canonical award_id appears under a different surface form in each database: contracts, contract_amounts, and descriptions_db each independently render the id with a varying prefix and separator style (e.g. one table may have "PIID:HT940216C0001", another "contract/ht-940216-c-0001", another "Ref No. HT 940216 C 0001"). Cross-table joins on award_id require stripping the prefix and normalizing separators and case.
+- Similarly, the same canonical recipient UEI appears under a different surface form in contracts_db vs recipients_db. Joining on recipient_uei requires normalization.
+- naics_code in contracts appears in multiple reformatted variants (e.g. "336411", "naics-336411", "33-6411"); naics_sectors in agencies_db stores canonical codes.
 - contracts_db.contracts.awarding_agency, awarding_sub_agency, and funding_agency may appear under multiple surface forms for the same canonical agency; agencies_db.agency_aliases resolves surface forms to a canonical agency name.
-- recipients_db.recipients.name has multiple surface-form variants for the same canonical entity (corporate-suffix, case, and whitespace differences); some canonical entities are also represented by multiple distinct UEIs.
-- recipients_db.recipients.state may appear under multiple surface forms.
-- contract_amounts.amount_text and recipients.total_amount_text mix templated and narrative encodings; the numeric value must be inferred from prose for narrative rows.
-- A small subset of awards appear in more than one row of contract_amounts with conflicting amount values.
+- recipients_db.recipients.name has multiple surface-form variants for the same canonical entity (corporate-suffix, case, and whitespace differences); some canonical entities are represented by more than one distinct UEI.
+- recipients_db.recipients.state may appear under multiple surface forms (e.g. "CA", "California", "Calif.").
+- contract_amounts.amount_text and recipients.total_amount_text encode dollar amounts in many different text formats: plain integers, comma-separated numbers, dollar-prefixed, USD-suffixed, scaled abbreviations (K / M / B), full English word form, and sum-of-parts expressions (e.g. "$1,050,000 + $450,000"). Every format encodes the exact amount and is unambiguously parseable.
+- A small subset of awards (~3%) appear in more than one row of contract_amounts with conflicting amount values (different underlying amounts, not just different formats of the same amount).
 - A subset of contracts are missing the English description and only carry a non-English description.

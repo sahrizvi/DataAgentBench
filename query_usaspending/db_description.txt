@@ -8,7 +8,7 @@ Here are the descriptions of these four databases:
      - contracts
        - One row per contract award.
        - Fields:
-         - award_id (str): Award identifier
+         - award_id (str): Award identifier (surface form varies per table; same canonical id may appear differently in contract_amounts and descriptions_db)
          - generated_internal_id (str): Internal USAspending identifier
          - recipient_uei (str): Unique Entity Identifier of the recipient
          - awarding_agency (str): Awarding agency
@@ -20,10 +20,10 @@ Here are the descriptions of these four databases:
          - psc_code (str): Product / Service Code
          - award_type (str): Contract type code
      - contract_amounts
-       - Award amount per contract.
+       - Award amount per contract, encoded as text.
        - Fields:
-         - award_id (str): Award identifier
-         - amount_text (str): Amount
+         - award_id (str): Award identifier (surface form varies; join to contracts requires normalization)
+         - amount_text (str): Dollar amount encoded in one of many text formats (e.g. plain integer, "$1,500,000.00", "1.5M", "one million five hundred thousand dollars", "$1,050,000 + $450,000")
 
 2. recipients_db
    - This database is stored in a SQLite database. It contains the per-recipient registry derived from contract awards.
