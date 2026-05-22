@@ -69,6 +69,29 @@ ground_truth = [
 ]
 
 
+_DAY_ORDER = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun']
+_DAY_RANGE_RE = re.compile(
+    r'\b(mon|tue|wed|thu|fri|sat|sun)-(mon|tue|wed|thu|fri|sat|sun)\b', re.I
+)
+
+
+def _abbr_covered_by_range(abbr, norm_window):
+    """Corner case: 'Tue-Thu' implies 'wed' even though 'wed' isn't written out."""
+    if abbr not in _DAY_ORDER:
+        return False
+    target = _DAY_ORDER.index(abbr)
+    for m in _DAY_RANGE_RE.finditer(norm_window):
+        start = _DAY_ORDER.index(m.group(1).lower())
+        end = _DAY_ORDER.index(m.group(2).lower())
+        if start <= end:
+            covered = start <= target <= end
+        else:  # wrap-around: e.g. Sun-Tue covers Sun(6), Mon(0), Tue(1)
+            covered = target >= start or target <= end
+        if covered:
+            return True
+    return False
+
+
 def _norm(s):
     """Normalize time tokens so surface-form variants match:
       - 24-hour variants ("Open 24 hours" / "24/7" / "24 hrs") → "24h"
@@ -106,7 +129,7 @@ def validate(llm_output: str):
             day_l = day.lower()
             abbr = day_l[:3]
             hours_l = _norm(hours.lower())
-            day_present = (day_l in norm_window) or (abbr in norm_window)
+            day_present = (day_l in norm_window) or (abbr in norm_window) or _abbr_covered_by_range(abbr, norm_window)
             if not (day_present and hours_l in norm_window):
                 return False, f"Missing hours [{day}, {hours}] for business: {name}"
 
