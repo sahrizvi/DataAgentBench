@@ -1,0 +1,1622 @@
+[
+  {
+    "dataset": "DEPS_DEV_V1",
+    "query": "1",
+    "run": "0",
+    "answer": "Name,Version\n@dmrvos/infrajs>0.0.5>typescript,2.6.2\n@dmrvos/infrajs>0.0.6>typescript,2.6.2\n@dylanvann/svelte,3.25.4\n@dumc11/tailwindcss,0.4.0\n@dollarshaveclub/cli>1.0.0>lodash,4.17.4"
+  },
+  {
+    "dataset": "DEPS_DEV_V1",
+    "query": "1",
+    "run": "1",
+    "answer": "Name,Version\n@dmrvos/infrajs>0.0.5>typescript,2.6.2\n@dmrvos/infrajs>0.0.6>typescript,2.6.2\n@dylanvann/svelte,3.25.4\n@dumc11/tailwindcss,0.4.0\n@dollarshaveclub/cli>1.0.0>lodash,4.17.4"
+  },
+  {
+    "dataset": "DEPS_DEV_V1",
+    "query": "1",
+    "run": "2",
+    "answer": "Name,Version\n@dmrvos/infrajs>0.0.5>typescript,2.6.2\n@dmrvos/infrajs>0.0.6>typescript,2.6.2\n@dylanvann/svelte,3.25.4\n@dumc11/tailwindcss,0.4.0\n@dollarshaveclub/cli>1.0.0>lodash,4.17.4"
+  },
+  {
+    "dataset": "DEPS_DEV_V1",
+    "query": "1",
+    "run": "3",
+    "answer": "Name,Version\n@dmrvos/infrajs>0.0.5>typescript,2.6.2\n@dmrvos/infrajs>0.0.6>typescript,2.6.2\n@dylanvann/svelte,3.25.4\n@dumc11/tailwindcss,0.4.0\n@dollarshaveclub/cli>1.0.0>lodash,4.17.4"
+  },
+  {
+    "dataset": "DEPS_DEV_V1",
+    "query": "1",
+    "run": "4",
+    "answer": "Name,Version\n@dmrvos/infrajs>0.0.5>typescript,2.6.2\n@dmrvos/infrajs>0.0.6>typescript,2.6.2\n@dylanvann/svelte,3.25.4\n@dumc11/tailwindcss,0.4.0\n@dollarshaveclub/cli>1.0.0>lodash,4.17.4"
+  },
+  {
+    "dataset": "DEPS_DEV_V1",
+    "query": "2",
+    "run": "0",
+    "answer": "ProjectName,Stars,Forks\nmui-org/material-ui,89398,30522\nmoment/moment,47549,7201\nsemantic-org/semantic-ui,51069,4955\nreact-native-elements/react-native-elements,24814,4623\nsveltejs/svelte,73499,4091"
+  },
+  {
+    "dataset": "DEPS_DEV_V1",
+    "query": "2",
+    "run": "1",
+    "answer": "ProjectName,Stars,Forks\nmui-org/material-ui,89398.0,30522.0\nmoment/moment,47549.0,7201.0\nsemantic-org/semantic-ui,51069.0,4955.0\nreact-native-elements/react-native-elements,24814.0,4623.0\nsveltejs/svelte,73499.0,4091.0"
+  },
+  {
+    "dataset": "DEPS_DEV_V1",
+    "query": "2",
+    "run": "2",
+    "answer": "ProjectName,Stars,Forks\nmui-org/material-ui,89398,30522\nmoment/moment,47549,7201\nsemantic-org/semantic-ui,51069,4955\nreact-native-elements/react-native-elements,24814,4623\nsveltejs/svelte,73499,4091"
+  },
+  {
+    "dataset": "DEPS_DEV_V1",
+    "query": "2",
+    "run": "3",
+    "answer": "ProjectName,Stars,Forks\nmui-org/material-ui,89398,30522\nmoment/moment,47549,7201\nsemantic-org/semantic-ui,51069,4955\nreact-native-elements/react-native-elements,24814,4623\nsveltejs/svelte,73499,4091"
+  },
+  {
+    "dataset": "DEPS_DEV_V1",
+    "query": "2",
+    "run": "4",
+    "answer": "ProjectName,Stars,Forks\nmui-org/material-ui,89398,30522\nmoment/moment,47549,7201\nsemantic-org/semantic-ui,51069,4955\nreact-native-elements/react-native-elements,24814,4623\nsveltejs/svelte,73499,4091"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "1",
+    "run": "0",
+    "answer": "copyright_readme_count,total_readme_count,proportion\n20,138,0.14492753623188406"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "1",
+    "run": "1",
+    "answer": "copyright_readme_files,total_readme_files,proportion\n20,138,0.14492753623188406"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "1",
+    "run": "2",
+    "answer": "has_copyright,total_readmes,proportion\n19,101,0.18811881188118812"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "1",
+    "run": "3",
+    "answer": "total_readme_count,copyright_count,proportion\n109,20,0.1834862385321101"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "1",
+    "run": "4",
+    "answer": "has_copyright,total_readme_md_files,proportion\n20,101,0.19801980198019803"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "2",
+    "run": "0",
+    "answer": "repo_name\nuacaps/PageMenu"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "2",
+    "run": "1",
+    "answer": "repo_name\nuacaps/PageMenu"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "2",
+    "run": "2",
+    "answer": "repo_name\nuacaps/PageMenu"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "2",
+    "run": "3",
+    "answer": "repo_name\nuacaps/PageMenu"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "2",
+    "run": "4",
+    "answer": "repo_name\nuacaps/PageMenu"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "3",
+    "run": "0",
+    "answer": "1077"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "3",
+    "run": "1",
+    "answer": "1077"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "3",
+    "run": "2",
+    "answer": "1077"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "3",
+    "run": "3",
+    "answer": "1077"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "3",
+    "run": "4",
+    "answer": "1077"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "4",
+    "run": "0",
+    "answer": "repo_name,commit_count\napple/swift,1051\ntwbs/bootstrap,340\nMicrosoft/vscode,190\nfacebook/react,178\ntensorflow/tensorflow,156"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "4",
+    "run": "1",
+    "answer": "repo_name,commit_count\napple/swift,1051\ntwbs/bootstrap,340\nMicrosoft/vscode,190\nfacebook/react,178\ntensorflow/tensorflow,156"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "4",
+    "run": "2",
+    "answer": "repo_name,commit_count\napple/swift,1051\ntwbs/bootstrap,340\nMicrosoft/vscode,190\nfacebook/react,178\ntensorflow/tensorflow,156"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "4",
+    "run": "3",
+    "answer": "repo_name,commit_count\napple/swift,1051\ntwbs/bootstrap,340\nMicrosoft/vscode,190\nfacebook/react,178\ntensorflow/tensorflow,156"
+  },
+  {
+    "dataset": "GITHUB_REPOS",
+    "query": "4",
+    "run": "4",
+    "answer": "repo_name,commit_count\napple/swift,1051\ntwbs/bootstrap,340\nMicrosoft/vscode,190\nfacebook/react,178\ntensorflow/tensorflow,156"
+  },
+  {
+    "dataset": "PANCANCER_ATLAS",
+    "query": "1",
+    "run": "0",
+    "answer": "icd_o_3_histology,avg_log10_IGF2_expression\n9382/3,2.713571305193452\n9400/3,2.6014163319762282\n9401/3,2.558390345072906\n9450/3,2.6967184429497295\n9451/3,2.5826348457075095"
+  },
+  {
+    "dataset": "PANCANCER_ATLAS",
+    "query": "1",
+    "run": "1",
+    "answer": "icd_o_3_histology,avg_log10_igf2_expression\n9382/3,2.713571305193452\n9400/3,2.6014163319762282\n9401/3,2.558390345072906\n9450/3,2.6967184429497295\n9451/3,2.5826348457075095"
+  },
+  {
+    "dataset": "PANCANCER_ATLAS",
+    "query": "1",
+    "run": "2",
+    "answer": "icd_o_3_histology,average_log10_expression\n9382/3,2.713571305193452\n9400/3,2.6014163319762287\n9401/3,2.558390345072906\n9450/3,2.6967184429497295\n9451/3,2.5826348457075095"
+  },
+  {
+    "dataset": "PANCANCER_ATLAS",
+    "query": "1",
+    "run": "3",
+    "answer": "icd_o_3_histology,avg_log10_igf2_expression\n9382/3,2.713571305193452\n9400/3,2.6014163319762287\n9401/3,2.558390345072906\n9450/3,2.6967184429497295\n9451/3,2.5826348457075095"
+  },
+  {
+    "dataset": "PANCANCER_ATLAS",
+    "query": "1",
+    "run": "4",
+    "answer": "icd_o_3_histology,average_log10_IGF2_expression\n9382/3,2.713571305193452\n9400/3,2.6014163319762287\n9401/3,2.558390345072906\n9450/3,2.6967184429497295\n9451/3,2.5826348457075095"
+  },
+  {
+    "dataset": "PANCANCER_ATLAS",
+    "query": "2",
+    "run": "0",
+    "answer": "icd_o_3_histology,cdh1_mutated_count,total_alive_brca_count,mutation_percentage\n8524/3,4,7,57.14285714285714\n8520/3,73,175,41.714285714285715\n8522/3,2,24,8.333333333333332"
+  },
+  {
+    "dataset": "PANCANCER_ATLAS",
+    "query": "2",
+    "run": "1",
+    "answer": "icd_o_3_histology,total_alive_brca_patients,cdh1_mutated_patients,mutation_percentage\n8524/3,7,4,57.142857142857146\n8520/3,175,73,41.714285714285715\n8522/3,24,2,8.333333333333334"
+  },
+  {
+    "dataset": "PANCANCER_ATLAS",
+    "query": "2",
+    "run": "2",
+    "answer": "icd_o_3_histology,CDH1_mutated_patients,total_patients,mutation_percentage\n8524/3,4,7,57.14285714285714\n8520/3,73,175,41.714285714285715\n8522/3,2,24,8.333333333333332"
+  },
+  {
+    "dataset": "PANCANCER_ATLAS",
+    "query": "2",
+    "run": "3",
+    "answer": "icd_o_3_histology,mutated_count,total_count,mutation_percentage\n8524/3,4,7,57.142857142857146\n8520/3,73,175,41.714285714285715\n8522/3,2,24,8.333333333333334"
+  },
+  {
+    "dataset": "PANCANCER_ATLAS",
+    "query": "2",
+    "run": "4",
+    "answer": "icd_o_3_histology,cdh1_mutated_patients,total_alive_brca_patients,mutation_percentage\n8524/3,4,7,57.142857142857146\n8520/3,73,175,41.714285714285715\n8522/3,2,24,8.333333333333334"
+  },
+  {
+    "dataset": "PANCANCER_ATLAS",
+    "query": "3",
+    "run": "0",
+    "answer": "304.34792553715073"
+  },
+  {
+    "dataset": "PANCANCER_ATLAS",
+    "query": "3",
+    "run": "1",
+    "answer": "304.34792553715073"
+  },
+  {
+    "dataset": "PANCANCER_ATLAS",
+    "query": "3",
+    "run": "2",
+    "answer": "chi_square_statistic\n304.34792553715073"
+  },
+  {
+    "dataset": "PANCANCER_ATLAS",
+    "query": "3",
+    "run": "3",
+    "answer": "chi_square_statistic\n304.34792553715073"
+  },
+  {
+    "dataset": "PANCANCER_ATLAS",
+    "query": "3",
+    "run": "4",
+    "answer": "304.34792553715073"
+  },
+  {
+    "dataset": "PATENTS",
+    "query": "1",
+    "run": "0",
+    "answer": "A22B\nA23J\nA23P\nA24D\nA24F\nA41G\nA47F\nA61P\nA62B\nA62D\nA63H\nB08B\nB09B\nB09C\nB24B\nB27C\nB27M\nB28D\nB30B\nB60H\nB60P\nB61L\nB63G\nB65G\nC01D\nC01G\nC21B\nC25B\nE02D\nE04G\nE21D\nE21F\nF16M\nF24D\nF25J\nF26B\nF41C\nG01H\nG01L\nG05G\nG06N\nG06T\nG06V\nG08G\nG16B\nG16C\nG16H\nG21F\nH02B\nH02G\nH05G"
+  },
+  {
+    "dataset": "PATENTS",
+    "query": "1",
+    "run": "1",
+    "answer": "A01P\nA22B\nA23J\nA23P\nA24D\nA24F\nA41G\nA47F\nA61P\nA62B\nA62D\nA63H\nB08B\nB09B\nB09C\nB24B\nB27C\nB27G\nB28D\nB30B\nB60H\nB60P\nB63G\nB65G\nC01D\nC01G\nC21B\nC25B\nD06H\nE02D\nE04G\nE21D\nE21F\nF16M\nF24D\nF25J\nF26B\nG01H\nG01L\nG05G\nG06J\nG06N\nG06T\nG06V\nG08G\nG16B\nG16C\nG16H\nG21F\nH02B\nH02G"
+  },
+  {
+    "dataset": "PATENTS",
+    "query": "1",
+    "run": "2",
+    "answer": "A01P\nA41H\nA61G\nA62C\nB02C\nB03D\nB07B\nB08B\nB09B\nB09C\nB25D\nB27G\nB27M\nB63G\nB66F\nB68F\nC12R\nC21B\nC21C\nC22B\nC25B\nD03J\nD06H\nD21J\nE02D\nE03B\nE03F\nE04G\nE21F\nF16M\nF17B\nF21H\nG04F\nG06N\nG16B\nG16C\nG16Y\nG21F\nG21G\nG21J\nH01M\nH02B\nH05C\nY02A\nY02B\nY02D\nY02E\nY02P\nY02T\nY02W\nY04S"
+  },
+  {
+    "dataset": "PATENTS",
+    "query": "1",
+    "run": "3",
+    "answer": "A22B\nA23J\nA23P\nA24D\nA24F\nA41G\nA47F\nA61P\nA62B\nA62D\nA63H\nB08B\nB09B\nB09C\nB24B\nB27C\nB27G\nB28D\nB30B\nB60H\nB60P\nB63G\nB65G\nC01D\nC01G\nC21B\nC21C\nC25B\nE02D\nE04G\nE21D\nE21F\nF16M\nF17B\nF24B\nF24D\nF25J\nF26B\nG01H\nG01L\nG05G\nG06N\nG06T\nG06V\nG08G\nG16B\nG16C\nG16H\nG21F\nH02B\nH02G"
+  },
+  {
+    "dataset": "PATENTS",
+    "query": "1",
+    "run": "4",
+    "answer": ""
+  },
+  {
+    "dataset": "PATENTS",
+    "query": "2",
+    "run": "0",
+    "answer": "MEASURING; TESTING,G01,2018\nTECHNOLOGIES OR APPLICATIONS FOR MITIGATION OR ADAPTATION AGAINST CLIMATE CHANGE,Y02,2018\nCOMBUSTION ENGINES; HOT-GAS OR COMBUSTION-PRODUCT ENGINE PLANTS,F02,2018\nVEHICLES IN GENERAL,B60,2018\nELECTRIC ELEMENTS,H01,2013\nMEDICAL OR VETERINARY SCIENCE; HYGIENE,A61,2016\nENGINEERING ELEMENTS AND UNITS; GENERAL MEASURES FOR PRODUCING AND MAINTAINING EFFECTIVE FUNCTIONING OF MACHINES OR INSTALLATIONS; THERMAL INSULATION IN GENERAL,F16,2018\nELECTRIC COMMUNICATION TECHNIQUE,H04,2015\nOPTICS,G02,2018\nHYDRAULIC ENGINEERING; FOUNDATIONS; SOIL SHIFTING,E02,2016\nPOSITIVE - DISPLACEMENT MACHINES FOR LIQUIDS; PUMPS FOR LIQUIDS OR ELASTIC FLUIDS,F04,2018\nWORKING OF PLASTICS; WORKING OF SUBSTANCES IN A PLASTIC STATE IN GENERAL,B29,2012\nBAKING; EDIBLE DOUGHS,A21,2015\nFOOTWEAR,A43,2016\nFURNITURE; DOMESTIC ARTICLES OR APPLIANCES; COFFEE MILLS; SPICE MILLS; SUCTION CLEANERS IN GENERAL,A47,2015\nMACHINE TOOLS; METAL-WORKING NOT OTHERWISE PROVIDED FOR,B23,2015\nPRINTING; LINING MACHINES; TYPEWRITERS; STAMPS,B41,2007\nLAND VEHICLES FOR TRAVELLING OTHERWISE THAN ON RAILS,B62,2010\nSHIPS OR OTHER WATERBORNE VESSELS; RELATED EQUIPMENT,B63,2014\nAIRCRAFT; AVIATION; COSMONAUTICS,B64,2018\nHOISTING; LIFTING; HAULING,B66,2016\nCEMENTS; CONCRETE; ARTIFICIAL STONE; CERAMICS; REFRACTORIES,C04,2015\nDYES; PAINTS; POLISHES; NATURAL RESINS; ADHESIVES; COMPOSITIONS NOT OTHERWISE PROVIDED FOR; APPLICATIONS OF MATERIALS NOT OTHERWISE PROVIDED FOR,C09,2015\nLOCKS; KEYS; WINDOW OR DOOR FITTINGS; SAFES,E05,2012"
+  },
+  {
+    "dataset": "PATENTS",
+    "query": "2",
+    "run": "1",
+    "answer": "MEDICAL OR VETERINARY SCIENCE; HYGIENE,A61,2016\nELECTRIC COMMUNICATION TECHNIQUE,H04,2015\nMEASURING; TESTING,G01,2018\nTECHNOLOGIES OR APPLICATIONS FOR MITIGATION OR ADAPTATION AGAINST CLIMATE CHANGE,Y02,2018\nBAKING; EDIBLE DOUGHS,A21,2015\nFOOTWEAR,A43,2016\nFURNITURE; DOMESTIC ARTICLES OR APPLIANCES; COFFEE MILLS; SPICE MILLS; SUCTION CLEANERS IN GENERAL,A47,2015\nMACHINE TOOLS; METAL-WORKING NOT OTHERWISE PROVIDED FOR,B23,2015\nWORKING OF PLASTICS; WORKING OF SUBSTANCES IN A PLASTIC STATE IN GENERAL,B29,2007\nPRINTING; LINING MACHINES; TYPEWRITERS; STAMPS,B41,2007\nVEHICLES IN GENERAL,B60,2009\nLAND VEHICLES FOR TRAVELLING OTHERWISE THAN ON RAILS,B62,2010\nSHIPS OR OTHER WATERBORNE VESSELS; RELATED EQUIPMENT,B63,2014\nAIRCRAFT; AVIATION; COSMONAUTICS,B64,2018\nHOISTING; LIFTING; HAULING,B66,2016\nCEMENTS; CONCRETE; ARTIFICIAL STONE; CERAMICS; REFRACTORIES,C04,2015\nDYES; PAINTS; POLISHES; NATURAL RESINS; ADHESIVES; COMPOSITIONS NOT OTHERWISE PROVIDED FOR; APPLICATIONS OF MATERIALS NOT OTHERWISE PROVIDED FOR,C09,2015\nHYDRAULIC ENGINEERING; FOUNDATIONS; SOIL SHIFTING,E02,2012\nLOCKS; KEYS; WINDOW OR DOOR FITTINGS; SAFES,E05,2012\nMACHINES OR ENGINES IN GENERAL; ENGINE PLANTS IN GENERAL; STEAM ENGINES,F01,2018\nCOMBUSTION ENGINES; HOT-GAS OR COMBUSTION-PRODUCT ENGINE PLANTS,F02,2010\nPOSITIVE - DISPLACEMENT MACHINES FOR LIQUIDS; PUMPS FOR LIQUIDS OR ELASTIC FLUIDS,F04,2014\nINDEXING SCHEMES RELATING TO ENGINES OR PUMPS IN VARIOUS SUBCLASSES OF CLASSES F01-F04,F05,2018\nENGINEERING ELEMENTS AND UNITS; GENERAL MEASURES FOR PRODUCING AND MAINTAINING EFFECTIVE FUNCTIONING OF MACHINES OR INSTALLATIONS; THERMAL INSULATION IN GENERAL,F16,2009"
+  },
+  {
+    "dataset": "PATENTS",
+    "query": "2",
+    "run": "2",
+    "answer": "MEDICAL OR VETERINARY SCIENCE; HYGIENE,A61,2016\nELECTRIC COMMUNICATION TECHNIQUE,H04,2015\nMEASURING; TESTING,G01,2018\nTECHNOLOGIES OR APPLICATIONS FOR MITIGATION OR ADAPTATION AGAINST CLIMATE CHANGE,Y02,2018\nBAKING; EDIBLE DOUGHS,A21,2015\nFOOTWEAR,A43,2016\nFURNITURE; DOMESTIC ARTICLES OR APPLIANCES; COFFEE MILLS; SPICE MILLS; SUCTION CLEANERS IN GENERAL,A47,2015\nMACHINE TOOLS; METAL-WORKING NOT OTHERWISE PROVIDED FOR,B23,2015\nWORKING OF PLASTICS; WORKING OF SUBSTANCES IN A PLASTIC STATE IN GENERAL,B29,2007\nPRINTING; LINING MACHINES; TYPEWRITERS; STAMPS,B41,2007\nVEHICLES IN GENERAL,B60,2009\nLAND VEHICLES FOR TRAVELLING OTHERWISE THAN ON RAILS,B62,2010\nSHIPS OR OTHER WATERBORNE VESSELS; RELATED EQUIPMENT,B63,2014\nAIRCRAFT; AVIATION; COSMONAUTICS,B64,2018\nHOISTING; LIFTING; HAULING,B66,2016\nCEMENTS; CONCRETE; ARTIFICIAL STONE; CERAMICS; REFRACTORIES,C04,2015\nDYES; PAINTS; POLISHES; NATURAL RESINS; ADHESIVES; COMPOSITIONS NOT OTHERWISE PROVIDED FOR; APPLICATIONS OF MATERIALS NOT OTHERWISE PROVIDED FOR,C09,2015\nHYDRAULIC ENGINEERING; FOUNDATIONS; SOIL SHIFTING,E02,2012\nLOCKS; KEYS; WINDOW OR DOOR FITTINGS; SAFES,E05,2012\nMACHINES OR ENGINES IN GENERAL; ENGINE PLANTS IN GENERAL; STEAM ENGINES,F01,2018\nCOMBUSTION ENGINES; HOT-GAS OR COMBUSTION-PRODUCT ENGINE PLANTS,F02,2010\nPOSITIVE - DISPLACEMENT MACHINES FOR LIQUIDS; PUMPS FOR LIQUIDS OR ELASTIC FLUIDS,F04,2014\nINDEXING SCHEMES RELATING TO ENGINES OR PUMPS IN VARIOUS SUBCLASSES OF CLASSES F01-F04,F05,2018\nENGINEERING ELEMENTS AND UNITS; GENERAL MEASURES FOR PRODUCING AND MAINTAINING EFFECTIVE FUNCTIONING OF MACHINES OR INSTALLATIONS; THERMAL INSULATION IN GENERAL,F16,2009"
+  },
+  {
+    "dataset": "PATENTS",
+    "query": "2",
+    "run": "3",
+    "answer": "MEASURING; TESTING,G01,2018\nTECHNOLOGIES OR APPLICATIONS FOR MITIGATION OR ADAPTATION AGAINST CLIMATE CHANGE,Y02,2018\nCOMBUSTION ENGINES; HOT-GAS OR COMBUSTION-PRODUCT ENGINE PLANTS,F02,2018\nVEHICLES IN GENERAL,B60,2018\nELECTRIC ELEMENTS,H01,2013\nMEDICAL OR VETERINARY SCIENCE; HYGIENE,A61,2016\nENGINEERING ELEMENTS AND UNITS; GENERAL MEASURES FOR PRODUCING AND MAINTAINING EFFECTIVE FUNCTIONING OF MACHINES OR INSTALLATIONS; THERMAL INSULATION IN GENERAL,F16,2018\nELECTRIC COMMUNICATION TECHNIQUE,H04,2015\nOPTICS,G02,2018\nHYDRAULIC ENGINEERING; FOUNDATIONS; SOIL SHIFTING,E02,2016\nPOSITIVE - DISPLACEMENT MACHINES FOR LIQUIDS; PUMPS FOR LIQUIDS OR ELASTIC FLUIDS,F04,2018\nWORKING OF PLASTICS; WORKING OF SUBSTANCES IN A PLASTIC STATE IN GENERAL,B29,2012\nBAKING; EDIBLE DOUGHS,A21,2015\nFOOTWEAR,A43,2016\nFURNITURE; DOMESTIC ARTICLES OR APPLIANCES; COFFEE MILLS; SPICE MILLS; SUCTION CLEANERS IN GENERAL,A47,2015\nMACHINE TOOLS; METAL-WORKING NOT OTHERWISE PROVIDED FOR,B23,2015\nPRINTING; LINING MACHINES; TYPEWRITERS; STAMPS,B41,2007\nLAND VEHICLES FOR TRAVELLING OTHERWISE THAN ON RAILS,B62,2010\nSHIPS OR OTHER WATERBORNE VESSELS; RELATED EQUIPMENT,B63,2014\nAIRCRAFT; AVIATION; COSMONAUTICS,B64,2018\nHOISTING; LIFTING; HAULING,B66,2016\nCEMENTS; CONCRETE; ARTIFICIAL STONE; CERAMICS; REFRACTORIES,C04,2015\nDYES; PAINTS; POLISHES; NATURAL RESINS; ADHESIVES; COMPOSITIONS NOT OTHERWISE PROVIDED FOR; APPLICATIONS OF MATERIALS NOT OTHERWISE PROVIDED FOR,C09,2015\nLOCKS; KEYS; WINDOW OR DOOR FITTINGS; SAFES,E05,2012"
+  },
+  {
+    "dataset": "PATENTS",
+    "query": "2",
+    "run": "4",
+    "answer": "MEASURING; TESTING,G01,2018\nTECHNOLOGIES OR APPLICATIONS FOR MITIGATION OR ADAPTATION AGAINST CLIMATE CHANGE,Y02,2018\nCOMBUSTION ENGINES; HOT-GAS OR COMBUSTION-PRODUCT ENGINE PLANTS,F02,2018\nVEHICLES IN GENERAL,B60,2018\nELECTRIC ELEMENTS,H01,2013\nMEDICAL OR VETERINARY SCIENCE; HYGIENE,A61,2016\nENGINEERING ELEMENTS AND UNITS; GENERAL MEASURES FOR PRODUCING AND MAINTAINING EFFECTIVE FUNCTIONING OF MACHINES OR INSTALLATIONS; THERMAL INSULATION IN GENERAL,F16,2018\nPOSITIVE - DISPLACEMENT MACHINES FOR LIQUIDS; PUMPS FOR LIQUIDS OR ELASTIC FLUIDS,F04,2018\nELECTRIC COMMUNICATION TECHNIQUE,H04,2015\nOPTICS,G02,2018\nHYDRAULIC ENGINEERING; FOUNDATIONS; SOIL SHIFTING,E02,2016\nWORKING OF PLASTICS; WORKING OF SUBSTANCES IN A PLASTIC STATE IN GENERAL,B29,2012\nMACHINES OR ENGINES IN GENERAL; ENGINE PLANTS IN GENERAL; STEAM ENGINES,F01,2018\nBAKING; EDIBLE DOUGHS,A21,2015\nTOBACCO; CIGARS; CIGARETTES; SIMULATED SMOKING DEVICES; SMOKERS' REQUISITES,A24,2018\nFOOTWEAR,A43,2016\nFURNITURE; DOMESTIC ARTICLES OR APPLIANCES; COFFEE MILLS; SPICE MILLS; SUCTION CLEANERS IN GENERAL,A47,2015\nMACHINE TOOLS; METAL-WORKING NOT OTHERWISE PROVIDED FOR,B23,2015\nPRINTING; LINING MACHINES; TYPEWRITERS; STAMPS,B41,2007\nLAND VEHICLES FOR TRAVELLING OTHERWISE THAN ON RAILS,B62,2010\nSHIPS OR OTHER WATERBORNE VESSELS; RELATED EQUIPMENT,B63,2014\nAIRCRAFT; AVIATION; COSMONAUTICS,B64,2018\nHOISTING; LIFTING; HAULING,B66,2016\nCEMENTS; CONCRETE; ARTIFICIAL STONE; CERAMICS; REFRACTORIES,C04,2015"
+  },
+  {
+    "dataset": "PATENTS",
+    "query": "3",
+    "run": "0",
+    "answer": "BLOOM ENERGY CORP,Complex oxides; optionally doped; of the type M1MeO3; M1 being an alkaline earth metal or a rare earth; Me being a metal; e.g. perovskites\nBLOOM ENERGY CORP,Energy storage using batteries\nBLOOM ENERGY CORP,Fuel cells\nBLOOM ENERGY CORP,Fuel cells with solid electrolytes operating at high temperature; e.g. with stabilised ZrO2 electrolyte characterised by the electrode/electrolyte combination or the supporting material\nBLOOM ENERGY CORP,Fuel cells with solid electrolytes operating at high temperature; e.g. with stabilised ZrO2 electrolyte characterised by the electrode/electrolyte combination or the supporting material characterised by the supporting layer\nBLOOM ENERGY CORP,Fuel cells with solid electrolytes operating at high temperature; e.g. with stabilised ZrO2 electrolyte characterised by the process of manufacturing or by the material of the electrolyte the electrolyte consisting of oxides\nBLOOM ENERGY CORP,Fuel cells with solid oxide electrolytes\nBLOOM ENERGY CORP,Manufacturing or production processes characterised by the final manufactured product\nBLOOM ENERGY CORP,Metals or alloys specially used in fuel cell operating at high temperature; e.g. SOFC of metal-ceramic composites or mixtures; e.g. cermets\nBLOOM ENERGY CORP,Oxides; hydroxides or oxygenated metallic salts\nBLOOM ENERGY CORP,Sintering or firing\nCRYSTAL IS INC,Disposition the bump connector connecting between a semiconductor or solid-state body and an item not being a semiconductor or solid-state body; e.g. chip-to-substrate; chip-to-passive the body and the item being stacked the item being non-metallic; e.g. insulating substrate with or without metallisation\nCRYSTAL IS INC,Encapsulations having a particular shape\nCRYSTAL IS INC,Materials of the light emitting region containing only elements of Group III and Group V of the Periodic Table containing nitrogen\nCRYSTAL IS INC,Processes for devices with an active region comprising only III-V compounds with a substrate not being a III-V compound comprising nitride compounds\nCRYSTAL IS INC,Reflective elements\nCRYSTAL IS INC,Semiconductor devices having potential barriers specially adapted for light emission; Processes or apparatus specially adapted for the manufacture or treatment thereof or of parts thereof; Details thereof\nCRYSTAL IS INC,Semiconductor devices having potential barriers specially adapted for light emission; Processes or apparatus specially adapted for the manufacture or treatment thereof or of parts thereof; Details thereof characterised by the semiconductor bodies with a quantum effect structure or superlattice; e.g. tunnel junction within the light emitting region; e.g. quantum confinement structure or tunnel barrier\nCRYSTAL IS INC,Wafer bonding; Removal of the growth substrate\nCRYSTAL IS INC,Wavelength conversion elements\nSCHOWALTER LEO J,Disposition the bump connector connecting between a semiconductor or solid-state body and an item not being a semiconductor or solid-state body; e.g. chip-to-substrate; chip-to-passive the body and the item being stacked the item being non-metallic; e.g. insulating substrate with or without metallisation\nSCHOWALTER LEO J,Encapsulations having a particular shape\nSCHOWALTER LEO J,Materials of the light emitting region containing only elements of Group III and Group V of the Periodic Table containing nitrogen\nSCHOWALTER LEO J,Processes for devices with an active region comprising only III-V compounds with a substrate not being a III-V compound comprising nitride compounds\nSCHOWALTER LEO J,Reflective elements\nSCHOWALTER LEO J,Semiconductor devices having potential barriers specially adapted for light emission; Processes or apparatus specially adapted for the manufacture or treatment thereof or of parts thereof; Details thereof\nSCHOWALTER LEO J,Semiconductor devices having potential barriers specially adapted for light emission; Processes or apparatus specially adapted for the manufacture or treatment thereof or of parts thereof; Details thereof characterised by the semiconductor bodies with a quantum effect structure or superlattice; e.g. tunnel junction within the light emitting region; e.g. quantum confinement structure or tunnel barrier\nSCHOWALTER LEO J,Wafer bonding; Removal of the growth substrate\nSCHOWALTER LEO J,Wavelength conversion elements"
+  },
+  {
+    "dataset": "PATENTS",
+    "query": "3",
+    "run": "1",
+    "answer": "CALIFORNIA INST OF TECHN,Bearing supporting or connecting constructions specially adapted for such buildings\nBLOOM ENERGY CORP,Methods of deposition of the material involving spraying\nBLOOM ENERGY CORP,Sintering or firing\nBLOOM ENERGY CORP,Oxides hydroxides or oxygenated metallic salts\nBLOOM ENERGY CORP,Sintering or firing\nBLOOM ENERGY CORP,Fuel cells with solid electrolytes operating at high temperature e.g. with stabilised ZrO2 electrolyte characterised by the electrode/electrolyte combination or the supporting material\nBLOOM ENERGY CORP,Fuel cells with solid electrolytes operating at high temperature e.g. with stabilised ZrO2 electrolyte characterised by the electrode/electrolyte combination or the supporting material\nBLOOM ENERGY CORP,Methods of deposition of the material involving spraying\nBLOOM ENERGY CORP,Oxides hydroxides or oxygenated metallic salts\nCRYSTAL IS INC,Wafer bonding; Removal of the growth substrate\nCRYSTAL IS INC,Processes for devices with an active region comprising only III-V compounds with a substrate not being a III-V compound comprising nitride compounds\nCRYSTAL IS INC,Wafer bonding; Removal of the growth substrate\nCRYSTAL IS INC,Processes for devices with an active region comprising only III-V compounds with a substrate not being a III-V compound comprising nitride compounds\nCRYSTAL IS INC,Roughened surfaces e.g. at the interface between epitaxial layers\nCRYSTAL IS INC,Materials of the light emitting region containing only elements of Group III and Group V of the Periodic Table containing nitrogen\nCRYSTAL IS INC,Reflective elements\nCRYSTAL IS INC,Roughened surfaces e.g. at the interface between epitaxial layers\nCRYSTAL IS INC,Materials of the light emitting region containing only elements of Group III and Group V of the Periodic Table containing nitrogen\nCRYSTAL IS INC,Materials of the light emitting region containing only elements of Group III and Group V of the Periodic Table\nSCHOWALTER LEO J,Wafer bonding; Removal of the growth substrate\nSCHOWALTER LEO J,Processes for devices with an active region comprising only III-V compounds with a substrate not being a III-V compound comprising nitride compounds\nSCHOWALTER LEO J,Wafer bonding; Removal of the growth substrate\nSCHOWALTER LEO J,Processes for devices with an active region comprising only III-V compounds with a substrate not being a III-V compound comprising nitride compounds\nSCHOWALTER LEO J,Roughened surfaces e.g. at the interface between epitaxial layers\nSCHOWALTER LEO J,Materials of the light emitting region containing only elements of Group III and Group V of the Periodic Table containing nitrogen\nSCHOWALTER LEO J,Reflective elements\nSCHOWALTER LEO J,Roughened surfaces e.g. at the interface between epitaxial layers\nSCHOWALTER LEO J,Materials of the light emitting region containing only elements of Group III and Group V of the Periodic Table containing nitrogen\nSCHOWALTER LEO J,Materials of the light emitting region containing only elements of Group III and Group V of the Periodic Table"
+  },
+  {
+    "dataset": "PATENTS",
+    "query": "3",
+    "run": "2",
+    "answer": "BLOOM ENERGY CORP,Fuel cells with solid oxide electrolytes\nBLOOM ENERGY CORP,Sintering or firing\nBLOOM ENERGY CORP,Oxides; hydroxides or oxygenated metallic salts\nBLOOM ENERGY CORP,Complex oxides; optionally doped; of the type M1MeO3; M1 being an alkaline earth metal or a rare earth; Me being a metal; e.g. perovskites\nBLOOM ENERGY CORP,Metals or alloys specially used in fuel cell operating at high temperature; e.g. SOFC of metal-ceramic composites or mixtures; e.g. cermets\nBLOOM ENERGY CORP,Fuel cells with solid electrolytes operating at high temperature; e.g. with stabilised ZrO2 electrolyte characterised by the electrode/electrolyte combination or the supporting material\nBLOOM ENERGY CORP,Fuel cells with solid electrolytes operating at high temperature; e.g. with stabilised ZrO2 electrolyte characterised by the electrode/electrolyte combination or the supporting material characterised by the supporting layer\nBLOOM ENERGY CORP,Fuel cells with solid electrolytes operating at high temperature; e.g. with stabilised ZrO2 electrolyte characterised by the process of manufacturing or by the material of the electrolyte the electrolyte consisting of oxides\nBLOOM ENERGY CORP,Energy storage using batteries\nBLOOM ENERGY CORP,Fuel cells\nBLOOM ENERGY CORP,Manufacturing or production processes characterised by the final manufactured product\nCRYSTAL IS INC,Disposition the bump connector connecting between a semiconductor or solid-state body and an item not being a semiconductor or solid-state body; e.g. chip-to-substrate; chip-to-passive the body and the item being stacked the item being non-metallic; e.g. insulating substrate with or without metallisation\nCRYSTAL IS INC,Semiconductor devices having potential barriers specially adapted for light emission; Processes or apparatus specially adapted for the manufacture or treatment thereof or of parts thereof; Details thereof\nCRYSTAL IS INC,Processes for devices with an active region comprising only III-V compounds with a substrate not being a III-V compound comprising nitride compounds\nCRYSTAL IS INC,Wafer bonding; Removal of the growth substrate\nCRYSTAL IS INC,Semiconductor devices having potential barriers specially adapted for light emission; Processes or apparatus specially adapted for the manufacture or treatment thereof or of parts thereof; Details thereof characterised by the semiconductor bodies with a quantum effect structure or superlattice; e.g. tunnel junction within the light emitting region; e.g. quantum confinement structure or tunnel barrier\nCRYSTAL IS INC,Materials of the light emitting region containing only elements of Group III and Group V of the Periodic Table containing nitrogen\nCRYSTAL IS INC,Wavelength conversion elements\nCRYSTAL IS INC,Encapsulations having a particular shape\nCRYSTAL IS INC,Reflective elements\nSCHOWALTER LEO J,Disposition the bump connector connecting between a semiconductor or solid-state body and an item not being a semiconductor or solid-state body; e.g. chip-to-substrate; chip-to-passive the body and the item being stacked the item being non-metallic; e.g. insulating substrate with or without metallisation\nSCHOWALTER LEO J,Semiconductor devices having potential barriers specially adapted for light emission; Processes or apparatus specially adapted for the manufacture or treatment thereof or of parts thereof; Details thereof\nSCHOWALTER LEO J,Processes for devices with an active region comprising only III-V compounds with a substrate not being a III-V compound comprising nitride compounds\nSCHOWALTER LEO J,Wafer bonding; Removal of the growth substrate\nSCHOWALTER LEO J,Semiconductor devices having potential barriers specially adapted for light emission; Processes or apparatus specially adapted for the manufacture or treatment thereof or of parts thereof; Details thereof characterised by the semiconductor bodies with a quantum effect structure or superlattice; e.g. tunnel junction within the light emitting region; e.g. quantum confinement structure or tunnel barrier\nSCHOWALTER LEO J,Materials of the light emitting region containing only elements of Group III and Group V of the Periodic Table containing nitrogen\nSCHOWALTER LEO J,Wavelength conversion elements\nSCHOWALTER LEO J,Encapsulations having a particular shape\nSCHOWALTER LEO J,Reflective elements"
+  },
+  {
+    "dataset": "PATENTS",
+    "query": "3",
+    "run": "3",
+    "answer": "BLOOM ENERGY CORP,Complex oxides optionally doped of the type M1MeO3 M1 being an alkaline earth metal or a rare earth Me being a metal e.g. perovskites\nBLOOM ENERGY CORP,Fuel cells with solid electrolytes operating at high temperature e.g. with stabilised ZrO2 electrolyte characterised by the electrode/electrolyte combination or the supporting material\nBLOOM ENERGY CORP,Fuel cells with solid electrolytes operating at high temperature e.g. with stabilised ZrO2 electrolyte characterised by the electrode/electrolyte combination or the supporting material characterised by the supporting layer\nBLOOM ENERGY CORP,Fuel cells with solid electrolytes operating at high temperature e.g. with stabilised ZrO2 electrolyte characterised by the process of manufacturing or by the material of the electrolyte the electrolyte consisting of oxides\nBLOOM ENERGY CORP,Fuel cells with solid oxide electrolytes\nBLOOM ENERGY CORP,Metals or alloys specially used in fuel cell operating at high temperature e.g. SOFC of metal-ceramic composites or mixtures e.g. cermets\nBLOOM ENERGY CORP,Methods of deposition of the material involving spraying\nBLOOM ENERGY CORP,Oxides hydroxides or oxygenated metallic salts\nBLOOM ENERGY CORP,Sintering or firing\nCRYSTAL IS INC,Encapsulations having a particular shape\nCRYSTAL IS INC,Materials of the light emitting region containing only elements of Group III and Group V of the Periodic Table\nCRYSTAL IS INC,Materials of the light emitting region containing only elements of Group III and Group V of the Periodic Table containing nitrogen\nCRYSTAL IS INC,Processes for devices with an active region comprising only III-V compounds with a substrate not being a III-V compound comprising nitride compounds\nCRYSTAL IS INC,Reflective elements\nCRYSTAL IS INC,Roughened surfaces e.g. at the interface between epitaxial layers\nCRYSTAL IS INC,Semiconductor devices having potential barriers specially adapted for light emission; Processes or apparatus specially adapted for the manufacture or treatment thereof or of parts thereof; Details thereof\nCRYSTAL IS INC,Semiconductor devices having potential barriers specially adapted for light emission; Processes or apparatus specially adapted for the manufacture or treatment thereof or of parts thereof; Details thereof characterised by the semiconductor bodies with a quantum effect structure or superlattice e.g. tunnel junction within the light emitting region e.g. quantum confinement structure or tunnel barrier\nCRYSTAL IS INC,Wafer bonding; Removal of the growth substrate\nCRYSTAL IS INC,Wavelength conversion elements\nSCHOWALTER LEO J,Encapsulations having a particular shape\nSCHOWALTER LEO J,Materials of the light emitting region containing only elements of Group III and Group V of the Periodic Table\nSCHOWALTER LEO J,Materials of the light emitting region containing only elements of Group III and Group V of the Periodic Table containing nitrogen\nSCHOWALTER LEO J,Processes for devices with an active region comprising only III-V compounds with a substrate not being a III-V compound comprising nitride compounds\nSCHOWALTER LEO J,Reflective elements\nSCHOWALTER LEO J,Roughened surfaces e.g. at the interface between epitaxial layers\nSCHOWALTER LEO J,Semiconductor devices having potential barriers specially adapted for light emission; Processes or apparatus specially adapted for the manufacture or treatment thereof or of parts thereof; Details thereof\nSCHOWALTER LEO J,Semiconductor devices having potential barriers specially adapted for light emission; Processes or apparatus specially adapted for the manufacture or treatment thereof or of parts thereof; Details thereof characterised by the semiconductor bodies with a quantum effect structure or superlattice e.g. tunnel junction within the light emitting region e.g. quantum confinement structure or tunnel barrier\nSCHOWALTER LEO J,Wafer bonding; Removal of the growth substrate\nSCHOWALTER LEO J,Wavelength conversion elements"
+  },
+  {
+    "dataset": "PATENTS",
+    "query": "3",
+    "run": "4",
+    "answer": "BLOOM ENERGY CORP,Complex oxides; optionally doped; of the type M1MeO3; M1 being an alkaline earth metal or a rare earth; Me being a metal; e.g. perovskites\nBLOOM ENERGY CORP,Fuel cells with solid electrolytes operating at high temperature; e.g. with stabilised ZrO2 electrolyte characterised by the electrode/electrolyte combination or the supporting material\nBLOOM ENERGY CORP,Fuel cells with solid electrolytes operating at high temperature; e.g. with stabilised ZrO2 electrolyte characterised by the electrode/electrolyte combination or the supporting material characterised by the supporting layer\nBLOOM ENERGY CORP,Fuel cells with solid electrolytes operating at high temperature; e.g. with stabilised ZrO2 electrolyte characterised by the process of manufacturing or by the material of the electrolyte the electrolyte consisting of oxides\nBLOOM ENERGY CORP,Fuel cells with solid oxide electrolytes\nBLOOM ENERGY CORP,Metals or alloys specially used in fuel cell operating at high temperature; e.g. SOFC of metal-ceramic composites or mixtures; e.g. cermets\nBLOOM ENERGY CORP,Methods of deposition of the material involving spraying\nBLOOM ENERGY CORP,Oxides; hydroxides or oxygenated metallic salts\nBLOOM ENERGY CORP,Sintering or firing\nCRYSTAL IS INC,Encapsulations having a particular shape\nCRYSTAL IS INC,Materials of the light emitting region containing only elements of Group III and Group V of the Periodic Table\nCRYSTAL IS INC,Materials of the light emitting region containing only elements of Group III and Group V of the Periodic Table containing nitrogen\nCRYSTAL IS INC,Processes for devices with an active region comprising only III-V compounds with a substrate not being a III-V compound comprising nitride compounds\nCRYSTAL IS INC,Reflective elements\nCRYSTAL IS INC,Roughened surfaces; e.g. at the interface between epitaxial layers\nCRYSTAL IS INC,Semiconductor devices having potential barriers specially adapted for light emission; Processes or apparatus specially adapted for the manufacture or treatment thereof or of parts thereof; Details thereof\nCRYSTAL IS INC,Semiconductor devices having potential barriers specially adapted for light emission; Processes or apparatus specially adapted for the manufacture or treatment thereof or of parts thereof; Details thereof characterised by the semiconductor bodies with a quantum effect structure or superlattice; e.g. tunnel junction within the light emitting region; e.g. quantum confinement structure or tunnel barrier\nCRYSTAL IS INC,Wafer bonding; Removal of the growth substrate\nCRYSTAL IS INC,Wavelength conversion elements\nSCHOWALTER LEO J,Encapsulations having a particular shape\nSCHOWALTER LEO J,Materials of the light emitting region containing only elements of Group III and Group V of the Periodic Table\nSCHOWALTER LEO J,Materials of the light emitting region containing only elements of Group III and Group V of the Periodic Table containing nitrogen\nSCHOWALTER LEO J,Processes for devices with an active region comprising only III-V compounds with a substrate not being a III-V compound comprising nitride compounds\nSCHOWALTER LEO J,Reflective elements\nSCHOWALTER LEO J,Roughened surfaces; e.g. at the interface between epitaxial layers\nSCHOWALTER LEO J,Semiconductor devices having potential barriers specially adapted for light emission; Processes or apparatus specially adapted for the manufacture or treatment thereof or of parts thereof; Details thereof\nSCHOWALTER LEO J,Semiconductor devices having potential barriers specially adapted for light emission; Processes or apparatus specially adapted for the manufacture or treatment thereof or of parts thereof; Details thereof characterised by the semiconductor bodies with a quantum effect structure or superlattice; e.g. tunnel junction within the light emitting region; e.g. quantum confinement structure or tunnel barrier\nSCHOWALTER LEO J,Wafer bonding; Removal of the growth substrate\nSCHOWALTER LEO J,Wavelength conversion elements"
+  },
+  {
+    "dataset": "agnews",
+    "query": "1",
+    "run": "0",
+    "answer": "The Rundown"
+  },
+  {
+    "dataset": "agnews",
+    "query": "1",
+    "run": "1",
+    "answer": "The Rundown"
+  },
+  {
+    "dataset": "agnews",
+    "query": "1",
+    "run": "2",
+    "answer": "The Rundown"
+  },
+  {
+    "dataset": "agnews",
+    "query": "1",
+    "run": "3",
+    "answer": "The Rundown"
+  },
+  {
+    "dataset": "agnews",
+    "query": "1",
+    "run": "4",
+    "answer": "The Rundown"
+  },
+  {
+    "dataset": "agnews",
+    "query": "2",
+    "run": "0",
+    "answer": "0.14414414414414414"
+  },
+  {
+    "dataset": "agnews",
+    "query": "2",
+    "run": "1",
+    "answer": "0.14414414414414414"
+  },
+  {
+    "dataset": "agnews",
+    "query": "2",
+    "run": "2",
+    "answer": "0.14414414414414414"
+  },
+  {
+    "dataset": "agnews",
+    "query": "2",
+    "run": "3",
+    "answer": "0.14414414414414414"
+  },
+  {
+    "dataset": "agnews",
+    "query": "2",
+    "run": "4",
+    "answer": "0.14414414414414414"
+  },
+  {
+    "dataset": "agnews",
+    "query": "3",
+    "run": "0",
+    "answer": "336.6363636363636"
+  },
+  {
+    "dataset": "agnews",
+    "query": "3",
+    "run": "1",
+    "answer": "336.6363636363636"
+  },
+  {
+    "dataset": "agnews",
+    "query": "3",
+    "run": "2",
+    "answer": "336.6363636363636"
+  },
+  {
+    "dataset": "agnews",
+    "query": "3",
+    "run": "3",
+    "answer": "336.6363636363636"
+  },
+  {
+    "dataset": "agnews",
+    "query": "3",
+    "run": "4",
+    "answer": "336.6363636363636"
+  },
+  {
+    "dataset": "agnews",
+    "query": "4",
+    "run": "0",
+    "answer": "Africa"
+  },
+  {
+    "dataset": "agnews",
+    "query": "4",
+    "run": "1",
+    "answer": "Africa"
+  },
+  {
+    "dataset": "agnews",
+    "query": "4",
+    "run": "2",
+    "answer": "Africa"
+  },
+  {
+    "dataset": "agnews",
+    "query": "4",
+    "run": "3",
+    "answer": "Africa"
+  },
+  {
+    "dataset": "agnews",
+    "query": "4",
+    "run": "4",
+    "answer": "Africa"
+  },
+  {
+    "dataset": "bookreview",
+    "query": "1",
+    "run": "0",
+    "answer": "2020s"
+  },
+  {
+    "dataset": "bookreview",
+    "query": "1",
+    "run": "1",
+    "answer": "2020s"
+  },
+  {
+    "dataset": "bookreview",
+    "query": "1",
+    "run": "2",
+    "answer": "2020s"
+  },
+  {
+    "dataset": "bookreview",
+    "query": "1",
+    "run": "3",
+    "answer": "2020s"
+  },
+  {
+    "dataset": "bookreview",
+    "query": "1",
+    "run": "4",
+    "answer": "2020s"
+  },
+  {
+    "dataset": "bookreview",
+    "query": "2",
+    "run": "0",
+    "answer": "Reunion: The Children of Lauderdale Park\nThe Prophet: With Original 1923 Illustrations by the Author\nThe Melancholy Strumpet Master\nChild Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message\nFire Cracker\nLocal Honey\nHollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)\nKnowing When To Die: Uncollected Stories\nChilde Harold of Dysna\nForged in Blood (Freehold)\nExits, Desires, & Slow Fires\nKennebago Moments\nThe Sludge\nLiza of Lambeth\nSomething That Feels Like Truth (Switchgrass Books)"
+  },
+  {
+    "dataset": "bookreview",
+    "query": "2",
+    "run": "1",
+    "answer": "Reunion: The Children of Lauderdale Park\nThe Prophet: With Original 1923 Illustrations by the Author\nThe Melancholy Strumpet Master\nChild Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message\nFire Cracker\nLocal Honey\nHollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)\nKnowing When To Die: Uncollected Stories\nChilde Harold of Dysna\nForged in Blood (Freehold)\nExits, Desires, & Slow Fires\nKennebago Moments\nThe Sludge\nLiza of Lambeth\nSomething That Feels Like Truth (Switchgrass Books)"
+  },
+  {
+    "dataset": "bookreview",
+    "query": "2",
+    "run": "2",
+    "answer": "Reunion: The Children of Lauderdale Park\nThe Prophet: With Original 1923 Illustrations by the Author\nThe Melancholy Strumpet Master\nChild Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message\nFire Cracker\nLocal Honey\nHollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)\nKnowing When To Die: Uncollected Stories\nChilde Harold of Dysna\nForged in Blood (Freehold)\nExits, Desires, & Slow Fires\nKennebago Moments\nThe Sludge\nLiza of Lambeth\nSomething That Feels Like Truth (Switchgrass Books)"
+  },
+  {
+    "dataset": "bookreview",
+    "query": "2",
+    "run": "3",
+    "answer": "Reunion: The Children of Lauderdale Park\nThe Prophet: With Original 1923 Illustrations by the Author\nThe Melancholy Strumpet Master\nChild Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message\nFire Cracker\nLocal Honey\nHollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)\nKnowing When To Die: Uncollected Stories\nChilde Harold of Dysna\nForged in Blood (Freehold)\nExits, Desires, & Slow Fires\nKennebago Moments\nThe Sludge\nLiza of Lambeth\nSomething That Feels Like Truth (Switchgrass Books)"
+  },
+  {
+    "dataset": "bookreview",
+    "query": "2",
+    "run": "4",
+    "answer": "Reunion: The Children of Lauderdale Park\nThe Prophet: With Original 1923 Illustrations by the Author\nThe Melancholy Strumpet Master\nChild Of The King A Journey of Hope Book 1: Earthly Story With A Heavenly Message\nFire Cracker\nLocal Honey\nHollywood Confessions: Hollywood Headlines Book #3 (Hollywood Headlines Mysteries)\nKnowing When To Die: Uncollected Stories\nChilde Harold of Dysna\nForged in Blood (Freehold)\nExits, Desires, & Slow Fires\nKennebago Moments\nThe Sludge\nLiza of Lambeth\nSomething That Feels Like Truth (Switchgrass Books)"
+  },
+  {
+    "dataset": "bookreview",
+    "query": "3",
+    "run": "0",
+    "answer": "Monstrous Stories #4: The Day the Mice Stood Still\nThe Old Man and the Pirate Princess\nEgypt (Enchantment of the World)\nClark the Shark: Tooth Trouble, No. 1\nFavorite Thorton W. Burgess Stories: 6 Books\nBehind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)\nCheer Up, Ben Franklin! (Young Historians)\nThe Library Book\nBenny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)\nLunaLu the Llamacorn\nTrouble in the CTC!: The Terra Prime Adventures Book 2\nAround the World Mazes\nCleo Porter and the Body Electric\nPokémon: Sun & Moon, Vol. 8 (8)"
+  },
+  {
+    "dataset": "bookreview",
+    "query": "3",
+    "run": "1",
+    "answer": "Monstrous Stories #4: The Day the Mice Stood Still\nThe Old Man and the Pirate Princess\nEgypt (Enchantment of the World)\nClark the Shark: Tooth Trouble, No. 1\nFavorite Thorton W. Burgess Stories: 6 Books\nBehind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)\nCheer Up, Ben Franklin! (Young Historians)\nThe Library Book\nBenny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)\nLunaLu the Llamacorn\nTrouble in the CTC!: The Terra Prime Adventures Book 2\nAround the World Mazes\nCleo Porter and the Body Electric\nPokémon: Sun & Moon, Vol. 8 (8)"
+  },
+  {
+    "dataset": "bookreview",
+    "query": "3",
+    "run": "2",
+    "answer": "Monstrous Stories #4: The Day the Mice Stood Still\nThe Old Man and the Pirate Princess\nEgypt (Enchantment of the World)\nClark the Shark: Tooth Trouble, No. 1\nFavorite Thorton W. Burgess Stories: 6 Books\nBehind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)\nCheer Up, Ben Franklin! (Young Historians)\nThe Library Book\nBenny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)\nLunaLu the Llamacorn\nTrouble in the CTC!: The Terra Prime Adventures Book 2\nAround the World Mazes\nCleo Porter and the Body Electric\nPokémon: Sun & Moon, Vol. 8 (8)"
+  },
+  {
+    "dataset": "bookreview",
+    "query": "3",
+    "run": "3",
+    "answer": "Monstrous Stories #4: The Day the Mice Stood Still\nThe Old Man and the Pirate Princess\nEgypt (Enchantment of the World)\nClark the Shark: Tooth Trouble, No. 1\nFavorite Thorton W. Burgess Stories: 6 Books\nBehind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)\nCheer Up, Ben Franklin! (Young Historians)\nThe Library Book\nBenny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)\nLunaLu the Llamacorn\nTrouble in the CTC!: The Terra Prime Adventures Book 2\nAround the World Mazes\nCleo Porter and the Body Electric\nPokémon: Sun & Moon, Vol. 8 (8)"
+  },
+  {
+    "dataset": "bookreview",
+    "query": "3",
+    "run": "4",
+    "answer": "Monstrous Stories #4: The Day the Mice Stood Still\nThe Old Man and the Pirate Princess\nEgypt (Enchantment of the World)\nClark the Shark: Tooth Trouble, No. 1\nFavorite Thorton W. Burgess Stories: 6 Books\nBehind the Wheel (Choose Your Own Adventure #35)(Paperback/Revised)\nCheer Up, Ben Franklin! (Young Historians)\nThe Library Book\nBenny Goes To The Moon: The great new book from Top Children's entertainer Gerry Ogilvie (1)\nLunaLu the Llamacorn\nTrouble in the CTC!: The Terra Prime Adventures Book 2\nAround the World Mazes\nCleo Porter and the Body Electric\nPokémon: Sun & Moon, Vol. 8 (8)"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "1",
+    "run": "0",
+    "answer": "Authority"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "1",
+    "run": "1",
+    "answer": "Authority"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "1",
+    "run": "2",
+    "answer": "Authority"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "1",
+    "run": "3",
+    "answer": "Authority"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "1",
+    "run": "4",
+    "answer": "Authority"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "2",
+    "run": "0",
+    "answer": "ka0Wt000000Ens5IAC"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "2",
+    "run": "1",
+    "answer": "ka0Wt000000Ens5IAC"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "2",
+    "run": "2",
+    "answer": "ka0Wt000000Ens5IAC"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "2",
+    "run": "3",
+    "answer": "ka0Wt000000Ens5IAC"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "2",
+    "run": "4",
+    "answer": "ka0Wt000000Ens5IAC"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "3",
+    "run": "0",
+    "answer": "Negotiation"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "3",
+    "run": "1",
+    "answer": "Negotiation"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "3",
+    "run": "2",
+    "answer": "Negotiation"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "3",
+    "run": "3",
+    "answer": "Negotiation"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "3",
+    "run": "4",
+    "answer": "Negotiation"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "4",
+    "run": "0",
+    "answer": "November"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "4",
+    "run": "1",
+    "answer": "November"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "4",
+    "run": "2",
+    "answer": "November"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "4",
+    "run": "3",
+    "answer": "November"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "4",
+    "run": "4",
+    "answer": "November"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "5",
+    "run": "0",
+    "answer": "a03Wt00000JqnHwIAJ"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "5",
+    "run": "1",
+    "answer": "a03Wt00000JqnHwIAJ"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "5",
+    "run": "2",
+    "answer": "a03Wt00000JqnHwIAJ"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "5",
+    "run": "3",
+    "answer": "a03Wt00000JqnHwIAJ"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "5",
+    "run": "4",
+    "answer": "a03Wt00000JqnHwIAJ"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "6",
+    "run": "0",
+    "answer": "#ka0Wt000000EnwvIAC"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "6",
+    "run": "1",
+    "answer": "#ka0Wt000000EnwvIAC"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "6",
+    "run": "2",
+    "answer": "#ka0Wt000000EnwvIAC"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "6",
+    "run": "3",
+    "answer": "#ka0Wt000000EnwvIAC"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "6",
+    "run": "4",
+    "answer": "#ka0Wt000000EnwvIAC"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "7",
+    "run": "0",
+    "answer": "ka0Wt000000EoD3IAK"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "7",
+    "run": "1",
+    "answer": "ka0Wt000000EoD3IAK"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "7",
+    "run": "2",
+    "answer": "ka0Wt000000EoD3IAK"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "7",
+    "run": "3",
+    "answer": "ka0Wt000000EoD3IAK"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "7",
+    "run": "4",
+    "answer": "ka0Wt000000EoD3IAK"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "8",
+    "run": "0",
+    "answer": "005Wt000003NIliIAG"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "8",
+    "run": "1",
+    "answer": "005Wt000003NIliIAG"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "8",
+    "run": "2",
+    "answer": "005Wt000003NIliIAG"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "8",
+    "run": "3",
+    "answer": "005Wt000003NBcAIAW"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "8",
+    "run": "4",
+    "answer": "005Wt000003NIliIAG"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "9",
+    "run": "0",
+    "answer": "MI"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "9",
+    "run": "1",
+    "answer": "MI"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "9",
+    "run": "2",
+    "answer": "MI"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "9",
+    "run": "3",
+    "answer": "MI"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "9",
+    "run": "4",
+    "answer": "MI"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "10",
+    "run": "0",
+    "answer": "005Wt000003NDqDIAW"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "10",
+    "run": "1",
+    "answer": "005Wt000003NDqDIAW"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "10",
+    "run": "2",
+    "answer": "005Wt000003NDqDIAW"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "10",
+    "run": "3",
+    "answer": "005Wt000003NDqDIAW"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "10",
+    "run": "4",
+    "answer": "005Wt000003NDqDIAW"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "11",
+    "run": "0",
+    "answer": "01tWt000006hV8LIAU"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "11",
+    "run": "1",
+    "answer": "01tWt000006hV8LIAU"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "11",
+    "run": "2",
+    "answer": "01tWt000006hV8LIAU"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "11",
+    "run": "3",
+    "answer": "01tWt000006hV8LIAU"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "11",
+    "run": "4",
+    "answer": "01tWt000006hV8LIAU"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "12",
+    "run": "0",
+    "answer": "005Wt000003NJgAIAW"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "12",
+    "run": "1",
+    "answer": "005Wt000003NJgAIAW"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "12",
+    "run": "2",
+    "answer": "005Wt000003NJgAIAW"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "12",
+    "run": "3",
+    "answer": "005Wt000003NJgAIAW"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "12",
+    "run": "4",
+    "answer": "005Wt000003NJgAIAW"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "13",
+    "run": "0",
+    "answer": "005Wt000003NIXCIA4"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "13",
+    "run": "1",
+    "answer": "005Wt000003NIXCIA4"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "13",
+    "run": "2",
+    "answer": "005Wt000003NIXCIA4"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "13",
+    "run": "3",
+    "answer": "005Wt000003NIXCIA4"
+  },
+  {
+    "dataset": "crmarenapro",
+    "query": "13",
+    "run": "4",
+    "answer": "005Wt000003NIXCIA4"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "1",
+    "run": "0",
+    "answer": "Widows Peak Salon,4.857142857142857\nCity Textile,4.5\nNobel Textile Co,4.285714285714286\nSan Soo Dang,4.277777777777778\nNova Fabrics,3.3333333333333335"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "1",
+    "run": "1",
+    "answer": "Widows Peak Salon,4.857142857142857\nCity Textile,4.5\nNobel Textile Co,4.285714285714286\nSan Soo Dang,4.277777777777778\nNova Fabrics,3.3333333333333335"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "1",
+    "run": "2",
+    "answer": "Widows Peak Salon,4.857142857142857\nCity Textile,4.5\nNobel Textile Co,4.285714285714286\nSan Soo Dang,4.277777777777778\nNova Fabrics,3.3333333333333335"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "1",
+    "run": "3",
+    "answer": "Widows Peak Salon,4.857142857142857\nCity Textile,4.5\nNobel Textile Co,4.285714285714286\nSan Soo Dang,4.277777777777778\nNova Fabrics,3.3333333333333335"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "1",
+    "run": "4",
+    "answer": "Widows Peak Salon,4.857142857142857\nCity Textile,4.5\nNobel Textile Co,4.285714285714286\nSan Soo Dang,4.277777777777778\nNova Fabrics,3.3333333333333335"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "2",
+    "run": "0",
+    "answer": "Aurora Massage,4.178571428571429\nAngel-A Massage,4.333333333333333\nElite Massage,5\nJ B Oriental Inc,4.166666666666667"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "2",
+    "run": "1",
+    "answer": "Aurora Massage,4.178571428571429\nAngel-A Massage,4.333333333333333\nElite Massage,5\nJ B Oriental Inc,4.166666666666667"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "2",
+    "run": "2",
+    "answer": "Aurora Massage,4.178571428571429\nAngel-A Massage,4.333333333333333\nElite Massage,5\nJ B Oriental Inc,4.166666666666667"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "2",
+    "run": "3",
+    "answer": "Aurora Massage,4.178571428571429\nAngel-A Massage,4.333333333333333\nElite Massage,5\nJ B Oriental Inc,4.166666666666667"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "2",
+    "run": "4",
+    "answer": "Aurora Massage,4.178571428571429\nAngel-A Massage,4.333333333333333\nElite Massage,5\nJ B Oriental Inc,4.166666666666667"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "3",
+    "run": "0",
+    "answer": "Beauty Divine Artistry,Thursday 9AM–8PM; Friday 9AM–8PM; Saturday 10AM–7PM; Sunday 11AM–6PM; Monday 9AM–8PM; Tuesday 9AM–8PM; Wednesday 9AM–8PM,5.0\nMariscos el poblano,Thursday Open 24 hours; Friday 8AM–3:30PM; Saturday 8AM–3:30PM; Sunday 8AM–3:30PM; Monday 9AM–3:30AM; Tuesday 8AM–3:30PM; Wednesday 8AM–3:30PM,5.0\nTACOS LA CABANA,Thursday Closed; Friday 5–11PM; Saturday 5–11PM; Sunday 5–11PM; Monday 5–11PM; Tuesday Closed; Wednesday Closed,5.0\nTaba Rug Gallery,Thursday 10AM–7PM; Friday 10AM–7PM; Saturday 10AM–7PM; Sunday 11AM–6PM; Monday 10AM–7PM; Tuesday 10AM–7PM; Wednesday 10AM–7PM,5.0\nWhite Barn Candle Co,Thursday 10AM–9PM; Friday 10AM–9PM; Saturday 10AM–9PM; Sunday 11AM–7PM; Monday 10AM–9PM; Tuesday 10AM–9PM; Wednesday 10AM–9PM,5.0"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "3",
+    "run": "1",
+    "answer": "White Barn Candle Co,Thursday 10AM–9PM; Friday 10AM–9PM; Saturday 10AM–9PM; Sunday 11AM–7PM; Monday 10AM–9PM; Tuesday 10AM–9PM; Wednesday 10AM–9PM,5.0\nBeauty Divine Artistry,Thursday 9AM–8PM; Friday 9AM–8PM; Saturday 10AM–7PM; Sunday 11AM–6PM; Monday 9AM–8PM; Tuesday 9AM–8PM; Wednesday 9AM–8PM,5.0\nTaba Rug Gallery,Thursday 10AM–7PM; Friday 10AM–7PM; Saturday 10AM–7PM; Sunday 11AM–6PM; Monday 10AM–7PM; Tuesday 10AM–7PM; Wednesday 10AM–7PM,5.0\nTACOS LA CABANA,Thursday Closed; Friday 5–11PM; Saturday 5–11PM; Sunday 5–11PM; Monday 5–11PM; Tuesday Closed; Wednesday Closed,5.0\nMariscos el poblano,Thursday Open 24 hours; Friday 8AM–3:30PM; Saturday 8AM–3:30PM; Sunday 8AM–3:30PM; Monday 9AM–3:30AM; Tuesday 8AM–3:30PM; Wednesday 8AM–3:30PM,5.0"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "3",
+    "run": "2",
+    "answer": "Beauty Divine Artistry,Thursday: 9AM–8PM; Friday: 9AM–8PM; Saturday: 10AM–7PM; Sunday: 11AM–6PM; Monday: 9AM–8PM; Tuesday: 9AM–8PM; Wednesday: 9AM–8PM,5.0\nMariscos el poblano,Thursday: Open 24 hours; Friday: 8AM–3:30PM; Saturday: 8AM–3:30PM; Sunday: 8AM–3:30PM; Monday: 9AM–3:30AM; Tuesday: 8AM–3:30PM; Wednesday: 8AM–3:30PM,5.0\nTACOS LA CABANA,Thursday: Closed; Friday: 5–11PM; Saturday: 5–11PM; Sunday: 5–11PM; Monday: 5–11PM; Tuesday: Closed; Wednesday: Closed,5.0\nTaba Rug Gallery,Thursday: 10AM–7PM; Friday: 10AM–7PM; Saturday: 10AM–7PM; Sunday: 11AM–6PM; Monday: 10AM–7PM; Tuesday: 10AM–7PM; Wednesday: 10AM–7PM,5.0\nWhite Barn Candle Co,Thursday: 10AM–9PM; Friday: 10AM–9PM; Saturday: 10AM–9PM; Sunday: 11AM–7PM; Monday: 10AM–9PM; Tuesday: 10AM–9PM; Wednesday: 10AM–9PM,5.0"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "3",
+    "run": "3",
+    "answer": "Beauty Divine Artistry,Thursday: 9AM–8PM; Friday: 9AM–8PM; Saturday: 10AM–7PM; Sunday: 11AM–6PM; Monday: 9AM–8PM; Tuesday: 9AM–8PM; Wednesday: 9AM–8PM,5.0\nMariscos el poblano,Thursday: Open 24 hours; Friday: 8AM–3:30PM; Saturday: 8AM–3:30PM; Sunday: 8AM–3:30PM; Monday: 9AM–3:30AM; Tuesday: 8AM–3:30PM; Wednesday: 8AM–3:30PM,5.0\nTACOS LA CABANA,Thursday: Closed; Friday: 5–11PM; Saturday: 5–11PM; Sunday: 5–11PM; Monday: 5–11PM; Tuesday: Closed; Wednesday: Closed,5.0\nTaba Rug Gallery,Thursday: 10AM–7PM; Friday: 10AM–7PM; Saturday: 10AM–7PM; Sunday: 11AM–6PM; Monday: 10AM–7PM; Tuesday: 10AM–7PM; Wednesday: 10AM–7PM,5.0\nWhite Barn Candle Co,Thursday: 10AM–9PM; Friday: 10AM–9PM; Saturday: 10AM–9PM; Sunday: 11AM–7PM; Monday: 10AM–9PM; Tuesday: 10AM–9PM; Wednesday: 10AM–9PM,5.0"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "3",
+    "run": "4",
+    "answer": "Beauty Divine Artistry,Thursday 9AM–8PM; Friday 9AM–8PM; Saturday 10AM–7PM; Sunday 11AM–6PM; Monday 9AM–8PM; Tuesday 9AM–8PM; Wednesday 9AM–8PM,5.0\nMariscos el poblano,Thursday Open 24 hours; Friday 8AM–3:30PM; Saturday 8AM–3:30PM; Sunday 8AM–3:30PM; Monday 9AM–3:30AM; Tuesday 8AM–3:30PM; Wednesday 8AM–3:30PM,5.0\nTACOS LA CABANA,Thursday Closed; Friday 5–11PM; Saturday 5–11PM; Sunday 5–11PM; Monday 5–11PM; Tuesday Closed; Wednesday Closed,5.0\nTaba Rug Gallery,Thursday 10AM–7PM; Friday 10AM–7PM; Saturday 10AM–7PM; Sunday 11AM–6PM; Monday 10AM–7PM; Tuesday 10AM–7PM; Wednesday 10AM–7PM,5.0\nWhite Barn Candle Co,Thursday 10AM–9PM; Friday 10AM–9PM; Saturday 10AM–9PM; Sunday 11AM–7PM; Monday 10AM–9PM; Tuesday 10AM–9PM; Wednesday 10AM–9PM,5.0"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "4",
+    "run": "0",
+    "answer": "Encino Dermatology & Laser: Alex Khadavi MD,19\nThe Boochyard @ Local Roots,17\nAurora Massage,14"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "4",
+    "run": "1",
+    "answer": "Encino Dermatology & Laser: Alex Khadavi MD,19\nThe Boochyard @ Local Roots,17\nAurora Massage,14"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "4",
+    "run": "2",
+    "answer": "Encino Dermatology & Laser: Alex Khadavi MD,19\nThe Boochyard @ Local Roots,17\nAurora Massage,14"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "4",
+    "run": "3",
+    "answer": "Encino Dermatology & Laser: Alex Khadavi MD,19\nThe Boochyard @ Local Roots,17\nAurora Massage,14"
+  },
+  {
+    "dataset": "googlelocal",
+    "query": "4",
+    "run": "4",
+    "answer": "Encino Dermatology & Laser: Alex Khadavi MD,19\nThe Boochyard @ Local Roots,17\nAurora Massage,14"
+  },
+  {
+    "dataset": "music_brainz_20k",
+    "query": "1",
+    "run": "0",
+    "answer": "1059.46"
+  },
+  {
+    "dataset": "music_brainz_20k",
+    "query": "1",
+    "run": "1",
+    "answer": "1059.46"
+  },
+  {
+    "dataset": "music_brainz_20k",
+    "query": "1",
+    "run": "2",
+    "answer": "1059.46"
+  },
+  {
+    "dataset": "music_brainz_20k",
+    "query": "1",
+    "run": "3",
+    "answer": "1059.46"
+  },
+  {
+    "dataset": "music_brainz_20k",
+    "query": "1",
+    "run": "4",
+    "answer": "1059.46"
+  },
+  {
+    "dataset": "music_brainz_20k",
+    "query": "2",
+    "run": "0",
+    "answer": "Amazon Music"
+  },
+  {
+    "dataset": "music_brainz_20k",
+    "query": "2",
+    "run": "1",
+    "answer": "Amazon Music"
+  },
+  {
+    "dataset": "music_brainz_20k",
+    "query": "2",
+    "run": "2",
+    "answer": "Amazon Music"
+  },
+  {
+    "dataset": "music_brainz_20k",
+    "query": "2",
+    "run": "3",
+    "answer": "Amazon Music"
+  },
+  {
+    "dataset": "music_brainz_20k",
+    "query": "2",
+    "run": "4",
+    "answer": "Amazon Music"
+  },
+  {
+    "dataset": "music_brainz_20k",
+    "query": "3",
+    "run": "0",
+    "answer": "Zo gaat het leven aan je voor (Hillich fjoer | Heilig vuur)\nZo gaat het leven aan je voor\nZo gaat het leven aan je voor - Hillich fjoer | Heilig vuur\n006-Zo gaat het leven aan je voor\nSyb van der Ploeg - Zo gaat het leven aan je voor"
+  },
+  {
+    "dataset": "music_brainz_20k",
+    "query": "3",
+    "run": "1",
+    "answer": "Zo gaat het leven aan je voor (Hillich fjoer | Heilig vuur)\nZo gaat het leven aan je voor\nZo gaat het leven aan je voor - Hillich fjoer | Heilig vuur\n006-Zo gaat het leven aan je voor\nSyb van der Ploeg - Zo gaat het leven aan je voor"
+  },
+  {
+    "dataset": "music_brainz_20k",
+    "query": "3",
+    "run": "2",
+    "answer": "Zo gaat het leven aan je voor (Hillich fjoer | Heilig vuur)\nZo gaat het leven aan je voor\nZo gaat het leven aan je voor - Hillich fjoer | Heilig vuur\n006-Zo gaat het leven aan je voor\nSyb van der Ploeg - Zo gaat het leven aan je voor"
+  },
+  {
+    "dataset": "music_brainz_20k",
+    "query": "3",
+    "run": "3",
+    "answer": "Zo gaat het leven aan je voor (Hillich fjoer | Heilig vuur)\nZo gaat het leven aan je voor\nZo gaat het leven aan je voor - Hillich fjoer | Heilig vuur\n006-Zo gaat het leven aan je voor\nSyb van der Ploeg - Zo gaat het leven aan je voor"
+  },
+  {
+    "dataset": "music_brainz_20k",
+    "query": "3",
+    "run": "4",
+    "answer": "Zo gaat het leven aan je voor (Hillich fjoer | Heilig vuur)\nZo gaat het leven aan je voor\nZo gaat het leven aan je voor - Hillich fjoer | Heilig vuur\n006-Zo gaat het leven aan je voor\nSyb van der Ploeg - Zo gaat het leven aan je voor"
+  },
+  {
+    "dataset": "stockindex",
+    "query": "1",
+    "run": "0",
+    "answer": "399001.SZ"
+  },
+  {
+    "dataset": "stockindex",
+    "query": "1",
+    "run": "1",
+    "answer": "399001.SZ"
+  },
+  {
+    "dataset": "stockindex",
+    "query": "1",
+    "run": "2",
+    "answer": "399001.SZ"
+  },
+  {
+    "dataset": "stockindex",
+    "query": "1",
+    "run": "3",
+    "answer": "399001.SZ"
+  },
+  {
+    "dataset": "stockindex",
+    "query": "1",
+    "run": "4",
+    "answer": "399001.SZ"
+  },
+  {
+    "dataset": "stockindex",
+    "query": "2",
+    "run": "0",
+    "answer": "IXIC"
+  },
+  {
+    "dataset": "stockindex",
+    "query": "2",
+    "run": "1",
+    "answer": "IXIC"
+  },
+  {
+    "dataset": "stockindex",
+    "query": "2",
+    "run": "2",
+    "answer": "IXIC"
+  },
+  {
+    "dataset": "stockindex",
+    "query": "2",
+    "run": "3",
+    "answer": "IXIC"
+  },
+  {
+    "dataset": "stockindex",
+    "query": "2",
+    "run": "4",
+    "answer": "IXIC"
+  },
+  {
+    "dataset": "stockindex",
+    "query": "3",
+    "run": "0",
+    "answer": "IXIC,United States\nGDAXI,Germany\nNSEI,India\n399001.SZ,China\nTWII,Taiwan"
+  },
+  {
+    "dataset": "stockindex",
+    "query": "3",
+    "run": "1",
+    "answer": "IXIC,United States\nNSEI,India\n399001.SZ,China\nGDAXI,Germany\nTWII,Taiwan"
+  },
+  {
+    "dataset": "stockindex",
+    "query": "3",
+    "run": "2",
+    "answer": "IXIC,United States\nNSEI,India\n399001.SZ,China\nGDAXI,Germany\nTWII,Taiwan"
+  },
+  {
+    "dataset": "stockindex",
+    "query": "3",
+    "run": "3",
+    "answer": "IXIC,United States\nNSEI,India\n399001.SZ,China\nGDAXI,Germany\nTWII,Taiwan"
+  },
+  {
+    "dataset": "stockindex",
+    "query": "3",
+    "run": "4",
+    "answer": "IXIC,United States\nNSEI,India\n399001.SZ,China\nGDAXI,Germany\nTWII,Taiwan"
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "1",
+    "run": "0",
+    "answer": "18.440000534057617"
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "1",
+    "run": "1",
+    "answer": "18.440000534057617"
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "1",
+    "run": "2",
+    "answer": "18.440000534057617"
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "1",
+    "run": "3",
+    "answer": "18.440000534057617"
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "1",
+    "run": "4",
+    "answer": "18.440000534057617"
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "2",
+    "run": "0",
+    "answer": "BOIL\nBZQ\nCOM\nDUST\nEDZ\nERX\nFAZ\nFXP\nGFIN\nGUSH\nHYUP\nJDST\nJNUG\nJPN\nLABD\nLABU\nLBJ\nMDY\nPTIN\nRTL\nSDOW\nSOXS\nSSG\nTECS\nTZA\nUVXY\nVIXY\nVPC\nXES\nXOP\nYANG\n31"
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "2",
+    "run": "1",
+    "answer": "BOIL\nBZQ\nCOM\nDUST\nEDZ\nERX\nFAZ\nFXP\nGFIN\nGUSH\nHYUP\nJDST\nJNUG\nJPN\nLABD\nLABU\nLBJ\nMDY\nPTIN\nRTL\nSDOW\nSOXS\nSSG\nTECS\nTZA\nUVXY\nVIXY\nVPC\nXES\nXOP\nYANG\n31"
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "2",
+    "run": "2",
+    "answer": "BOIL\nBZQ\nCOM\nDUST\nEDZ\nERX\nFAZ\nFXP\nGFIN\nGUSH\nHYUP\nJDST\nJNUG\nJPN\nLABD\nLABU\nLBJ\nMDY\nPTIN\nRTL\nSDOW\nSOXS\nSSG\nTECS\nTZA\nUVXY\nVIXY\nVPC\nXES\nXOP\nYANG\n31"
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "2",
+    "run": "3",
+    "answer": "BOIL\nBZQ\nCOM\nDUST\nEDZ\nERX\nFAZ\nFXP\nGFIN\nGUSH\nHYUP\nJDST\nJNUG\nJPN\nLABD\nLABU\nLBJ\nMDY\nPTIN\nRTL\nSDOW\nSOXS\nSSG\nTECS\nTZA\nUVXY\nVIXY\nVPC\nXES\nXOP\nYANG\n31"
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "2",
+    "run": "4",
+    "answer": "BOIL\nBZQ\nCOM\nDUST\nEDZ\nERX\nFAZ\nFXP\nGFIN\nGUSH\nHYUP\nJDST\nJNUG\nJPN\nLABD\nLABU\nLBJ\nMDY\nPTIN\nRTL\nSDOW\nSOXS\nSSG\nTECS\nTZA\nUVXY\nVIXY\nVPC\nXES\nXOP\nYANG\n31"
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "3",
+    "run": "0",
+    "answer": "Apex Global Brands Inc. specializes in creating and marketing a diverse portfolio of fashion and lifestyle brands, connecting consumers with trendy and innovative products worldwide. 23781.422924901184\nBIO-key International, Inc. specializes in advanced biometric solutions, providing secure and convenient identity verification systems for enterprises and consumers alike. 10988.142292490118\nCBAK Energy Technology, Inc. specializes in developing and manufacturing high-performance lithium-ion batteries, playing a pivotal role in powering electric vehicles and renewable energy solutions. 86223.32015810277\nChina Ceramics Co., Ltd. specializes in manufacturing high-quality ceramic tiles, catering to both residential and commercial markets with a wide range of designs and finishes. 4366.798418972332\nCorrevio Pharma Corp., based in Canada, specializes in developing and commercializing innovative cardiovascular therapies to improve patient outcomes. 145247.8260869565\nCounterPath Corporation specializes in developing software solutions that enhance communication by providing seamless VoIP and unified communications applications for businesses and individuals. 375.49407114624506\nDASAN Zhone Solutions, Inc. specializes in providing advanced broadband access solutions, empowering telecommunications networks to deliver faster and more reliable internet services worldwide. 15578.656126482214\nFuture FinTech Group Inc. specializes in the development and marketing of blockchain-based products and financial technology solutions, aiming to revolutionize the digital economy with innovative applications. 9.845238095238095\nFrontier Communications Corporation provides telecommunications services, including internet, phone, and television solutions, to residential and business customers across the United States. 254397.62845849802\nIdeanomics, Inc. is at the forefront of transforming the commercial electric vehicle industry, providing comprehensive solutions that drive innovation and sustainability in transportation and energy. 10.276679841897232\nOcean Power Technologies, Inc. harnesses the power of the ocean to develop innovative renewable energy solutions, specializing in wave energy technology. 254.1501976284585\nPacific Ethanol, Inc. specializes in producing renewable fuels and high-quality alcohol products, contributing to sustainable energy solutions and cleaner alternatives for the transportation sector. 10706.719367588932\nSynthesis Energy Systems, Inc. specializes in transforming low-cost carbon resources into clean energy and valuable chemical products, driving innovation in sustainable energy solutions. 2390.513833992095\nSunesis Pharmaceuticals, Inc. is dedicated to developing innovative cancer therapies, striving to advance treatments that target the underlying mechanisms of the disease. 781.8181818181819\nSypris Solutions, Inc. specializes in providing engineering and manufacturing services for the aerospace and defense sectors, ensuring high-quality solutions for complex technological challenges. 36836.36363636364"
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "3",
+    "run": "1",
+    "answer": "Apex Global Brands Inc,23781.422924901184\nBIO-key International, Inc,10988.142292490118\nCBAK Energy Technology, Inc,86223.32015810277\nChina Ceramics Co, Ltd,4366.80\nCorrevio Pharma Corp,145247.83\nCounterPath Corporation,375.49407114624506\nDASAN Zhone Solutions, Inc,15578.66\nFuture FinTech Group Inc,9.85\nFrontier Communications Corporation,254397.63\nIdeanomics, Inc,10.28\nOcean Power Technologies, Inc,254.1501976284585\nPacific Ethanol, Inc,10706.72\nSynthesis Energy Systems, Inc,2390.513833992095\nSunesis Pharmaceuticals, Inc,781.82\nSypris Solutions, Inc,36836.36363636364"
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "3",
+    "run": "2",
+    "answer": "Apex Global Brands Inc. specializes in creating and marketing a diverse portfolio of fashion and lifestyle brands, connecting consumers with trendy and innovative products worldwide. 23781.422924901184\nBIO-key International, Inc. specializes in advanced biometric solutions, providing secure and convenient identity verification systems for enterprises and consumers alike. 10988.142292490118\nCBAK Energy Technology, Inc. specializes in developing and manufacturing high-performance lithium-ion batteries, playing a pivotal role in powering electric vehicles and renewable energy solutions. 86223.32015810277\nChina Ceramics Co., Ltd. specializes in manufacturing high-quality ceramic tiles, catering to both residential and commercial markets with a wide range of designs and finishes. 4366.798418972332\nCorrevio Pharma Corp., based in Canada, specializes in developing and commercializing innovative cardiovascular therapies to improve patient outcomes. 145247.8260869565\nCounterPath Corporation specializes in developing software solutions that enhance communication by providing seamless VoIP and unified communications applications for businesses and individuals. 375.49407114624506\nDASAN Zhone Solutions, Inc. specializes in providing advanced broadband access solutions, empowering telecommunications networks to deliver faster and more reliable internet services worldwide. 15578.656126482214\nFuture FinTech Group Inc. specializes in the development and marketing of blockchain-based products and financial technology solutions, aiming to revolutionize the digital economy with innovative applications. 9.845238095238095\nFrontier Communications Corporation provides telecommunications services, including internet, phone, and television solutions, to residential and business customers across the United States. 254397.62845849802\nIdeanomics, Inc. is at the forefront of transforming the commercial electric vehicle industry, providing comprehensive solutions that drive innovation and sustainability in transportation and energy. 10.276679841897232\nOcean Power Technologies, Inc. harnesses the power of the ocean to develop innovative renewable energy solutions, specializing in wave energy technology. 254.1501976284585\nPacific Ethanol, Inc. specializes in producing renewable fuels and high-quality alcohol products, contributing to sustainable energy solutions and cleaner alternatives for the transportation sector. 10706.719367588932\nSynthesis Energy Systems, Inc. specializes in transforming low-cost carbon resources into clean energy and valuable chemical products, driving innovation in sustainable energy solutions. 2390.513833992095\nSunesis Pharmaceuticals, Inc. is dedicated to developing innovative cancer therapies, striving to advance treatments that target the underlying mechanisms of the disease. 781.8181818181819\nSypris Solutions, Inc. specializes in providing engineering and manufacturing services for the aerospace and defense sectors, ensuring high-quality solutions for complex technological challenges. 36836.36363636364"
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "3",
+    "run": "3",
+    "answer": "Apex Global Brands Inc. specializes in creating and marketing a diverse portfolio of fashion and lifestyle brands, connecting consumers with trendy and innovative products worldwide. 23781.422924901184\nBIO-key International, Inc. specializes in advanced biometric solutions, providing secure and convenient identity verification systems for enterprises and consumers alike. 10988.142292490118\nCBAK Energy Technology, Inc. specializes in developing and manufacturing high-performance lithium-ion batteries, playing a pivotal role in powering electric vehicles and renewable energy solutions. 86223.32015810277\nChina Ceramics Co., Ltd. specializes in manufacturing high-quality ceramic tiles, catering to both residential and commercial markets with a wide range of designs and finishes. 4366.798418972332\nCorrevio Pharma Corp., based in Canada, specializes in developing and commercializing innovative cardiovascular therapies to improve patient outcomes. 145247.8260869565\nCounterPath Corporation specializes in developing software solutions that enhance communication by providing seamless VoIP and unified communications applications for businesses and individuals. 375.49407114624506\nDASAN Zhone Solutions, Inc. specializes in providing advanced broadband access solutions, empowering telecommunications networks to deliver faster and more reliable internet services worldwide. 15578.656126482214\nFuture FinTech Group Inc. specializes in the development and marketing of blockchain-based products and financial technology solutions, aiming to revolutionize the digital economy with innovative applications. 9.845238095238095\nFrontier Communications Corporation provides telecommunications services, including internet, phone, and television solutions, to residential and business customers across the United States. 254397.62845849802\nIdeanomics, Inc. is at the forefront of transforming the commercial electric vehicle industry, providing comprehensive solutions that drive innovation and sustainability in transportation and energy. 10.276679841897232\nOcean Power Technologies, Inc. harnesses the power of the ocean to develop innovative renewable energy solutions, specializing in wave energy technology. 254.1501976284585\nPacific Ethanol, Inc. specializes in producing renewable fuels and high-quality alcohol products, contributing to sustainable energy solutions and cleaner alternatives for the transportation sector. 10706.719367588932\nSynthesis Energy Systems, Inc. specializes in transforming low-cost carbon resources into clean energy and valuable chemical products, driving innovation in sustainable energy solutions. 2390.513833992095\nSunesis Pharmaceuticals, Inc. is dedicated to developing innovative cancer therapies, striving to advance treatments that target the underlying mechanisms of the disease. 781.8181818181819\nSypris Solutions, Inc. specializes in providing engineering and manufacturing services for the aerospace and defense sectors, ensuring high-quality solutions for complex technological challenges. 36836.36363636364"
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "3",
+    "run": "4",
+    "answer": "Apex Global Brands Inc. specializes in creating and marketing a diverse portfolio of fashion and lifestyle brands, connecting consumers with trendy and innovative products worldwide. 23781.422924901184\nBIO-key International, Inc. specializes in advanced biometric solutions, providing secure and convenient identity verification systems for enterprises and consumers alike. 10988.142292490118\nCBAK Energy Technology, Inc. specializes in developing and manufacturing high-performance lithium-ion batteries, playing a pivotal role in powering electric vehicles and renewable energy solutions. 86223.32015810277\nChina Ceramics Co., Ltd. specializes in manufacturing high-quality ceramic tiles, catering to both residential and commercial markets with a wide range of designs and finishes. 4366.798418972332\nCorrevio Pharma Corp., based in Canada, specializes in developing and commercializing innovative cardiovascular therapies to improve patient outcomes. 145247.8260869565\nCounterPath Corporation specializes in developing software solutions that enhance communication by providing seamless VoIP and unified communications applications for businesses and individuals. 375.49407114624506\nDASAN Zhone Solutions, Inc. specializes in providing advanced broadband access solutions, empowering telecommunications networks to deliver faster and more reliable internet services worldwide. 15578.656126482214\nFuture FinTech Group Inc. specializes in the development and marketing of blockchain-based products and financial technology solutions, aiming to revolutionize the digital economy with innovative applications. 9.845238095238095\nFrontier Communications Corporation provides telecommunications services, including internet, phone, and television solutions, to residential and business customers across the United States. 254397.62845849802\nIdeanomics, Inc. is at the forefront of transforming the commercial electric vehicle industry, providing comprehensive solutions that drive innovation and sustainability in transportation and energy. 10.276679841897232\nOcean Power Technologies, Inc. harnesses the power of the ocean to develop innovative renewable energy solutions, specializing in wave energy technology. 254.1501976284585\nPacific Ethanol, Inc. specializes in producing renewable fuels and high-quality alcohol products, contributing to sustainable energy solutions and cleaner alternatives for the transportation sector. 10706.719367588932\nSynthesis Energy Systems, Inc. specializes in transforming low-cost carbon resources into clean energy and valuable chemical products, driving innovation in sustainable energy solutions. 2390.513833992095\nSunesis Pharmaceuticals, Inc. is dedicated to developing innovative cancer therapies, striving to advance treatments that target the underlying mechanisms of the disease. 781.8181818181819\nSypris Solutions, Inc. specializes in providing engineering and manufacturing services for the aerospace and defense sectors, ensuring high-quality solutions for complex technological challenges. 36836.36363636364"
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "4",
+    "run": "0",
+    "answer": "HDFC Bank Limited is a leading financial institution in India, offering a wide range of banking services including personal and corporate banking, loans, and wealth management solutions.\nAlbany International Corporation specializes in producing advanced materials and engineered components, serving industries such as aerospace and paper manufacturing with innovative solutions.\nGetty Realty Corporation specializes in owning, leasing, and financing properties for the convenience store and gas station sectors across the United States.\nMettler-Toledo International, Inc. specializes in precision instruments and services for a wide range of laboratory, industrial, and food retailing applications, helping businesses ensure accuracy and efficiency in their operations.\nPfizer, Inc. is a leading pharmaceutical giant known for developing life-saving medications and vaccines, including the widely recognized COVID-19 vaccine."
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "4",
+    "run": "1",
+    "answer": "HDFC Bank Limited is a leading financial institution in India, offering a wide range of banking services including personal and corporate banking, loans, and wealth management solutions.\nAlbany International Corporation specializes in producing advanced materials and engineered components, serving industries such as aerospace and paper manufacturing with innovative solutions.\nGetty Realty Corporation specializes in owning, leasing, and financing properties for the convenience store and gas station sectors across the United States.\nMettler-Toledo International, Inc. specializes in precision instruments and services for a wide range of laboratory, industrial, and food retailing applications, helping businesses ensure accuracy and efficiency in their operations.\nAmeriprise Financial, Inc. offers comprehensive financial services, specializing in wealth management, asset management, and insurance solutions to help clients plan and achieve their financial goals."
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "4",
+    "run": "2",
+    "answer": "MFA Financial, Inc. is a company that specializes in investing in residential mortgage assets, focusing on generating steady income through a diversified portfolio of real estate-related investments.\nArgo Group International Holdings, Ltd. specializes in providing insurance and reinsurance solutions, helping businesses manage risks and safeguard their assets worldwide.\nHDFC Bank Limited is a leading financial institution in India, offering a wide range of banking services including personal and corporate banking, loans, and wealth management solutions.\nAlbany International Corporation specializes in producing advanced materials and engineered components, serving industries such as aerospace and paper manufacturing with innovative solutions.\nDTE Energy Company provides essential energy services, specializing in electricity and natural gas distribution to support and power homes and businesses across the Midwest."
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "4",
+    "run": "3",
+    "answer": "HDFC Bank Limited is a leading financial institution in India, offering a wide range of banking services including personal and corporate banking, loans, and wealth management solutions.\nAlbany International Corporation specializes in producing advanced materials and engineered components, serving industries such as aerospace and paper manufacturing with innovative solutions.\nGetty Realty Corporation specializes in owning, leasing, and financing properties for the convenience store and gas station sectors across the United States.\nMettler-Toledo International, Inc. specializes in precision instruments and services for a wide range of laboratory, industrial, and food retailing applications, helping businesses ensure accuracy and efficiency in their operations.\nAmeriprise Financial, Inc. offers comprehensive financial services, specializing in wealth management, asset management, and insurance solutions to help clients plan and achieve their financial goals."
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "4",
+    "run": "4",
+    "answer": "MFA Financial, Inc. is a company that specializes in investing in residential mortgage assets, focusing on generating steady income through a diversified portfolio of real estate-related investments.\nArgo Group International Holdings, Ltd. specializes in providing insurance and reinsurance solutions, helping businesses manage risks and safeguard their assets worldwide.\nHDFC Bank Limited is a leading financial institution in India, offering a wide range of banking services including personal and corporate banking, loans, and wealth management solutions.\nAlbany International Corporation specializes in producing advanced materials and engineered components, serving industries such as aerospace and paper manufacturing with innovative solutions.\nDTE Energy Company provides essential energy services, specializing in electricity and natural gas distribution to support and power homes and businesses across the Midwest."
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "5",
+    "run": "0",
+    "answer": "Synthesis Energy Systems, Inc.\nTD Holdings, Inc.\nTMSR Holding Company Limited\nVerb Technology Company, Inc.\nSunesis Pharmaceuticals, Inc."
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "5",
+    "run": "1",
+    "answer": "Synthesis Energy Systems, Inc.\nTD Holdings, Inc.\nTMSR Holding Company Limited\nVerb Technology Company, Inc.\nSunesis Pharmaceuticals, Inc."
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "5",
+    "run": "2",
+    "answer": "Synthesis Energy Systems, Inc.\nTD Holdings, Inc.\nTMSR Holding Company Limited\nVerb Technology Company, Inc.\nSunesis Pharmaceuticals, Inc."
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "5",
+    "run": "3",
+    "answer": "Synthesis Energy Systems, Inc.\nTD Holdings, Inc.\nTMSR Holding Company Limited\nVerb Technology Company, Inc.\nSunesis Pharmaceuticals, Inc."
+  },
+  {
+    "dataset": "stockmarket",
+    "query": "5",
+    "run": "4",
+    "answer": "Synthesis Energy Systems, Inc.\nTD Holdings, Inc.\nTMSR Holding Company Limited\nVerb Technology Company, Inc.\nSunesis Pharmaceuticals, Inc."
+  },
+  {
+    "dataset": "yelp",
+    "query": "1",
+    "run": "0",
+    "answer": "3.547008547008547"
+  },
+  {
+    "dataset": "yelp",
+    "query": "1",
+    "run": "1",
+    "answer": "3.547008547008547"
+  },
+  {
+    "dataset": "yelp",
+    "query": "1",
+    "run": "2",
+    "answer": "3.547008547008547"
+  },
+  {
+    "dataset": "yelp",
+    "query": "1",
+    "run": "3",
+    "answer": "3.547008547008547"
+  },
+  {
+    "dataset": "yelp",
+    "query": "1",
+    "run": "4",
+    "answer": "3.547008547008547"
+  },
+  {
+    "dataset": "yelp",
+    "query": "2",
+    "run": "0",
+    "answer": "PA,3.699395770392749"
+  },
+  {
+    "dataset": "yelp",
+    "query": "2",
+    "run": "1",
+    "answer": "PA,3.699395770392749"
+  },
+  {
+    "dataset": "yelp",
+    "query": "2",
+    "run": "2",
+    "answer": "PA,3.699395770392749"
+  },
+  {
+    "dataset": "yelp",
+    "query": "2",
+    "run": "3",
+    "answer": "PA,3.699395770392749"
+  },
+  {
+    "dataset": "yelp",
+    "query": "2",
+    "run": "4",
+    "answer": "PA,3.7633711507293355"
+  },
+  {
+    "dataset": "yelp",
+    "query": "3",
+    "run": "0",
+    "answer": "35"
+  },
+  {
+    "dataset": "yelp",
+    "query": "3",
+    "run": "1",
+    "answer": "35"
+  },
+  {
+    "dataset": "yelp",
+    "query": "3",
+    "run": "2",
+    "answer": "35"
+  },
+  {
+    "dataset": "yelp",
+    "query": "3",
+    "run": "3",
+    "answer": "35"
+  },
+  {
+    "dataset": "yelp",
+    "query": "3",
+    "run": "4",
+    "answer": "35"
+  },
+  {
+    "dataset": "yelp",
+    "query": "4",
+    "run": "0",
+    "answer": "Restaurants,3.633676092544987"
+  },
+  {
+    "dataset": "yelp",
+    "query": "4",
+    "run": "1",
+    "answer": "Restaurants,3.6407263294422827"
+  },
+  {
+    "dataset": "yelp",
+    "query": "4",
+    "run": "2",
+    "answer": "Restaurants,3.633676092544987"
+  },
+  {
+    "dataset": "yelp",
+    "query": "4",
+    "run": "3",
+    "answer": "Restaurants,3.633676092544987"
+  },
+  {
+    "dataset": "yelp",
+    "query": "4",
+    "run": "4",
+    "answer": "Restaurants,3.6407263294422827"
+  },
+  {
+    "dataset": "yelp",
+    "query": "5",
+    "run": "0",
+    "answer": "PA,3.4839857651245554"
+  },
+  {
+    "dataset": "yelp",
+    "query": "5",
+    "run": "1",
+    "answer": "PA,3.4839857651245554"
+  },
+  {
+    "dataset": "yelp",
+    "query": "5",
+    "run": "2",
+    "answer": "PA,3.4839857651245554"
+  },
+  {
+    "dataset": "yelp",
+    "query": "5",
+    "run": "3",
+    "answer": "PA,3.4839857651245554"
+  },
+  {
+    "dataset": "yelp",
+    "query": "5",
+    "run": "4",
+    "answer": "PA,3.4839857651245554"
+  },
+  {
+    "dataset": "yelp",
+    "query": "6",
+    "run": "0",
+    "answer": "Coffee House Too Cafe,Restaurants,Breakfast & Brunch,American (New),Cafes"
+  },
+  {
+    "dataset": "yelp",
+    "query": "6",
+    "run": "1",
+    "answer": "Coffee House Too Cafe,Restaurants,Breakfast & Brunch,American (New),Cafes"
+  },
+  {
+    "dataset": "yelp",
+    "query": "6",
+    "run": "2",
+    "answer": "Coffee House Too Cafe,Restaurants,Breakfast & Brunch,American (New),Cafes"
+  },
+  {
+    "dataset": "yelp",
+    "query": "6",
+    "run": "3",
+    "answer": "Coffee House Too Cafe,Restaurants, Breakfast & Brunch, American (New), Cafes"
+  },
+  {
+    "dataset": "yelp",
+    "query": "6",
+    "run": "4",
+    "answer": "Coffee House Too Cafe,Restaurants,Breakfast & Brunch,American (New),Cafes"
+  },
+  {
+    "dataset": "yelp",
+    "query": "7",
+    "run": "0",
+    "answer": "Restaurants\nFood\nAmerican (New)\nShopping\nBreakfast & Brunch"
+  },
+  {
+    "dataset": "yelp",
+    "query": "7",
+    "run": "1",
+    "answer": "Restaurants\nFood\nAmerican (New)\nShopping\nBreakfast & Brunch"
+  },
+  {
+    "dataset": "yelp",
+    "query": "7",
+    "run": "2",
+    "answer": "Restaurants\nFood\nAmerican (New)\nShopping\nBreakfast & Brunch"
+  },
+  {
+    "dataset": "yelp",
+    "query": "7",
+    "run": "3",
+    "answer": "Restaurants\nFood\nAmerican (New)\nShopping\nBreakfast & Brunch"
+  },
+  {
+    "dataset": "yelp",
+    "query": "7",
+    "run": "4",
+    "answer": "Restaurants\nFood\nAmerican (New)\nShopping\nBreakfast & Brunch"
+  }
+]
